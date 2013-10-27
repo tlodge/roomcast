@@ -26,9 +26,9 @@
 		A37C6EF4181971ED0042489D /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A37C6EF3181971ED0042489D /* CoreLocation.framework */; };
 		A37C6F0018197FBC0042489D /* authback.png in Resources */ = {isa = PBXBuildFile; fileRef = A37C6EFD18197FBC0042489D /* authback.png */; };
 		A37C6F0118197FBC0042489D /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = A37C6EFE18197FBC0042489D /* background.png */; };
-		A37C6F0218197FBC0042489D /* mapframe.png in Resources */ = {isa = PBXBuildFile; fileRef = A37C6EFF18197FBC0042489D /* mapframe.png */; };
 		A37C6F0C181982AB0042489D /* continue.png in Resources */ = {isa = PBXBuildFile; fileRef = A37C6F0B181982AB0042489D /* continue.png */; };
 		A37C6F0F181ACCBA0042489D /* rangeView.m in Sources */ = {isa = PBXBuildFile; fileRef = A37C6F0E181ACCBA0042489D /* rangeView.m */; };
+		A37C6F13181DA3060042489D /* mapframe.png in Resources */ = {isa = PBXBuildFile; fileRef = A37C6F12181DA3060042489D /* mapframe.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,12 +65,12 @@
 		A37C6EEF181971020042489D /* AuthViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuthViewController.m; sourceTree = "<group>"; };
 		A37C6EF1181971D90042489D /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		A37C6EF3181971ED0042489D /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
-		A37C6EFD18197FBC0042489D /* authback.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = authback.png; sourceTree = "<group>"; };
-		A37C6EFE18197FBC0042489D /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
-		A37C6EFF18197FBC0042489D /* mapframe.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mapframe.png; sourceTree = "<group>"; };
+		A37C6EFD18197FBC0042489D /* authback.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = authback.png; path = ../authback.png; sourceTree = "<group>"; };
+		A37C6EFE18197FBC0042489D /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = background.png; path = ../background.png; sourceTree = "<group>"; };
 		A37C6F0B181982AB0042489D /* continue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = continue.png; sourceTree = "<group>"; };
 		A37C6F0D181ACCBA0042489D /* rangeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rangeView.h; sourceTree = "<group>"; };
 		A37C6F0E181ACCBA0042489D /* rangeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = rangeView.m; sourceTree = "<group>"; };
+		A37C6F12181DA3060042489D /* mapframe.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = mapframe.png; path = ../mapframe.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,9 +102,6 @@
 		A37C6E9C181952040042489D = {
 			isa = PBXGroup;
 			children = (
-				A37C6EFD18197FBC0042489D /* authback.png */,
-				A37C6EFE18197FBC0042489D /* background.png */,
-				A37C6EFF18197FBC0042489D /* mapframe.png */,
 				A37C6EAE181952040042489D /* roomcast */,
 				A37C6ECD181952040042489D /* roomcastTests */,
 				A37C6EA7181952040042489D /* Frameworks */,
@@ -185,6 +182,9 @@
 		A37C6EDD181954090042489D /* images */ = {
 			isa = PBXGroup;
 			children = (
+				A37C6F12181DA3060042489D /* mapframe.png */,
+				A37C6EFD18197FBC0042489D /* authback.png */,
+				A37C6EFE18197FBC0042489D /* background.png */,
 				A37C6F0B181982AB0042489D /* continue.png */,
 			);
 			name = images;
@@ -272,7 +272,7 @@
 				A37C6F0018197FBC0042489D /* authback.png in Resources */,
 				A37C6EB3181952040042489D /* InfoPlist.strings in Resources */,
 				A37C6EBC181952040042489D /* Main.storyboard in Resources */,
-				A37C6F0218197FBC0042489D /* mapframe.png in Resources */,
+				A37C6F13181DA3060042489D /* mapframe.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

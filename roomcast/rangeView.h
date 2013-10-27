@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface rangeView : UIView
-
+    @property(nonatomic,retain) UIColor *circleColor;
 @end
