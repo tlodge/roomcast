@@ -27,6 +27,7 @@ CGMutablePathRef mpr;
 NSMutableData *receivedData;
 CLLocationManager *locationManager;
 MKPolygon *authZone;
+BOOL flipped;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -40,7 +41,7 @@ MKPolygon *authZone;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+    flipped = false;
     self.rangeView = [[rangeView alloc] initWithFrame:CGRectMake(250,400,60,60)];
     [self.view addSubview:_rangeView];
     
@@ -139,6 +140,11 @@ MKPolygon *authZone;
         
         if (CGPathContainsPoint(mpr, NULL,mapPointAsCGP, FALSE)){
             NSLog(@"IS IN POLYGON!!");
+            if (!flipped){
+                flipped = true;
+                [self performSegueWithIdentifier: @"authenticate" sender: self];
+                [locationManager stopUpdatingLocation];
+            }
         }else{
             
             CLLocationCoordinate2D firstcoord;
