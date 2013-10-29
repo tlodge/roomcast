@@ -27,7 +27,7 @@ CGMutablePathRef mpr;
 NSMutableData *receivedData;
 CLLocationManager *locationManager;
 MKPolygon *authZone;
-BOOL flipped;
+
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -41,17 +41,10 @@ BOOL flipped;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    flipped = false;
     self.rangeView = [[rangeView alloc] initWithFrame:CGRectMake(250,400,60,60)];
     [self.view addSubview:_rangeView];
     
-    
-    locationManager = [[CLLocationManager alloc] init];
-    locationManager.delegate = self;
-    locationManager.desiredAccuracy = kCLLocationAccuracyBest;
-    [locationManager startUpdatingLocation];
-    
-    NSURLRequest *theRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:@"http://localhost:5000/data"] cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:60.0];
+    NSURLRequest *theRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:@"http://roomcast.herokuapp.com/data"] cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:60.0];
     
     NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest: theRequest delegate:self];
     
@@ -61,11 +54,31 @@ BOOL flipped;
 }
 
 
--(void) changeColor:(NSTimer*) t {
-    NSLog(@"timer fired");
-    [self.rangeView setCircleColor:[UIColor blueColor]];
+-(void) updateDistance:(float) d{
+    
+}
+
+-(void) changeColor: (float) maxVal min:(float) minVal actual:(float) actual {
+    
+    int r = 255, g = 0, b = 0;
+    
+    if (actual < maxVal){
+        
+        float midVal = (maxVal - minVal)/2;
+        
+        if (actual >= midVal){
+            r = 255;
+            g = round(255 * ((maxVal - actual) / (maxVal - midVal)));
+        }
+        else{
+            g = 255;
+            r = round(255 * ((actual - minVal) / (midVal - minVal)));
+        }
+    }
+    [self.rangeView setCircleColor:[UIColor colorWithRed:r/255.0 green:g/255.0 blue:b/255.0 alpha:1.0]];
     [self.rangeView  setNeedsDisplay];
 }
+
 
 -(void) connection:(NSURLConnection *) connection didReceiveResponse:(NSURLResponse *)response{
     [receivedData setLength:0];
@@ -107,12 +120,11 @@ BOOL flipped;
         
         idx++;
     
-        NSLog(@"%f %f", mp.x,mp.y);
     }
    
     [self.zoneMap setDelegate:self];
     
-    [self.zoneMap setRegion:MKCoordinateRegionMakeWithDistance(center, 0.2 * MPM,0.2*MPM) animated: YES];
+    [self.zoneMap setRegion:MKCoordinateRegionMakeWithDistance(center, 0.05 * MPM,0.05*MPM) animated: YES];
     
    
     authZone = [MKPolygon polygonWithCoordinates:coords count:[jsonArray count]];
@@ -120,6 +132,12 @@ BOOL flipped;
     [self.zoneMap addOverlay:authZone];
     
     free(coords);
+    
+    locationManager = [[CLLocationManager alloc] init];
+    locationManager.delegate = self;
+    locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+    [locationManager startUpdatingLocation];
+
 }
 
 #pragma location delegate methods
@@ -130,7 +148,7 @@ BOOL flipped;
 }
 
 -(void) locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations{
-    NSLog(@"got a location update %@", [locations lastObject]);
+  
     if (mpr != nil){
         CLLocation *currentLocation = [locations lastObject];
         
@@ -139,12 +157,8 @@ BOOL flipped;
         
         
         if (CGPathContainsPoint(mpr, NULL,mapPointAsCGP, FALSE)){
-            NSLog(@"IS IN POLYGON!!");
-            if (!flipped){
-                flipped = true;
-                [self performSegueWithIdentifier: @"authenticate" sender: self];
-                [locationManager stopUpdatingLocation];
-            }
+            [locationManager stopUpdatingLocation];
+            [self performSegueWithIdentifier: @"authenticate" sender: self];
         }else{
             
             CLLocationCoordinate2D firstcoord;
@@ -155,7 +169,6 @@ BOOL flipped;
             for (int i = 0; i < authZone.pointCount; i++){
                 MKMapPoint mp = authZone.points[i];
                 CLLocationCoordinate2D loc = MKCoordinateForMapPoint(mp);
-                NSLog(@"ok got %f, %f", loc.latitude, loc.longitude);
                 
                 if (i == 0){
                     firstcoord = loc;
@@ -170,7 +183,7 @@ BOOL flipped;
             dst = [self calculatecrosstrack: lastcoord.latitude lat2:firstcoord.latitude lng1: lastcoord.longitude lng2:firstcoord.longitude lat3: currentLocation.coordinate.latitude lng3: currentLocation.coordinate.longitude];
             
             min = fmin(min, dst);
-            NSLog(@"min is %f", min);
+            [self changeColor:0.01 min:0 actual:min];
         }
     }
 }
@@ -188,7 +201,7 @@ BOOL flipped;
         int R = 6371;
         
         float dxt = asin(sin(d13/R) * sin([self radians: (o13-o12)])) * R;
-        NSLog(@"cct returoig %f", dxt);
+       
         return fabs(dxt);
     }
     
@@ -197,18 +210,15 @@ BOOL flipped;
 }
 
 -(float) radians: (float) d{
-    NSLog(@"radians of %f is %f", d, d * M_PI / 180);
     return d * M_PI / 180;
 }
 
 -(int) degrees: (float) r{
-     NSLog(@"degrees of %f is %d", r, (int) (r * 180 / M_PI));
     return (int) (r * 180 / M_PI);
 }
 
 -(float) calculatedistance: (float) lat1 lat2:(float) lat2 lng1:(float)lng1 lng2:(float) lng2{
     int R = 6371;
-    NSLog(@"in distance lat1 = %f, lat2=%f, lng1=%f, lng2=%f",lat1,lat2, lng1, lng2);
     float dLat = [self radians: (lat2 - lat1)];
     float dLon = [self radians: (lng2 - lng1)];
     float rlat1 = [self radians: lat1];
@@ -216,7 +226,6 @@ BOOL flipped;
     
     float a = sin(dLat/2) * sin(dLat/2) + sin(dLon/2) * sin(dLon/2) * cos(rlat1) * cos(rlat2);
     float c = 2 * atan2(sqrt(a), sqrt(1-a));
-    NSLog(@"DISTANCE RETURNING %f", R*c);
     return R * c;
 }
 

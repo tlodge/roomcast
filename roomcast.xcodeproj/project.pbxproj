@@ -99,6 +99,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A3605819182000EF0026615B /* iPad */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = iPad;
+			sourceTree = "<group>";
+		};
 		A37C6E9C181952040042489D = {
 			isa = PBXGroup;
 			children = (
@@ -134,6 +141,7 @@
 		A37C6EAE181952040042489D /* roomcast */ = {
 			isa = PBXGroup;
 			children = (
+				A3605819182000EF0026615B /* iPad */,
 				A37C6EB7181952040042489D /* AppDelegate.h */,
 				A37C6EB8181952040042489D /* AppDelegate.m */,
 				A37C6EBA181952040042489D /* Main.storyboard */,
@@ -422,10 +430,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Tom Lodge (C4DACQ32K3)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "roomcast/roomcast-Prefix.pch";
 				INFOPLIST_FILE = "roomcast/roomcast-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -435,10 +446,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Tom Lodge (C4DACQ32K3)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "roomcast/roomcast-Prefix.pch";
 				INFOPLIST_FILE = "roomcast/roomcast-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -504,6 +518,7 @@
 				A37C6ED9181952040042489D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A37C6EDA181952040042489D /* Build configuration list for PBXNativeTarget "roomcastTests" */ = {
 			isa = XCConfigurationList;
@@ -512,6 +527,7 @@
 				A37C6EDC181952040042489D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
