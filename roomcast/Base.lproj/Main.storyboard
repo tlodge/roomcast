@@ -96,14 +96,15 @@
             </objects>
             <point key="canvasLocation" x="528" y="34"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Form Table View Controller-->
         <scene sceneID="m9n-VE-Zty">
             <objects>
-                <tableViewController id="VR1-Zr-cab" sceneMemberID="viewController">
+                <tableViewController id="VR1-Zr-cab" customClass="FormTableViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="lE9-GO-Mds">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <color key="sectionIndexTrackingBackgroundColor" red="0.56491060800000004" green="1" blue="0.94638521019999999" alpha="1" colorSpace="calibratedRGB"/>
                         <button key="tableFooterView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="ZMR-jW-EBR">
                             <rect key="frame" x="0.0" y="425" width="320" height="44"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -112,7 +113,7 @@
                         <sections>
                             <tableViewSection headerTitle="Account details" id="zIZ-L5-7I9">
                                 <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="4" indentationWidth="0.0" id="6Og-kU-emT">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="4" indentationWidth="0.0" reuseIdentifier="Cell" id="6Og-kU-emT" customClass="CustomCell">
                                         <rect key="frame" x="0.0" y="55" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="6Og-kU-emT" id="J5X-rX-tIl">
@@ -135,7 +136,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="4" indentationWidth="0.0" id="afk-ix-GTA">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="4" indentationWidth="0.0" reuseIdentifier="Cell" id="afk-ix-GTA" customClass="CustomCell">
                                         <rect key="frame" x="0.0" y="99" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="afk-ix-GTA" id="OFj-Jy-4lO">
@@ -163,7 +164,7 @@
                             </tableViewSection>
                             <tableViewSection headerTitle="Contact Details" id="Inw-KM-mPP">
                                 <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="4" indentationWidth="0.0" id="1Bz-F7-14D">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="4" indentationWidth="0.0" reuseIdentifier="Cell" id="1Bz-F7-14D" customClass="CustomCell">
                                         <rect key="frame" x="0.0" y="191" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="1Bz-F7-14D" id="hdt-E8-ECF">
@@ -190,7 +191,7 @@
                             </tableViewSection>
                             <tableViewSection headerTitle="Property Details" id="tvt-82-Ik6">
                                 <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="4" indentationWidth="0.0" id="Jeq-Kw-kEu">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="4" indentationWidth="0.0" reuseIdentifier="Cell" id="Jeq-Kw-kEu" customClass="CustomCell">
                                         <rect key="frame" x="0.0" y="283" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Jeq-Kw-kEu" id="2iI-iM-U5o">
@@ -213,7 +214,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="4" indentationWidth="0.0" id="6BY-9C-Dx6">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="4" indentationWidth="0.0" reuseIdentifier="Cell" id="6BY-9C-Dx6" customClass="CustomCell">
                                         <rect key="frame" x="0.0" y="327" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="6BY-9C-Dx6" id="gWb-NB-ae6">
@@ -233,7 +234,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="4" indentationWidth="0.0" id="05y-5F-bbt">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="4" indentationWidth="0.0" reuseIdentifier="Cell" id="05y-5F-bbt" customClass="CustomCell">
                                         <rect key="frame" x="0.0" y="371" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="05y-5F-bbt" id="roz-Gh-yR2">
@@ -262,6 +263,14 @@
                             <outlet property="delegate" destination="VR1-Zr-cab" id="iaE-gF-r7m"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <outlet property="block" destination="cou-g7-6Jf" id="QrS-We-H1Z"/>
+                        <outlet property="email" destination="Hvz-6q-ABa" id="pnK-KC-CTl"/>
+                        <outlet property="floor" destination="5F1-cH-A18" id="hPm-cd-qga"/>
+                        <outlet property="password" destination="TCU-xM-Y3p" id="0T3-L7-P52"/>
+                        <outlet property="registerbutton" destination="ZMR-jW-EBR" id="ly3-Hy-DtU"/>
+                        <outlet property="username" destination="XRn-49-lYi" id="gQd-w8-HNN"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mit-oo-aQA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

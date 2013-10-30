@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface rangeView : UIView
+@interface RangeView : UIView
     @property(nonatomic,retain) UIColor *circleColor;
 @end

@@ -41,7 +41,7 @@ MKPolygon *authZone;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.rangeView = [[rangeView alloc] initWithFrame:CGRectMake(250,400,60,60)];
+    self.rangeView = [[RangeView alloc] initWithFrame:CGRectMake(250,400,60,60)];
     [self.view addSubview:_rangeView];
     
     NSURLRequest *theRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:@"http://roomcast.herokuapp.com/data"] cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:60.0];
@@ -51,6 +51,14 @@ MKPolygon *authZone;
     if (theConnection){
         receivedData = [NSMutableData data];
     }
+}
+
+-(void)viewDidAppear:(BOOL)animated
+{
+    locationManager = [[CLLocationManager alloc] init];
+    locationManager.delegate = self;
+    locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+    [locationManager startUpdatingLocation];
 }
 
 
@@ -133,10 +141,7 @@ MKPolygon *authZone;
     
     free(coords);
     
-    locationManager = [[CLLocationManager alloc] init];
-    locationManager.delegate = self;
-    locationManager.desiredAccuracy = kCLLocationAccuracyBest;
-    [locationManager startUpdatingLocation];
+   
 
 }
 

@@ -6,9 +6,9 @@
 //  Copyright (c) 2013 Tom Lodge. All rights reserved.
 //
 
-#import "rangeView.h"
+#import "RangeView.h"
 
-@implementation rangeView
+@implementation RangeView
 
 - (id)initWithFrame:(CGRect)frame
 {
