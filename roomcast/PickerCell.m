@@ -1,17 +1,14 @@
 //
-//  customCell.m
+//  PickerCell.m
 //  roomcast
 //
-//  Created by Tom Lodge on 30/10/2013.
+//  Created by Tom Lodge on 31/10/2013.
 //  Copyright (c) 2013 Tom Lodge. All rights reserved.
 //
 
-#import "CustomCell.h"
+#import "PickerCell.h"
 
-@implementation CustomCell
-
-@synthesize text;
-@synthesize label;
+@implementation PickerCell
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {

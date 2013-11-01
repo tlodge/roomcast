@@ -1,15 +1,14 @@
 //
-//  customCell.h
+//  PickerCell.h
 //  roomcast
 //
-//  Created by Tom Lodge on 30/10/2013.
+//  Created by Tom Lodge on 31/10/2013.
 //  Copyright (c) 2013 Tom Lodge. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 
-@interface CustomCell : UITableViewCell
+@interface PickerCell : UITableViewCell
 @property (strong, nonatomic) IBOutlet UILabel *label;
-@property (strong, nonatomic) IBOutlet UITextField *text;
-
+@property (weak, nonatomic) IBOutlet UIPickerView *picker;
 @end

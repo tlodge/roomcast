@@ -26,7 +26,12 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self.tableView registerClass:[CustomCell class] forCellReuseIdentifier:@"Cell"];
+    
+    /*[self.tableView registerClass:[CustomCell class] forCellReuseIdentifier:@"CustomCell"];
+    
+    [self.tableView registerClass:[PassCell class] forCellReuseIdentifier:@"PassCell"];
+    
+    [self.tableView registerClass:[PickerCell class] forCellReuseIdentifier:@"PickerCell"];*/
      // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
@@ -60,14 +65,73 @@
     return 0;
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-
+- (UITableViewCell *)tableView:(UITableView *)tableView{
+    
+    UITableViewCell*   cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"Cell"];
+    
+    // Configure the cell...
+    
     return cell;
 }
 
+- (IBAction)editStarted:(id)sender {
+    NSLog(@"cooking!!");
+}
+
+- (IBAction)usernameChanged:(id)sender{
+    NSLog(@"user name changed!!");
+}
+//If you are going with Custom Static Cells just comment this method:
+
+//- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+//    static NSString *CellIdentifier = @"notificationCell";
+//    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+//    return cell;
+//}
+
+//and give the cells an identifier at "Attributes Inspector" in storyboard.
+
+/*
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.section == 0){
+        if (indexPath.row == 0){
+            
+          
+            CustomCell * cell =  (CustomCell *)[tableView dequeueReusableCellWithIdentifier:@"CustomCell" forIndexPath:indexPath];
+        
+            cell.label.text = @"y";
+            return cell;
+        }
+        PassCell * cell =  (PassCell *) [tableView dequeueReusableCellWithIdentifier:@"PassCell" forIndexPath:indexPath];
+        return cell;
+    }
+    
+    if (indexPath.section == 1){
+        CustomCell * cell =  (CustomCell *)[tableView dequeueReusableCellWithIdentifier:@"CustomCell" forIndexPath:indexPath];
+        [cell.label setText:@"x"];
+        return cell;
+    }
+    if (indexPath.section == 2){
+        if (indexPath.row == 0 || indexPath.row == 3){
+            PickerCell *cell = [tableView dequeueReusableCellWithIdentifier:@"PickerCell" forIndexPath:indexPath];
+            cell.label.text = @"pick something!";
+            return cell;
+        }
+        CustomCell * cell =  (CustomCell *)[tableView dequeueReusableCellWithIdentifier:@"CustomCell" forIndexPath:indexPath];
+        [cell.label setText:@"z"];
+        
+        return cell;
+    }
+    
+    return nil;
+}*/
+
+
+
+- (IBAction)registerbutton:(id)sender{
+    NSLog(@"nice!!");
+}
 /*
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
@@ -119,4 +183,6 @@
 
  */
 
+- (IBAction)register:(id)sender {
+}
 @end

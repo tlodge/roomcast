@@ -8,15 +8,16 @@
 
 #import <UIKit/UIKit.h>
 #import "CustomCell.h"
+#import "PassCell.h"
+#import "PickerCell.h"
 
 @interface FormTableViewController : UITableViewController
+
 @property (weak, nonatomic) IBOutlet UITextField *username;
-@property (weak, nonatomic) IBOutlet UITextField *password;
-@property (weak, nonatomic) IBOutlet UITextField *email;
+- (IBAction)editStarted:(id)sender;
 
-@property (weak, nonatomic) IBOutlet UIPickerView *block;
-@property (weak, nonatomic) IBOutlet UIPickerView *floor;
+- (IBAction)usernameChanged:(id)sender;
 
-@property (weak, nonatomic) IBOutlet UIButton *registerbutton;
+- (IBAction)registerbutton:(id)sender;
 
 @end

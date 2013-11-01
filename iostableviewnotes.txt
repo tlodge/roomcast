@@ -1,0 +1,79 @@
+Notes on creating a custom table view.
+
+There are two types of cells that you can create - prototype and static.  
+
+By default, when you create a new table view controller, it will assume you are using prototype cells and give the following method signature:
+
+- (UITableViewCell *) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+
+
+}
+
+CREATING PROTOTYPE CELLS
+-------------------------
+
+To use the storyboard to create your prototype cells you need to simply set its 'identifier' to a particular name e.g:
+"CustomCell" and then ensure that this cell is dequeued in the method above i.e.:
+
+- (UITableViewCell *) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (indexPath.row ==0){
+        CustomCell * cell =  (CustomCell *)[tableView dequeueReusableCellWithIdentifier:@"CustomCell" forIndexPath:indexPath];
+
+        return cell;
+    }
+}
+
+This is ALL you need to do (i.e. you do not need to subclass UITableViewCell with a CustomCell class, which we'll do later!).
+
+CREATING STATIC CELLS
+---------------------
+
+To use whatever you design in the storyboard, change the method signature to - (UITableViewCell *) tableView:(UITableView *)tableView
+
+i.e:
+
+- (UITableViewCell *)tableView:(UITableView *)tableView{
+    
+    UITableViewCell*  cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"Cell"];
+
+    // Configure the cell...
+    
+    return cell;
+}
+
+This will then display the table as designed in the storyboard.  Note that the re-use identifier is not relevant here - or at least it need not match up with strings entered into the cell's the identifier in the storyboard.
+
+
+SUBCLASSING CELLS
+-----------------
+
+To subclass cells (static and prototype), you create a new UITableViewCell cell.  In the storyboard, connect your UI elements in your cell to the particular IBOutlets of your custom cell.  In the viewdidload method of the TableViewController, you need to register your new class:
+
+[self.tableView registerClass:[CustomCell class] forCellReuseIdentifier:@"CustomCell"];
+
+and then do whatever you need to do in the 
+
+- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
+
+method.  Eg:
+
+- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
+{
+    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
+    if (self) {
+        NSLog(@"am in here!!");
+        CGSize size = self.contentView.frame.size;
+        self.label = [[UILabel alloc] initWithFrame:CGRectMake(8.0,8.0,size.width-16.0, size.height-16.0)];
+        [self.label setFont:[UIFont boldSystemFontOfSize:30.0]];
+       
+        [self.label setTextColor:[UIColor blueColor]];
+         self.label.text = @"skdjsklhdkl";
+        [self.contentView addSubview:self.label];
+    }
+    return self;
+}
+
+PURE NON CODE WAY
+-----------------
+
+Create the static (or prototype table) according to the storyboard method above.  Attach the elements to the viewController.  The view controller will then have full access to actions etc.  This is the simplest way and unless you need to override fully, seems like the way to go!

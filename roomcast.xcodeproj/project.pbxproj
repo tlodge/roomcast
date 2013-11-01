@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		A360581C182191EE0026615B /* FormTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A360581B182191EE0026615B /* FormTableViewController.m */; };
 		A360581F1821A1680026615B /* CustomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A360581E1821A1680026615B /* CustomCell.m */; };
+		A3605822182297570026615B /* PassCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A3605821182297570026615B /* PassCell.m */; };
+		A360582518229C840026615B /* PickerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A360582418229C840026615B /* PickerCell.m */; };
 		A37C6EA9181952040042489D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A37C6EA8181952040042489D /* Foundation.framework */; };
 		A37C6EAB181952040042489D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A37C6EAA181952040042489D /* CoreGraphics.framework */; };
 		A37C6EAD181952040042489D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A37C6EAC181952040042489D /* UIKit.framework */; };
@@ -31,6 +33,7 @@
 		A37C6F0C181982AB0042489D /* continue.png in Resources */ = {isa = PBXBuildFile; fileRef = A37C6F0B181982AB0042489D /* continue.png */; };
 		A37C6F0F181ACCBA0042489D /* RangeView.m in Sources */ = {isa = PBXBuildFile; fileRef = A37C6F0E181ACCBA0042489D /* RangeView.m */; };
 		A37C6F13181DA3060042489D /* mapframe.png in Resources */ = {isa = PBXBuildFile; fileRef = A37C6F12181DA3060042489D /* mapframe.png */; };
+		A3C3BF121822F877007E8803 /* TestTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3C3BF111822F877007E8803 /* TestTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +51,10 @@
 		A360581B182191EE0026615B /* FormTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FormTableViewController.m; sourceTree = "<group>"; };
 		A360581D1821A1680026615B /* CustomCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomCell.h; sourceTree = "<group>"; };
 		A360581E1821A1680026615B /* CustomCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomCell.m; sourceTree = "<group>"; };
+		A3605820182297570026615B /* PassCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PassCell.h; sourceTree = "<group>"; };
+		A3605821182297570026615B /* PassCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PassCell.m; sourceTree = "<group>"; };
+		A360582318229C840026615B /* PickerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PickerCell.h; sourceTree = "<group>"; };
+		A360582418229C840026615B /* PickerCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PickerCell.m; sourceTree = "<group>"; };
 		A37C6EA5181952040042489D /* roomcast.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = roomcast.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A37C6EA8181952040042489D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		A37C6EAA181952040042489D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -77,6 +84,8 @@
 		A37C6F0D181ACCBA0042489D /* RangeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RangeView.h; sourceTree = "<group>"; };
 		A37C6F0E181ACCBA0042489D /* RangeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RangeView.m; sourceTree = "<group>"; };
 		A37C6F12181DA3060042489D /* mapframe.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = mapframe.png; path = ../mapframe.png; sourceTree = "<group>"; };
+		A3C3BF101822F877007E8803 /* TestTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestTableViewController.h; sourceTree = "<group>"; };
+		A3C3BF111822F877007E8803 /* TestTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,8 +168,14 @@
 				A37C6F0E181ACCBA0042489D /* RangeView.m */,
 				A360581A182191EE0026615B /* FormTableViewController.h */,
 				A360581B182191EE0026615B /* FormTableViewController.m */,
+				A3C3BF101822F877007E8803 /* TestTableViewController.h */,
+				A3C3BF111822F877007E8803 /* TestTableViewController.m */,
+				A3605820182297570026615B /* PassCell.h */,
+				A3605821182297570026615B /* PassCell.m */,
 				A360581D1821A1680026615B /* CustomCell.h */,
 				A360581E1821A1680026615B /* CustomCell.m */,
+				A360582318229C840026615B /* PickerCell.h */,
+				A360582418229C840026615B /* PickerCell.m */,
 				A37C6EC0181952040042489D /* Images.xcassets */,
 				A37C6EAF181952040042489D /* Supporting Files */,
 			);
@@ -310,10 +325,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				A37C6F0F181ACCBA0042489D /* RangeView.m in Sources */,
+				A360582518229C840026615B /* PickerCell.m in Sources */,
 				A37C6EF0181971020042489D /* AuthViewController.m in Sources */,
 				A37C6EBF181952040042489D /* ViewController.m in Sources */,
 				A37C6EB9181952040042489D /* AppDelegate.m in Sources */,
+				A3605822182297570026615B /* PassCell.m in Sources */,
 				A37C6EB5181952040042489D /* main.m in Sources */,
+				A3C3BF121822F877007E8803 /* TestTableViewController.m in Sources */,
 				A360581F1821A1680026615B /* CustomCell.m in Sources */,
 				A360581C182191EE0026615B /* FormTableViewController.m in Sources */,
 			);
