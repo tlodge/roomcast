@@ -19,6 +19,8 @@
     self = [super initWithStyle:style];
     if (self) {
         // Custom initialization
+        [[UILabel appearanceWhenContainedIn:[UITableViewHeaderFooterView class], nil] setTextColor:[UIColor whiteColor]];
+        
     }
     return self;
 }
@@ -26,6 +28,15 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.tableView.contentInset = UIEdgeInsetsMake(-36, 0, 0, 0);
+    self.username.delegate = self;
+    self.password.delegate = self;
+    self.apartment.delegate = self;
+    self.email.delegate = self;
+    
+    self.blockpicker.delegate = self;
+    
+    self.blockArray = [[NSArray alloc] initWithObjects:@"block1", @"block2", @"block3",nil];
     
     /*[self.tableView registerClass:[CustomCell class] forCellReuseIdentifier:@"CustomCell"];
     
@@ -50,19 +61,14 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     // Return the number of sections.
-    return 3;
+    return 2;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    if (section == 0)
-        return 2;
     if (section == 1)
-        return 1;
-    if (section == 2)
-        return 3;
-    
-    return 0;
+        return 5;
+    return 4;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView{
@@ -185,4 +191,31 @@
 
 - (IBAction)register:(id)sender {
 }
+
+#pragma textfield delegate method
+
+-(BOOL) textFieldShouldReturn:(UITextField *)textField{
+    [textField resignFirstResponder];
+    return YES;
+
+}
+
+#pragma picker delegate methods
+
+-(NSInteger) numberOfComponentsInPickerView:(UIPickerView *)pickerView{
+    return 1;
+}
+
+-(NSInteger) pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
+{
+    if (pickerView == self.blockpicker){
+        return 3;
+    }
+    return 0;
+}
+
+-(NSString *) pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component{
+    return [self.blockArray objectAtIndex:row];
+}
+
 @end

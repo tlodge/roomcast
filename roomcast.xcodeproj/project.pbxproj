@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A300E0B01827B71200783E91 /* registerbutton.png in Resources */ = {isa = PBXBuildFile; fileRef = A300E0AF1827B71200783E91 /* registerbutton.png */; };
+		A300E0B31827BAB600783E91 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A300E0B21827BAB600783E91 /* RegisterViewController.m */; };
+		A317AC1918283BBB00BE7E46 /* accdetails.png in Resources */ = {isa = PBXBuildFile; fileRef = A317AC1818283BBB00BE7E46 /* accdetails.png */; };
+		A317AC2C18294B6700BE7E46 /* registerheader.png in Resources */ = {isa = PBXBuildFile; fileRef = A317AC2A18294B6700BE7E46 /* registerheader.png */; };
+		A317AC2D18294B6700BE7E46 /* registerheader2.png in Resources */ = {isa = PBXBuildFile; fileRef = A317AC2B18294B6700BE7E46 /* registerheader2.png */; };
 		A360581C182191EE0026615B /* FormTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A360581B182191EE0026615B /* FormTableViewController.m */; };
 		A360581F1821A1680026615B /* CustomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A360581E1821A1680026615B /* CustomCell.m */; };
 		A3605822182297570026615B /* PassCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A3605821182297570026615B /* PassCell.m */; };
@@ -34,6 +39,7 @@
 		A37C6F0F181ACCBA0042489D /* RangeView.m in Sources */ = {isa = PBXBuildFile; fileRef = A37C6F0E181ACCBA0042489D /* RangeView.m */; };
 		A37C6F13181DA3060042489D /* mapframe.png in Resources */ = {isa = PBXBuildFile; fileRef = A37C6F12181DA3060042489D /* mapframe.png */; };
 		A3C3BF121822F877007E8803 /* TestTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3C3BF111822F877007E8803 /* TestTableViewController.m */; };
+		A3C3BF161827B06A007E8803 /* message.png in Resources */ = {isa = PBXBuildFile; fileRef = A3C3BF151827B06A007E8803 /* message.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +53,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A300E0AF1827B71200783E91 /* registerbutton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = registerbutton.png; path = ../registerbutton.png; sourceTree = "<group>"; };
+		A300E0B11827BAB600783E91 /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
+		A300E0B21827BAB600783E91 /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
+		A317AC1818283BBB00BE7E46 /* accdetails.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = accdetails.png; sourceTree = "<group>"; };
+		A317AC2A18294B6700BE7E46 /* registerheader.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = registerheader.png; sourceTree = "<group>"; };
+		A317AC2B18294B6700BE7E46 /* registerheader2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = registerheader2.png; sourceTree = "<group>"; };
 		A360581A182191EE0026615B /* FormTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FormTableViewController.h; sourceTree = "<group>"; };
 		A360581B182191EE0026615B /* FormTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FormTableViewController.m; sourceTree = "<group>"; };
 		A360581D1821A1680026615B /* CustomCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomCell.h; sourceTree = "<group>"; };
@@ -86,6 +98,7 @@
 		A37C6F12181DA3060042489D /* mapframe.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = mapframe.png; path = ../mapframe.png; sourceTree = "<group>"; };
 		A3C3BF101822F877007E8803 /* TestTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestTableViewController.h; sourceTree = "<group>"; };
 		A3C3BF111822F877007E8803 /* TestTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestTableViewController.m; sourceTree = "<group>"; };
+		A3C3BF151827B06A007E8803 /* message.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = message.png; path = ../message.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -170,6 +183,8 @@
 				A360581B182191EE0026615B /* FormTableViewController.m */,
 				A3C3BF101822F877007E8803 /* TestTableViewController.h */,
 				A3C3BF111822F877007E8803 /* TestTableViewController.m */,
+				A300E0B11827BAB600783E91 /* RegisterViewController.h */,
+				A300E0B21827BAB600783E91 /* RegisterViewController.m */,
 				A3605820182297570026615B /* PassCell.h */,
 				A3605821182297570026615B /* PassCell.m */,
 				A360581D1821A1680026615B /* CustomCell.h */,
@@ -215,6 +230,11 @@
 		A37C6EDD181954090042489D /* images */ = {
 			isa = PBXGroup;
 			children = (
+				A317AC2A18294B6700BE7E46 /* registerheader.png */,
+				A317AC2B18294B6700BE7E46 /* registerheader2.png */,
+				A300E0AF1827B71200783E91 /* registerbutton.png */,
+				A3C3BF151827B06A007E8803 /* message.png */,
+				A317AC1818283BBB00BE7E46 /* accdetails.png */,
 				A37C6F12181DA3060042489D /* mapframe.png */,
 				A37C6EFD18197FBC0042489D /* authback.png */,
 				A37C6EFE18197FBC0042489D /* background.png */,
@@ -299,10 +319,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A317AC2C18294B6700BE7E46 /* registerheader.png in Resources */,
 				A37C6F0C181982AB0042489D /* continue.png in Resources */,
 				A37C6EC1181952040042489D /* Images.xcassets in Resources */,
 				A37C6F0118197FBC0042489D /* background.png in Resources */,
+				A3C3BF161827B06A007E8803 /* message.png in Resources */,
 				A37C6F0018197FBC0042489D /* authback.png in Resources */,
+				A317AC2D18294B6700BE7E46 /* registerheader2.png in Resources */,
+				A300E0B01827B71200783E91 /* registerbutton.png in Resources */,
+				A317AC1918283BBB00BE7E46 /* accdetails.png in Resources */,
 				A37C6EB3181952040042489D /* InfoPlist.strings in Resources */,
 				A37C6EBC181952040042489D /* Main.storyboard in Resources */,
 				A37C6F13181DA3060042489D /* mapframe.png in Resources */,
@@ -324,6 +349,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A300E0B31827BAB600783E91 /* RegisterViewController.m in Sources */,
 				A37C6F0F181ACCBA0042489D /* RangeView.m in Sources */,
 				A360582518229C840026615B /* PickerCell.m in Sources */,
 				A37C6EF0181971020042489D /* AuthViewController.m in Sources */,

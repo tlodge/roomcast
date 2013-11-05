@@ -11,12 +11,15 @@
 #import "PassCell.h"
 #import "PickerCell.h"
 
-@interface FormTableViewController : UITableViewController
+@interface FormTableViewController : UITableViewController <UITextFieldDelegate, UIPickerViewDataSource, UIPickerViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UITextField *username;
-- (IBAction)editStarted:(id)sender;
 
-- (IBAction)usernameChanged:(id)sender;
+@property (weak, nonatomic) IBOutlet UITextField *password;
+@property (weak, nonatomic) IBOutlet UITextField *email;
+@property (weak, nonatomic) IBOutlet UITextField *apartment;
+@property (weak, nonatomic) IBOutlet UIPickerView *blockpicker;
+@property (strong, nonatomic) NSArray *blockArray;
 
 - (IBAction)registerbutton:(id)sender;
 
