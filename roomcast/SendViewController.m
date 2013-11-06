@@ -49,7 +49,10 @@
     float width = mainframe.size.width;
     float height = mainframe.size.height;
     
-    UIView *aView = [nibContents objectAtIndex:0];
+    MessageView *aView = [nibContents objectAtIndex:0];
+    //[aView.testButton addTarget:self action:@selector(attemptLogin)
+    //forControlEvents:UIControlEventTouchUpInside];
+    
     aView.frame = CGRectMake(0,height,width,200); //or whatever coordinates you need
     [self.view addSubview:aView];
     [UIView beginAnimations:@"SwitchToMessageView" context:nil];

@@ -10,4 +10,6 @@
 
 @interface MessageView : UIView
 
+@property (weak, nonatomic) IBOutlet UIButton *testButton;
+
 @end
