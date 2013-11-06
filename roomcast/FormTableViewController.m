@@ -223,14 +223,27 @@
     return 0;
 }
 
+/*
 -(NSString *) pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component{
+   
+}*/
+
+-(UIView *) pickerView:(UIPickerView *)pickerView viewForRow:(NSInteger)row forComponent:(NSInteger)component reusingView:(UIView *)view{
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 100, 37)];
+    label.textColor = [UIColor whiteColor];
+    label.textAlignment = NSTextAlignmentCenter;
+    [label setFont:[UIFont fontWithName:@"Trebuchet MS" size:18.0]];
+    
+    
     if (pickerView == self.blockpicker){
-        return [self.blockArray objectAtIndex:row];
+        label.text = [self.blockArray objectAtIndex:row];
     }
     if (pickerView == self.floorpicker){
-        return [self.floorArray objectAtIndex:row];
+        label.text = [self.floorArray objectAtIndex:row];
     }
-    return nil;
+    return label;
 }
+
+
 
 @end

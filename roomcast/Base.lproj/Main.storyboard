@@ -418,8 +418,6 @@
         <image name="mapframe.png" width="629" height="747"/>
         <image name="message.png" width="640" height="204"/>
         <image name="registerbutton.png" width="308" height="78"/>
-        <image name="registerbutton.png" width="308" height="78"/>
-        <image name="registerbutton.png" width="308" height="78"/>
         <image name="registerheader.png" width="640" height="47"/>
         <image name="registerheader2.png" width="640" height="47"/>
     </resources>
