@@ -36,7 +36,11 @@
     
     self.blockpicker.delegate = self;
     
+    self.floorpicker.delegate = self;
+    
     self.blockArray = [[NSArray alloc] initWithObjects:@"block1", @"block2", @"block3",nil];
+    
+    self.floorArray = [[NSArray alloc] initWithObjects:@"ground", @"1", @"2", @"3",nil];
     
     /*[self.tableView registerClass:[CustomCell class] forCellReuseIdentifier:@"CustomCell"];
     
@@ -138,6 +142,8 @@
 - (IBAction)registerbutton:(id)sender{
     NSLog(@"nice!!");
 }
+
+
 /*
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
@@ -209,13 +215,22 @@
 -(NSInteger) pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
 {
     if (pickerView == self.blockpicker){
-        return 3;
+         return [self.blockArray count];
+    }
+    if (pickerView == self.floorpicker){
+        return [self.floorArray count];
     }
     return 0;
 }
 
 -(NSString *) pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component{
-    return [self.blockArray objectAtIndex:row];
+    if (pickerView == self.blockpicker){
+        return [self.blockArray objectAtIndex:row];
+    }
+    if (pickerView == self.floorpicker){
+        return [self.floorArray objectAtIndex:row];
+    }
+    return nil;
 }
 
 @end

@@ -1,9 +1,26 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4510" systemVersion="12F45" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4510" systemVersion="12F45" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="Wsd-Tt-tIP">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3742"/>
     </dependencies>
     <scenes>
+        <!--Init View Controller-->
+        <scene sceneID="xUh-Og-5ZX">
+            <objects>
+                <viewController id="Wsd-Tt-tIP" customClass="InitViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Knh-Pa-aeX">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <segue destination="vXZ-lx-hvc" kind="modal" identifier="newbie" id="ZMd-J6-H0R"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bG2-Be-FGF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="15" y="-611"/>
+        </scene>
         <!--View Controller-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
@@ -42,9 +59,6 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <connections>
-                        <outlet property="developmentCode" destination="MnQ-QX-1q4" id="Cad-mJ-f5e"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
@@ -62,11 +76,11 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="hybrid" showsUserLocation="YES" id="7U4-b2-zfp">
-                                <rect key="frame" x="30" y="117" width="264" height="323"/>
+                                <rect key="frame" x="30" y="114" width="264" height="301"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </mapView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mapframe.png" id="6iA-50-iMM">
-                                <rect key="frame" x="4" y="89" width="313" height="371"/>
+                                <rect key="frame" x="2" y="90" width="316" height="344"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="To confirm you are a Burrells Wharf resident, move into any zone shown on the map." lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="9up-dO-P06">
@@ -76,14 +90,26 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="ml3-Ce-BQh">
-                                <rect key="frame" x="116" y="450" width="46" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="W6B-gh-egq">
+                                <rect key="frame" x="111" y="430" width="99" height="42"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button">
+                                <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="19"/>
+                                <state key="normal" title="back" backgroundImage="registerbutton.png">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="CdV-EC-TlJ" kind="modal" id="qFJ-1Q-ohQ"/>
+                                    <action selector="back:" destination="fMX-RX-rsY" eventType="touchUpInside" id="hrO-FY-hwc"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="xpg-dy-6to">
+                                <rect key="frame" x="267" y="442" width="38" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="cheat">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="CdV-EC-TlJ" kind="modal" id="0Ww-f8-XkP"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -232,7 +258,7 @@
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES"/>
+                                                    <textInputTraits key="textInputTraits" keyboardType="emailAddress" enablesReturnKeyAutomatically="YES"/>
                                                 </textField>
                                             </subviews>
                                         </tableViewCellContentView>
@@ -272,7 +298,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <pickerView contentMode="scaleToFill" id="mNC-9V-xq1">
-                                                    <rect key="frame" x="92" y="-59" width="218" height="162"/>
+                                                    <rect key="frame" x="92" y="-59" width="208" height="162"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                                 </pickerView>
                                             </subviews>
@@ -298,7 +324,7 @@
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES"/>
+                                                    <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation" enablesReturnKeyAutomatically="YES"/>
                                                 </textField>
                                             </subviews>
                                         </tableViewCellContentView>
@@ -318,6 +344,10 @@
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <pickerView contentMode="scaleToFill" id="C73-jG-jg3">
+                                                    <rect key="frame" x="91" y="-59" width="209" height="162"/>
+                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                                </pickerView>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.0" green="0.50196078430000002" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -330,7 +360,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="git-hf-d7k">
-                                                    <rect key="frame" x="83" y="3" width="154" height="47"/>
+                                                    <rect key="frame" x="10" y="3" width="154" height="47"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="19"/>
                                                     <state key="normal" title="register" backgroundImage="registerbutton.png">
@@ -339,6 +369,18 @@
                                                     </state>
                                                     <connections>
                                                         <action selector="registerbutton:" destination="VR1-Zr-cab" eventType="touchUpInside" id="NPD-8K-Kwo"/>
+                                                    </connections>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="pzT-5o-vJK">
+                                                    <rect key="frame" x="181" y="3" width="110" height="47"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="19"/>
+                                                    <state key="normal" title="cancel" backgroundImage="registerbutton.png">
+                                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                    <connections>
+                                                        <segue destination="JH2-6Q-KcA" kind="unwind" unwindAction="unwindToAuth:" id="AxK-Sv-3YU"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -358,11 +400,13 @@
                         <outlet property="apartment" destination="tqS-XS-sms" id="hwf-v8-IYB"/>
                         <outlet property="blockpicker" destination="mNC-9V-xq1" id="wfb-0T-Mch"/>
                         <outlet property="email" destination="WQs-jy-xkW" id="3LX-QE-61x"/>
+                        <outlet property="floorpicker" destination="C73-jG-jg3" id="ATY-Ix-h60"/>
                         <outlet property="password" destination="XRn-49-lYi" id="pZ2-Ad-ODU"/>
                         <outlet property="username" destination="KTB-vR-RGk" id="288-mc-OlM"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mit-oo-aQA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="JH2-6Q-KcA" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="999" y="829"/>
         </scene>
@@ -373,6 +417,8 @@
         <image name="continue.png" width="104" height="100"/>
         <image name="mapframe.png" width="629" height="747"/>
         <image name="message.png" width="640" height="204"/>
+        <image name="registerbutton.png" width="308" height="78"/>
+        <image name="registerbutton.png" width="308" height="78"/>
         <image name="registerbutton.png" width="308" height="78"/>
         <image name="registerheader.png" width="640" height="47"/>
         <image name="registerheader2.png" width="640" height="47"/>

@@ -19,7 +19,14 @@
 @property (weak, nonatomic) IBOutlet UITextField *email;
 @property (weak, nonatomic) IBOutlet UITextField *apartment;
 @property (weak, nonatomic) IBOutlet UIPickerView *blockpicker;
+
+@property (weak, nonatomic) IBOutlet UIPickerView *floorpicker;
+
 @property (strong, nonatomic) NSArray *blockArray;
+
+@property (strong, nonatomic) NSArray *floorArray;
+
+
 
 - (IBAction)registerbutton:(id)sender;
 

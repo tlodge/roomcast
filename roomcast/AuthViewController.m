@@ -7,7 +7,7 @@
 //
 
 #import "AuthViewController.h"
-
+#import "FormTableViewController.h"
 //define meters per mile
 #define MPM 1609.344
 
@@ -41,7 +41,7 @@ MKPolygon *authZone;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.rangeView = [[RangeView alloc] initWithFrame:CGRectMake(250,400,60,60)];
+    self.rangeView = [[RangeView alloc] initWithFrame:CGRectMake(250,380,60,60)];
     [self.view addSubview:_rangeView];
     
     NSURLRequest *theRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:@"http://roomcast.herokuapp.com/data"] cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:60.0];
@@ -140,9 +140,6 @@ MKPolygon *authZone;
     [self.zoneMap addOverlay:authZone];
     
     free(coords);
-    
-   
-
 }
 
 #pragma location delegate methods
@@ -169,7 +166,7 @@ MKPolygon *authZone;
             CLLocationCoordinate2D firstcoord;
             CLLocationCoordinate2D lastcoord;
             float min = INFINITY;
-            float dst;
+            float dst = 0.0;
             
             for (int i = 0; i < authZone.pointCount; i++){
                 MKMapPoint mp = authZone.points[i];
@@ -260,6 +257,13 @@ MKPolygon *authZone;
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+
+- (IBAction)back:(id)sender {
+    [locationManager stopUpdatingLocation];
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
 
 
 @end

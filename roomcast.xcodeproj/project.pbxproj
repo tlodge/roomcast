@@ -12,6 +12,7 @@
 		A317AC1918283BBB00BE7E46 /* accdetails.png in Resources */ = {isa = PBXBuildFile; fileRef = A317AC1818283BBB00BE7E46 /* accdetails.png */; };
 		A317AC2C18294B6700BE7E46 /* registerheader.png in Resources */ = {isa = PBXBuildFile; fileRef = A317AC2A18294B6700BE7E46 /* registerheader.png */; };
 		A317AC2D18294B6700BE7E46 /* registerheader2.png in Resources */ = {isa = PBXBuildFile; fileRef = A317AC2B18294B6700BE7E46 /* registerheader2.png */; };
+		A317AC30182A7AD600BE7E46 /* InitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A317AC2F182A7AD600BE7E46 /* InitViewController.m */; };
 		A360581C182191EE0026615B /* FormTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A360581B182191EE0026615B /* FormTableViewController.m */; };
 		A360581F1821A1680026615B /* CustomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A360581E1821A1680026615B /* CustomCell.m */; };
 		A3605822182297570026615B /* PassCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A3605821182297570026615B /* PassCell.m */; };
@@ -59,6 +60,8 @@
 		A317AC1818283BBB00BE7E46 /* accdetails.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = accdetails.png; sourceTree = "<group>"; };
 		A317AC2A18294B6700BE7E46 /* registerheader.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = registerheader.png; sourceTree = "<group>"; };
 		A317AC2B18294B6700BE7E46 /* registerheader2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = registerheader2.png; sourceTree = "<group>"; };
+		A317AC2E182A7AD600BE7E46 /* InitViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InitViewController.h; sourceTree = "<group>"; };
+		A317AC2F182A7AD600BE7E46 /* InitViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InitViewController.m; sourceTree = "<group>"; };
 		A360581A182191EE0026615B /* FormTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FormTableViewController.h; sourceTree = "<group>"; };
 		A360581B182191EE0026615B /* FormTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FormTableViewController.m; sourceTree = "<group>"; };
 		A360581D1821A1680026615B /* CustomCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomCell.h; sourceTree = "<group>"; };
@@ -177,6 +180,8 @@
 				A37C6EBE181952040042489D /* ViewController.m */,
 				A37C6EEE181971020042489D /* AuthViewController.h */,
 				A37C6EEF181971020042489D /* AuthViewController.m */,
+				A317AC2E182A7AD600BE7E46 /* InitViewController.h */,
+				A317AC2F182A7AD600BE7E46 /* InitViewController.m */,
 				A37C6F0D181ACCBA0042489D /* RangeView.h */,
 				A37C6F0E181ACCBA0042489D /* RangeView.m */,
 				A360581A182191EE0026615B /* FormTableViewController.h */,
@@ -351,6 +356,7 @@
 			files = (
 				A300E0B31827BAB600783E91 /* RegisterViewController.m in Sources */,
 				A37C6F0F181ACCBA0042489D /* RangeView.m in Sources */,
+				A317AC30182A7AD600BE7E46 /* InitViewController.m in Sources */,
 				A360582518229C840026615B /* PickerCell.m in Sources */,
 				A37C6EF0181971020042489D /* AuthViewController.m in Sources */,
 				A37C6EBF181952040042489D /* ViewController.m in Sources */,

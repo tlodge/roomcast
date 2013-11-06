@@ -28,7 +28,6 @@
 // An empty implementation adversely affects performance during animation.
 - (void)drawRect:(CGRect)rect
 {
-    NSLog(@"in draw rect");
     CGRect borderRect = CGRectInset(rect, 3, 3);
     CGContextRef context = UIGraphicsGetCurrentContext();
     CGContextSetRGBStrokeColor(context, 1.0, 1.0, 1.0, 1.0);
