@@ -18,6 +18,7 @@
 		A317AC3E182BD50C00BE7E46 /* Message.m in Sources */ = {isa = PBXBuildFile; fileRef = A317AC3D182BD50C00BE7E46 /* Message.m */; };
 		A317AC41182BD95C00BE7E46 /* MessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A317AC40182BD95C00BE7E46 /* MessageViewController.m */; };
 		A317AC44182BE06100BE7E46 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A317AC43182BE06100BE7E46 /* DetailViewController.m */; };
+		A317AC46182C43EC00BE7E46 /* textback.png in Resources */ = {isa = PBXBuildFile; fileRef = A317AC45182C43EC00BE7E46 /* textback.png */; };
 		A360581C182191EE0026615B /* FormTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A360581B182191EE0026615B /* FormTableViewController.m */; };
 		A360581F1821A1680026615B /* CustomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A360581E1821A1680026615B /* CustomCell.m */; };
 		A3605822182297570026615B /* PassCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A3605821182297570026615B /* PassCell.m */; };
@@ -75,6 +76,7 @@
 		A317AC40182BD95C00BE7E46 /* MessageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageViewController.m; sourceTree = "<group>"; };
 		A317AC42182BE06100BE7E46 /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
 		A317AC43182BE06100BE7E46 /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
+		A317AC45182C43EC00BE7E46 /* textback.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = textback.png; sourceTree = "<group>"; };
 		A360581A182191EE0026615B /* FormTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FormTableViewController.h; sourceTree = "<group>"; };
 		A360581B182191EE0026615B /* FormTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FormTableViewController.m; sourceTree = "<group>"; };
 		A360581D1821A1680026615B /* CustomCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomCell.h; sourceTree = "<group>"; };
@@ -253,6 +255,7 @@
 		A37C6EDD181954090042489D /* images */ = {
 			isa = PBXGroup;
 			children = (
+				A317AC45182C43EC00BE7E46 /* textback.png */,
 				A317AC2A18294B6700BE7E46 /* registerheader.png */,
 				A317AC2B18294B6700BE7E46 /* registerheader2.png */,
 				A300E0AF1827B71200783E91 /* registerbutton.png */,
@@ -349,6 +352,7 @@
 				A37C6F0118197FBC0042489D /* background.png in Resources */,
 				A3C3BF161827B06A007E8803 /* message.png in Resources */,
 				A37C6F0018197FBC0042489D /* authback.png in Resources */,
+				A317AC46182C43EC00BE7E46 /* textback.png in Resources */,
 				A317AC2D18294B6700BE7E46 /* registerheader2.png in Resources */,
 				A300E0B01827B71200783E91 /* registerbutton.png in Resources */,
 				A317AC1918283BBB00BE7E46 /* accdetails.png in Resources */,

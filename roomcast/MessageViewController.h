@@ -9,7 +9,12 @@
 #import <UIKit/UIKit.h>
 #import "Message.h"
 #import "DetailViewController.h"
+#import "MessageView.h"
 
 @interface MessageViewController : UITableViewController
+
 @property (nonatomic, strong) NSMutableArray *messages;
+
+- (IBAction)sendMessage:(id)sender;
+
 @end

@@ -14,6 +14,8 @@
 
 @implementation MessageViewController
 
+MessageView* aView;
+
 - (id)initWithStyle:(UITableViewStyle)style
 {
    
@@ -31,6 +33,11 @@
    
     
     [super viewDidLoad];
+    NSArray *nibContents = [[NSBundle mainBundle] loadNibNamed:@"MessageView"
+                                                         owner:self
+                                                       options:nil];
+    aView = [nibContents objectAtIndex:0];
+    
     self.messages = [NSMutableArray arrayWithCapacity: 20];
     Message *m = [[Message alloc] init];
     m.from = @"Tom";
@@ -140,5 +147,48 @@
 }
 
  
+- (IBAction)sendMessage:(id)sender {
+    
+    NSLog(@"OK AM HERE");
+   
+    CGRect mainframe = [[UIScreen mainScreen] bounds];
+    float width = mainframe.size.width;
+    [aView.testButton addTarget:self action:@selector(discardMessage:)
+               forControlEvents:UIControlEventTouchUpInside];
+    
+    aView.frame = CGRectMake(0,-200,width,200); //or whatever coordinates you need
+    [self.tableView addSubview:aView];
+    
+    [UIView animateWithDuration:0.5f
+                          delay:0.0f
+                        options:UIViewAnimationCurveEaseInOut
+                     animations:^{
+                         aView.frame = CGRectMake(0,0,width,200);
+                         
+                     }
+                     completion:^(BOOL finished) {
+                     }];
+
+}
+
+
+-(void) discardMessage:(UIButton *) sender{
+    
+
+    CGRect mainframe = [[UIScreen mainScreen] bounds];
+    float width = mainframe.size.width;
+    
+    [UIView animateWithDuration:0.5f
+                          delay:0.0f
+                        options:UIViewAnimationCurveEaseInOut
+                     animations:^{
+                         aView.frame = CGRectMake(0,-200,width,200);
+
+                     }
+                     completion:^(BOOL finished) {
+                         [aView removeFromSuperview];
+                     }];
+}
+
 
 @end
