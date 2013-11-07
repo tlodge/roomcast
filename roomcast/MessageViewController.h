@@ -1,5 +1,5 @@
 //
-//  SendViewController.h
+//  MessageViewController.h
 //  roomcast
 //
 //  Created by Tom Lodge on 07/11/2013.
@@ -7,9 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "MessageView.h"
 #import "Message.h"
+#import "DetailViewController.h"
 
-@interface SendViewController : UITableViewController
+@interface MessageViewController : UITableViewController
 @property (nonatomic, strong) NSMutableArray *messages;
 @end

@@ -12,9 +12,12 @@
 		A317AC2C18294B6700BE7E46 /* registerheader.png in Resources */ = {isa = PBXBuildFile; fileRef = A317AC2A18294B6700BE7E46 /* registerheader.png */; };
 		A317AC2D18294B6700BE7E46 /* registerheader2.png in Resources */ = {isa = PBXBuildFile; fileRef = A317AC2B18294B6700BE7E46 /* registerheader2.png */; };
 		A317AC30182A7AD600BE7E46 /* InitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A317AC2F182A7AD600BE7E46 /* InitViewController.m */; };
-		A317AC33182AE28300BE7E46 /* SendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A317AC32182AE28300BE7E46 /* SendViewController.m */; };
 		A317AC35182AE82B00BE7E46 /* MessageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A317AC34182AE82B00BE7E46 /* MessageView.xib */; };
 		A317AC38182AE99700BE7E46 /* MessageView.m in Sources */ = {isa = PBXBuildFile; fileRef = A317AC37182AE99700BE7E46 /* MessageView.m */; };
+		A317AC3B182BCFDD00BE7E46 /* SendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A317AC3A182BCFDD00BE7E46 /* SendViewController.m */; };
+		A317AC3E182BD50C00BE7E46 /* Message.m in Sources */ = {isa = PBXBuildFile; fileRef = A317AC3D182BD50C00BE7E46 /* Message.m */; };
+		A317AC41182BD95C00BE7E46 /* MessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A317AC40182BD95C00BE7E46 /* MessageViewController.m */; };
+		A317AC44182BE06100BE7E46 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A317AC43182BE06100BE7E46 /* DetailViewController.m */; };
 		A360581C182191EE0026615B /* FormTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A360581B182191EE0026615B /* FormTableViewController.m */; };
 		A360581F1821A1680026615B /* CustomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A360581E1821A1680026615B /* CustomCell.m */; };
 		A3605822182297570026615B /* PassCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A3605821182297570026615B /* PassCell.m */; };
@@ -61,11 +64,17 @@
 		A317AC2B18294B6700BE7E46 /* registerheader2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = registerheader2.png; sourceTree = "<group>"; };
 		A317AC2E182A7AD600BE7E46 /* InitViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InitViewController.h; sourceTree = "<group>"; };
 		A317AC2F182A7AD600BE7E46 /* InitViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InitViewController.m; sourceTree = "<group>"; };
-		A317AC31182AE28300BE7E46 /* SendViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SendViewController.h; sourceTree = "<group>"; };
-		A317AC32182AE28300BE7E46 /* SendViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SendViewController.m; sourceTree = "<group>"; };
 		A317AC34182AE82B00BE7E46 /* MessageView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MessageView.xib; sourceTree = "<group>"; };
 		A317AC36182AE99700BE7E46 /* MessageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageView.h; sourceTree = "<group>"; };
 		A317AC37182AE99700BE7E46 /* MessageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageView.m; sourceTree = "<group>"; };
+		A317AC39182BCFDD00BE7E46 /* SendViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SendViewController.h; sourceTree = "<group>"; };
+		A317AC3A182BCFDD00BE7E46 /* SendViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SendViewController.m; sourceTree = "<group>"; };
+		A317AC3C182BD50C00BE7E46 /* Message.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Message.h; sourceTree = "<group>"; };
+		A317AC3D182BD50C00BE7E46 /* Message.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Message.m; sourceTree = "<group>"; };
+		A317AC3F182BD95C00BE7E46 /* MessageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageViewController.h; sourceTree = "<group>"; };
+		A317AC40182BD95C00BE7E46 /* MessageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageViewController.m; sourceTree = "<group>"; };
+		A317AC42182BE06100BE7E46 /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
+		A317AC43182BE06100BE7E46 /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 		A360581A182191EE0026615B /* FormTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FormTableViewController.h; sourceTree = "<group>"; };
 		A360581B182191EE0026615B /* FormTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FormTableViewController.m; sourceTree = "<group>"; };
 		A360581D1821A1680026615B /* CustomCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomCell.h; sourceTree = "<group>"; };
@@ -178,11 +187,17 @@
 				A37C6EB7181952040042489D /* AppDelegate.h */,
 				A37C6EB8181952040042489D /* AppDelegate.m */,
 				A37C6EBA181952040042489D /* Main.storyboard */,
+				A317AC3F182BD95C00BE7E46 /* MessageViewController.h */,
+				A317AC40182BD95C00BE7E46 /* MessageViewController.m */,
+				A317AC42182BE06100BE7E46 /* DetailViewController.h */,
+				A317AC43182BE06100BE7E46 /* DetailViewController.m */,
 				A317AC34182AE82B00BE7E46 /* MessageView.xib */,
 				A317AC36182AE99700BE7E46 /* MessageView.h */,
 				A317AC37182AE99700BE7E46 /* MessageView.m */,
-				A317AC31182AE28300BE7E46 /* SendViewController.h */,
-				A317AC32182AE28300BE7E46 /* SendViewController.m */,
+				A317AC3C182BD50C00BE7E46 /* Message.h */,
+				A317AC3D182BD50C00BE7E46 /* Message.m */,
+				A317AC39182BCFDD00BE7E46 /* SendViewController.h */,
+				A317AC3A182BCFDD00BE7E46 /* SendViewController.m */,
 				A37C6EBD181952040042489D /* ViewController.h */,
 				A37C6EBE181952040042489D /* ViewController.m */,
 				A37C6EEE181971020042489D /* AuthViewController.h */,
@@ -363,13 +378,16 @@
 				A317AC30182A7AD600BE7E46 /* InitViewController.m in Sources */,
 				A360582518229C840026615B /* PickerCell.m in Sources */,
 				A37C6EF0181971020042489D /* AuthViewController.m in Sources */,
+				A317AC44182BE06100BE7E46 /* DetailViewController.m in Sources */,
 				A37C6EBF181952040042489D /* ViewController.m in Sources */,
+				A317AC41182BD95C00BE7E46 /* MessageViewController.m in Sources */,
 				A37C6EB9181952040042489D /* AppDelegate.m in Sources */,
 				A3605822182297570026615B /* PassCell.m in Sources */,
 				A37C6EB5181952040042489D /* main.m in Sources */,
 				A360581F1821A1680026615B /* CustomCell.m in Sources */,
 				A360581C182191EE0026615B /* FormTableViewController.m in Sources */,
-				A317AC33182AE28300BE7E46 /* SendViewController.m in Sources */,
+				A317AC3E182BD50C00BE7E46 /* Message.m in Sources */,
+				A317AC3B182BCFDD00BE7E46 /* SendViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

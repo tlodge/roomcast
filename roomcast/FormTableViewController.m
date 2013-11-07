@@ -140,7 +140,6 @@
 
 
 - (IBAction)registerbutton:(id)sender{
-    NSLog(@"nice!!");
 }
 
 

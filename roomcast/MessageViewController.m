@@ -1,47 +1,47 @@
 //
-//  SendViewController.m
+//  MessageViewController.m
 //  roomcast
 //
 //  Created by Tom Lodge on 07/11/2013.
 //  Copyright (c) 2013 Tom Lodge. All rights reserved.
 //
 
-#import "SendViewController.h"
+#import "MessageViewController.h"
 
-@interface SendViewController ()
+@interface MessageViewController ()
 
 @end
 
-MessageView* aView;
-
-@implementation SendViewController
+@implementation MessageViewController
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
-    NSLog(@"am her!");
+   
+
     self = [super initWithStyle:style];
     if (self) {
-        NSLog(@"Ok am initing!!");
+       
         // Custom initialization
-        self.messages = [NSMutableArray arrayWithCapacity: 20];
-        Message *m = [[Message alloc] init];
-        m.from = @"Tom";
-        m.body = @"Hello everyone!";
-        [self.messages addObject: m];
-        
-        m = [[Message alloc] init];
-        m.from = @"Simon";
-        m.body = @"Hello everyone again!!";
-        [self.messages addObject: m];
-
     }
     return self;
 }
 
 - (void)viewDidLoad
 {
-    [super viewDidLoad];
+   
     
+    [super viewDidLoad];
+    self.messages = [NSMutableArray arrayWithCapacity: 20];
+    Message *m = [[Message alloc] init];
+    m.from = @"Tom";
+    m.body = @"Hello everyone!";
+    [self.messages addObject: m];
+    
+    m = [[Message alloc] init];
+    m.from = @"Simon";
+    m.body = @"Hello everyone again!!";
+    [self.messages addObject: m];
+
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -60,25 +60,29 @@ MessageView* aView;
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    NSLog(@"am returning %d", [self.messages count]);
     return [self.messages count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"MessageCell";
-    
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     Message *message = [self.messages objectAtIndex:indexPath.row];
-    cell.textLabel.text = message.from;
-    cell.detailTextLabel.text = message.body;
-    NSLog(@"retruning a cell!!");
+    UILabel *fromLabel  = (UILabel*)[cell viewWithTag:1];
+    UILabel *bodyLabel  = (UILabel*)[cell viewWithTag:2];
+    UILabel *repliesLabel = (UILabel*)[cell viewWithTag:3];
+
+    fromLabel.text = message.from;
+    bodyLabel.text = message.body;
+    repliesLabel.text = @"2";
+    
+  
+
     return cell;
 }
 
@@ -121,7 +125,7 @@ MessageView* aView;
 }
 */
 
-/*
+
 #pragma mark - Navigation
 
 // In a story board-based application, you will often want to do a little preparation before navigation
@@ -129,36 +133,12 @@ MessageView* aView;
 {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
-}
-
- */
-
-/*
-- (IBAction)sendMessage:(id)sender {
-    NSArray *nibContents = [[NSBundle mainBundle] loadNibNamed:@"MessageView"
-                                                         owner:self
-                                                       options:nil];
-    //I'm assuming here that your nib's top level contains only the view
-    //you want, so it's the only item in the array.
-    CGRect mainframe = [[UIScreen mainScreen] bounds];
-    float width = mainframe.size.width;
-    float height = mainframe.size.height;
-    
-    aView = [nibContents objectAtIndex:0];
-    [aView.testButton addTarget:self action:@selector(attemptLogin:)
-               forControlEvents:UIControlEventTouchUpInside];
-    
-    aView.frame = CGRectMake(0,height,width,200); //or whatever coordinates you need
-    [self.view addSubview:aView];
-    [UIView beginAnimations:@"SwitchToMessageView" context:nil];
-    [UIView setAnimationDuration:0.5];
-    aView.frame = CGRectMake(0,height-250,width,200);
-    [UIView commitAnimations];
+    NSLog(@"am preparing for segue!");
+    DetailViewController* dv = (DetailViewController *) [segue destinationViewController];
+    [dv setText:@"not convinced"];
     
 }
 
--(void)attemptLogin:(UIButton *)sender{
-    [aView removeFromSuperview];
-}*/
+ 
 
 @end
