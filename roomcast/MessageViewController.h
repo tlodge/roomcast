@@ -10,6 +10,7 @@
 #import "Message.h"
 #import "DetailViewController.h"
 #import "MessageView.h"
+#import "DestinationViewController.h"
 
 @interface MessageViewController : UITableViewController
 

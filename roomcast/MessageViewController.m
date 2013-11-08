@@ -149,21 +149,22 @@ MessageView* aView;
  
 - (IBAction)sendMessage:(id)sender {
     
-    NSLog(@"OK AM HERE");
-   
     CGRect mainframe = [[UIScreen mainScreen] bounds];
     float width = mainframe.size.width;
-    [aView.testButton addTarget:self action:@selector(discardMessage:)
+    
+    [aView.backButton addTarget:self action:@selector(discardMessage:)
                forControlEvents:UIControlEventTouchUpInside];
     
-    aView.frame = CGRectMake(0,-200,width,200); //or whatever coordinates you need
+    [aView.whotoButton addTarget:self action:@selector(pushDestination:) forControlEvents:UIControlEventTouchUpInside];
+    
+    aView.frame = CGRectMake(0,-313,width,313); //or whatever coordinates you need
     [self.tableView addSubview:aView];
     
     [UIView animateWithDuration:0.5f
                           delay:0.0f
                         options:UIViewAnimationCurveEaseInOut
                      animations:^{
-                         aView.frame = CGRectMake(0,0,width,200);
+                         aView.frame = CGRectMake(0,0,width,313);
                          
                      }
                      completion:^(BOOL finished) {
@@ -171,9 +172,15 @@ MessageView* aView;
 
 }
 
+-(void) pushDestination:(UIButton *) sender{
+    NSLog(@"nicely done am here now!");
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    DestinationViewController *destination = [storyboard instantiateViewControllerWithIdentifier:@"destination"];
+    [self.navigationController pushViewController:destination animated:YES];
+}
 
 -(void) discardMessage:(UIButton *) sender{
-    
+    NSLog(@"am in discard message!!!");
 
     CGRect mainframe = [[UIScreen mainScreen] bounds];
     float width = mainframe.size.width;
@@ -182,7 +189,7 @@ MessageView* aView;
                           delay:0.0f
                         options:UIViewAnimationCurveEaseInOut
                      animations:^{
-                         aView.frame = CGRectMake(0,-200,width,200);
+                         aView.frame = CGRectMake(0,-313,width,313);
 
                      }
                      completion:^(BOOL finished) {

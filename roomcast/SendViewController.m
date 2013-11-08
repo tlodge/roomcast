@@ -78,7 +78,6 @@ MessageView* aView;
     Message *message = [self.messages objectAtIndex:indexPath.row];
     cell.textLabel.text = message.from;
     cell.detailTextLabel.text = message.body;
-    NSLog(@"retruning a cell!!");
     return cell;
 }
 

@@ -10,6 +10,8 @@
 
 @implementation MessageView
 
+@synthesize backButton;
+
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
@@ -28,4 +30,6 @@
 }
 */
 
+- (IBAction)sendMessage:(id)sender {
+}
 @end
