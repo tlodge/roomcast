@@ -77,7 +77,10 @@ MessageView* aView;
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"MessageCell";
+    NSString *CellIdentifier = @"LightGreenMessageCell";
+    if (indexPath.row % 2 == 0)
+        CellIdentifier = @"DarkGreenMessageCell";
+    
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     Message *message = [self.messages objectAtIndex:indexPath.row];
     UILabel *fromLabel  = (UILabel*)[cell viewWithTag:1];
@@ -87,9 +90,6 @@ MessageView* aView;
     fromLabel.text = message.from;
     bodyLabel.text = message.body;
     repliesLabel.text = @"2";
-    
-  
-
     return cell;
 }
 
@@ -141,9 +141,8 @@ MessageView* aView;
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
     NSLog(@"am preparing for segue!");
-    DetailViewController* dv = (DetailViewController *) [segue destinationViewController];
-    [dv setText:@"not convinced"];
-    
+    ChatViewController* cvc = (ChatViewController *) [segue destinationViewController];
+    [cvc chatID:@"mychatid"];
 }
 
  

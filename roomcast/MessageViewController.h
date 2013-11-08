@@ -8,9 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "Message.h"
-#import "DetailViewController.h"
-#import "MessageView.h"
 #import "DestinationViewController.h"
+#import "MessageView.h"
+#import "ChatViewController.h"
 
 @interface MessageViewController : UITableViewController
 
