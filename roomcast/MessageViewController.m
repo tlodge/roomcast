@@ -40,12 +40,12 @@ MessageView* aView;
     
     self.messages = [NSMutableArray arrayWithCapacity: 20];
     Message *m = [[Message alloc] init];
-    m.from = @"Tom";
+    m.from = @"11a";
     m.body = @"Hello everyone!";
     [self.messages addObject: m];
     
     m = [[Message alloc] init];
-    m.from = @"Simon";
+    m.from = @"15b";
     m.body = @"Hello everyone again!!";
     [self.messages addObject: m];
 
