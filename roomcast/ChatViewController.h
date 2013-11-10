@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "LeftMessageCell.h"
+#import "RightMessageCell.h"
 
 @interface ChatViewController : UITableViewController
 -(void) chatID: (NSString *) chatID;

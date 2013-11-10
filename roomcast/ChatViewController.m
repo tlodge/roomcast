@@ -46,24 +46,47 @@
 {
 #warning Potentially incomplete method implementation.
     // Return the number of sections.
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
 #warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return 0;
+    return 2;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+   
+    if (indexPath.row % 2 == 0){
+        LeftMessageCell * cell = [[LeftMessageCell alloc] initWithFrame:CGRectMake(0,0,320,150)];
+        return cell;
+    }else{
+        RightMessageCell *cell = (RightMessageCell *)[tableView dequeueReusableCellWithIdentifier:@"RightMessageCell"];
+        
+        cell.messageLabel.text = @"I am on the right!";
+        
+        return cell;
     
-    // Configure the cell...
+    }
+    return nil;
     
-    return cell;
+}
+
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.row % 2 == 0){
+        LeftMessageCell *cell = (LeftMessageCell *)[tableView dequeueReusableCellWithIdentifier:@"LeftMessageCell"];
+        cell.tlc.frame = CGRectMake(0,0,100,500);
+        NSLog(@"am here..adjh");
+    }
+    
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+
+    return 150;
 }
 
 /*
