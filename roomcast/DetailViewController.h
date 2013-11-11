@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "LeftMessageCell.h"
+#import "MessageCell.h"
 
 @interface DetailViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UILabel *testLabel;

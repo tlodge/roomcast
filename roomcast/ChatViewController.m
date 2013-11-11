@@ -58,33 +58,25 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-   
-    if (indexPath.row % 2 == 0){
-        LeftMessageCell * cell = [[LeftMessageCell alloc] init];
-        return cell;
-    }else{
-        RightMessageCell *cell = (RightMessageCell *)[tableView dequeueReusableCellWithIdentifier:@"RightMessageCell"];
-        
-        cell.messageLabel.text = @"I am on the right!";
-        
-        return cell;
-    
-    }
-    return nil;
-    
+    MessageCell * cell = [[MessageCell alloc] init];
+    return cell;
 }
 
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.row % 2 == 0){
         //at this point, height will have been calculated!
-        [(LeftMessageCell *)cell initWithMessage: @"this might be a bit better!" forHeight: cell.frame.size.height];
+        [(MessageCell *)cell initWithMessage: @"this might be a bit better!" forHeight: cell.frame.size.height forOriention:0];
+    }else{
+        [(MessageCell *)cell initWithMessage: @"this might be a bit better again!" forHeight: cell.frame.size.height forOriention:1];
     }
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     //get the text from an array, and set height accordingly!
-    return 150;
+    if (indexPath.row % 2 == 0)
+        return 80;
+    return 60;
 }
 
 /*
