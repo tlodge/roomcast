@@ -60,7 +60,7 @@
 {
    
     if (indexPath.row % 2 == 0){
-        LeftMessageCell * cell = [[LeftMessageCell alloc] initWithFrame:CGRectMake(0,0,320,150)];
+        LeftMessageCell * cell = [[LeftMessageCell alloc] init];
         return cell;
     }else{
         RightMessageCell *cell = (RightMessageCell *)[tableView dequeueReusableCellWithIdentifier:@"RightMessageCell"];
@@ -77,15 +77,13 @@
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.row % 2 == 0){
-        LeftMessageCell *cell = (LeftMessageCell *)[tableView dequeueReusableCellWithIdentifier:@"LeftMessageCell"];
-        cell.tlc.frame = CGRectMake(0,0,100,500);
-        NSLog(@"am here..adjh");
+        //at this point, height will have been calculated!
+        [(LeftMessageCell *)cell initWithMessage: @"this might be a bit better!" forHeight: cell.frame.size.height];
     }
-    
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-
+    //get the text from an array, and set height accordingly!
     return 150;
 }
 

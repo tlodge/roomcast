@@ -10,16 +10,35 @@
 
 @implementation LeftMessageCell
 
+float height = 44;
+
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
-        UIImageView* imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 320, 150)];
-        imageView.image = [UIImage imageNamed:@"continue.png"];
-        [self.contentView addSubview:imageView];
+        
+        
+        
 
     }
     return self;
+}
+
+-(void) initWithMessage: (NSString *) message forHeight:(CGFloat) height{
+    
+    UIImageView* imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 180, height)];
+    
+    imageView.image = [[UIImage imageNamed:@"bubble.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(15,20,27,20) resizingMode:UIImageResizingModeTile];
+    
+    [self.contentView addSubview:imageView];
+
+    UILabel *myMessageLabel = [[UILabel alloc] initWithFrame:CGRectMake(18, 15, 155, height-20)];
+    [myMessageLabel setFont:[UIFont fontWithName:@"Trebuchet MS" size:14]];
+    myMessageLabel.textColor = [UIColor whiteColor];
+    myMessageLabel.text = message;
+    myMessageLabel.numberOfLines = 6;
+    [myMessageLabel sizeToFit];
+    [self.contentView addSubview:myMessageLabel];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated

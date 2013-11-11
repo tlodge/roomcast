@@ -61,6 +61,7 @@
 		A3F88D33182EE77A00E3BFB0 /* apartment_light.png in Resources */ = {isa = PBXBuildFile; fileRef = A3F88D31182EE77A00E3BFB0 /* apartment_light.png */; };
 		A3F88D36183019C000E3BFB0 /* LeftMessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F88D35183019C000E3BFB0 /* LeftMessageCell.m */; };
 		A3F88D3918301EF700E3BFB0 /* RightMessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F88D3818301EF700E3BFB0 /* RightMessageCell.m */; };
+		A3F88D471831466600E3BFB0 /* bubble.png in Resources */ = {isa = PBXBuildFile; fileRef = A3F88D461831466600E3BFB0 /* bubble.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -149,6 +150,7 @@
 		A3F88D35183019C000E3BFB0 /* LeftMessageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeftMessageCell.m; sourceTree = "<group>"; };
 		A3F88D3718301EF700E3BFB0 /* RightMessageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RightMessageCell.h; sourceTree = "<group>"; };
 		A3F88D3818301EF700E3BFB0 /* RightMessageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RightMessageCell.m; sourceTree = "<group>"; };
+		A3F88D461831466600E3BFB0 /* bubble.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bubble.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -187,6 +189,7 @@
 		A37C6E9C181952040042489D = {
 			isa = PBXGroup;
 			children = (
+				A3F88D461831466600E3BFB0 /* bubble.png */,
 				A37C6EAE181952040042489D /* roomcast */,
 				A37C6ECD181952040042489D /* roomcastTests */,
 				A37C6EA7181952040042489D /* Frameworks */,
@@ -413,6 +416,7 @@
 				A317AC46182C43EC00BE7E46 /* textback.png in Resources */,
 				A317AC5F182D2CED00BE7E46 /* backbutton.png in Resources */,
 				A3F88D25182EDFA400E3BFB0 /* responses_light.png in Resources */,
+				A3F88D471831466600E3BFB0 /* bubble.png in Resources */,
 				A317AC5A182D2B7F00BE7E46 /* whotobutton.png in Resources */,
 				A317AC2D18294B6700BE7E46 /* registerheader2.png in Resources */,
 				A300E0B01827B71200783E91 /* registerbutton.png in Resources */,

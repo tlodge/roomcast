@@ -11,4 +11,5 @@
 @interface LeftMessageCell : UITableViewCell
 @property (nonatomic, weak) IBOutlet UILabel *messageLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *tlc;
+-(void) initWithMessage: (NSString *) message forHeight: (CGFloat) height;
 @end
