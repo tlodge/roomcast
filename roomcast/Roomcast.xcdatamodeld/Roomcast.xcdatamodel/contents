@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="3396" systemVersion="12F45" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
-    <entity name="Conversation" syncable="YES">
+    <entity name="Conversation" representedClassName="Conversation" syncable="YES">
         <attribute name="initiator" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="started" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="teaser" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="messages" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Message" inverseName="conversation" inverseEntity="Message" syncable="YES"/>
     </entity>
-    <entity name="Message" syncable="YES">
+    <entity name="Message" representedClassName="Message" syncable="YES">
         <attribute name="body" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="from" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="sent" optional="YES" attributeType="Date" syncable="YES"/>

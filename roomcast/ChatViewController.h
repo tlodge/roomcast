@@ -8,7 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "MessageCell.h"
+#import "Message.h"
 
 @interface ChatViewController : UITableViewController
 -(void) chatID: (NSString *) chatID;
+@property (strong, nonatomic) NSArray* messages;
 @end

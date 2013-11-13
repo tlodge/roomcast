@@ -2,13 +2,20 @@
 //  Message.h
 //  roomcast
 //
-//  Created by Tom Lodge on 07/11/2013.
+//  Created by Tom Lodge on 12/11/2013.
 //  Copyright (c) 2013 Tom Lodge. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
+#import <CoreData/CoreData.h>
 
-@interface Message : NSObject
-@property (nonatomic, copy) NSString *from;
-@property (nonatomic, copy) NSString *body;
+@class Conversation;
+
+@interface Message : NSManagedObject
+
+@property (nonatomic, retain) NSString * body;
+@property (nonatomic, retain) NSString * from;
+@property (nonatomic, retain) NSDate * sent;
+@property (nonatomic, retain) Conversation *conversation;
+
 @end

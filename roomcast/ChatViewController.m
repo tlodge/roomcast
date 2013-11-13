@@ -14,6 +14,8 @@
 
 @implementation ChatViewController
 
+@synthesize messages;
+
 - (id)initWithStyle:(UITableViewStyle)style
 {
     self = [super initWithStyle:style];
@@ -44,16 +46,13 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-#warning Potentially incomplete method implementation.
     // Return the number of sections.
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
-    // Return the number of rows in the section.
-    return 2;
+    return [messages count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -64,11 +63,13 @@
 
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    Message *m = [messages objectAtIndex:indexPath.row];
+    
     if (indexPath.row % 2 == 0){
         //at this point, height will have been calculated!
-        [(MessageCell *)cell initWithMessage: @"this might be a bit better!" forHeight: cell.frame.size.height forOriention:0];
+        [(MessageCell *)cell initWithMessage: m.body forHeight: cell.frame.size.height forOriention:0];
     }else{
-        [(MessageCell *)cell initWithMessage: @"this might be a bit better again!" forHeight: cell.frame.size.height forOriention:1];
+        [(MessageCell *)cell initWithMessage: m.body forHeight: cell.frame.size.height forOriention:1];
     }
 }
 

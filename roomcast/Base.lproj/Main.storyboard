@@ -292,7 +292,7 @@
                                     <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="sendMessage:" destination="XqM-VF-Ega" eventType="touchUpInside" id="ozm-fm-RxK"/>
+                                    <action selector="composeMessage:" destination="XqM-VF-Ega" eventType="touchUpInside" id="1Nx-q3-m74"/>
                                 </connections>
                             </button>
                         </barButtonItem>

@@ -7,12 +7,18 @@
 //
 
 #import "MessageViewController.h"
+#import "Conversation.h"
+#import "Message.h"
 
 @interface MessageViewController ()
 
 @end
 
 @implementation MessageViewController
+
+@synthesize conversations;
+@synthesize managedObjectContext;
+@synthesize selectedConversation;
 
 MessageView* aView;
 
@@ -37,17 +43,19 @@ MessageView* aView;
                                                          owner:self
                                                        options:nil];
     aView = [nibContents objectAtIndex:0];
+    id delegate = [[UIApplication sharedApplication] delegate];
+    self.managedObjectContext = [delegate managedObjectContext];
     
-    self.messages = [NSMutableArray arrayWithCapacity: 20];
-    Message *m = [[Message alloc] init];
-    m.from = @"11a";
-    m.body = @"Hello everyone!";
-    [self.messages addObject: m];
+
     
-    m = [[Message alloc] init];
-    m.from = @"15b";
-    m.body = @"Hello everyone again!!";
-    [self.messages addObject: m];
+    NSError *error;
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Conversation" inManagedObjectContext:self.managedObjectContext];
+    
+    [fetchRequest setEntity:entity];
+    
+    NSArray *fetchedObjects = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
+    self.conversations = [NSMutableArray arrayWithArray:fetchedObjects];
 
     
     // Uncomment the following line to preserve selection between presentations.
@@ -72,7 +80,7 @@ MessageView* aView;
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [self.messages count];
+    return [conversations count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -82,14 +90,18 @@ MessageView* aView;
         CellIdentifier = @"DarkGreenMessageCell";
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-    Message *message = [self.messages objectAtIndex:indexPath.row];
+    
+   Conversation *conversation = [self.conversations objectAtIndex:indexPath.row];
+    
+    
+    //Message *message = [self.messages objectAtIndex:indexPath.row];
     UILabel *fromLabel  = (UILabel*)[cell viewWithTag:1];
     UILabel *bodyLabel  = (UILabel*)[cell viewWithTag:2];
     UILabel *repliesLabel = (UILabel*)[cell viewWithTag:3];
 
-    fromLabel.text = message.from;
-    bodyLabel.text = message.body;
-    repliesLabel.text = @"2";
+    fromLabel.text = conversation.initiator;
+    bodyLabel.text = conversation.teaser;
+    repliesLabel.text = [NSString stringWithFormat:@"%d",[conversation.messages count]];
     return cell;
 }
 
@@ -138,23 +150,39 @@ MessageView* aView;
 // In a story board-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
+    NSIndexPath *ip = [self.tableView indexPathForCell: (UITableViewCell *) sender];
+    self.selectedConversation = [conversations objectAtIndex:ip.row];
+    
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
     NSLog(@"am preparing for segue!");
     ChatViewController* cvc = (ChatViewController *) [segue destinationViewController];
+    
+    NSSet *set = [selectedConversation valueForKey:@"messages"];
+    
+    for (Message *m in set){
+        NSLog(@"message is %@", m.body);
+    }
+    
+    cvc.messages = [set allObjects];
     [cvc chatID:@"mychatid"];
 }
 
  
-- (IBAction)sendMessage:(id)sender {
+- (IBAction)composeMessage:(id)sender {
     
     CGRect mainframe = [[UIScreen mainScreen] bounds];
     float width = mainframe.size.width;
     
+    [aView addTarget:self action:@selector(closeKeyboard:) forControlEvents:UIControlEventAllTouchEvents];
+    
     [aView.backButton addTarget:self action:@selector(discardMessage:)
                forControlEvents:UIControlEventTouchUpInside];
     
+    [aView.sendButton addTarget:self action:@selector(sendMessage:) forControlEvents:UIControlEventTouchUpInside];
+    
     [aView.whotoButton addTarget:self action:@selector(pushDestination:) forControlEvents:UIControlEventTouchUpInside];
+    
     
     aView.frame = CGRectMake(0,-313,width,313); //or whatever coordinates you need
     [self.tableView addSubview:aView];
@@ -171,15 +199,48 @@ MessageView* aView;
 
 }
 
+-(void) closeKeyboard:(UIControl *) sender{
+    [sender endEditing:YES];
+}
+
 -(void) pushDestination:(UIButton *) sender{
-    NSLog(@"nicely done am here now!");
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     DestinationViewController *destination = [storyboard instantiateViewControllerWithIdentifier:@"destination"];
     [self.navigationController pushViewController:destination animated:YES];
 }
 
+-(void) sendMessage:(UIButton *)sender{
+    NSLog(@"sending! %@", aView.messageView.text);
+    id delegate = [[UIApplication sharedApplication] delegate];
+    self.managedObjectContext = [delegate managedObjectContext];
+    
+    Conversation *conversation = [NSEntityDescription
+                                  insertNewObjectForEntityForName:@"Conversation"
+                                  inManagedObjectContext:self.managedObjectContext];
+    
+    [conversation setValue:aView.messageView.text forKey:@"teaser"];
+    [conversation setValue:@"1D" forKey:@"initiator"];
+    [conversation setValue:[NSDate date] forKey:@"started"];
+    
+    Message *message = [NSEntityDescription
+                         insertNewObjectForEntityForName:@"Message"
+                         inManagedObjectContext:self.managedObjectContext];
+    
+    [message setValue:@"1D" forKey:@"from"];
+    [message setValue:aView.messageView.text forKey:@"body"];
+    [message setValue:[NSDate date] forKey:@"sent"];
+    [message setValue:conversation forKey:@"conversation"];
+    
+    NSError *error;
+    if (![self.managedObjectContext save:&error]){
+        NSLog(@"whoops! couldn't save %@", [error localizedDescription]);
+    }
+    
+    [self.conversations addObject:conversation];
+    [self.tableView reloadData];
+}
+
 -(void) discardMessage:(UIButton *) sender{
-    NSLog(@"am in discard message!!!");
 
     CGRect mainframe = [[UIScreen mainScreen] bounds];
     float width = mainframe.size.width;
@@ -195,6 +256,8 @@ MessageView* aView;
                          [aView removeFromSuperview];
                      }];
 }
+
+#pragma textfield deligate
 
 
 @end

@@ -48,9 +48,6 @@
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
-                    <connections>
-                        <action selector="sendMessage:" destination="1" eventType="touchUpInside" id="Vpn-YO-kHT"/>
-                    </connections>
                 </button>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="who to?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qcg-hg-rLQ">
                     <rect key="frame" x="11" y="155" width="62" height="21"/>
@@ -108,11 +105,11 @@
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
-                <outlet property="backButton" destination="VVL-wr-3l6" id="odE-tU-Tkq"/>
-                <outlet property="messageView" destination="L71-1w-Q1u" id="sdG-fY-KEr"/>
-                <outlet property="numberButton" destination="Nwr-mw-3el" id="ZqK-LY-eYI"/>
-                <outlet property="sendButton" destination="yog-cG-3Ws" id="cQK-XM-ft1"/>
-                <outlet property="whotoButton" destination="xx2-1j-24T" id="04s-6r-u4K"/>
+                <outlet property="backButton" destination="VVL-wr-3l6" id="r7G-7z-hKE"/>
+                <outlet property="messageView" destination="L71-1w-Q1u" id="y6S-z0-FzI"/>
+                <outlet property="numberButton" destination="Nwr-mw-3el" id="w0B-fF-xzw"/>
+                <outlet property="sendButton" destination="yog-cG-3Ws" id="ncz-sx-jE6"/>
+                <outlet property="whotoButton" destination="xx2-1j-24T" id="a8D-8Q-GSI"/>
             </connections>
         </view>
     </objects>

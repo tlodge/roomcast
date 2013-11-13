@@ -7,7 +7,8 @@
 //
 
 #import "AppDelegate.h"
-
+#import "Conversation.h"
+#import "Message.h"
 
 @implementation AppDelegate
 
@@ -20,30 +21,30 @@
    //self.client = [[SMClient alloc] initWithAPIVersion:@"0" publicKey:@"25697993-b276-4e20-b921-bf80d10ff543"];
   
     NSManagedObjectContext *context = [self managedObjectContext];
-    
-    NSManagedObject *conversation = [NSEntityDescription
+    /*
+    Conversation *conversation = [NSEntityDescription
                                       insertNewObjectForEntityForName:@"Conversation"
                                       inManagedObjectContext:context];
     
     [conversation setValue:@"1A" forKey:@"initiator"];
-    [conversation setValue:@"our bins" forKey:@"teaser"];
+    [conversation setValue:@"something new now" forKey:@"teaser"];
     [conversation setValue:[NSDate date] forKey:@"started"];
     
-    NSManagedObject *message1 = [NSEntityDescription
+    Message *message1 = [NSEntityDescription
                                       insertNewObjectForEntityForName:@"Message"
                                       inManagedObjectContext:context];
     
     [message1 setValue:@"1A" forKey:@"from"];
-    [message1 setValue:@"our bins smell pretty bad at the moment.  why?" forKey:@"body"];
+    [message1 setValue:@"this is something new and nice!" forKey:@"body"];
     [message1 setValue:[NSDate date] forKey:@"sent"];
     [message1 setValue:conversation forKey:@"conversation"];
     
-    NSManagedObject *message2 = [NSEntityDescription
+    Message *message2 = [NSEntityDescription
                                  insertNewObjectForEntityForName:@"Message"
                                  inManagedObjectContext:context];
     
-    [message2 setValue:@"1B" forKey:@"from"];
-    [message2 setValue:@"agreed - they're absolutely awful!" forKey:@"body"];
+    [message2 setValue:@"2B" forKey:@"from"];
+    [message2 setValue:@"will it play nicely??" forKey:@"body"];
     [message2 setValue:[NSDate date] forKey:@"sent"];
     [message2 setValue:conversation forKey:@"conversation"];
     
@@ -51,20 +52,9 @@
     if (![context save:&error]){
         NSLog(@"whoops! couldn't save %@", [error localizedDescription]);
     }
+    */
     
-    
-    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Conversation" inManagedObjectContext:context];
-    [fetchRequest setEntity:entity];
-    NSArray *fetchedObjects = [context executeFetchRequest:fetchRequest error:&error];
-    
-    for (NSManagedObject *info in fetchedObjects){
-        NSLog(@"Init %@", [info valueForKey:@"initiator"]);
-        NSManagedObject *messages = [info valueForKey:@"messages"];
-        NSLog(@"teaser %@", [info valueForKey:@"teaser"]);
-    }
-    
-    
+           
     // Override point for customization after application launch.
     return YES;
 }
@@ -135,9 +125,7 @@
     if (__managedObjectModel != nil) {
         return __managedObjectModel;
     }
-    NSLog(@"ok am heer.......");
     NSURL *modelURL = [[NSBundle mainBundle] URLForResource:@"Roomcast" withExtension:@"momd"];
-    NSLog(@"*** the url is %@", modelURL);
     __managedObjectModel = [[NSManagedObjectModel alloc] initWithContentsOfURL:modelURL];
     return __managedObjectModel;
 }
@@ -152,19 +140,13 @@
     
     NSURL *storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"Roomcast.sqlite"];
     
-    NSLog(@"url is %@", storeURL);
-    
     if (![[NSFileManager defaultManager] fileExistsAtPath:[storeURL path]]) {
-        NSLog(@"file does not yet exist!");
         NSURL *preloadURL = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"Roomcast" ofType:@"sqlite"]];
-        
-        NSLog(@"pre load url is %@", preloadURL);
         NSError* err = nil;
         
         if (![[NSFileManager defaultManager] copyItemAtURL:preloadURL toURL:storeURL error:&err]) {
             NSLog(@"Oops, could copy preloaded data");
         }
-        NSLog(@"ok so far so good...");
     }
     
     NSError *error = nil;
