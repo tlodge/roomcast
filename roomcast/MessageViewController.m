@@ -9,6 +9,7 @@
 #import "MessageViewController.h"
 #import "Conversation.h"
 #import "Message.h"
+#import "StackMob.h"
 
 @interface MessageViewController ()
 
@@ -21,6 +22,7 @@
 @synthesize selectedConversation;
 
 MessageView* aView;
+BOOL _composing = YES;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -43,19 +45,29 @@ MessageView* aView;
                                                          owner:self
                                                        options:nil];
     aView = [nibContents objectAtIndex:0];
-    id delegate = [[UIApplication sharedApplication] delegate];
-    self.managedObjectContext = [delegate managedObjectContext];
+    
+    [aView addTarget:self action:@selector(closeKeyboard:) forControlEvents:UIControlEventAllTouchEvents];
+    
+    [aView.backButton addTarget:self action:@selector(toggleMessage:)
+               forControlEvents:UIControlEventTouchUpInside];
+    
+    [aView.sendButton addTarget:self action:@selector(sendMessage:) forControlEvents:UIControlEventTouchUpInside];
+    
+    
+    [aView.whotoButton addTarget:self action:@selector(pushDestination:) forControlEvents:UIControlEventTouchUpInside];
+    
+    
+    self.managedObjectContext = [[[SMClient defaultClient] coreDataStore] contextForCurrentThread];
+    
+     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didReceiveSyncDidFinishNotification:) name:@"FinishedSync" object:nil];
+    
+    
+    //id delegate = [[UIApplication sharedApplication] delegate];
+    //self.managedObjectContext = [delegate managedObjectContext];
     
 
     
-    NSError *error;
-    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Conversation" inManagedObjectContext:self.managedObjectContext];
-    
-    [fetchRequest setEntity:entity];
-    
-    NSArray *fetchedObjects = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
-    self.conversations = [NSMutableArray arrayWithArray:fetchedObjects];
+   
 
     
     // Uncomment the following line to preserve selection between presentations.
@@ -63,6 +75,29 @@ MessageView* aView;
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+}
+
+
+- (void)didReceiveSyncDidFinishNotification:(NSNotification *)notification
+{
+    //[self getAllApartments];
+  
+    NSFetchRequest *fetch = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Conversation" inManagedObjectContext:self.managedObjectContext];
+    
+    [fetch setEntity:entity];
+    
+    
+    [self.managedObjectContext executeFetchRequest:fetch onSuccess:^(NSArray *results) {
+        NSError *error;
+        NSArray *fetchedObjects = [self.managedObjectContext executeFetchRequest:fetch error:&error];
+        self.conversations = [NSMutableArray arrayWithArray:fetchedObjects];
+        [self.tableView reloadData];
+    } onFailure:^(NSError *error) {
+        NSLog(@"Error: %@", [error localizedDescription]);
+    }];
+
+    //
 }
 
 - (void)didReceiveMemoryWarning
@@ -91,7 +126,7 @@ MessageView* aView;
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
-   Conversation *conversation = [self.conversations objectAtIndex:indexPath.row];
+   Conversation *conversation = [self.conversations objectAtIndex:[conversations count] - indexPath.row - 1];
     
     
     //Message *message = [self.messages objectAtIndex:indexPath.row];
@@ -151,7 +186,7 @@ MessageView* aView;
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     NSIndexPath *ip = [self.tableView indexPathForCell: (UITableViewCell *) sender];
-    self.selectedConversation = [conversations objectAtIndex:ip.row];
+    self.selectedConversation = [conversations objectAtIndex: [conversations count] - ip.row - 1];
     
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
@@ -169,34 +204,8 @@ MessageView* aView;
 }
 
  
-- (IBAction)composeMessage:(id)sender {
-    
-    CGRect mainframe = [[UIScreen mainScreen] bounds];
-    float width = mainframe.size.width;
-    
-    [aView addTarget:self action:@selector(closeKeyboard:) forControlEvents:UIControlEventAllTouchEvents];
-    
-    [aView.backButton addTarget:self action:@selector(discardMessage:)
-               forControlEvents:UIControlEventTouchUpInside];
-    
-    [aView.sendButton addTarget:self action:@selector(sendMessage:) forControlEvents:UIControlEventTouchUpInside];
-    
-    [aView.whotoButton addTarget:self action:@selector(pushDestination:) forControlEvents:UIControlEventTouchUpInside];
-    
-    
-    aView.frame = CGRectMake(0,-313,width,313); //or whatever coordinates you need
-    [self.tableView addSubview:aView];
-    
-    [UIView animateWithDuration:0.5f
-                          delay:0.0f
-                        options:UIViewAnimationCurveEaseInOut
-                     animations:^{
-                         aView.frame = CGRectMake(0,0,width,313);
-                         
-                     }
-                     completion:^(BOOL finished) {
-                     }];
-
+- (IBAction)toggleMessage:(id)sender {
+    [self toggleComposer];
 }
 
 -(void) closeKeyboard:(UIControl *) sender{
@@ -210,9 +219,12 @@ MessageView* aView;
 }
 
 -(void) sendMessage:(UIButton *)sender{
+    if ([aView.messageView.text length] == 0)
+        return;
+    
     NSLog(@"sending! %@", aView.messageView.text);
-    id delegate = [[UIApplication sharedApplication] delegate];
-    self.managedObjectContext = [delegate managedObjectContext];
+    //id delegate = [[UIApplication sharedApplication] delegate];
+    //self.managedObjectContext = [delegate managedObjectContext];
     
     Conversation *conversation = [NSEntityDescription
                                   insertNewObjectForEntityForName:@"Conversation"
@@ -238,24 +250,49 @@ MessageView* aView;
     
     [self.conversations addObject:conversation];
     [self.tableView reloadData];
+    aView.messageView.text = @"";
+    [self toggleComposer];
 }
 
--(void) discardMessage:(UIButton *) sender{
-
-    CGRect mainframe = [[UIScreen mainScreen] bounds];
-    float width = mainframe.size.width;
-    
-    [UIView animateWithDuration:0.5f
-                          delay:0.0f
-                        options:UIViewAnimationCurveEaseInOut
-                     animations:^{
-                         aView.frame = CGRectMake(0,-313,width,313);
-
-                     }
-                     completion:^(BOOL finished) {
-                         [aView removeFromSuperview];
-                     }];
+-(void) toggleComposer{
+    if (_composing){
+        CGRect mainframe = [[UIScreen mainScreen] bounds];
+        float width = mainframe.size.width;
+        
+        aView.frame = CGRectMake(0,-313+self.tableView.contentOffset.y,width,313); //or whatever coordinates you need
+        [self.tableView addSubview:aView];
+        
+        [UIView animateWithDuration:0.5f
+                              delay:0.0f
+                            options:UIViewAnimationCurveEaseInOut
+                         animations:^{
+                             aView.frame = CGRectMake(0,self.tableView.contentOffset.y,width,313);
+                             
+                         }
+                         completion:^(BOOL finished) {
+                         }];
+        [self.composeButton setEnabled:NO];
+    }else{
+        CGRect mainframe = [[UIScreen mainScreen] bounds];
+        float width = mainframe.size.width;
+        
+        [UIView animateWithDuration:0.5f
+                              delay:0.0f
+                            options:UIViewAnimationCurveEaseInOut
+                         animations:^{
+                             aView.frame = CGRectMake(0,-313,width,313);
+                             
+                         }
+                         completion:^(BOOL finished) {
+                             [aView removeFromSuperview];
+                         }];
+        [self.composeButton setEnabled:YES];
+        
+    }
+    _composing = !_composing;
 }
+
+
 
 #pragma textfield deligate
 

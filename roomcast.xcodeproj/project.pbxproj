@@ -15,7 +15,6 @@
 		A317AC35182AE82B00BE7E46 /* MessageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A317AC34182AE82B00BE7E46 /* MessageView.xib */; };
 		A317AC38182AE99700BE7E46 /* MessageView.m in Sources */ = {isa = PBXBuildFile; fileRef = A317AC37182AE99700BE7E46 /* MessageView.m */; };
 		A317AC3B182BCFDD00BE7E46 /* SendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A317AC3A182BCFDD00BE7E46 /* SendViewController.m */; };
-		A317AC3E182BD50C00BE7E46 /* Message.m in Sources */ = {isa = PBXBuildFile; fileRef = A317AC3D182BD50C00BE7E46 /* Message.m */; };
 		A317AC41182BD95C00BE7E46 /* MessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A317AC40182BD95C00BE7E46 /* MessageViewController.m */; };
 		A317AC44182BE06100BE7E46 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A317AC43182BE06100BE7E46 /* DetailViewController.m */; };
 		A317AC46182C43EC00BE7E46 /* textback.png in Resources */ = {isa = PBXBuildFile; fileRef = A317AC45182C43EC00BE7E46 /* textback.png */; };
@@ -69,6 +68,9 @@
 		A3F88D8E183266AE00E3BFB0 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3F88D8D183266AE00E3BFB0 /* SystemConfiguration.framework */; };
 		A3F88D90183266BD00E3BFB0 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3F88D8F183266BD00E3BFB0 /* MobileCoreServices.framework */; };
 		A3F88DEE18329C9700E3BFB0 /* Roomcast.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A3F88DEC18329C9700E3BFB0 /* Roomcast.xcdatamodeld */; };
+		A3F88DF61832C0F200E3BFB0 /* Message.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F88DF51832C0F200E3BFB0 /* Message.m */; };
+		A3F88DFC1832D4A600E3BFB0 /* Conversation.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F88DFB1832D4A600E3BFB0 /* Conversation.m */; };
+		A3F88DFE1833E05A00E3BFB0 /* Roomcast.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = A3F88DFD1833E05A00E3BFB0 /* Roomcast.sqlite */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -93,8 +95,6 @@
 		A317AC37182AE99700BE7E46 /* MessageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageView.m; sourceTree = "<group>"; };
 		A317AC39182BCFDD00BE7E46 /* SendViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SendViewController.h; sourceTree = "<group>"; };
 		A317AC3A182BCFDD00BE7E46 /* SendViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SendViewController.m; sourceTree = "<group>"; };
-		A317AC3C182BD50C00BE7E46 /* Message.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Message.h; sourceTree = "<group>"; };
-		A317AC3D182BD50C00BE7E46 /* Message.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Message.m; sourceTree = "<group>"; };
 		A317AC3F182BD95C00BE7E46 /* MessageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageViewController.h; sourceTree = "<group>"; };
 		A317AC40182BD95C00BE7E46 /* MessageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageViewController.m; sourceTree = "<group>"; };
 		A317AC42182BE06100BE7E46 /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
@@ -216,6 +216,11 @@
 		A3F88D8D183266AE00E3BFB0 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		A3F88D8F183266BD00E3BFB0 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		A3F88DED18329C9700E3BFB0 /* Roomcast.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Roomcast.xcdatamodel; sourceTree = "<group>"; };
+		A3F88DF41832C0F200E3BFB0 /* Message.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Message.h; sourceTree = "<group>"; };
+		A3F88DF51832C0F200E3BFB0 /* Message.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Message.m; sourceTree = "<group>"; };
+		A3F88DFA1832D4A600E3BFB0 /* Conversation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Conversation.h; sourceTree = "<group>"; };
+		A3F88DFB1832D4A600E3BFB0 /* Conversation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Conversation.m; sourceTree = "<group>"; };
+		A3F88DFD1833E05A00E3BFB0 /* Roomcast.sqlite */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Roomcast.sqlite; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -347,6 +352,7 @@
 				A37C6EB4181952040042489D /* main.m */,
 				A37C6EB6181952040042489D /* roomcast-Prefix.pch */,
 				A37C6EDD181954090042489D /* images */,
+				A3F88DFD1833E05A00E3BFB0 /* Roomcast.sqlite */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -479,8 +485,10 @@
 		A3F88D911832706400E3BFB0 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				A317AC3C182BD50C00BE7E46 /* Message.h */,
-				A317AC3D182BD50C00BE7E46 /* Message.m */,
+				A3F88DF41832C0F200E3BFB0 /* Message.h */,
+				A3F88DF51832C0F200E3BFB0 /* Message.m */,
+				A3F88DFA1832D4A600E3BFB0 /* Conversation.h */,
+				A3F88DFB1832D4A600E3BFB0 /* Conversation.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -579,6 +587,7 @@
 				A3F88D471831466600E3BFB0 /* bubble.png in Resources */,
 				A317AC5A182D2B7F00BE7E46 /* whotobutton.png in Resources */,
 				A317AC2D18294B6700BE7E46 /* registerheader2.png in Resources */,
+				A3F88DFE1833E05A00E3BFB0 /* Roomcast.sqlite in Resources */,
 				A300E0B01827B71200783E91 /* registerbutton.png in Resources */,
 				A3F88D871832665800E3BFB0 /* CHANGELOG.md in Resources */,
 				A3F88D20182EDEC900E3BFB0 /* message_buttons_back.png in Resources */,
@@ -607,6 +616,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A3F88DFC1832D4A600E3BFB0 /* Conversation.m in Sources */,
 				A317AC38182AE99700BE7E46 /* MessageView.m in Sources */,
 				A37C6F0F181ACCBA0042489D /* RangeView.m in Sources */,
 				A317AC30182A7AD600BE7E46 /* InitViewController.m in Sources */,
@@ -623,7 +633,7 @@
 				A360581F1821A1680026615B /* CustomCell.m in Sources */,
 				A360581C182191EE0026615B /* FormTableViewController.m in Sources */,
 				A3F88D15182D445D00E3BFB0 /* ChatViewController.m in Sources */,
-				A317AC3E182BD50C00BE7E46 /* Message.m in Sources */,
+				A3F88DF61832C0F200E3BFB0 /* Message.m in Sources */,
 				A3F88D36183019C000E3BFB0 /* MessageCell.m in Sources */,
 				A317AC3B182BCFDD00BE7E46 /* SendViewController.m in Sources */,
 			);

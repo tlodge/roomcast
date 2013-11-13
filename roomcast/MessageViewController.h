@@ -13,11 +13,12 @@
 #import "ChatViewController.h"
 
 @interface MessageViewController : UITableViewController <UITextViewDelegate>
+@property (weak, nonatomic) IBOutlet UIButton *composeButton;
 
 @property (nonatomic, strong) NSManagedObjectContext* managedObjectContext;
 @property (nonatomic, strong) NSMutableArray *messages;
 
-- (IBAction)composeMessage:(id)sender;
+- (IBAction)toggleMessage:(id)sender;
 @property (nonatomic, strong) NSMutableArray *conversations;
 @property (strong, nonatomic) Conversation* selectedConversation;
 
