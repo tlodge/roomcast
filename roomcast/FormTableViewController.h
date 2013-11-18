@@ -10,6 +10,7 @@
 #import "CustomCell.h"
 #import "PassCell.h"
 #import "PickerCell.h"
+#import <Parse/Parse.h>
 
 @interface FormTableViewController : UITableViewController <UITextFieldDelegate, UIPickerViewDataSource, UIPickerViewDelegate>
 
@@ -26,8 +27,7 @@
 
 @property (strong, nonatomic) NSArray *floorArray;
 
+- (IBAction)registerUser:(id)sender;
 
-
-- (IBAction)registerbutton:(id)sender;
 
 @end

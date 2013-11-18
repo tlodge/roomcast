@@ -245,4 +245,22 @@
 
 
 
+
+- (IBAction)registerUser:(id)sender {
+    
+    PFUser *user = [PFUser user];
+    user.username = _username.text;
+    user.password = _password.text;
+    user.email = _email.text;
+    
+    [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        if (!error){
+            [self performSegueWithIdentifier: @"messages" sender: self];    
+        }else{
+            NSString *errorString = [error userInfo][@"error"];
+            NSLog(@"%@",errorString);
+        }
+    }];
+    
+}
 @end

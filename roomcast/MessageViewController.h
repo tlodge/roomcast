@@ -11,6 +11,7 @@
 #import "DestinationViewController.h"
 #import "MessageView.h"
 #import "ChatViewController.h"
+#import <Parse/Parse.h>
 
 @interface MessageViewController : UITableViewController <UITextViewDelegate>
 @property (weak, nonatomic) IBOutlet UIButton *composeButton;

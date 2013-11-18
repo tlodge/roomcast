@@ -18,8 +18,22 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    SM_CACHE_ENABLED = YES;
+    [Parse setApplicationId:@"Qhp3eMa8aOQ2tVE1HqijHW7osJzV7QAdlcBVptIn" clientKey:@"SSF1WiUEzgk5pVN5wt9QEG9Xszjw09xkWvNv37NN"];
     
+    [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
+    
+    
+    //PFObject *msg = [PFObject objectWithClassName:@"Message"];
+    //[msg setObject:<#(id)#> forKey:<#(NSString *)#>]
+    
+    //[co setObject:@"myid" forKey:@"conversationId"];
+    //[co setObject:[NSDate date] forKey:@"latest"];
+    //[co setObject:@"a teaser" forKey:@"teaser"];
+    
+    
+    /*
+    //SM_CACHE_ENABLED = YES;
+    //SM_CORE_DATA_DEBUG = YES;
     self.client = [[SMClient alloc] initWithAPIVersion:@"0" publicKey:@"25697993-b276-4e20-b921-bf80d10ff543"];
   
     self.coreDataStore = [self.client coreDataStoreWithManagedObjectModel:self.managedObjectModel];
@@ -59,11 +73,10 @@
     [self.coreDataStore setSyncCallbackForFailedDeletes:^(NSArray *objects) {
         NSLog(@"Sync Failure on Deletes");
     }];
+     */
 
-
+    //NSManagedObjectContext *context = [self managedObjectContext];
     /*
-    NSManagedObjectContext *context = [self managedObjectContext];
-    
     Conversation *conversation = [NSEntityDescription
                                       insertNewObjectForEntityForName:@"Conversation"
                                       inManagedObjectContext:context];

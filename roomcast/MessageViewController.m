@@ -9,7 +9,6 @@
 #import "MessageViewController.h"
 #import "Conversation.h"
 #import "Message.h"
-#import "StackMob.h"
 
 @interface MessageViewController ()
 
@@ -30,16 +29,18 @@ BOOL _composing = YES;
 
     self = [super initWithStyle:style];
     if (self) {
-       
+        NSLog(@"custom init!");
         // Custom initialization
     }
     return self;
 }
 
+-(void) viewWillAppear:(BOOL)animated{
+    [self getAllConversations];
+}
+
 - (void)viewDidLoad
 {
-   
-    
     [super viewDidLoad];
     NSArray *nibContents = [[NSBundle mainBundle] loadNibNamed:@"MessageView"
                                                          owner:self
@@ -57,13 +58,13 @@ BOOL _composing = YES;
     [aView.whotoButton addTarget:self action:@selector(pushDestination:) forControlEvents:UIControlEventTouchUpInside];
     
     
-    self.managedObjectContext = [[[SMClient defaultClient] coreDataStore] contextForCurrentThread];
+    //self.managedObjectContext = [[[SMClient defaultClient] coreDataStore] contextForCurrentThread];
     
-     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didReceiveSyncDidFinishNotification:) name:@"FinishedSync" object:nil];
+   //  [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didReceiveSyncDidFinishNotification:) name:@"FinishedSync" object:nil];
     
     
-    //id delegate = [[UIApplication sharedApplication] delegate];
-    //self.managedObjectContext = [delegate managedObjectContext];
+    id delegate = [[UIApplication sharedApplication] delegate];
+    self.managedObjectContext = [delegate managedObjectContext];
     
 
     
@@ -77,28 +78,36 @@ BOOL _composing = YES;
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
-
-- (void)didReceiveSyncDidFinishNotification:(NSNotification *)notification
-{
-    //[self getAllApartments];
-  
+-(void) getAllConversations{
+    
     NSFetchRequest *fetch = [[NSFetchRequest alloc] init];
+    
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"Conversation" inManagedObjectContext:self.managedObjectContext];
     
     [fetch setEntity:entity];
     
+    NSError *error;
     
-    [self.managedObjectContext executeFetchRequest:fetch onSuccess:^(NSArray *results) {
+    NSArray *fetchedObjects = [self.managedObjectContext executeFetchRequest:fetch error:&error];
+    self.conversations = [NSMutableArray arrayWithArray:fetchedObjects];
+    [self.tableView reloadData];
+
+    /*[self.managedObjectContext executeFetchRequest:fetch onSuccess:^(NSArray *results) {
         NSError *error;
         NSArray *fetchedObjects = [self.managedObjectContext executeFetchRequest:fetch error:&error];
         self.conversations = [NSMutableArray arrayWithArray:fetchedObjects];
         [self.tableView reloadData];
     } onFailure:^(NSError *error) {
         NSLog(@"Error: %@", [error localizedDescription]);
-    }];
+    }];*/
 
-    //
 }
+
+
+//- (void)didReceiveSyncDidFinishNotification:(NSNotification *)notification
+//{
+//    [self getAllConversations];
+//}
 
 - (void)didReceiveMemoryWarning
 {
@@ -226,18 +235,44 @@ BOOL _composing = YES;
     //id delegate = [[UIApplication sharedApplication] delegate];
     //self.managedObjectContext = [delegate managedObjectContext];
     
+    
+    PFObject *co = [PFObject objectWithClassName:@"Conversation"];
+    [co setObject:@"normal" forKey:@"type"];
+    [co setObject:aView.messageView.text forKey:@"teaser"];
+    
+    PFObject *msg = [PFObject objectWithClassName:@"Message"];
+    [msg setObject:aView.messageView.text forKey:@"message"];
+    [msg setObject:[NSNumber numberWithBool:NO] forKey:@"anonymous"];
+    [msg setObject:co forKey:@"conversation"];
+    
+    [msg saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        Conversation *conversation = self.saveConversation;
+        if (conversation != nil){
+            [self.conversations addObject:conversation];
+            [self.tableView reloadData];
+            aView.messageView.text = @"";
+            [self toggleComposer];
+        }
+    }];
+    
+    
+}
+
+-(Conversation*) saveConversation{
     Conversation *conversation = [NSEntityDescription
                                   insertNewObjectForEntityForName:@"Conversation"
                                   inManagedObjectContext:self.managedObjectContext];
     
+    //[conversation assignObjectId];
     [conversation setValue:aView.messageView.text forKey:@"teaser"];
     [conversation setValue:@"1D" forKey:@"initiator"];
     [conversation setValue:[NSDate date] forKey:@"started"];
     
     Message *message = [NSEntityDescription
-                         insertNewObjectForEntityForName:@"Message"
-                         inManagedObjectContext:self.managedObjectContext];
+                        insertNewObjectForEntityForName:@"Message"
+                        inManagedObjectContext:self.managedObjectContext];
     
+    //[message assignObjectId];
     [message setValue:@"1D" forKey:@"from"];
     [message setValue:aView.messageView.text forKey:@"body"];
     [message setValue:[NSDate date] forKey:@"sent"];
@@ -246,12 +281,9 @@ BOOL _composing = YES;
     NSError *error;
     if (![self.managedObjectContext save:&error]){
         NSLog(@"whoops! couldn't save %@", [error localizedDescription]);
+        return nil;
     }
-    
-    [self.conversations addObject:conversation];
-    [self.tableView reloadData];
-    aView.messageView.text = @"";
-    [self toggleComposer];
+    return conversation;
 }
 
 -(void) toggleComposer{

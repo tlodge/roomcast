@@ -7,6 +7,7 @@
 //
 
 #import "InitViewController.h"
+#import "MessageViewController.h"
 
 @interface InitViewController ()
 
@@ -32,6 +33,12 @@
 -(void)viewDidAppear:(BOOL)animated
 {
     [self performSegueWithIdentifier: @"newbie" sender: self];
+    
+    //UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    
+    //UITabBarController *tbc = [storyboard instantiateViewControllerWithIdentifier:@"registered"];
+    
+    //[self presentViewController:tbc animated:YES completion:nil];
 }
 
 - (void)didReceiveMemoryWarning

@@ -7,10 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "StackMob.h"
+#import <Parse/Parse.h>
 
-@class SMClient;
-@class SMCoreDataStore;
+//@class SMClient;
+//@class SMCoreDataStore;
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
@@ -19,8 +19,8 @@
 @property (readonly, strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 @property (readonly, strong, nonatomic) NSManagedObjectModel *managedObjectModel;
 @property (readonly, strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
-@property (strong, nonatomic) SMCoreDataStore *coreDataStore;
-@property (strong, nonatomic) SMClient *client;
+//@property (strong, nonatomic) SMCoreDataStore *coreDataStore;
+//@property (strong, nonatomic) SMClient *client;
 - (void)saveContext;
 - (NSURL *)applicationDocumentsDirectory;
 @end
