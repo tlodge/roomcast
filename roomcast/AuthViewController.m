@@ -270,12 +270,8 @@ MKPolygon *authZone;
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    
-   RegistrationContainerViewController *container = (RegistrationContainerViewController*)[segue destinationViewController];
-    
+    RegistrationContainerViewController *container = (RegistrationContainerViewController*)[segue destinationViewController];
     NSLog(@"assigning development %@", self.development);
-
-
     container.development = self.development;
 }
 

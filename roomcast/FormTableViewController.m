@@ -16,6 +16,11 @@
 
 @synthesize  development;
 
+NSArray* blocks;
+NSArray* floors;
+PFObject* selectedBlock;
+PFObject* selectedFloor;
+
 - (id)initWithStyle:(UITableViewStyle)style
 {
     self = [super initWithStyle:style];
@@ -27,24 +32,31 @@
     return self;
 }
 
+-(void) viewWillAppear:(BOOL)animated{
+    self.blockArray = (NSArray*)[development objectForKey:@"blocks"];
+    self.floorArray = (NSArray*)[(PFObject*)[self.blockArray objectAtIndex:0] objectForKey:@"floors"];
+    selectedBlock = [self.blockArray objectAtIndex:0];
+    selectedFloor = [self.floorArray objectAtIndex:0];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    NSLog(@"OK --- The development is %@", self.development);
-    
+
     self.tableView.contentInset = UIEdgeInsetsMake(-36, 0, 0, 0);
     self.username.delegate = self;
+    self.username.enablesReturnKeyAutomatically = NO;
     self.password.delegate = self;
+    self.password.enablesReturnKeyAutomatically = NO;
     self.apartment.delegate = self;
+    self.apartment.enablesReturnKeyAutomatically = NO;
+
     self.email.delegate = self;
-    
+    self.email.enablesReturnKeyAutomatically = NO;
+
     self.blockpicker.delegate = self;
-    
     self.floorpicker.delegate = self;
     
-    self.blockArray = [[NSArray alloc] initWithObjects:@"block1", @"block2", @"block3",nil];
-    
-    self.floorArray = [[NSArray alloc] initWithObjects:@"ground", @"1", @"2", @"3",nil];
     
     /*[self.tableView registerClass:[CustomCell class] forCellReuseIdentifier:@"CustomCell"];
     
@@ -205,6 +217,7 @@
 
 -(BOOL) textFieldShouldReturn:(UITextField *)textField{
     [textField resignFirstResponder];
+    textField.enablesReturnKeyAutomatically = NO;
     return YES;
 
 }
@@ -237,9 +250,9 @@
     label.textAlignment = NSTextAlignmentCenter;
     [label setFont:[UIFont fontWithName:@"Trebuchet MS" size:18.0]];
     
-    
     if (pickerView == self.blockpicker){
-        label.text = [self.blockArray objectAtIndex:row];
+        PFObject *block = [self.blockArray objectAtIndex:row];
+        label.text = [block objectForKey:@"name"];
     }
     if (pickerView == self.floorpicker){
         label.text = [self.floorArray objectAtIndex:row];
@@ -247,6 +260,19 @@
     return label;
 }
 
+-(void) pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component{
+    
+      if (pickerView == self.blockpicker){
+          NSLog(@"seen change to component %@", [self.blockArray objectAtIndex:row]);
+          selectedBlock = [self.blockArray objectAtIndex:row];
+          self.floorArray = [selectedBlock objectForKey:@"floors"];
+          NSLog(@"%@", self.floorArray);
+          [self.floorpicker reloadAllComponents];
+      }else if(pickerView == self.floorpicker){
+          selectedFloor = [self.floorArray objectAtIndex:row];
+      }
+    
+}
 
 - (IBAction)registerUser:(id)sender {
     
@@ -255,24 +281,24 @@
     user.password = _password.text;
     user.email = _email.text;
     
-    /*NSLog(@"the development is %@", self.development);
-        
-    NSArray *blocks = [development objectForKey:@"blocks"];
-    PFObject *block = [blocks objectAtIndex:0];
+  
     PFObject *abode = [PFObject objectWithClassName:@"Apartment"];
         
-        [abode setObject:block forKey:@"block"];
-        [abode setObject:[NSNumber numberWithInt:3] forKey:@"floor"];
-        [user setObject:abode forKey:@"apartment"];
-        
-        [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-            if (!error){
-                [self performSegueWithIdentifier: @"messages" sender: self];
-            }else{
-                NSString *errorString = [error userInfo][@"error"];
-                NSLog(@"%@",errorString);
-            }
-        }];
-    */
+    [abode setObject:selectedBlock forKey:@"block"];
+    [abode setObject:selectedFloor forKey:@"floor"];
+    [abode setObject:self.apartment.text forKey:@"name"];
+    
+    NSLog(@"%@", abode);
+    
+    [user setObject:abode forKey:@"apartment"];
+    
+    [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        if (!error){
+            [self performSegueWithIdentifier: @"messages" sender: self];
+        }else{
+            NSString *errorString = [error userInfo][@"error"];
+            NSLog(@"%@",errorString);
+        }
+    }];
 }
 @end

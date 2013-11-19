@@ -29,6 +29,7 @@ PFObject *development;
 {
     [super viewDidLoad];
     _developmentId.delegate = self;
+    self.developmentId.text = @"A1Ez8PPtXx";
 	// Do any additional setup after loading the view.
 }
 
@@ -67,5 +68,10 @@ PFObject *development;
     AuthViewController* auth = (AuthViewController*)[segue destinationViewController];
     auth.development = development;
 }
+
+-(IBAction)unwindToAuth:(UIStoryboardSegue*) unwindSegue{
+    NSLog(@"niceley done!");
+}
+
 
 @end
