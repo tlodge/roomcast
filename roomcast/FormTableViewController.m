@@ -14,6 +14,8 @@
 
 @implementation FormTableViewController
 
+@synthesize  development;
+
 - (id)initWithStyle:(UITableViewStyle)style
 {
     self = [super initWithStyle:style];
@@ -28,6 +30,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    NSLog(@"OK --- The development is %@", self.development);
+    
     self.tableView.contentInset = UIEdgeInsetsMake(-36, 0, 0, 0);
     self.username.delegate = self;
     self.password.delegate = self;
@@ -244,8 +248,6 @@
 }
 
 
-
-
 - (IBAction)registerUser:(id)sender {
     
     PFUser *user = [PFUser user];
@@ -253,14 +255,24 @@
     user.password = _password.text;
     user.email = _email.text;
     
-    [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-        if (!error){
-            [self performSegueWithIdentifier: @"messages" sender: self];    
-        }else{
-            NSString *errorString = [error userInfo][@"error"];
-            NSLog(@"%@",errorString);
-        }
-    }];
-    
+    /*NSLog(@"the development is %@", self.development);
+        
+    NSArray *blocks = [development objectForKey:@"blocks"];
+    PFObject *block = [blocks objectAtIndex:0];
+    PFObject *abode = [PFObject objectWithClassName:@"Apartment"];
+        
+        [abode setObject:block forKey:@"block"];
+        [abode setObject:[NSNumber numberWithInt:3] forKey:@"floor"];
+        [user setObject:abode forKey:@"apartment"];
+        
+        [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+            if (!error){
+                [self performSegueWithIdentifier: @"messages" sender: self];
+            }else{
+                NSString *errorString = [error userInfo][@"error"];
+                NSLog(@"%@",errorString);
+            }
+        }];
+    */
 }
 @end

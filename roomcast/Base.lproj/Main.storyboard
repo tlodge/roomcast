@@ -21,10 +21,10 @@
             </objects>
             <point key="canvasLocation" x="-585" y="-995"/>
         </scene>
-        <!--View Controller-->
+        <!--Start View Controller-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController id="vXZ-lx-hvc" customClass="ViewController" sceneMemberID="viewController">
+                <viewController id="vXZ-lx-hvc" customClass="StartViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -36,7 +36,7 @@
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="development code" textAlignment="center" minimumFontSize="17" id="7QG-M2-UTw">
                                 <rect key="frame" x="75" y="237" width="170" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="18"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="To get started please provide me with your development's code" lineBreakMode="wordWrap" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="gcQ-Qi-aod">
@@ -47,7 +47,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="foS-uA-93l">
-                                <rect key="frame" x="135" y="284" width="50" height="50"/>
+                                <rect key="frame" x="135" y="281" width="50" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="17"/>
                                 <state key="normal" title="GO" backgroundImage="continue.png">
@@ -55,12 +55,16 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="fMX-RX-rsY" kind="modal" id="9Td-tZ-7fD"/>
+                                    <action selector="lookupDevelopment:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="O7i-Wl-ZpB"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="developmentId" destination="7QG-M2-UTw" id="KDk-LT-xas"/>
+                        <segue destination="fMX-RX-rsY" kind="modal" identifier="authenticate" id="AWd-Cq-Hkb"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
@@ -112,7 +116,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="CdV-EC-TlJ" kind="modal" modalTransitionStyle="flipHorizontal" id="0Ww-f8-XkP"/>
+                                    <segue destination="CdV-EC-TlJ" kind="modal" id="Xzk-c3-KC5"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -472,10 +476,10 @@
             </objects>
             <point key="canvasLocation" x="19" y="-22"/>
         </scene>
-        <!--View Controller-->
+        <!--Registration Container View Controller-->
         <scene sceneID="b1U-Nz-AM7">
             <objects>
-                <viewController autoresizesArchivedViewToFullSize="NO" automaticallyAdjustsScrollViewInsets="NO" id="CdV-EC-TlJ" sceneMemberID="viewController">
+                <viewController autoresizesArchivedViewToFullSize="NO" automaticallyAdjustsScrollViewInsets="NO" id="CdV-EC-TlJ" customClass="RegistrationContainerViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="IvV-XC-Z2r">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -511,7 +515,7 @@
         <!--Form Table View Controller-->
         <scene sceneID="m9n-VE-Zty">
             <objects>
-                <tableViewController autoresizesArchivedViewToFullSize="NO" id="VR1-Zr-cab" customClass="FormTableViewController" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="registration" autoresizesArchivedViewToFullSize="NO" id="VR1-Zr-cab" customClass="FormTableViewController" sceneMemberID="viewController">
                     <tableView key="view" autoresizesSubviews="NO" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleAspectFit" alwaysBounceVertical="YES" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" keyboardDismissMode="interactive" dataMode="static" style="grouped" separatorStyle="none" rowHeight="44" sectionHeaderHeight="1" sectionFooterHeight="1" id="lE9-GO-Mds">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="362"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
@@ -773,10 +777,6 @@
         <image name="registerheader2.png" width="640" height="47"/>
         <image name="responses_dark.png" width="64" height="64"/>
         <image name="responses_light.png" width="64" height="64"/>
-        <image name="sendbutton.png" width="140" height="70"/>
-        <image name="sendbutton.png" width="140" height="70"/>
-        <image name="sendbutton.png" width="140" height="70"/>
-        <image name="sendbutton.png" width="140" height="70"/>
         <image name="sendbutton.png" width="140" height="70"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

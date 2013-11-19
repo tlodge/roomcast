@@ -7,7 +7,7 @@
 //
 
 #import "AuthViewController.h"
-#import "FormTableViewController.h"
+#import "RegistrationContainerViewController.h"
 //define meters per mile
 #define MPM 1609.344
 
@@ -22,6 +22,8 @@
 
 
 @implementation AuthViewController
+
+@synthesize development;
 
 CGMutablePathRef mpr;
 NSMutableData *receivedData;
@@ -41,6 +43,8 @@ MKPolygon *authZone;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    NSLog(@"development is %@", [self.development objectForKey:@"name"]);
+    
     self.rangeView = [[RangeView alloc] initWithFrame:CGRectMake(250,380,60,60)];
     [self.view addSubview:_rangeView];
     
@@ -160,7 +164,7 @@ MKPolygon *authZone;
         
         if (CGPathContainsPoint(mpr, NULL,mapPointAsCGP, FALSE)){
             [locationManager stopUpdatingLocation];
-            [self performSegueWithIdentifier: @"authenticate" sender: self];
+            [self performSegueWithIdentifier: @"register" sender: self];
         }else{
             
             CLLocationCoordinate2D firstcoord;
@@ -262,6 +266,17 @@ MKPolygon *authZone;
 - (IBAction)back:(id)sender {
     [locationManager stopUpdatingLocation];
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    
+   RegistrationContainerViewController *container = (RegistrationContainerViewController*)[segue destinationViewController];
+    
+    NSLog(@"assigning development %@", self.development);
+
+
+    container.development = self.development;
 }
 
 

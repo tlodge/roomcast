@@ -21,60 +21,8 @@
     [Parse setApplicationId:@"Qhp3eMa8aOQ2tVE1HqijHW7osJzV7QAdlcBVptIn" clientKey:@"SSF1WiUEzgk5pVN5wt9QEG9Xszjw09xkWvNv37NN"];
     
     [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
-    
-    
-    //PFObject *msg = [PFObject objectWithClassName:@"Message"];
-    //[msg setObject:<#(id)#> forKey:<#(NSString *)#>]
-    
-    //[co setObject:@"myid" forKey:@"conversationId"];
-    //[co setObject:[NSDate date] forKey:@"latest"];
-    //[co setObject:@"a teaser" forKey:@"teaser"];
-    
-    
-    /*
-    //SM_CACHE_ENABLED = YES;
-    //SM_CORE_DATA_DEBUG = YES;
-    self.client = [[SMClient alloc] initWithAPIVersion:@"0" publicKey:@"25697993-b276-4e20-b921-bf80d10ff543"];
-  
-    self.coreDataStore = [self.client coreDataStoreWithManagedObjectModel:self.managedObjectModel];
-    
-    [self.coreDataStore setCachePolicy:SMCachePolicyTryCacheOnly];
-    
-    __block SMCoreDataStore *blockCoreDataStore = self.coreDataStore;
-   
-    [self.client.networkMonitor setNetworkStatusChangeBlock:^(SMNetworkStatus status) {
-        if (status == SMNetworkStatusReachable) {
-            // Initiate sync
-            [blockCoreDataStore syncWithServer];
-        }
-        else {
-            // Handle offline mode
-            [blockCoreDataStore setCachePolicy:SMCachePolicyTryCacheOnly];
-        }
-    }];
-    
-    [self.coreDataStore setSyncCompletionCallback:^(NSArray *objects) {
-        NSLog(@"Sync complete.");
-        // Our syncing is complete, so change the policy to fetch from the network
-        [blockCoreDataStore setCachePolicy:SMCachePolicyTryNetworkElseCache];
-        
-        // Notify other views that they should reload their data from the network
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"FinishedSync" object:nil];
-    }];
-    
-    [self.coreDataStore setSyncCallbackForFailedInserts:^(NSArray *objects) {
-        NSLog(@"Sync Failure on Inserts");
-    }];
-    
-    [self.coreDataStore setSyncCallbackForFailedUpdates:^(NSArray *objects) {
-        NSLog(@"Sync Failure on Updates");
-    }];
-    
-    [self.coreDataStore setSyncCallbackForFailedDeletes:^(NSArray *objects) {
-        NSLog(@"Sync Failure on Deletes");
-    }];
-     */
 
+   
     //NSManagedObjectContext *context = [self managedObjectContext];
     /*
     Conversation *conversation = [NSEntityDescription

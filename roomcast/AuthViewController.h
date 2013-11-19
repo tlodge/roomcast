@@ -10,10 +10,12 @@
 #import "RangeView.h"
 #import <MapKit/MapKit.h>
 #import <CoreLocation/CoreLocation.h>
+#import <Parse/Parse.h>
 
 @interface AuthViewController : UIViewController <MKMapViewDelegate, CLLocationManagerDelegate>
 @property (weak, nonatomic) IBOutlet MKMapView *zoneMap;
 @property (strong, nonatomic) RangeView *rangeView;
 - (IBAction)back:(id)sender;
+@property (weak, nonatomic) PFObject* development;
 
 @end

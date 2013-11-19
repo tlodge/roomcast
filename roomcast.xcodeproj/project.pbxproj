@@ -52,6 +52,8 @@
 		A3B6DAE018365F6000A860CA /* libz.1.1.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A3B6DADF18365F6000A860CA /* libz.1.1.3.dylib */; };
 		A3B6DAE218365F7A00A860CA /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3B6DAE118365F7A00A860CA /* QuartzCore.framework */; };
 		A3B6DAE418365F8F00A860CA /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3B6DAE318365F8F00A860CA /* StoreKit.framework */; };
+		A3B6DAE7183BD22F00A860CA /* StartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3B6DAE6183BD22F00A860CA /* StartViewController.m */; };
+		A3B6DAEA183BE0FA00A860CA /* RegistrationContainerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3B6DAE9183BE0FA00A860CA /* RegistrationContainerViewController.m */; };
 		A3C3BF161827B06A007E8803 /* message.png in Resources */ = {isa = PBXBuildFile; fileRef = A3C3BF151827B06A007E8803 /* message.png */; };
 		A3F88D12182D38E600E3BFB0 /* DestinationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F88D11182D38E600E3BFB0 /* DestinationViewController.m */; };
 		A3F88D15182D445D00E3BFB0 /* ChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F88D14182D445D00E3BFB0 /* ChatViewController.m */; };
@@ -149,6 +151,10 @@
 		A3B6DADF18365F6000A860CA /* libz.1.1.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.1.3.dylib; path = usr/lib/libz.1.1.3.dylib; sourceTree = SDKROOT; };
 		A3B6DAE118365F7A00A860CA /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		A3B6DAE318365F8F00A860CA /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		A3B6DAE5183BD22F00A860CA /* StartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StartViewController.h; sourceTree = "<group>"; };
+		A3B6DAE6183BD22F00A860CA /* StartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StartViewController.m; sourceTree = "<group>"; };
+		A3B6DAE8183BE0FA00A860CA /* RegistrationContainerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegistrationContainerViewController.h; sourceTree = "<group>"; };
+		A3B6DAE9183BE0FA00A860CA /* RegistrationContainerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegistrationContainerViewController.m; sourceTree = "<group>"; };
 		A3C3BF151827B06A007E8803 /* message.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = message.png; path = ../message.png; sourceTree = "<group>"; };
 		A3F88D10182D38E600E3BFB0 /* DestinationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DestinationViewController.h; sourceTree = "<group>"; };
 		A3F88D11182D38E600E3BFB0 /* DestinationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DestinationViewController.m; sourceTree = "<group>"; };
@@ -272,6 +278,10 @@
 				A37C6EB7181952040042489D /* AppDelegate.h */,
 				A37C6EB8181952040042489D /* AppDelegate.m */,
 				A37C6EBA181952040042489D /* Main.storyboard */,
+				A3B6DAE8183BE0FA00A860CA /* RegistrationContainerViewController.h */,
+				A3B6DAE9183BE0FA00A860CA /* RegistrationContainerViewController.m */,
+				A3B6DAE5183BD22F00A860CA /* StartViewController.h */,
+				A3B6DAE6183BD22F00A860CA /* StartViewController.m */,
 				A3F88DEC18329C9700E3BFB0 /* Roomcast.xcdatamodeld */,
 				A3F88D10182D38E600E3BFB0 /* DestinationViewController.h */,
 				A3F88D11182D38E600E3BFB0 /* DestinationViewController.m */,
@@ -507,6 +517,7 @@
 				A3F88DFC1832D4A600E3BFB0 /* Conversation.m in Sources */,
 				A317AC38182AE99700BE7E46 /* MessageView.m in Sources */,
 				A37C6F0F181ACCBA0042489D /* RangeView.m in Sources */,
+				A3B6DAE7183BD22F00A860CA /* StartViewController.m in Sources */,
 				A317AC30182A7AD600BE7E46 /* InitViewController.m in Sources */,
 				A360582518229C840026615B /* PickerCell.m in Sources */,
 				A37C6EF0181971020042489D /* AuthViewController.m in Sources */,
@@ -518,6 +529,7 @@
 				A37C6EB9181952040042489D /* AppDelegate.m in Sources */,
 				A3605822182297570026615B /* PassCell.m in Sources */,
 				A37C6EB5181952040042489D /* main.m in Sources */,
+				A3B6DAEA183BE0FA00A860CA /* RegistrationContainerViewController.m in Sources */,
 				A360581F1821A1680026615B /* CustomCell.m in Sources */,
 				A360581C182191EE0026615B /* FormTableViewController.m in Sources */,
 				A3F88D15182D445D00E3BFB0 /* ChatViewController.m in Sources */,
