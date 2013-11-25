@@ -223,7 +223,7 @@ BOOL _composing = YES;
 
 -(void) pushDestination:(UIButton *) sender{
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    DestinationViewController *destination = [storyboard instantiateViewControllerWithIdentifier:@"destination"];
+    UITableViewController *destination = [storyboard instantiateViewControllerWithIdentifier:@"sendto"];
     [self.navigationController pushViewController:destination animated:YES];
 }
 

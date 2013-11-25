@@ -7,6 +7,7 @@
 //
 
 #import "FormTableViewController.h"
+#import "AppDelegate.h"
 
 @interface FormTableViewController ()
 
@@ -295,6 +296,7 @@ PFObject* selectedFloor;
     [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if (!error){
             [self performSegueWithIdentifier: @"messages" sender: self];
+            [[UIApplication sharedApplication] registerForRemoteNotificationTypes:UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound];
         }else{
             NSString *errorString = [error userInfo][@"error"];
             NSLog(@"%@",errorString);

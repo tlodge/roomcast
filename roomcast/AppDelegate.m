@@ -23,7 +23,6 @@
     [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
 
     [application registerForRemoteNotificationTypes:UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound];
-    
     //NSManagedObjectContext *context = [self managedObjectContext];
     /*
     Conversation *conversation = [NSEntityDescription
@@ -64,7 +63,9 @@
 }
 
 -(void) application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken{
+    
     PFInstallation *currentInstallation = [PFInstallation currentInstallation];
+    [currentInstallation setObject:[PFUser currentUser] forKey:@"owner"];
     [currentInstallation setDeviceTokenFromData:deviceToken];
     [currentInstallation saveInBackground];
 }

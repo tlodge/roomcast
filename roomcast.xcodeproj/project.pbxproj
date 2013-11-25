@@ -22,6 +22,9 @@
 		A317AC5A182D2B7F00BE7E46 /* whotobutton.png in Resources */ = {isa = PBXBuildFile; fileRef = A317AC59182D2B7F00BE7E46 /* whotobutton.png */; };
 		A317AC5F182D2CED00BE7E46 /* backbutton.png in Resources */ = {isa = PBXBuildFile; fileRef = A317AC5D182D2CED00BE7E46 /* backbutton.png */; };
 		A317AC60182D2CED00BE7E46 /* sendbutton.png in Resources */ = {isa = PBXBuildFile; fileRef = A317AC5E182D2CED00BE7E46 /* sendbutton.png */; };
+		A3334D451843B41800ECA8D5 /* ScopeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A3334D441843B41800ECA8D5 /* ScopeCell.m */; };
+		A3334D471843B8A900ECA8D5 /* help.png in Resources */ = {isa = PBXBuildFile; fileRef = A3334D461843B8A900ECA8D5 /* help.png */; };
+		A3334D491843BC5300ECA8D5 /* scopecell.png in Resources */ = {isa = PBXBuildFile; fileRef = A3334D481843BC5300ECA8D5 /* scopecell.png */; };
 		A360581C182191EE0026615B /* FormTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A360581B182191EE0026615B /* FormTableViewController.m */; };
 		A360581F1821A1680026615B /* CustomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A360581E1821A1680026615B /* CustomCell.m */; };
 		A3605822182297570026615B /* PassCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A3605821182297570026615B /* PassCell.m */; };
@@ -54,8 +57,8 @@
 		A3B6DAE418365F8F00A860CA /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3B6DAE318365F8F00A860CA /* StoreKit.framework */; };
 		A3B6DAE7183BD22F00A860CA /* StartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3B6DAE6183BD22F00A860CA /* StartViewController.m */; };
 		A3B6DAEA183BE0FA00A860CA /* RegistrationContainerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3B6DAE9183BE0FA00A860CA /* RegistrationContainerViewController.m */; };
+		A3B6DAED183E60C500A860CA /* DestinationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3B6DAEC183E60C500A860CA /* DestinationViewController.m */; };
 		A3C3BF161827B06A007E8803 /* message.png in Resources */ = {isa = PBXBuildFile; fileRef = A3C3BF151827B06A007E8803 /* message.png */; };
-		A3F88D12182D38E600E3BFB0 /* DestinationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F88D11182D38E600E3BFB0 /* DestinationViewController.m */; };
 		A3F88D15182D445D00E3BFB0 /* ChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F88D14182D445D00E3BFB0 /* ChatViewController.m */; };
 		A3F88D17182D4F4A00E3BFB0 /* continue.png in Resources */ = {isa = PBXBuildFile; fileRef = A3F88D16182D4F4A00E3BFB0 /* continue.png */; };
 		A3F88D19182ED87A00E3BFB0 /* howmanybutton.png in Resources */ = {isa = PBXBuildFile; fileRef = A3F88D18182ED87A00E3BFB0 /* howmanybutton.png */; };
@@ -110,6 +113,10 @@
 		A317AC59182D2B7F00BE7E46 /* whotobutton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = whotobutton.png; path = ../whotobutton.png; sourceTree = "<group>"; };
 		A317AC5D182D2CED00BE7E46 /* backbutton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = backbutton.png; path = ../backbutton.png; sourceTree = "<group>"; };
 		A317AC5E182D2CED00BE7E46 /* sendbutton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = sendbutton.png; path = ../sendbutton.png; sourceTree = "<group>"; };
+		A3334D431843B41800ECA8D5 /* ScopeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScopeCell.h; sourceTree = "<group>"; };
+		A3334D441843B41800ECA8D5 /* ScopeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScopeCell.m; sourceTree = "<group>"; };
+		A3334D461843B8A900ECA8D5 /* help.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = help.png; sourceTree = "<group>"; };
+		A3334D481843BC5300ECA8D5 /* scopecell.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = scopecell.png; sourceTree = "<group>"; };
 		A360581A182191EE0026615B /* FormTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FormTableViewController.h; sourceTree = "<group>"; };
 		A360581B182191EE0026615B /* FormTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FormTableViewController.m; sourceTree = "<group>"; };
 		A360581D1821A1680026615B /* CustomCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomCell.h; sourceTree = "<group>"; };
@@ -155,9 +162,9 @@
 		A3B6DAE6183BD22F00A860CA /* StartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StartViewController.m; sourceTree = "<group>"; };
 		A3B6DAE8183BE0FA00A860CA /* RegistrationContainerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegistrationContainerViewController.h; sourceTree = "<group>"; };
 		A3B6DAE9183BE0FA00A860CA /* RegistrationContainerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegistrationContainerViewController.m; sourceTree = "<group>"; };
+		A3B6DAEB183E60C500A860CA /* DestinationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DestinationViewController.h; sourceTree = "<group>"; };
+		A3B6DAEC183E60C500A860CA /* DestinationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DestinationViewController.m; sourceTree = "<group>"; };
 		A3C3BF151827B06A007E8803 /* message.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = message.png; path = ../message.png; sourceTree = "<group>"; };
-		A3F88D10182D38E600E3BFB0 /* DestinationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DestinationViewController.h; sourceTree = "<group>"; };
-		A3F88D11182D38E600E3BFB0 /* DestinationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DestinationViewController.m; sourceTree = "<group>"; };
 		A3F88D13182D445D00E3BFB0 /* ChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatViewController.h; sourceTree = "<group>"; };
 		A3F88D14182D445D00E3BFB0 /* ChatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatViewController.m; sourceTree = "<group>"; };
 		A3F88D16182D4F4A00E3BFB0 /* continue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = continue.png; path = ../continue.png; sourceTree = "<group>"; };
@@ -283,8 +290,8 @@
 				A3B6DAE5183BD22F00A860CA /* StartViewController.h */,
 				A3B6DAE6183BD22F00A860CA /* StartViewController.m */,
 				A3F88DEC18329C9700E3BFB0 /* Roomcast.xcdatamodeld */,
-				A3F88D10182D38E600E3BFB0 /* DestinationViewController.h */,
-				A3F88D11182D38E600E3BFB0 /* DestinationViewController.m */,
+				A3B6DAEB183E60C500A860CA /* DestinationViewController.h */,
+				A3B6DAEC183E60C500A860CA /* DestinationViewController.m */,
 				A317AC3F182BD95C00BE7E46 /* MessageViewController.h */,
 				A317AC40182BD95C00BE7E46 /* MessageViewController.m */,
 				A317AC42182BE06100BE7E46 /* DetailViewController.h */,
@@ -306,9 +313,11 @@
 				A37C6F0E181ACCBA0042489D /* RangeView.m */,
 				A360581A182191EE0026615B /* FormTableViewController.h */,
 				A360581B182191EE0026615B /* FormTableViewController.m */,
-				A3605820182297570026615B /* PassCell.h */,
 				A3F88D34183019C000E3BFB0 /* MessageCell.h */,
 				A3F88D35183019C000E3BFB0 /* MessageCell.m */,
+				A3334D431843B41800ECA8D5 /* ScopeCell.h */,
+				A3334D441843B41800ECA8D5 /* ScopeCell.m */,
+				A3605820182297570026615B /* PassCell.h */,
 				A3605821182297570026615B /* PassCell.m */,
 				A360581D1821A1680026615B /* CustomCell.h */,
 				A360581E1821A1680026615B /* CustomCell.m */,
@@ -354,6 +363,8 @@
 		A37C6EDD181954090042489D /* images */ = {
 			isa = PBXGroup;
 			children = (
+				A3334D481843BC5300ECA8D5 /* scopecell.png */,
+				A3334D461843B8A900ECA8D5 /* help.png */,
 				A3F88D4C1831790C00E3BFB0 /* background.png */,
 				A3F88D461831466600E3BFB0 /* bubble.png */,
 				A3F88D481831763B00E3BFB0 /* bubble_r.png */,
@@ -481,6 +492,7 @@
 				A3C3BF161827B06A007E8803 /* message.png in Resources */,
 				A3F88D17182D4F4A00E3BFB0 /* continue.png in Resources */,
 				A3F88D24182EDFA400E3BFB0 /* responses_dark.png in Resources */,
+				A3334D491843BC5300ECA8D5 /* scopecell.png in Resources */,
 				A317AC60182D2CED00BE7E46 /* sendbutton.png in Resources */,
 				A37C6F0018197FBC0042489D /* authback.png in Resources */,
 				A317AC46182C43EC00BE7E46 /* textback.png in Resources */,
@@ -496,6 +508,7 @@
 				A3F88D19182ED87A00E3BFB0 /* howmanybutton.png in Resources */,
 				A317AC1918283BBB00BE7E46 /* accdetails.png in Resources */,
 				A37C6EB3181952040042489D /* InfoPlist.strings in Resources */,
+				A3334D471843B8A900ECA8D5 /* help.png in Resources */,
 				A37C6EBC181952040042489D /* Main.storyboard in Resources */,
 				A3F88D4D1831790C00E3BFB0 /* background.png in Resources */,
 				A37C6F13181DA3060042489D /* mapframe.png in Resources */,
@@ -526,7 +539,6 @@
 				A37C6EF0181971020042489D /* AuthViewController.m in Sources */,
 				A317AC44182BE06100BE7E46 /* DetailViewController.m in Sources */,
 				A37C6EBF181952040042489D /* ViewController.m in Sources */,
-				A3F88D12182D38E600E3BFB0 /* DestinationViewController.m in Sources */,
 				A317AC41182BD95C00BE7E46 /* MessageViewController.m in Sources */,
 				A3F88DEE18329C9700E3BFB0 /* Roomcast.xcdatamodeld in Sources */,
 				A37C6EB9181952040042489D /* AppDelegate.m in Sources */,
@@ -536,9 +548,11 @@
 				A360581F1821A1680026615B /* CustomCell.m in Sources */,
 				A360581C182191EE0026615B /* FormTableViewController.m in Sources */,
 				A3F88D15182D445D00E3BFB0 /* ChatViewController.m in Sources */,
+				A3334D451843B41800ECA8D5 /* ScopeCell.m in Sources */,
 				A3F88DF61832C0F200E3BFB0 /* Message.m in Sources */,
 				A3F88D36183019C000E3BFB0 /* MessageCell.m in Sources */,
 				A317AC3B182BCFDD00BE7E46 /* SendViewController.m in Sources */,
+				A3B6DAED183E60C500A860CA /* DestinationViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

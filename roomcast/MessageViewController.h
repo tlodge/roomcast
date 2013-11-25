@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 #import "Message.h"
-#import "DestinationViewController.h"
 #import "MessageView.h"
 #import "ChatViewController.h"
 #import <Parse/Parse.h>

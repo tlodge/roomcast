@@ -151,31 +151,6 @@
             <point key="canvasLocation" x="-649" y="491"/>
         </scene>
         <!--Table View Controller - Root View Controller-->
-        <scene sceneID="usg-Jp-JYB">
-            <objects>
-                <tableViewController id="YFz-Mf-mbd" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="COa-Uf-CGk">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="HcB-mJ-had">
-                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="HcB-mJ-had" id="NOz-0T-Fk8">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="VkM-CV-QTa"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="su1-HX-ZTL" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="659" y="169"/>
-        </scene>
-        <!--Table View Controller - Root View Controller-->
         <scene sceneID="XwG-WE-ceF">
             <objects>
                 <tableViewController id="O2u-eD-W25" sceneMemberID="viewController">
@@ -185,7 +160,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="ZyS-9J-dSS">
-                                <rect key="frame" x="0.0" y="86" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="66" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ZyS-9J-dSS" id="Moq-Dg-lln">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
@@ -198,7 +173,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cMr-Cp-6IS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="559" y="682"/>
+            <point key="canvasLocation" x="727" y="1491"/>
         </scene>
         <!--Navigation Controller - Item-->
         <scene sceneID="fVy-nM-tUn">
@@ -215,31 +190,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HAL-db-ptK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="27" y="682"/>
-        </scene>
-        <!--Table View Controller - Root View Controller-->
-        <scene sceneID="sJn-MS-RqX">
-            <objects>
-                <tableViewController id="EbN-te-OLx" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="5Iz-3s-FA2">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="WTc-ar-JeM">
-                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="WTc-ar-JeM" id="ekO-UU-Vpa">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="VZ9-cV-ljq"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="M99-4m-G4E" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="542" y="782"/>
         </scene>
         <!--View Controller - Item 2-->
         <scene sceneID="8rS-Xg-wkp">
@@ -265,18 +215,90 @@
             <point key="canvasLocation" x="139" y="1491"/>
         </scene>
         <!--Destination View Controller-->
-        <scene sceneID="10s-QA-SIz">
+        <scene sceneID="DSh-x2-MCb">
             <objects>
-                <viewController storyboardIdentifier="destination" useStoryboardIdentifierAsRestorationIdentifier="YES" id="paY-eK-U8y" customClass="DestinationViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="7Ja-Ja-M2m">
+                <tableViewController storyboardIdentifier="sendto" id="DXA-nC-Cms" customClass="DestinationViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="h3Q-nD-O3B">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" red="0.89803928136825562" green="0.39607846736907959" blue="0.90980398654937744" alpha="1" colorSpace="deviceRGB"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="11J-Qs-qdb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="InfoCell" rowHeight="70" id="mzN-sn-q5Q">
+                                <rect key="frame" x="0.0" y="22" width="320" height="70"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="mzN-sn-q5Q" id="bFO-VG-PPB">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="70"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="help.png" id="XFX-hc-E62">
+                                            <rect key="frame" x="0.0" y="3" width="320" height="70"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </imageView>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please choose the recipient(s) of your message" lineBreakMode="characterWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="usy-0g-uPv">
+                                            <rect key="frame" x="62" y="3" width="248" height="62"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="18"/>
+                                            <color key="textColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ScopeCell" rowHeight="75" id="7Nm-8k-iq3" customClass="ScopeCell">
+                                <rect key="frame" x="0.0" y="92" width="320" height="75"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="7Nm-8k-iq3" id="COX-DZ-rJr">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="75"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="scopecell.png" id="ogZ-yb-ZdH">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="75"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </imageView>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="specific apartment(s)" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="qTw-ed-dbd">
+                                            <rect key="frame" x="5" y="1" width="202" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="16"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1,2,4,5,7" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="bRB-6c-w6V">
+                                            <rect key="frame" x="5" y="25" width="247" height="45"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="20"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="people" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="A6d-fo-kqx">
+                                            <rect key="frame" x="241" y="46" width="49" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="16"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5000" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="mBm-fi-FOm">
+                                            <rect key="frame" x="241" y="18" width="49" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="20"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="scopeinfo" destination="bRB-6c-w6V" id="3Mn-yr-oEu"/>
+                                    <outlet property="scopetitle" destination="qTw-ed-dbd" id="lPy-TL-ht3"/>
+                                    <outlet property="scopetotal" destination="mBm-fi-FOm" id="v7m-3M-c3G"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <sections/>
+                        <connections>
+                            <outlet property="dataSource" destination="DXA-nC-Cms" id="2vq-C3-MrH"/>
+                            <outlet property="delegate" destination="DXA-nC-Cms" id="nmK-Fh-gfP"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rD3-4e-drd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1281" y="722"/>
+            <point key="canvasLocation" x="1023" y="882"/>
         </scene>
         <!--Message View Controller - My Messages-->
         <scene sceneID="NYe-Xb-GyN">
@@ -399,7 +421,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YZw-tk-Sgk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="643" y="90"/>
+            <point key="canvasLocation" x="699" y="258"/>
         </scene>
         <!--Chat View Controller-->
         <scene sceneID="TLX-fw-zyl">
@@ -450,7 +472,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FSh-uz-4Fp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1281" y="90"/>
+            <point key="canvasLocation" x="1409" y="258"/>
         </scene>
         <!--Navigation Controller - Item-->
         <scene sceneID="Ia6-eh-HGh">
@@ -770,12 +792,18 @@
         <image name="authback.png" width="642" height="962"/>
         <image name="background.png" width="640" height="961"/>
         <image name="continue.png" width="100" height="100"/>
+        <image name="help.png" width="640" height="140"/>
         <image name="mapframe.png" width="629" height="747"/>
         <image name="message.png" width="640" height="204"/>
         <image name="registerheader.png" width="640" height="47"/>
         <image name="registerheader2.png" width="640" height="47"/>
         <image name="responses_dark.png" width="64" height="64"/>
         <image name="responses_light.png" width="64" height="64"/>
+        <image name="scopecell.png" width="1280" height="300"/>
+        <image name="sendbutton.png" width="140" height="70"/>
+        <image name="sendbutton.png" width="140" height="70"/>
+        <image name="sendbutton.png" width="140" height="70"/>
+        <image name="sendbutton.png" width="140" height="70"/>
         <image name="sendbutton.png" width="140" height="70"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
@@ -785,6 +813,6 @@
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="VAE-vi-8hH"/>
-        <segue reference="tee-gB-OJ2"/>
+        <segue reference="tVW-qc-EI2"/>
     </inferredMetricsTieBreakers>
 </document>
