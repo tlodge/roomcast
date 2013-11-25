@@ -101,6 +101,9 @@
         [cell.info setFont:[UIFont fontWithName:@"Trebuchet MS" size:24]];
         cell.info.text = @"1,2,3,4";
         cell.total.text = @"3";
+        [tableView selectRowAtIndexPath:indexPath animated:NO scrollPosition: UITableViewScrollPositionNone];
+        cell.background.image = [UIImage imageNamed:@"scopecellselected.png"];
+        cell.total.alpha = 1.0;
     }else if (indexPath.row == 2){
         cell.title.text = @"within Burrells Wharf";
         cell.info.text = @"floor 3, Charthouse";
