@@ -9,8 +9,10 @@
 #import <UIKit/UIKit.h>
 
 @interface ScopeCell : UITableViewCell
-@property (weak, nonatomic) IBOutlet UILabel *scopetitle;
-@property (weak, nonatomic) IBOutlet UILabel *scopetotal;
+@property (weak, nonatomic) IBOutlet UILabel *title;
+@property (weak, nonatomic) IBOutlet UILabel *total;
+@property (weak, nonatomic) IBOutlet UIImageView *background;
+@property (weak, nonatomic) IBOutlet UIButton *moreButton;
 
-@property (weak, nonatomic) IBOutlet UILabel *scopeinfo;
+@property (weak, nonatomic) IBOutlet UILabel *info;
 @end

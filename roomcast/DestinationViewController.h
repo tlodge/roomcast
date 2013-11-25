@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ScopeCell.h"
 
 @interface DestinationViewController : UITableViewController
 

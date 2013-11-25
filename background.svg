@@ -21,6 +21,18 @@
      id="defs7387">
     <linearGradient
        inkscape:collect="always"
+       id="linearGradient4860">
+      <stop
+         style="stop-color:#009e97;stop-opacity:1;"
+         offset="0"
+         id="stop4862" />
+      <stop
+         style="stop-color:#009e97;stop-opacity:0;"
+         offset="1"
+         id="stop4864" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
        id="linearGradient4809">
       <stop
          style="stop-color:#008080;stop-opacity:1;"
@@ -1539,17 +1551,47 @@
        y1="-115.13947"
        x2="3913.1289"
        y2="101.23521"
-       gradientTransform="translate(0.29530498,267.28636)" />
+       gradientTransform="translate(-0.96542762,301.32614)" />
     <linearGradient
        inkscape:collect="always"
        xlink:href="#linearGradient4809"
-       id="linearGradient4852"
+       id="linearGradient4858"
        gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(1.3263534,0,0,1.1086431,-455.25214,362.97767)"
        x1="3563.8181"
        y1="-115.13947"
        x2="3913.1289"
-       y2="101.23521"
-       gradientTransform="matrix(1.3106694,0,0,0.99233164,-429.66356,209.80178)" />
+       y2="101.23521" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient4809"
+       id="linearGradient4883"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(1.3266814,0,0,1.0137946,-484.08363,-80.58897)"
+       x1="3563.8181"
+       y1="-115.13947"
+       x2="3913.1289"
+       y2="101.23521" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient4793"
+       id="linearGradient4937"
+       gradientUnits="userSpaceOnUse"
+       x1="3519.9775"
+       y1="-236.76183"
+       x2="3853.7319"
+       y2="-64.227776"
+       gradientTransform="matrix(1.3260627,0,0,1.0983665,-453.41471,688.6982)" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient4860"
+       id="linearGradient4947"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(0.99889587,0,0,0.97440366,-471.66588,154.2987)"
+       x1="4417.9766"
+       y1="125.76114"
+       x2="4559.7207"
+       y2="118.18362" />
   </defs>
   <sodipodi:namedview
      id="base"
@@ -1558,15 +1600,15 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.70710678"
-     inkscape:cx="3549.285"
-     inkscape:cy="422.7137"
+     inkscape:zoom="1.1217395"
+     inkscape:cx="4169.8799"
+     inkscape:cy="56.5958"
      inkscape:document-units="px"
      inkscape:current-layer="layer3"
      showgrid="false"
      inkscape:window-width="1280"
      inkscape:window-height="756"
-     inkscape:window-x="31"
+     inkscape:window-x="1"
      inkscape:window-y="0"
      inkscape:window-maximized="0"
      showguides="true"
@@ -2210,8 +2252,8 @@
        id="rect4825"
        width="481.99323"
        height="132.75179"
-       x="3292.3088"
-       y="81.453751" />
+       x="3291.0481"
+       y="115.49353" />
     <rect
        style="fill:url(#linearGradient4823);fill-opacity:1;stroke:#ffffff;stroke-width:7.24821663;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
        id="rect4821"
@@ -3171,22 +3213,6 @@
          x="983.52356"
          id="tspan3630"
          sodipodi:role="line">?</tspan></text>
-    <text
-       transform="scale(0.99482562,1.0052013)"
-       xml:space="preserve"
-       style="font-size:31.83442116px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Trebuchet MS;-inkscape-font-specification:Trebuchet MS"
-       x="3460.3804"
-       y="-393.69177"
-       id="text3636"
-       sodipodi:linespacing="125%"><tspan
-         sodipodi:role="line"
-         id="tspan3638"
-         x="3460.3804"
-         y="-393.69177">choose who you'd like</tspan><tspan
-         sodipodi:role="line"
-         x="3460.3804"
-         y="-353.89874"
-         id="tspan3640">to send to</tspan></text>
     <g
        transform="scale(0.99482562,1.0052013)"
        style="font-size:31.83442116px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Trebuchet MS;-inkscape-font-specification:Trebuchet MS"
@@ -3270,53 +3296,6 @@
        id="path4509"
        d="m 3295.5926,-140.67632 c 156.4978,-8.85102 318.9833,-4.62821 473.7161,-6.86937 l 0.3278,-33.81844 c -149.4212,-1.43912 -309.5418,-0.29919 -474.0439,0 z"
        style="fill:#009e97;fill-opacity:1;stroke:none" />
-    <path
-       style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:1.27297962;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
-       d="m 3923.6102,-179.09471 0.4471,105.250176 99.5426,-1.62076 1.0581,-105.250196 z"
-       id="path4511"
-       inkscape:connector-curvature="0"
-       sodipodi:nodetypes="ccccc"
-       inkscape:export-filename="/Users/tlodge/roomcast_images/howmanybutton.png"
-       inkscape:export-xdpi="180"
-       inkscape:export-ydpi="180" />
-    <path
-       sodipodi:nodetypes="ccccc"
-       inkscape:connector-curvature="0"
-       id="path4513"
-       d="m 4023.0338,-75.896984 -98.4646,1.41422 -0.1768,-34.117896 98.995,0.7071 z"
-       style="fill:#008080;fill-opacity:1;stroke:none" />
-    <text
-       transform="scale(0.99120033,1.0088778)"
-       sodipodi:linespacing="125%"
-       id="text4519"
-       y="-83.132935"
-       x="3961.2366"
-       style="font-size:30px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Children Once Where;-inkscape-font-specification:Children Once Where"
-       xml:space="preserve"><tspan
-         style="font-size:30px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#000000;stroke:none;font-family:Trebuchet MS;-inkscape-font-specification:Trebuchet MS"
-         y="-83.132935"
-         x="3961.2366"
-         id="tspan4521"
-         sodipodi:role="line">people</tspan></text>
-    <path
-       style="fill:#008080;fill-opacity:1;stroke:none"
-       d="m 4023.0338,-75.896984 -98.4646,1.41422 -0.1768,-34.117896 98.995,0.7071 z"
-       id="path4539"
-       inkscape:connector-curvature="0"
-       sodipodi:nodetypes="ccccc" />
-    <text
-       xml:space="preserve"
-       style="font-size:30px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Children Once Where;-inkscape-font-specification:Children Once Where"
-       x="3961.2366"
-       y="-83.132935"
-       id="text4541"
-       sodipodi:linespacing="125%"
-       transform="scale(0.99120033,1.0088778)"><tspan
-         sodipodi:role="line"
-         id="tspan4543"
-         x="3961.2366"
-         y="-83.132935"
-         style="font-size:30px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#000000;stroke:none;font-family:Trebuchet MS;-inkscape-font-specification:Trebuchet MS">people</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:24px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Trebuchet MS;-inkscape-font-specification:Trebuchet MS"
@@ -3361,25 +3340,6 @@
          x="3707.7822"
          id="tspan4593"
          sodipodi:role="line" /></text>
-    <path
-       style="fill:#008080;fill-opacity:1;stroke:none"
-       d="m 4023.0338,-75.896984 -98.4646,1.41422 -0.1768,-34.117896 98.995,0.7071 z"
-       id="path4609"
-       inkscape:connector-curvature="0"
-       sodipodi:nodetypes="ccccc" />
-    <text
-       xml:space="preserve"
-       style="font-size:30px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Children Once Where;-inkscape-font-specification:Children Once Where"
-       x="3961.2366"
-       y="-83.132935"
-       id="text4611"
-       sodipodi:linespacing="125%"
-       transform="scale(0.99120033,1.0088778)"><tspan
-         sodipodi:role="line"
-         id="tspan4613"
-         x="3961.2366"
-         y="-83.132935"
-         style="font-size:30px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#000000;stroke:none;font-family:Trebuchet MS;-inkscape-font-specification:Trebuchet MS">people</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:28px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Trebuchet MS;-inkscape-font-specification:Trebuchet MS"
@@ -3392,25 +3352,6 @@
          id="tspan4627"
          x="3001.7747"
          y="-16.102369">within Burrells Wharf</tspan></text>
-    <path
-       sodipodi:nodetypes="ccccc"
-       inkscape:connector-curvature="0"
-       id="path4631"
-       d="m 4023.0338,-75.896984 -98.4646,1.41422 -0.1768,-34.117896 98.995,0.7071 z"
-       style="fill:#009e97;fill-opacity:1;stroke:none" />
-    <text
-       transform="scale(0.99120033,1.0088778)"
-       sodipodi:linespacing="125%"
-       id="text4633"
-       y="-83.132935"
-       x="3963.2544"
-       style="font-size:30px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Children Once Where;-inkscape-font-specification:Children Once Where"
-       xml:space="preserve"><tspan
-         style="font-size:30px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#000000;stroke:none;font-family:Trebuchet MS;-inkscape-font-specification:Trebuchet MS"
-         y="-83.132935"
-         x="3963.2544"
-         id="tspan4635"
-         sodipodi:role="line">people</tspan></text>
     <text
        transform="scale(0.99120033,1.0088778)"
        sodipodi:linespacing="125%"
@@ -3619,24 +3560,235 @@
          y="182.54378"
          id="tspan4731">Burrells Wharf</tspan></text>
     <rect
-       style="fill:url(#linearGradient4852);fill-opacity:1;stroke:#ffffff;stroke-width:8.26620483;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+       style="fill:url(#linearGradient4858);fill-opacity:1;stroke:none"
        id="rect4848"
-       width="631.73376"
-       height="131.7338"
-       x="3885.0779"
-       y="25.394205"
+       width="639.29333"
+       height="147.17435"
+       x="3911.1211"
+       y="156.95561"
        inkscape:export-filename="/Users/tlodge/roomcast_images/scopecell.png"
-       inkscape:export-xdpi="90.209999"
-       inkscape:export-ydpi="90.209999" />
+       inkscape:export-xdpi="180"
+       inkscape:export-ydpi="180" />
     <path
        style="fill:#009e97;fill-opacity:1;stroke:none"
-       d="m 3889.7691,70.204221 c 205.1168,-8.783148 418.0816,-4.59272 620.8852,-6.816694 l 0.4296,-33.559108 c -195.8418,-1.428084 -405.707,-0.296895 -621.3148,0 z"
+       d="m 3911.8102,200.64634 c 211.0511,-9.22036 430.1801,-4.82134 638.8505,-7.15602 l 0.4427,-35.22958 c -201.5078,-1.49917 -417.4467,-0.31166 -639.2932,0 z"
        id="path4850"
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="ccccc"
        inkscape:export-filename="/Users/tlodge/roomcast_images/scopecell.png"
-       inkscape:export-xdpi="90.209999"
-       inkscape:export-ydpi="90.209999" />
+       inkscape:export-xdpi="180"
+       inkscape:export-ydpi="180" />
+    <rect
+       style="fill:#ffffff;fill-opacity:1;stroke:none"
+       id="rect4854"
+       width="639.92328"
+       height="4.1789708"
+       x="3883.47"
+       y="-133.16397"
+       inkscape:export-filename="/Users/tlodge/roomcast_images/help.png"
+       inkscape:export-xdpi="89.996704"
+       inkscape:export-ydpi="89.996704" />
+    <g
+       id="g4951">
+      <path
+         inkscape:export-ydpi="180"
+         inkscape:export-xdpi="180"
+         inkscape:export-filename="/Users/tlodge/roomcast_images/scopecell.png"
+         sodipodi:nodetypes="ccccc"
+         inkscape:connector-curvature="0"
+         id="path4511"
+         d="m 3921.7538,174.22454 0.4833,115.18082 107.6294,-1.77367 1.144,-115.18087 z"
+         style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:1.38480079;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+      <path
+         inkscape:export-ydpi="180"
+         inkscape:export-xdpi="180"
+         inkscape:export-filename="/Users/tlodge/roomcast_images/scopecell.png"
+         style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:1.3913033;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+         d="m 4029.8688,289.15926 -107.4659,1.54765 -0.193,-37.337 108.0449,0.77381 z"
+         id="path4513"
+         inkscape:connector-curvature="0"
+         sodipodi:nodetypes="ccccc" />
+      <path
+         inkscape:export-ydpi="180"
+         inkscape:export-xdpi="180"
+         inkscape:export-filename="/Users/tlodge/roomcast_images/scopecell.png"
+         style="fill:url(#linearGradient4947);fill-opacity:1;stroke:none"
+         d="m 4029.3844,288.60543 -106.4637,1.49162 -0.1912,-35.98509 107.0373,0.74582 z"
+         id="path4631"
+         inkscape:connector-curvature="0"
+         sodipodi:nodetypes="ccccc" />
+    </g>
+    <text
+       inkscape:export-ydpi="89.996704"
+       inkscape:export-xdpi="89.996704"
+       inkscape:export-filename="/Users/tlodge/roomcast_images/help.png"
+       transform="matrix(2.9783397,0,0,2.7783074,1005.8339,478.28823)"
+       xml:space="preserve"
+       style="font-size:32px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;filter:url(#filter9129-2);font-family:Trebuchet MS;-inkscape-font-specification:Trebuchet MS"
+       x="983.52356"
+       y="-237.23022"
+       id="text4872"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan4874"
+         x="983.52356"
+         y="-237.23022">?</tspan></text>
+    <rect
+       inkscape:export-ydpi="89.996704"
+       inkscape:export-xdpi="89.996704"
+       inkscape:export-filename="/Users/tlodge/roomcast_images/help.png"
+       y="-268.98511"
+       x="3883.3699"
+       height="134.58305"
+       width="639.45123"
+       id="rect4881"
+       style="fill:url(#linearGradient4883);fill-opacity:1;stroke:none" />
+    <path
+       inkscape:export-ydpi="89.996704"
+       inkscape:export-xdpi="89.996704"
+       inkscape:export-filename="/Users/tlodge/roomcast_images/help.png"
+       sodipodi:nodetypes="ccccc"
+       inkscape:connector-curvature="0"
+       id="path4885"
+       d="m 3896.6232,-256.08819 0.3587,111.86454 79.8723,-1.72262 0.849,-111.86456 z"
+       style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:1.17564452;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+    <text
+       xml:space="preserve"
+       style="font-size:39.21923447px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Children Once Where;-inkscape-font-specification:Children Once Where"
+       x="3835.6497"
+       y="-161.16104"
+       id="text4887"
+       sodipodi:linespacing="125%"
+       transform="scale(1.0199451,0.98044493)"
+       inkscape:export-filename="/Users/tlodge/roomcast_images/help.png"
+       inkscape:export-xdpi="89.996704"
+       inkscape:export-ydpi="89.996704"><tspan
+         sodipodi:role="line"
+         id="tspan4889"
+         x="3835.6497"
+         y="-161.16104"
+         style="font-size:127.46250916px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Trebuchet MS;-inkscape-font-specification:Trebuchet MS">?</tspan></text>
+    <g
+       id="g4956"
+       style="fill:#009e97;fill-opacity:1">
+      <path
+         inkscape:export-ydpi="180"
+         inkscape:export-xdpi="180"
+         inkscape:export-filename="/Users/tlodge/roomcast_images/scopecell.png"
+         sodipodi:nodetypes="cccc"
+         inkscape:connector-curvature="0"
+         id="path4905"
+         d="m 4515.1494,248.99343 -14.7973,-30.59077 15.1121,-11.47154 20.6217,42.06231"
+         style="fill:#009e97;fill-opacity:1;stroke:#000000;stroke-width:1.00493538000000004px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+      <path
+         inkscape:export-ydpi="180"
+         inkscape:export-xdpi="180"
+         inkscape:export-filename="/Users/tlodge/roomcast_images/scopecell.png"
+         style="fill:#009e97;fill-opacity:1;stroke:#000000;stroke-width:1.00493538000000004px;stroke-linecap:round;stroke-linejoin:bevel;stroke-opacity:1"
+         d="m 4515.1494,248.92606 -14.7973,30.59076 15.427,10.71475 20.3068,-41.30551"
+         id="path4907"
+         inkscape:connector-curvature="0"
+         sodipodi:nodetypes="cccc" />
+    </g>
+    <rect
+       style="fill:#ffffff;fill-opacity:1;stroke:none"
+       id="rect4913"
+       width="639.96118"
+       height="4.0440454"
+       x="3911.2036"
+       y="154.12999"
+       inkscape:export-filename="/Users/tlodge/roomcast_images/scopecell.png"
+       inkscape:export-xdpi="180"
+       inkscape:export-ydpi="180" />
+    <rect
+       y="334.69"
+       x="3912.002"
+       height="145.81012"
+       width="639.15326"
+       id="rect4935"
+       style="fill:url(#linearGradient4937);fill-opacity:1;stroke:none" />
+    <rect
+       inkscape:export-ydpi="180"
+       inkscape:export-xdpi="180"
+       inkscape:export-filename="/Users/tlodge/roomcast_images/scopecell.png"
+       y="364.35934"
+       x="3911.104"
+       height="4.0113115"
+       width="639.11444"
+       id="rect4929"
+       style="fill:#000000;fill-opacity:0;stroke:none" />
+    <path
+       inkscape:export-ydpi="180"
+       inkscape:export-xdpi="180"
+       inkscape:export-filename="/Users/tlodge/roomcast_images/scopecell.png"
+       sodipodi:nodetypes="ccccc"
+       inkscape:connector-curvature="0"
+       id="path4917"
+       d="m 3913.3739,377.93341 c 210.7718,-9.14573 429.611,-4.78231 638.0053,-7.09809 l 0.4421,-34.94442 c -201.2413,-1.48703 -416.8944,-0.30913 -638.4474,0 z"
+       style="fill:#ebb6b8;fill-opacity:1;stroke:none" />
+    <g
+       id="g4983"
+       transform="matrix(0.99867691,0,0,0.99190559,193.91688,2.1208581)">
+      <path
+         style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:1.38480079;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+         d="m 3735.1654,354.5093 0.4833,115.18082 107.6294,-1.77367 1.144,-115.18087 z"
+         id="path4962"
+         inkscape:connector-curvature="0"
+         sodipodi:nodetypes="ccccc"
+         inkscape:export-filename="/Users/tlodge/roomcast_images/scopecell.png"
+         inkscape:export-xdpi="180"
+         inkscape:export-ydpi="180" />
+      <path
+         sodipodi:nodetypes="ccccc"
+         inkscape:connector-curvature="0"
+         id="path4964"
+         d="m 3843.2804,469.44402 -107.4659,1.54765 -0.193,-37.337 108.0449,0.77381 z"
+         style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:1.3913033;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+         inkscape:export-filename="/Users/tlodge/roomcast_images/scopecell.png"
+         inkscape:export-xdpi="180"
+         inkscape:export-ydpi="180" />
+      <path
+         sodipodi:nodetypes="ccccc"
+         inkscape:connector-curvature="0"
+         id="path4923"
+         d="m 3842.9606,468.76647 -106.4636,1.49162 -0.1913,-35.98509 107.0373,0.74582 z"
+         style="fill:#ebb6b8;fill-opacity:1;stroke:none"
+         inkscape:export-filename="/Users/tlodge/roomcast_images/scopecell.png"
+         inkscape:export-xdpi="180"
+         inkscape:export-ydpi="180" />
+    </g>
+    <g
+       id="g4988"
+       transform="matrix(0.99867691,0,0,0.99190559,8.7359271,175.43515)">
+      <path
+         style="fill:#de8787;fill-opacity:1;stroke:#000000;stroke-width:1.00493538px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         d="m 4515.1494,248.99343 -14.7973,-30.59077 15.1121,-11.47154 20.6217,42.06231"
+         id="path4990"
+         inkscape:connector-curvature="0"
+         sodipodi:nodetypes="cccc"
+         inkscape:export-filename="/Users/tlodge/roomcast_images/scopecell.png"
+         inkscape:export-xdpi="180"
+         inkscape:export-ydpi="180" />
+      <path
+         sodipodi:nodetypes="cccc"
+         inkscape:connector-curvature="0"
+         id="path4992"
+         d="m 4515.1494,248.92606 -14.7973,30.59076 15.427,10.71475 20.3068,-41.30551"
+         style="fill:#de8787;fill-opacity:1;stroke:#000000;stroke-width:1.00493538px;stroke-linecap:round;stroke-linejoin:bevel;stroke-opacity:1"
+         inkscape:export-filename="/Users/tlodge/roomcast_images/scopecell.png"
+         inkscape:export-xdpi="180"
+         inkscape:export-ydpi="180" />
+    </g>
+    <rect
+       inkscape:export-ydpi="180"
+       inkscape:export-xdpi="180"
+       inkscape:export-filename="/Users/tlodge/roomcast_images/scopecell.png"
+       y="330.50012"
+       x="3912.1592"
+       height="4.0113115"
+       width="639.11444"
+       id="rect4994"
+       style="fill:#f9f9f9;fill-opacity:1;stroke:none" />
   </g>
   <g
      inkscape:groupmode="layer"

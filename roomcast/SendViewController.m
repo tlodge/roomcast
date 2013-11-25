@@ -21,7 +21,7 @@ MessageView* aView;
     NSLog(@"am her!");
     self = [super initWithStyle:style];
     if (self) {
-        NSLog(@"Ok am initing!!");
+       
         // Custom initialization
         self.messages = [NSMutableArray arrayWithCapacity: 20];
         Message *m = [[Message alloc] init];

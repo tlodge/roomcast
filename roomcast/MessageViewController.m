@@ -199,7 +199,7 @@ BOOL _composing = YES;
     
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
-    NSLog(@"am preparing for segue!");
+    
     ChatViewController* cvc = (ChatViewController *) [segue destinationViewController];
     
     NSSet *set = [selectedConversation valueForKey:@"messages"];
@@ -292,8 +292,9 @@ BOOL _composing = YES;
         float width = mainframe.size.width;
         
         aView.frame = CGRectMake(0,-313+self.tableView.contentOffset.y,width,313); //or whatever coordinates you need
-        [self.tableView addSubview:aView];
         
+        [self.tableView addSubview:aView];
+       
         [UIView animateWithDuration:0.5f
                               delay:0.0f
                             options:UIViewAnimationCurveEaseInOut
@@ -307,7 +308,7 @@ BOOL _composing = YES;
     }else{
         CGRect mainframe = [[UIScreen mainScreen] bounds];
         float width = mainframe.size.width;
-        
+      
         [UIView animateWithDuration:0.5f
                               delay:0.0f
                             options:UIViewAnimationCurveEaseInOut

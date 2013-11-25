@@ -68,15 +68,54 @@
 }*/
 
 
+-(void) tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    if (indexPath.row > 0){
+        ScopeCell* cell = (ScopeCell*)[tableView cellForRowAtIndexPath:indexPath];
+        cell.background.image = [UIImage imageNamed:@"scopecell.png"];
+        cell.total.alpha = 0.0;
+    }
+}
+
+-(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    if (indexPath.row > 0){
+        ScopeCell* cell = (ScopeCell*)[tableView cellForRowAtIndexPath:indexPath];
+        cell.background.image = [UIImage imageNamed:@"scopecellselected.png"];
+        cell.total.alpha = 1.0;
+    }
+
+}
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    
     if (indexPath.row == 0){
-        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"InfoCell" forIndexPath:indexPath];
-        return cell;
+        return[tableView dequeueReusableCellWithIdentifier:@"InfoCell" forIndexPath:indexPath];
     }
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ScopeCell" forIndexPath:indexPath];
+    ScopeCell* cell =  (ScopeCell*)[tableView dequeueReusableCellWithIdentifier:@"ScopeCell" forIndexPath:indexPath];
+    
+    if (indexPath.row == 1){
+        cell.title.text = @"specific apartment(s)";
+        [cell.info setFont:[UIFont fontWithName:@"Trebuchet MS" size:24]];
+        cell.info.text = @"1,2,3,4";
+        cell.total.text = @"3";
+    }else if (indexPath.row == 2){
+        cell.title.text = @"within Burrells Wharf";
+        cell.info.text = @"floor 3, Charthouse";
+        cell.total.text = @"125";
+      
+    }else if (indexPath.row ==3){
+        cell.title.text = @"across developments";
+        cell.info.text = @"Burrells Wharf, Langbourne Place, Canary Riverside";
+        cell.total.text = @"293";
+    }else if (indexPath.row == 4){
+        cell.title.text = @"across region";
+        cell.info.text = @"within 5 miles of Burrells Wharf";
+        cell.total.text = @"563";
+    }
+    
     return cell;
     
         
