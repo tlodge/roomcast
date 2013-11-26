@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ApartmentViewController : UITableViewController
-- (IBAction)toggleSelect:(id)sender;
+
+@interface BlockViewController : UITableViewController
 
 @end

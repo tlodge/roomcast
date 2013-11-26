@@ -27,9 +27,12 @@
 		A3334D531843FE6F00ECA8D5 /* rightnavred.png in Resources */ = {isa = PBXBuildFile; fileRef = A3334D4F1843FE6F00ECA8D5 /* rightnavred.png */; };
 		A3334D541843FE6F00ECA8D5 /* scopecell.png in Resources */ = {isa = PBXBuildFile; fileRef = A3334D501843FE6F00ECA8D5 /* scopecell.png */; };
 		A3334D551843FE6F00ECA8D5 /* scopecellselected.png in Resources */ = {isa = PBXBuildFile; fileRef = A3334D511843FE6F00ECA8D5 /* scopecellselected.png */; };
-		A3334D601845077500ECA8D5 /* ApartmentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3334D5F1845077500ECA8D5 /* ApartmentViewController.m */; };
+		A3334D601845077500ECA8D5 /* BlockViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3334D5F1845077500ECA8D5 /* BlockViewController.m */; };
 		A3334D6618450EAE00ECA8D5 /* blockcell.png in Resources */ = {isa = PBXBuildFile; fileRef = A3334D6518450EAE00ECA8D5 /* blockcell.png */; };
 		A3334D6C1845159500ECA8D5 /* BlockCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A3334D6B1845159500ECA8D5 /* BlockCell.m */; };
+		A3334D6F18452F2400ECA8D5 /* ApartmentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3334D6E18452F2400ECA8D5 /* ApartmentViewController.m */; };
+		A3334D751845488400ECA8D5 /* switchoff.png in Resources */ = {isa = PBXBuildFile; fileRef = A3334D741845488400ECA8D5 /* switchoff.png */; };
+		A3334D771845493000ECA8D5 /* switchon.png in Resources */ = {isa = PBXBuildFile; fileRef = A3334D761845493000ECA8D5 /* switchon.png */; };
 		A360581C182191EE0026615B /* FormTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A360581B182191EE0026615B /* FormTableViewController.m */; };
 		A37C6EA9181952040042489D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A37C6EA8181952040042489D /* Foundation.framework */; };
 		A37C6EAB181952040042489D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A37C6EAA181952040042489D /* CoreGraphics.framework */; };
@@ -120,11 +123,15 @@
 		A3334D4F1843FE6F00ECA8D5 /* rightnavred.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rightnavred.png; sourceTree = "<group>"; };
 		A3334D501843FE6F00ECA8D5 /* scopecell.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = scopecell.png; sourceTree = "<group>"; };
 		A3334D511843FE6F00ECA8D5 /* scopecellselected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = scopecellselected.png; sourceTree = "<group>"; };
-		A3334D5E1845077500ECA8D5 /* ApartmentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ApartmentViewController.h; path = ../ApartmentViewController.h; sourceTree = "<group>"; };
-		A3334D5F1845077500ECA8D5 /* ApartmentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ApartmentViewController.m; path = ../ApartmentViewController.m; sourceTree = "<group>"; };
+		A3334D5E1845077500ECA8D5 /* BlockViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BlockViewController.h; path = ../BlockViewController.h; sourceTree = "<group>"; };
+		A3334D5F1845077500ECA8D5 /* BlockViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BlockViewController.m; path = ../BlockViewController.m; sourceTree = "<group>"; };
 		A3334D6518450EAE00ECA8D5 /* blockcell.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blockcell.png; sourceTree = "<group>"; };
 		A3334D6A1845159500ECA8D5 /* BlockCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlockCell.h; sourceTree = "<group>"; };
 		A3334D6B1845159500ECA8D5 /* BlockCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlockCell.m; sourceTree = "<group>"; };
+		A3334D6D18452F2400ECA8D5 /* ApartmentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ApartmentViewController.h; path = ../ApartmentViewController.h; sourceTree = "<group>"; };
+		A3334D6E18452F2400ECA8D5 /* ApartmentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ApartmentViewController.m; path = ../ApartmentViewController.m; sourceTree = "<group>"; };
+		A3334D741845488400ECA8D5 /* switchoff.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = switchoff.png; path = ../switchoff.png; sourceTree = "<group>"; };
+		A3334D761845493000ECA8D5 /* switchon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = switchon.png; sourceTree = "<group>"; };
 		A360581A182191EE0026615B /* FormTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FormTableViewController.h; sourceTree = "<group>"; };
 		A360581B182191EE0026615B /* FormTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FormTableViewController.m; sourceTree = "<group>"; };
 		A37C6EA5181952040042489D /* roomcast.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = roomcast.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -253,8 +260,10 @@
 			children = (
 				A3334D5D184506B000ECA8D5 /* TableCells */,
 				A317AC34182AE82B00BE7E46 /* MessageView.xib */,
-				A3334D5E1845077500ECA8D5 /* ApartmentViewController.h */,
-				A3334D5F1845077500ECA8D5 /* ApartmentViewController.m */,
+				A3334D6D18452F2400ECA8D5 /* ApartmentViewController.h */,
+				A3334D6E18452F2400ECA8D5 /* ApartmentViewController.m */,
+				A3334D5E1845077500ECA8D5 /* BlockViewController.h */,
+				A3334D5F1845077500ECA8D5 /* BlockViewController.m */,
 				A3F88D13182D445D00E3BFB0 /* ChatViewController.h */,
 				A3F88D14182D445D00E3BFB0 /* ChatViewController.m */,
 				A317AC39182BCFDD00BE7E46 /* SendViewController.h */,
@@ -417,6 +426,8 @@
 		A37C6EDD181954090042489D /* images */ = {
 			isa = PBXGroup;
 			children = (
+				A3334D741845488400ECA8D5 /* switchoff.png */,
+				A3334D761845493000ECA8D5 /* switchon.png */,
 				A3334D6518450EAE00ECA8D5 /* blockcell.png */,
 				A3334D4E1843FE6F00ECA8D5 /* rightnav.png */,
 				A3334D4F1843FE6F00ECA8D5 /* rightnavred.png */,
@@ -546,9 +557,11 @@
 				A3F88D33182EE77A00E3BFB0 /* apartment_light.png in Resources */,
 				A317AC48182D22D600BE7E46 /* message_recipient_back.png in Resources */,
 				A3F88D491831763B00E3BFB0 /* bubble_r.png in Resources */,
+				A3334D751845488400ECA8D5 /* switchoff.png in Resources */,
 				A3F88D21182EDEC900E3BFB0 /* message_numbers_back.png in Resources */,
 				A3C3BF161827B06A007E8803 /* message.png in Resources */,
 				A3334D521843FE6F00ECA8D5 /* rightnav.png in Resources */,
+				A3334D771845493000ECA8D5 /* switchon.png in Resources */,
 				A3F88D17182D4F4A00E3BFB0 /* continue.png in Resources */,
 				A3F88D24182EDFA400E3BFB0 /* responses_dark.png in Resources */,
 				A317AC60182D2CED00BE7E46 /* sendbutton.png in Resources */,
@@ -597,6 +610,7 @@
 				A37C6F0F181ACCBA0042489D /* RangeView.m in Sources */,
 				A3B6DAE7183BD22F00A860CA /* StartViewController.m in Sources */,
 				A317AC30182A7AD600BE7E46 /* InitViewController.m in Sources */,
+				A3334D6F18452F2400ECA8D5 /* ApartmentViewController.m in Sources */,
 				A37C6EF0181971020042489D /* AuthViewController.m in Sources */,
 				A37C6EBF181952040042489D /* ViewController.m in Sources */,
 				A317AC41182BD95C00BE7E46 /* MessageViewController.m in Sources */,
@@ -607,7 +621,7 @@
 				A360581C182191EE0026615B /* FormTableViewController.m in Sources */,
 				A3F88D15182D445D00E3BFB0 /* ChatViewController.m in Sources */,
 				A3334D451843B41800ECA8D5 /* ScopeCell.m in Sources */,
-				A3334D601845077500ECA8D5 /* ApartmentViewController.m in Sources */,
+				A3334D601845077500ECA8D5 /* BlockViewController.m in Sources */,
 				A3F88DF61832C0F200E3BFB0 /* Message.m in Sources */,
 				A3F88D36183019C000E3BFB0 /* MessageCell.m in Sources */,
 				A3334D6C1845159500ECA8D5 /* BlockCell.m in Sources */,

@@ -304,6 +304,7 @@
                             <outlet property="delegate" destination="DXA-nC-Cms" id="nmK-Fh-gfP"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" id="0LK-GR-sTa"/>
                     <connections>
                         <segue destination="UE7-ub-7fS" kind="push" identifier="apartmentSegue" id="Q5t-RE-wf7"/>
                         <segue destination="cmf-pY-Al9" kind="push" identifier="withinDevelopmentSegue" id="dnq-DU-5hm"/>
@@ -315,10 +316,10 @@
             </objects>
             <point key="canvasLocation" x="1247" y="1491"/>
         </scene>
-        <!--Apartment View Controller-->
+        <!--Block View Controller-->
         <scene sceneID="EOc-wS-7jh">
             <objects>
-                <tableViewController id="UE7-ub-7fS" customClass="ApartmentViewController" sceneMemberID="viewController">
+                <tableViewController id="UE7-ub-7fS" customClass="BlockViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="Xfm-jf-Z5A">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -385,22 +386,38 @@
             </objects>
             <point key="canvasLocation" x="1970" y="742"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Apartment View Controller-->
         <scene sceneID="10o-2M-b6H">
             <objects>
-                <tableViewController id="p2Z-w7-TlO" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="szM-kd-u1N">
+                <tableViewController id="p2Z-w7-TlO" customClass="ApartmentViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="szM-kd-u1N">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="separatorColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="EPL-kJ-LCm">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ApartmentCell" id="EPL-kJ-LCm">
                                 <rect key="frame" x="0.0" y="22" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="EPL-kJ-LCm" id="vXZ-Hl-0vt">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="asC-Ka-7VC">
+                                            <rect key="frame" x="251" y="6" width="51" height="31"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </switch>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Apartment 1" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="a8W-lm-f6V">
+                                            <rect key="frame" x="20" y="6" width="320" height="32"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="24"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
                                 </tableViewCellContentView>
+                                <color key="backgroundColor" red="0.0" green="0.61960784310000006" blue="0.59215686270000001" alpha="1" colorSpace="calibratedRGB"/>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -408,7 +425,9 @@
                             <outlet property="delegate" destination="p2Z-w7-TlO" id="fEt-mY-UlN"/>
                         </connections>
                     </tableView>
+                    <toolbarItems/>
                     <navigationItem key="navigationItem" id="VfQ-vr-tGI"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mjr-A9-T4y" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -962,10 +981,6 @@
         <image name="rightnav.png" width="74" height="169"/>
         <image name="rightnavred.png" width="74" height="168"/>
         <image name="scopecell.png" width="1280" height="300"/>
-        <image name="sendbutton.png" width="140" height="70"/>
-        <image name="sendbutton.png" width="140" height="70"/>
-        <image name="sendbutton.png" width="140" height="70"/>
-        <image name="sendbutton.png" width="140" height="70"/>
         <image name="sendbutton.png" width="140" height="70"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

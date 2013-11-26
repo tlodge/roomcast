@@ -6,13 +6,13 @@
 //  Copyright (c) 2013 Tom Lodge. All rights reserved.
 //
 
-#import "ApartmentViewController.h"
+#import "BlockViewController.h"
 
-@interface ApartmentViewController ()
+@interface BlockViewController ()
 
 @end
 
-@implementation ApartmentViewController
+@implementation BlockViewController
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -26,14 +26,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-    [button setImage:[UIImage imageNamed:@"switchoff.png"] forState:UIControlStateNormal];
-    button.frame=CGRectMake(0.0, 0.0, 53.0, 32.0);
-    [button addTarget:self action:nil forControlEvents:UIControlEventTouchUpInside];
-    UIBarButtonItem* stopBtn = [[UIBarButtonItem alloc] initWithCustomView:button];
- 
-    [self.navigationItem setRightBarButtonItem:stopBtn];
+    NSLog(@"ok so am hete");
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
@@ -56,16 +49,19 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
-    // Return the number of rows in the section.
-    return 20;
+    return 2;
+}
+
+- (CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 60.0;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"ApartmentCell";
+    NSLog(@"am in here as I should be!");
+    static NSString *CellIdentifier = @"BlockCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-    
+    //cell.name.text = @"some text goes here";
     // Configure the cell...
     
     return cell;
@@ -122,7 +118,4 @@
 
  */
 
-- (IBAction)toggleSelect:(id)sender {
-    NSLog(@"Toggling!");
-}
 @end
