@@ -16,6 +16,8 @@
 
 @implementation DestinationViewController
 
+NSIndexPath *lastIndex = nil;
+
 - (id)initWithStyle:(UITableViewStyle)style
 {
     self = [super initWithStyle:style];
@@ -52,49 +54,39 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
     // Return the number of rows in the section.
     return 5;
 }
 
-/*
-- (UITableViewCell *)tableView:(UITableView *)tableView{
-    
-    UITableViewCell*   cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"Cell"];
-    
-    // Configure the cell...
-    
-    return cell;
-}*/
 
-
--(void) tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath{
+-(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    if (indexPath.row > 0){
-        ScopeCell* cell = (ScopeCell*)[tableView cellForRowAtIndexPath:indexPath];
+    if (lastIndex){
+        ScopeCell* cell = (ScopeCell*)[tableView cellForRowAtIndexPath:lastIndex];
         cell.background.image = [UIImage imageNamed:@"scopecell.png"];
         cell.total.alpha = 0.0;
     }
-}
-
--(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
     if (indexPath.row > 0){
         ScopeCell* cell = (ScopeCell*)[tableView cellForRowAtIndexPath:indexPath];
         cell.background.image = [UIImage imageNamed:@"scopecellselected.png"];
         cell.total.alpha = 1.0;
     }
+    
+    lastIndex = indexPath;
 
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
+
     if (indexPath.row == 0){
         return[tableView dequeueReusableCellWithIdentifier:@"InfoCell" forIndexPath:indexPath];
     }
     
     ScopeCell* cell =  (ScopeCell*)[tableView dequeueReusableCellWithIdentifier:@"ScopeCell" forIndexPath:indexPath];
+    
+    [cell.moreButton addTarget:self action:@selector(triggerSegue:) forControlEvents:UIControlEventTouchUpInside];
     
     if (indexPath.row == 1){
         cell.title.text = @"specific apartment(s)";
@@ -102,35 +94,65 @@
         cell.info.text = @"1,2,3,4";
         cell.total.text = @"3";
         [tableView selectRowAtIndexPath:indexPath animated:NO scrollPosition: UITableViewScrollPositionNone];
+        lastIndex = indexPath;
         cell.background.image = [UIImage imageNamed:@"scopecellselected.png"];
         cell.total.alpha = 1.0;
+        cell.moreButton.tag = indexPath.row;
     }else if (indexPath.row == 2){
         cell.title.text = @"within Burrells Wharf";
         cell.info.text = @"floor 3, Charthouse";
         cell.total.text = @"125";
-      
+        cell.moreButton.tag = indexPath.row;
+
     }else if (indexPath.row ==3){
         cell.title.text = @"across developments";
         cell.info.text = @"Burrells Wharf, Langbourne Place, Canary Riverside";
         cell.total.text = @"293";
+        cell.moreButton.tag = indexPath.row;
+
     }else if (indexPath.row == 4){
         cell.title.text = @"across region";
         cell.info.text = @"within 5 miles of Burrells Wharf";
         cell.total.text = @"563";
+        cell.moreButton.tag = indexPath.row;
+
     }
     
     return cell;
+}
+
+-(void)  triggerSegue:(id)sender{
+    UIButton *clicked = (UIButton *) sender;
     
+    if (lastIndex != nil){
+        ScopeCell* cell = (ScopeCell*)[self.tableView cellForRowAtIndexPath:lastIndex];
+        cell.background.image = [UIImage imageNamed:@"scopecell.png"];
+        cell.total.alpha = 0.0;
         
-    //static NSString *CellIdentifier = @"Cell";
+    }
     
-    //UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-   
+    NSIndexPath* currentIndex = [NSIndexPath indexPathForRow:clicked.tag inSection:0];
+    ScopeCell* cell = (ScopeCell*)[self.tableView cellForRowAtIndexPath:currentIndex];
+    cell.background.image = [UIImage imageNamed:@"scopecellselected.png"];
+    cell.total.alpha = 1.0;
     
-    // Configure the cell...
+    lastIndex = currentIndex;
     
-    //return cell;
-   
+    
+    NSString *segue = @"apartmentSegue";
+    
+    if (clicked.tag == 2){
+       segue = @"withinDevelopmentSegue";
+    }
+    else if (clicked.tag == 3){
+       segue = @"acrossDevelopmentSegue";
+    }else if (clicked.tag == 4){
+       segue = @"withinRegionSegue";
+    }
+    
+    
+    
+    [self performSegueWithIdentifier:segue sender:self];
 }
 
 - (CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
