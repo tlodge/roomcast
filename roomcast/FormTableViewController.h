@@ -7,9 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "CustomCell.h"
-#import "PassCell.h"
-#import "PickerCell.h"
 #import <Parse/Parse.h>
 
 @interface FormTableViewController : UITableViewController <UITextFieldDelegate, UIPickerViewDataSource, UIPickerViewDelegate>

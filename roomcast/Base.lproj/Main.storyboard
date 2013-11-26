@@ -269,7 +269,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="people" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="A6d-fo-kqx">
-                                            <rect key="frame" x="9" y="46" width="49" height="21"/>
+                                            <rect key="frame" x="7" y="48" width="51" height="19"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="16"/>
                                             <nil key="highlightedColor"/>
@@ -313,24 +313,65 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rD3-4e-drd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1023" y="882"/>
+            <point key="canvasLocation" x="1247" y="1491"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Apartment View Controller-->
         <scene sceneID="EOc-wS-7jh">
             <objects>
-                <tableViewController id="UE7-ub-7fS" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="Xfm-jf-Z5A">
+                <tableViewController id="UE7-ub-7fS" customClass="ApartmentViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="Xfm-jf-Z5A">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="separatorColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="d7C-p0-0NZ">
-                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="BlockCell" rowHeight="60" id="d7C-p0-0NZ" customClass="BlockCell">
+                                <rect key="frame" x="0.0" y="22" width="320" height="60"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="d7C-p0-0NZ" id="0Kj-rW-1Fi">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="59"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="blockcell.png" id="AHX-AC-Nek">
+                                            <rect key="frame" x="0.0" y="-1" width="320" height="60"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </imageView>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="28E-XS-KQ5">
+                                            <rect key="frame" x="293" y="6" width="19" height="42"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <state key="normal" backgroundImage="rightnavred.png">
+                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <connections>
+                                                <segue destination="p2Z-w7-TlO" kind="push" id="4MU-TJ-cXv"/>
+                                            </connections>
+                                        </button>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="jK6-Hi-jkZ">
+                                            <rect key="frame" x="5" y="7" width="48" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="24"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Block Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="0aj-Hg-MC9">
+                                            <rect key="frame" x="61" y="15" width="224" height="24"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="26"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="selected" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="hlv-Dz-UHA">
+                                            <rect key="frame" x="10" y="35" width="43" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="11"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="chosen" destination="jK6-Hi-jkZ" id="rwP-2Q-VIz"/>
+                                    <outlet property="name" destination="0aj-Hg-MC9" id="wej-TF-7ae"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -342,7 +383,36 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1o8-wJ-23P" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1474" y="846"/>
+            <point key="canvasLocation" x="1970" y="742"/>
+        </scene>
+        <!--Table View Controller-->
+        <scene sceneID="10o-2M-b6H">
+            <objects>
+                <tableViewController id="p2Z-w7-TlO" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="szM-kd-u1N">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="EPL-kJ-LCm">
+                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="EPL-kJ-LCm" id="vXZ-Hl-0vt">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="p2Z-w7-TlO" id="8FG-Tu-SUp"/>
+                            <outlet property="delegate" destination="p2Z-w7-TlO" id="fEt-mY-UlN"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="VfQ-vr-tGI"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mjr-A9-T4y" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2478" y="742"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="Tm9-Sm-3z9">
@@ -357,7 +427,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8Rd-Zw-LWM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1384" y="1453"/>
+            <point key="canvasLocation" x="1964" y="2629"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="1MK-ej-4dz">
@@ -372,7 +442,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Npt-fD-sDT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1744" y="1453"/>
+            <point key="canvasLocation" x="1970" y="1977"/>
         </scene>
         <!--Message View Controller - My Messages-->
         <scene sceneID="NYe-Xb-GyN">
@@ -404,7 +474,7 @@
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </imageView>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="3" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="XuM-5g-duh">
-                                            <rect key="frame" x="252" y="11" width="34" height="21"/>
+                                            <rect key="frame" x="252" y="10" width="34" height="22"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="17"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -561,7 +631,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m8j-AK-tNR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1786" y="892"/>
+            <point key="canvasLocation" x="1970" y="1364"/>
         </scene>
         <!--Navigation Controller - Item-->
         <scene sceneID="Ia6-eh-HGh">
@@ -880,6 +950,7 @@
         <image name="apartment_light.png" width="76" height="76"/>
         <image name="authback.png" width="642" height="962"/>
         <image name="background.png" width="640" height="961"/>
+        <image name="blockcell.png" width="640" height="120"/>
         <image name="continue.png" width="100" height="100"/>
         <image name="help.png" width="640" height="140"/>
         <image name="mapframe.png" width="629" height="747"/>
@@ -889,7 +960,12 @@
         <image name="responses_dark.png" width="64" height="64"/>
         <image name="responses_light.png" width="64" height="64"/>
         <image name="rightnav.png" width="74" height="169"/>
+        <image name="rightnavred.png" width="74" height="168"/>
         <image name="scopecell.png" width="1280" height="300"/>
+        <image name="sendbutton.png" width="140" height="70"/>
+        <image name="sendbutton.png" width="140" height="70"/>
+        <image name="sendbutton.png" width="140" height="70"/>
+        <image name="sendbutton.png" width="140" height="70"/>
         <image name="sendbutton.png" width="140" height="70"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
