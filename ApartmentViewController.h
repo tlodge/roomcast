@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface ApartmentViewController : UITableViewController
-- (IBAction)toggleSelect:(id)sender;
-
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *selectToggle;
+@property (retain, nonatomic) UIButton *switchOn;
+@property (retain, nonatomic) UIButton *switchOff;
+@property (retain,nonatomic) NSMutableArray* apartments;
 @end

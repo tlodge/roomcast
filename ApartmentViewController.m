@@ -7,12 +7,14 @@
 //
 
 #import "ApartmentViewController.h"
-
+#import "ApartmentCell.h"
 @interface ApartmentViewController ()
 
 @end
 
 @implementation ApartmentViewController
+
+
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -26,19 +28,41 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.apartments = [[NSMutableArray alloc] initWithObjects:[NSNumber numberWithBool:NO],[NSNumber numberWithBool:NO],[NSNumber numberWithBool:NO],[NSNumber numberWithBool:NO],[NSNumber numberWithBool:YES], nil];
+    self.switchOn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [self.switchOn setImage:[UIImage imageNamed:@"switchon.png"] forState:UIControlStateNormal];
+    self.switchOn.frame=CGRectMake(0.0, 0.0, 53.0, 32.0);
+    [self.switchOn addTarget:self action: @selector(toggleSelect:) forControlEvents:UIControlEventTouchUpInside];
     
-    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-    [button setImage:[UIImage imageNamed:@"switchoff.png"] forState:UIControlStateNormal];
-    button.frame=CGRectMake(0.0, 0.0, 53.0, 32.0);
-    [button addTarget:self action:nil forControlEvents:UIControlEventTouchUpInside];
-    UIBarButtonItem* stopBtn = [[UIBarButtonItem alloc] initWithCustomView:button];
- 
-    [self.navigationItem setRightBarButtonItem:stopBtn];
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
+    self.switchOff = [UIButton buttonWithType:UIButtonTypeCustom];
+    [self.switchOff setImage:[UIImage imageNamed:@"switchoff.png"] forState:UIControlStateNormal];
+    self.switchOff.frame=CGRectMake(0.0, 0.0, 53.0, 32.0);
+    [self.switchOff addTarget:self action: @selector(toggleSelect:) forControlEvents:UIControlEventTouchUpInside];
+
+    [self.selectToggle initWithCustomView:self.switchOff];
+   
+}
+
+-(void) toggleSelect:(id) sender{
+    if (sender == self.switchOn){
+        [self.selectToggle initWithCustomView:self.switchOff];
+       
+        for (int i = 0; i < [self.apartments count]; i++){
+            [self.apartments setObject:[NSNumber numberWithBool:YES]
+                    atIndexedSubscript:i];
+        }
+        [self.tableView reloadData];
+        
+    }else{
+        //what happens if update underlying button instead?
+        [self.selectToggle initWithCustomView:self.switchOn];
+        for (int i = 0; i < [self.apartments count]; i++){
+            [self.apartments setObject:[NSNumber numberWithBool:NO]
+                    atIndexedSubscript:i];
+        }
+        [self.tableView reloadData];
+    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -47,8 +71,6 @@
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - Table view data source
-
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     return 1;
@@ -56,16 +78,16 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
-    // Return the number of rows in the section.
-    return 20;
+    return [self.apartments count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"ApartmentCell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    ApartmentCell *cell = (ApartmentCell*) [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
+    NSNumber* status = (NSNumber*) [self.apartments objectAtIndex:indexPath.row];
+    [cell.selectSwitch setOn:[status boolValue]];
     // Configure the cell...
     
     return cell;
@@ -122,7 +144,4 @@
 
  */
 
-- (IBAction)toggleSelect:(id)sender {
-    NSLog(@"Toggling!");
-}
 @end

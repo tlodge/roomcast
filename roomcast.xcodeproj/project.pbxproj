@@ -33,6 +33,7 @@
 		A3334D6F18452F2400ECA8D5 /* ApartmentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3334D6E18452F2400ECA8D5 /* ApartmentViewController.m */; };
 		A3334D751845488400ECA8D5 /* switchoff.png in Resources */ = {isa = PBXBuildFile; fileRef = A3334D741845488400ECA8D5 /* switchoff.png */; };
 		A3334D771845493000ECA8D5 /* switchon.png in Resources */ = {isa = PBXBuildFile; fileRef = A3334D761845493000ECA8D5 /* switchon.png */; };
+		A3334D7A1846582800ECA8D5 /* ApartmentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A3334D791846582700ECA8D5 /* ApartmentCell.m */; };
 		A360581C182191EE0026615B /* FormTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A360581B182191EE0026615B /* FormTableViewController.m */; };
 		A37C6EA9181952040042489D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A37C6EA8181952040042489D /* Foundation.framework */; };
 		A37C6EAB181952040042489D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A37C6EAA181952040042489D /* CoreGraphics.framework */; };
@@ -132,6 +133,8 @@
 		A3334D6E18452F2400ECA8D5 /* ApartmentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ApartmentViewController.m; path = ../ApartmentViewController.m; sourceTree = "<group>"; };
 		A3334D741845488400ECA8D5 /* switchoff.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = switchoff.png; path = ../switchoff.png; sourceTree = "<group>"; };
 		A3334D761845493000ECA8D5 /* switchon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = switchon.png; sourceTree = "<group>"; };
+		A3334D781846582700ECA8D5 /* ApartmentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApartmentCell.h; sourceTree = "<group>"; };
+		A3334D791846582700ECA8D5 /* ApartmentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ApartmentCell.m; sourceTree = "<group>"; };
 		A360581A182191EE0026615B /* FormTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FormTableViewController.h; sourceTree = "<group>"; };
 		A360581B182191EE0026615B /* FormTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FormTableViewController.m; sourceTree = "<group>"; };
 		A37C6EA5181952040042489D /* roomcast.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = roomcast.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -320,6 +323,8 @@
 				A3334D6B1845159500ECA8D5 /* BlockCell.m */,
 				A3334D431843B41800ECA8D5 /* ScopeCell.h */,
 				A3334D441843B41800ECA8D5 /* ScopeCell.m */,
+				A3334D781846582700ECA8D5 /* ApartmentCell.h */,
+				A3334D791846582700ECA8D5 /* ApartmentCell.m */,
 			);
 			name = TableCells;
 			sourceTree = "<group>";
@@ -614,6 +619,7 @@
 				A37C6EF0181971020042489D /* AuthViewController.m in Sources */,
 				A37C6EBF181952040042489D /* ViewController.m in Sources */,
 				A317AC41182BD95C00BE7E46 /* MessageViewController.m in Sources */,
+				A3334D7A1846582800ECA8D5 /* ApartmentCell.m in Sources */,
 				A3F88DEE18329C9700E3BFB0 /* Roomcast.xcdatamodeld in Sources */,
 				A37C6EB9181952040042489D /* AppDelegate.m in Sources */,
 				A37C6EB5181952040042489D /* main.m in Sources */,
