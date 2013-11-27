@@ -34,6 +34,10 @@
 		A3334D751845488400ECA8D5 /* switchoff.png in Resources */ = {isa = PBXBuildFile; fileRef = A3334D741845488400ECA8D5 /* switchoff.png */; };
 		A3334D771845493000ECA8D5 /* switchon.png in Resources */ = {isa = PBXBuildFile; fileRef = A3334D761845493000ECA8D5 /* switchon.png */; };
 		A3334D7A1846582800ECA8D5 /* ApartmentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A3334D791846582700ECA8D5 /* ApartmentCell.m */; };
+		A3334D7D18468FFB00ECA8D5 /* RootTabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3334D7C18468FFB00ECA8D5 /* RootTabViewController.m */; };
+		A3334D87184698A900ECA8D5 /* Apartment.m in Sources */ = {isa = PBXBuildFile; fileRef = A3334D86184698A900ECA8D5 /* Apartment.m */; };
+		A3334D8D184698F300ECA8D5 /* Block.m in Sources */ = {isa = PBXBuildFile; fileRef = A3334D8C184698F300ECA8D5 /* Block.m */; };
+		A3334D931846993700ECA8D5 /* Development.m in Sources */ = {isa = PBXBuildFile; fileRef = A3334D921846993700ECA8D5 /* Development.m */; };
 		A360581C182191EE0026615B /* FormTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A360581B182191EE0026615B /* FormTableViewController.m */; };
 		A37C6EA9181952040042489D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A37C6EA8181952040042489D /* Foundation.framework */; };
 		A37C6EAB181952040042489D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A37C6EAA181952040042489D /* CoreGraphics.framework */; };
@@ -135,6 +139,14 @@
 		A3334D761845493000ECA8D5 /* switchon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = switchon.png; sourceTree = "<group>"; };
 		A3334D781846582700ECA8D5 /* ApartmentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApartmentCell.h; sourceTree = "<group>"; };
 		A3334D791846582700ECA8D5 /* ApartmentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ApartmentCell.m; sourceTree = "<group>"; };
+		A3334D7B18468FFB00ECA8D5 /* RootTabViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootTabViewController.h; sourceTree = "<group>"; };
+		A3334D7C18468FFB00ECA8D5 /* RootTabViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootTabViewController.m; sourceTree = "<group>"; };
+		A3334D85184698A900ECA8D5 /* Apartment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Apartment.h; sourceTree = "<group>"; };
+		A3334D86184698A900ECA8D5 /* Apartment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Apartment.m; sourceTree = "<group>"; };
+		A3334D8B184698F300ECA8D5 /* Block.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Block.h; path = ../Block.h; sourceTree = "<group>"; };
+		A3334D8C184698F300ECA8D5 /* Block.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Block.m; path = ../Block.m; sourceTree = "<group>"; };
+		A3334D911846993700ECA8D5 /* Development.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Development.h; path = ../Development.h; sourceTree = "<group>"; };
+		A3334D921846993700ECA8D5 /* Development.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Development.m; path = ../Development.m; sourceTree = "<group>"; };
 		A360581A182191EE0026615B /* FormTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FormTableViewController.h; sourceTree = "<group>"; };
 		A360581B182191EE0026615B /* FormTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FormTableViewController.m; sourceTree = "<group>"; };
 		A37C6EA5181952040042489D /* roomcast.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = roomcast.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -329,6 +341,17 @@
 			name = TableCells;
 			sourceTree = "<group>";
 		};
+		A3334D7E1846901F00ECA8D5 /* Root */ = {
+			isa = PBXGroup;
+			children = (
+				A37C6EB7181952040042489D /* AppDelegate.h */,
+				A37C6EB8181952040042489D /* AppDelegate.m */,
+				A3334D7C18468FFB00ECA8D5 /* RootTabViewController.m */,
+				A3334D7B18468FFB00ECA8D5 /* RootTabViewController.h */,
+			);
+			name = Root;
+			sourceTree = "<group>";
+		};
 		A3605819182000EF0026615B /* iPad */ = {
 			isa = PBXGroup;
 			children = (
@@ -383,16 +406,15 @@
 			children = (
 				A3F88D911832706400E3BFB0 /* Model */,
 				A3605819182000EF0026615B /* iPad */,
-				A37C6EB7181952040042489D /* AppDelegate.h */,
-				A37C6EB8181952040042489D /* AppDelegate.m */,
 				A37C6EBA181952040042489D /* Main.storyboard */,
 				A3F88DEC18329C9700E3BFB0 /* Roomcast.xcdatamodeld */,
+				A3334D7E1846901F00ECA8D5 /* Root */,
 				A3334D5A1845064000ECA8D5 /* Preferences */,
 				A3334D591845055E00ECA8D5 /* Chat */,
 				A3334D58184504E400ECA8D5 /* Send */,
 				A3334D57184504C500ECA8D5 /* Registration */,
-				A37C6EC0181952040042489D /* Images.xcassets */,
 				A37C6EAF181952040042489D /* Supporting Files */,
+				A37C6EC0181952040042489D /* Images.xcassets */,
 			);
 			path = roomcast;
 			sourceTree = "<group>";
@@ -473,6 +495,12 @@
 				A3F88DF51832C0F200E3BFB0 /* Message.m */,
 				A3F88DFA1832D4A600E3BFB0 /* Conversation.h */,
 				A3F88DFB1832D4A600E3BFB0 /* Conversation.m */,
+				A3334D911846993700ECA8D5 /* Development.h */,
+				A3334D921846993700ECA8D5 /* Development.m */,
+				A3334D8B184698F300ECA8D5 /* Block.h */,
+				A3334D8C184698F300ECA8D5 /* Block.m */,
+				A3334D85184698A900ECA8D5 /* Apartment.h */,
+				A3334D86184698A900ECA8D5 /* Apartment.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -610,6 +638,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A3334D87184698A900ECA8D5 /* Apartment.m in Sources */,
 				A3F88DFC1832D4A600E3BFB0 /* Conversation.m in Sources */,
 				A317AC38182AE99700BE7E46 /* MessageView.m in Sources */,
 				A37C6F0F181ACCBA0042489D /* RangeView.m in Sources */,
@@ -622,15 +651,18 @@
 				A3334D7A1846582800ECA8D5 /* ApartmentCell.m in Sources */,
 				A3F88DEE18329C9700E3BFB0 /* Roomcast.xcdatamodeld in Sources */,
 				A37C6EB9181952040042489D /* AppDelegate.m in Sources */,
+				A3334D7D18468FFB00ECA8D5 /* RootTabViewController.m in Sources */,
 				A37C6EB5181952040042489D /* main.m in Sources */,
 				A3B6DAEA183BE0FA00A860CA /* RegistrationContainerViewController.m in Sources */,
 				A360581C182191EE0026615B /* FormTableViewController.m in Sources */,
 				A3F88D15182D445D00E3BFB0 /* ChatViewController.m in Sources */,
+				A3334D931846993700ECA8D5 /* Development.m in Sources */,
 				A3334D451843B41800ECA8D5 /* ScopeCell.m in Sources */,
 				A3334D601845077500ECA8D5 /* BlockViewController.m in Sources */,
 				A3F88DF61832C0F200E3BFB0 /* Message.m in Sources */,
 				A3F88D36183019C000E3BFB0 /* MessageCell.m in Sources */,
 				A3334D6C1845159500ECA8D5 /* BlockCell.m in Sources */,
+				A3334D8D184698F300ECA8D5 /* Block.m in Sources */,
 				A317AC3B182BCFDD00BE7E46 /* SendViewController.m in Sources */,
 				A3B6DAED183E60C500A860CA /* DestinationViewController.m in Sources */,
 			);

@@ -58,6 +58,25 @@ PFObject *development;
             NSLog(@"error!! %@ %@", error, [error userInfo]);
         }else{
             NSLog(@"the development is %@", development);
+            NSLog(@"the name is %@", [development objectForKey:@"name"]);
+            NSLog(@"the object id is %@", [development objectId]);
+            
+            id delegate = [[UIApplication sharedApplication] delegate];
+            NSManagedObjectContext *context = [delegate managedObjectContext];
+            
+            Development *development = [NSEntityDescription
+                                          insertNewObjectForEntityForName:@"Development"
+                                          inManagedObjectContext:context];
+            
+            /*[development setValue:@"" forKey:@"name"];
+            [development setValue:@"" forKey:@"latitude"];
+            [development setValue:@"" forKey:@"started"];
+            
+            NSError *error;
+            
+            if (![context save:&error]){
+                NSLog(@"whoops! couldn't save %@", [error localizedDescription]);
+            }*/
             [self performSegueWithIdentifier:@"authenticate" sender:self];
         }
     }];

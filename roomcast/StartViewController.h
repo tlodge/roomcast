@@ -7,8 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <CoreData/CoreData.h>
 #import <Parse/Parse.h>
 #import "AuthViewController.h"
+#import "Development.h"
+#import "Block.h"
 
 @interface StartViewController : UIViewController <UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *developmentId;

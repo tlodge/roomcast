@@ -42,6 +42,11 @@ BOOL _composing = YES;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    NSLog(@"In view did load!!");
+    
+    
+    
     NSArray *nibContents = [[NSBundle mainBundle] loadNibNamed:@"MessageView"
                                                          owner:self
                                                        options:nil];

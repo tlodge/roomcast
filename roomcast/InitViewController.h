@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "RootTabViewController.h"
 
 @interface InitViewController : UIViewController
 
