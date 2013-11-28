@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface BlockCell : UITableViewCell
+@property (weak, nonatomic) IBOutlet UIButton *moreButton;
 @property (weak, nonatomic) IBOutlet UILabel *name;
 @property (weak, nonatomic) IBOutlet UILabel *chosen;
 @end

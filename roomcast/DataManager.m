@@ -119,6 +119,8 @@ NSManagedObjectContext *context;
     return _development;
 }
 
+
+
 -(Development *) fetchDevelopmentWithObjectId:(NSString *) objectId{
     
     NSError *error;
@@ -127,7 +129,7 @@ NSManagedObjectContext *context;
     
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"Development"  inManagedObjectContext:context];
     
-    [fetchRequest setReturnsObjectsAsFaults:NO];
+    //[fetchRequest setReturnsObjectsAsFaults:NO];
     
     [fetchRequest setEntity:entity];
     
@@ -142,6 +144,31 @@ NSManagedObjectContext *context;
     
     return nil;
     
+}
+
+
+-(BOOL) syncWithBlock:(Block*) block{
+   
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Block" inManagedObjectContext:context];
+    
+    [fetchRequest setEntity:entity];
+    
+    Apartment* a = [NSEntityDescription insertNewObjectForEntityForName:@"Apartment" inManagedObjectContext:context];
+    
+    [a setValue:@"1500" forKey:@"name"];
+    
+    [a setValue:block forKey:@"block"];
+    
+    NSError *error;
+    
+    if (![context save:&error]){
+        NSLog(@"whoops! couldn't save %@", [error localizedDescription]);
+        return NO;
+    }
+    //block.apartments = [NSSet setWithObjects:@"One",@"Two","Three", nil];
+    return YES;
 }
 
 

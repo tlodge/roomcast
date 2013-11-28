@@ -10,12 +10,16 @@
 #import <CoreData/CoreData.h>
 #import "Development.h"
 #import "Block.h"
+#import "Apartment.h"
+
 #import <Parse/Parse.h>
 
 @interface DataManager : NSObject
 +(DataManager *) sharedManager;
 -(Development *) fetchDevelopmentWithObjectId:(NSString *) objectId;
+
 -(BOOL) syncWithDevelopment:(NSString*) developmentId;
+-(BOOL) syncWithBlock:(Block *)block;
 
 @property(weak, nonatomic) Development* development;
 

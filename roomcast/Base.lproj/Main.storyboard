@@ -344,9 +344,6 @@
                                             <state key="normal" backgroundImage="rightnavred.png">
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
-                                            <connections>
-                                                <segue destination="p2Z-w7-TlO" kind="push" id="4MU-TJ-cXv"/>
-                                            </connections>
                                         </button>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="jK6-Hi-jkZ">
                                             <rect key="frame" x="5" y="7" width="48" height="21"/>
@@ -371,6 +368,7 @@
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="chosen" destination="jK6-Hi-jkZ" id="rwP-2Q-VIz"/>
+                                    <outlet property="moreButton" destination="28E-XS-KQ5" id="J1m-72-gQc"/>
                                     <outlet property="name" destination="0aj-Hg-MC9" id="wej-TF-7ae"/>
                                 </connections>
                             </tableViewCell>
@@ -381,6 +379,9 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="uDL-Jk-VD3"/>
+                    <connections>
+                        <segue destination="p2Z-w7-TlO" kind="push" identifier="selectApartments" id="lLV-gq-rQ1"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1o8-wJ-23P" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
