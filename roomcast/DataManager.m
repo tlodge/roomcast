@@ -149,6 +149,26 @@ NSManagedObjectContext *context;
 
 -(BOOL) syncWithBlock:(Block*) block{
    
+    PFQuery *innerquery = [PFQuery queryWithClassName:@"Block"];
+    [innerquery whereKey:@"objectId" equalTo:block.blockId];
+    
+    PFQuery *outerquery = [PFQuery queryWithClassName:@"Apartment"];
+    [outerquery whereKey:@"block" matchesKey:@"objectId" inQuery:innerquery];
+    
+    [outerquery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        NSLog(@"got objects %@", objects);
+    }];
+    
+    //PFQuery *outerquery = [PFQuery queryWithClassName:@"Apartments"];
+    
+    //[outerquery whereKey:@"block" matchesKey:@"objectId" inQuery:innerquery];
+    
+    //[outerquery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+      //  NSLog(@"got objects %@", objects);
+    //}];
+    
+    
+    /*THIS ALL WORKS OK
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
     
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"Block" inManagedObjectContext:context];
@@ -157,8 +177,9 @@ NSManagedObjectContext *context;
     
     Apartment* a = [NSEntityDescription insertNewObjectForEntityForName:@"Apartment" inManagedObjectContext:context];
     
-    [a setValue:@"1500" forKey:@"name"];
     
+    
+    [a setValue:@"1500" forKey:@"name"];
     [a setValue:block forKey:@"block"];
     
     NSError *error;
@@ -168,6 +189,8 @@ NSManagedObjectContext *context;
         return NO;
     }
     //block.apartments = [NSSet setWithObjects:@"One",@"Two","Three", nil];
+    return YES;
+     */
     return YES;
 }
 
