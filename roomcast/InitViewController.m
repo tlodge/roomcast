@@ -33,7 +33,7 @@
 -(void)viewDidAppear:(BOOL)animated
 {
     PFUser *currentUser = [PFUser currentUser];
-    if (currentUser) {
+    if (YES){//currentUser) {
         
         NSLog(@"registering for remote notifications!");
         
@@ -41,8 +41,9 @@
         
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
         
-        RootTabViewController *rtvc = [storyboard instantiateViewControllerWithIdentifier:@"registered"];
+        //load up developments...
         
+        RootTabViewController *rtvc = [storyboard instantiateViewControllerWithIdentifier:@"registered"];
         [self presentViewController:rtvc animated:YES completion:nil];
     } else {
          [self performSegueWithIdentifier: @"newbie" sender: self];

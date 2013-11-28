@@ -23,7 +23,6 @@
 
 @implementation AuthViewController
 
-@synthesize development;
 
 CGMutablePathRef mpr;
 NSMutableData *receivedData;
@@ -43,8 +42,7 @@ MKPolygon *authZone;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    NSLog(@"development is %@", [self.development objectForKey:@"name"]);
-    
+       
     self.rangeView = [[RangeView alloc] initWithFrame:CGRectMake(250,380,60,60)];
     [self.view addSubview:_rangeView];
     
@@ -267,14 +265,6 @@ MKPolygon *authZone;
     [locationManager stopUpdatingLocation];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
-
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    RegistrationContainerViewController *container = (RegistrationContainerViewController*)[segue destinationViewController];
-    NSLog(@"assigning development %@", self.development);
-    container.development = self.development;
-}
-
 
 
 @end

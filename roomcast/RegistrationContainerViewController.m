@@ -15,8 +15,6 @@
 
 @implementation RegistrationContainerViewController
 
-@synthesize development;
-
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -38,15 +36,5 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    NSLog(@"ok lovely %@", self.development);
-    FormTableViewController *registrationform = (FormTableViewController*)[segue destinationViewController];
-    
-    NSLog(@"assigning development %@", self.development);
-    
-    
-    registrationform.development = self.development;
-}
 
 @end

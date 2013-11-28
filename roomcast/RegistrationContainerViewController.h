@@ -7,11 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <Parse/Parse.h>
+
 
 @interface RegistrationContainerViewController : UIViewController
-
-@property (weak, nonatomic) PFObject* development;
-
 
 @end

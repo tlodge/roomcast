@@ -10,7 +10,7 @@
 #import "AppDelegate.h"
 
 @interface FormTableViewController ()
-
+-(void) updateFloorsForBlock:(Block*)block;
 @end
 
 @implementation FormTableViewController
@@ -19,8 +19,8 @@
 
 NSArray* blocks;
 NSArray* floors;
-PFObject* selectedBlock;
-PFObject* selectedFloor;
+Block* selectedBlock;
+NSString* selectedFloor;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -33,17 +33,35 @@ PFObject* selectedFloor;
     return self;
 }
 
--(void) viewWillAppear:(BOOL)animated{
-    self.blockArray = (NSArray*)[development objectForKey:@"blocks"];
-    self.floorArray = (NSArray*)[(PFObject*)[self.blockArray objectAtIndex:0] objectForKey:@"floors"];
-    selectedBlock = [self.blockArray objectAtIndex:0];
-    selectedFloor = [self.floorArray objectAtIndex:0];
-}
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
+    
+    development = [[DataManager sharedManager] development];
+    self.blockArray = [development.blocks allObjects];
+    
+    
+    NSLog(@"block array is %@", self.blockArray);
+    
+    Block *b = (Block *)[self.blockArray objectAtIndex:0];
+    
+    [self updateFloorsForBlock:b];
+    
+    NSString *floorString = b.floors;
+    NSData *jsonFloors = [floorString dataUsingEncoding:NSUTF8StringEncoding];
+    NSError *error;
+    
+    self.floorArray = [NSJSONSerialization JSONObjectWithData:  jsonFloors options: NSJSONReadingMutableContainers error:&error];
+    
+    
+    //(NSArray*)[(PFObject*)[self.blockArray objectAtIndex:0] objectForKey:@"floors"];
+    
+    selectedBlock = [self.blockArray objectAtIndex:0];
+    
+    selectedFloor = [self.floorArray objectAtIndex:0];
+    
+    
     self.tableView.contentInset = UIEdgeInsetsMake(-36, 0, 0, 0);
     self.username.delegate = self;
     self.username.enablesReturnKeyAutomatically = NO;
@@ -57,18 +75,6 @@ PFObject* selectedFloor;
 
     self.blockpicker.delegate = self;
     self.floorpicker.delegate = self;
-    
-    
-    /*[self.tableView registerClass:[CustomCell class] forCellReuseIdentifier:@"CustomCell"];
-    
-    [self.tableView registerClass:[PassCell class] forCellReuseIdentifier:@"PassCell"];
-    
-    [self.tableView registerClass:[PickerCell class] forCellReuseIdentifier:@"PickerCell"];*/
-     // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
 - (void)didReceiveMemoryWarning
@@ -252,8 +258,8 @@ PFObject* selectedFloor;
     [label setFont:[UIFont fontWithName:@"Trebuchet MS" size:18.0]];
     
     if (pickerView == self.blockpicker){
-        PFObject *block = [self.blockArray objectAtIndex:row];
-        label.text = [block objectForKey:@"name"];
+        Block *block = [self.blockArray objectAtIndex:row];
+        label.text = block.name;
     }
     if (pickerView == self.floorpicker){
         label.text = [self.floorArray objectAtIndex:row];
@@ -264,12 +270,11 @@ PFObject* selectedFloor;
 -(void) pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component{
     
       if (pickerView == self.blockpicker){
-          NSLog(@"seen change to component %@", [self.blockArray objectAtIndex:row]);
           selectedBlock = [self.blockArray objectAtIndex:row];
-          self.floorArray = [selectedBlock objectForKey:@"floors"];
-          NSLog(@"%@", self.floorArray);
+          [self updateFloorsForBlock:selectedBlock];
           [self.floorpicker reloadAllComponents];
-      }else if(pickerView == self.floorpicker){
+      }
+      else if(pickerView == self.floorpicker){
           selectedFloor = [self.floorArray objectAtIndex:row];
       }
     
@@ -304,4 +309,19 @@ PFObject* selectedFloor;
         }
     }];
 }
+                
+                
+#pragma  private methods
+-(void) updateFloorsForBlock:(Block*)block{
+    
+    NSString *floorString = block.floors;
+    
+    NSData *jsonFloors = [floorString dataUsingEncoding:NSUTF8StringEncoding];
+    
+    NSError *error;
+    
+    self.floorArray = [NSJSONSerialization JSONObjectWithData:  jsonFloors options: NSJSONReadingMutableContainers error:&error];
+    
+}
+                
 @end

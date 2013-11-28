@@ -9,12 +9,11 @@
 #import "StartViewController.h"
 
 @interface StartViewController ()
-
 @end
 
 @implementation StartViewController
 
-PFObject *development;
+Development* development;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -49,43 +48,18 @@ PFObject *development;
 }
 
 - (IBAction)lookupDevelopment:(id)sender {
-    PFQuery *query = [PFQuery queryWithClassName:@"Development"];
-    [query includeKey:@"blocks"];
     
-    [query getObjectInBackgroundWithId:_developmentId.text block:^(PFObject *object, NSError *error) {
-        development = object;
-        if (error){
-            NSLog(@"error!! %@ %@", error, [error userInfo]);
-        }else{
-            NSLog(@"the development is %@", development);
-            NSLog(@"the name is %@", [development objectForKey:@"name"]);
-            NSLog(@"the object id is %@", [development objectId]);
-            
-            id delegate = [[UIApplication sharedApplication] delegate];
-            NSManagedObjectContext *context = [delegate managedObjectContext];
-            
-            Development *development = [NSEntityDescription
-                                          insertNewObjectForEntityForName:@"Development"
-                                          inManagedObjectContext:context];
-            
-            /*[development setValue:@"" forKey:@"name"];
-            [development setValue:@"" forKey:@"latitude"];
-            [development setValue:@"" forKey:@"started"];
-            
-            NSError *error;
-            
-            if (![context save:&error]){
-                NSLog(@"whoops! couldn't save %@", [error localizedDescription]);
-            }*/
-            [self performSegueWithIdentifier:@"authenticate" sender:self];
-        }
-    }];
-}
-
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    AuthViewController* auth = (AuthViewController*)[segue destinationViewController];
-    auth.development = development;
+    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0ul);
+    
+    dispatch_async(queue, ^{
+        //this runs on background thread!!!
+        BOOL success = [[DataManager sharedManager] syncWithDevelopment:_developmentId.text];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (success){
+                [self performSegueWithIdentifier:@"authenticate" sender:self];
+            }
+        });
+    });
 }
 
 -(IBAction)unwindToAuth:(UIStoryboardSegue*) unwindSegue{

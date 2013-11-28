@@ -43,9 +43,9 @@ BOOL _composing = YES;
 {
     [super viewDidLoad];
     
-    NSLog(@"In view did load!!");
+    Development *development = [[DataManager sharedManager] development];
     
-    
+    NSLog(@"retrieved my development as %@", development);
     
     NSArray *nibContents = [[NSBundle mainBundle] loadNibNamed:@"MessageView"
                                                          owner:self
@@ -70,11 +70,6 @@ BOOL _composing = YES;
     
     id delegate = [[UIApplication sharedApplication] delegate];
     self.managedObjectContext = [delegate managedObjectContext];
-    
-
-    
-   
-
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;

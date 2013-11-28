@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import <Parse/Parse.h>
+#import "Development.h"
+#import "Block.h"
+#import "DataManager.h"
 
 @interface FormTableViewController : UITableViewController <UITextFieldDelegate, UIPickerViewDataSource, UIPickerViewDelegate>
 
@@ -26,6 +29,6 @@
 
 - (IBAction)registerUser:(id)sender;
 
-@property (strong, nonatomic) PFObject* development;
+@property (weak, nonatomic) Development* development;
 
 @end

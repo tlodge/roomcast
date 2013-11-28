@@ -7,6 +7,7 @@
 //
 
 #import "RootTabViewController.h"
+#import "MessageViewController.h"
 
 @interface RootTabViewController ()
 
@@ -16,10 +17,10 @@
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
+     NSLog(@"initing here");
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
-        NSLog(@"am in here 1");
+        NSLog(@"initing here");
     }
     return self;
 }
@@ -27,9 +28,20 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self setDelegate:self];
+    
+    NSLog(@"tab bar..........view did load!!");
     //load up the development here!
     
 	// Do any additional setup after loading the view.
+}
+
+-(BOOL)tabBarController:(UITabBarController *)tabBarController shouldSelectViewController:(UIViewController *)viewController{
+    NSLog(@"doing a check....");
+    if ([viewController isKindOfClass:[MessageViewController class]]){
+        NSLog(@"VERY COOL!!");
+    }
+    return YES;
 }
 
 - (void)didReceiveMemoryWarning
