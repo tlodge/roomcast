@@ -7,10 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Block.h"
+#import "DataManager.h"
+#import "Block.h"
+#import "Apartment.h"
 
 @interface ApartmentViewController : UITableViewController
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *selectToggle;
 @property (retain, nonatomic) UIButton *switchOn;
 @property (retain, nonatomic) UIButton *switchOff;
-@property (retain,nonatomic) NSMutableArray* apartments;
+@property (weak,nonatomic) NSArray* apartments;
+@property (retain, nonatomic) NSMutableArray* selections;
+@property (weak, nonatomic) Block *block;
 @end

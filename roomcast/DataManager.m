@@ -148,49 +148,46 @@ NSManagedObjectContext *context;
 
 
 -(BOOL) syncWithBlock:(Block*) block{
-   
+    
+    /*
     PFQuery *innerquery = [PFQuery queryWithClassName:@"Block"];
     [innerquery whereKey:@"objectId" equalTo:block.blockId];
     
     PFQuery *outerquery = [PFQuery queryWithClassName:@"Apartment"];
     [outerquery whereKey:@"block" matchesKey:@"objectId" inQuery:innerquery];
     
-    [outerquery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-        NSLog(@"got objects %@", objects);
-    }];
+    NSError* error;
     
-    //PFQuery *outerquery = [PFQuery queryWithClassName:@"Apartments"];
+    NSArray *apartments = [outerquery findObjects:&error];
     
-    //[outerquery whereKey:@"block" matchesKey:@"objectId" inQuery:innerquery];
-    
-    //[outerquery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-      //  NSLog(@"got objects %@", objects);
-    //}];
-    
-    
-    /*THIS ALL WORKS OK
-    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
-    
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Block" inManagedObjectContext:context];
-    
-    [fetchRequest setEntity:entity];
-    
-    Apartment* a = [NSEntityDescription insertNewObjectForEntityForName:@"Apartment" inManagedObjectContext:context];
-    
-    
-    
-    [a setValue:@"1500" forKey:@"name"];
-    [a setValue:block forKey:@"block"];
-    
-    NSError *error;
-    
-    if (![context save:&error]){
-        NSLog(@"whoops! couldn't save %@", [error localizedDescription]);
+    if (error){
+        NSLog(@"ok seen error %@", error);
         return NO;
     }
-    //block.apartments = [NSSet setWithObjects:@"One",@"Two","Three", nil];
-    return YES;
-     */
+    
+    if (apartments != nil && [apartments count] > 0){
+        
+        for (PFObject *apartment in apartments){
+        
+            NSLog(@"got this... %@", apartment);
+   
+            Apartment* a = [NSEntityDescription insertNewObjectForEntityForName:@"Apartment" inManagedObjectContext:context];
+    
+            [a setValue:[apartment objectId] forKey:@"apartmentId"];
+            [a setValue:[apartment objectForKey:@"floor"] forKey:@"floor"];
+            [a setValue:[apartment objectForKey:@"name"] forKey:@"name"];
+            [a setValue:block forKey:@"block"];
+    
+            NSError *cderror;
+    
+            if (![context save:&cderror]){
+                NSLog(@"whoops! couldn't save %@", [cderror localizedDescription]);
+                return NO;
+            }
+        }
+        return YES;
+    }
+    return NO;*/
     return YES;
 }
 

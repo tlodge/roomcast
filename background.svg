@@ -1665,15 +1665,15 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="3.1727584"
-     inkscape:cx="4757.413"
-     inkscape:cy="243.82653"
+     inkscape:cx="4732.1984"
+     inkscape:cy="218.61188"
      inkscape:document-units="px"
      inkscape:current-layer="layer3"
      showgrid="false"
      inkscape:window-width="1280"
      inkscape:window-height="756"
      inkscape:window-x="43"
-     inkscape:window-y="6"
+     inkscape:window-y="34"
      inkscape:window-maximized="0"
      showguides="true"
      inkscape:guide-bbox="true"
@@ -4104,23 +4104,29 @@ yI9+UUhWPNwrFFUq+EKHau14Z3X5ID+Qv1pApfAGR3qduHqC93DkCOChYSI4iarGFWRfagjochVf
        height="77"
        width="128" />
     <rect
-       style="fill:#319d96;fill-opacity:1;stroke:#dbdbdb;stroke-width:2.83284664;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+       style="fill:#319d96;fill-opacity:1;stroke:#dbdbdb;stroke-width:1.48110461;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
        id="rect4575"
-       width="98.538025"
-       height="59.092152"
-       x="4802.3662"
-       y="121.21439"
-       rx="28.75561" />
+       width="51.518894"
+       height="30.895306"
+       x="4801.6904"
+       y="150.08711"
+       rx="15.034371"
+       inkscape:export-filename="/Users/tlodge/roomcast_images/switchoff.png"
+       inkscape:export-xdpi="180"
+       inkscape:export-ydpi="180" />
     <rect
-       rx="28.75561"
-       y="29.625977"
-       x="4800.8643"
-       height="59.092152"
-       width="98.538025"
+       rx="14.849772"
+       y="113.11841"
+       x="4801.4399"
+       height="30.515961"
+       width="50.886326"
        id="rect4803"
-       style="fill:#63d759;fill-opacity:1;stroke:#63d759;stroke-width:2.83284664;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0" />
+       style="fill:#63d759;fill-opacity:1;stroke:#63d759;stroke-width:1.462919;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+       inkscape:export-filename="/Users/tlodge/roomcast_images/switchon.png"
+       inkscape:export-xdpi="182.08347"
+       inkscape:export-ydpi="182.08347" />
     <path
-       transform="matrix(0.82786645,0,0,0.89935953,1334.2381,-478.60218)"
+       transform="matrix(0.42752107,0,0,0.46444103,3011.2289,-149.33726)"
        d="m 4303.1958,597.867 a 32.463863,30.730358 0 1 1 -64.9277,0 32.463863,30.730358 0 1 1 64.9277,0 z"
        sodipodi:ry="30.730358"
        sodipodi:rx="32.463863"
@@ -4129,7 +4135,10 @@ yI9+UUhWPNwrFFUq+EKHau14Z3X5ID+Qv1pApfAGR3qduHqC93DkCOChYSI4iarGFWRfagjochVf
        id="path4805"
        style="fill:#ffffff;fill-opacity:1;stroke:#ffffff;stroke-width:2.5999999;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0;filter:url(#filter4789)"
        sodipodi:type="arc"
-       clip-path="url(#clipPath4811)" />
+       clip-path="url(#clipPath4811)"
+       inkscape:export-filename="/Users/tlodge/roomcast_images/switchon.png"
+       inkscape:export-xdpi="182.08347"
+       inkscape:export-ydpi="182.08347" />
     <path
        clip-path="url(#clipPath4811)"
        sodipodi:type="arc"
@@ -4140,7 +4149,10 @@ yI9+UUhWPNwrFFUq+EKHau14Z3X5ID+Qv1pApfAGR3qduHqC93DkCOChYSI4iarGFWRfagjochVf
        sodipodi:rx="32.463863"
        sodipodi:ry="30.730358"
        d="m 4303.1958,597.867 a 32.463863,30.730358 0 1 1 -64.9277,0 32.463863,30.730358 0 1 1 64.9277,0 z"
-       transform="matrix(0.82786645,0,0,0.89935953,1295.7858,-387.19907)" />
+       transform="matrix(0.43283559,0,0,0.47021451,2968.3358,-115.72803)"
+       inkscape:export-filename="/Users/tlodge/roomcast_images/switchoff.png"
+       inkscape:export-xdpi="180"
+       inkscape:export-ydpi="180" />
   </g>
   <g
      inkscape:groupmode="layer"

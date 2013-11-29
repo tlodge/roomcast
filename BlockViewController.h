@@ -7,8 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "DataManager.h"
+#import "BlockCell.h"
+#import "ApartmentViewController.h"
 
 @interface BlockViewController : UITableViewController
 
+@property (retain,nonatomic) NSArray *blocks;
+@property (weak, nonatomic) Block* selectedBlock;
 @end

@@ -38,6 +38,7 @@
 		A3334D87184698A900ECA8D5 /* Apartment.m in Sources */ = {isa = PBXBuildFile; fileRef = A3334D86184698A900ECA8D5 /* Apartment.m */; };
 		A3334D8D184698F300ECA8D5 /* Block.m in Sources */ = {isa = PBXBuildFile; fileRef = A3334D8C184698F300ECA8D5 /* Block.m */; };
 		A3334D931846993700ECA8D5 /* Development.m in Sources */ = {isa = PBXBuildFile; fileRef = A3334D921846993700ECA8D5 /* Development.m */; };
+		A335AA201847AC07007096A4 /* DataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A335AA1F1847AC07007096A4 /* DataManager.m */; };
 		A360581C182191EE0026615B /* FormTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A360581B182191EE0026615B /* FormTableViewController.m */; };
 		A37C6EA9181952040042489D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A37C6EA8181952040042489D /* Foundation.framework */; };
 		A37C6EAB181952040042489D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A37C6EAA181952040042489D /* CoreGraphics.framework */; };
@@ -147,6 +148,8 @@
 		A3334D8C184698F300ECA8D5 /* Block.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Block.m; path = ../Block.m; sourceTree = "<group>"; };
 		A3334D911846993700ECA8D5 /* Development.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Development.h; path = ../Development.h; sourceTree = "<group>"; };
 		A3334D921846993700ECA8D5 /* Development.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Development.m; path = ../Development.m; sourceTree = "<group>"; };
+		A335AA1E1847AC06007096A4 /* DataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataManager.h; sourceTree = "<group>"; };
+		A335AA1F1847AC07007096A4 /* DataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataManager.m; sourceTree = "<group>"; };
 		A360581A182191EE0026615B /* FormTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FormTableViewController.h; sourceTree = "<group>"; };
 		A360581B182191EE0026615B /* FormTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FormTableViewController.m; sourceTree = "<group>"; };
 		A37C6EA5181952040042489D /* roomcast.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = roomcast.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -352,6 +355,15 @@
 			name = Root;
 			sourceTree = "<group>";
 		};
+		A335AA1D1847ABDE007096A4 /* Singletons */ = {
+			isa = PBXGroup;
+			children = (
+				A335AA1E1847AC06007096A4 /* DataManager.h */,
+				A335AA1F1847AC07007096A4 /* DataManager.m */,
+			);
+			name = Singletons;
+			sourceTree = "<group>";
+		};
 		A3605819182000EF0026615B /* iPad */ = {
 			isa = PBXGroup;
 			children = (
@@ -404,6 +416,7 @@
 		A37C6EAE181952040042489D /* roomcast */ = {
 			isa = PBXGroup;
 			children = (
+				A335AA1D1847ABDE007096A4 /* Singletons */,
 				A3F88D911832706400E3BFB0 /* Model */,
 				A3605819182000EF0026615B /* iPad */,
 				A37C6EBA181952040042489D /* Main.storyboard */,
@@ -647,6 +660,7 @@
 				A3334D6F18452F2400ECA8D5 /* ApartmentViewController.m in Sources */,
 				A37C6EF0181971020042489D /* AuthViewController.m in Sources */,
 				A37C6EBF181952040042489D /* ViewController.m in Sources */,
+				A335AA201847AC07007096A4 /* DataManager.m in Sources */,
 				A317AC41182BD95C00BE7E46 /* MessageViewController.m in Sources */,
 				A3334D7A1846582800ECA8D5 /* ApartmentCell.m in Sources */,
 				A3F88DEE18329C9700E3BFB0 /* Roomcast.xcdatamodeld in Sources */,

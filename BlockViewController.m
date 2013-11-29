@@ -14,6 +14,9 @@
 
 @implementation BlockViewController
 
+@synthesize blocks;
+@synthesize selectedBlock;
+
 - (id)initWithStyle:(UITableViewStyle)style
 {
     self = [super initWithStyle:style];
@@ -26,9 +29,14 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    NSLog(@"ok so am hete");
+    
+    Development* d = [[DataManager sharedManager] development];
+    
+    self.blocks = [[d blocks] allObjects];
+
+    
     // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
+    self.clearsSelectionOnViewWillAppear = NO;
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
@@ -49,7 +57,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 2;
+    return [self.blocks count];
 }
 
 - (CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -58,15 +66,26 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSLog(@"am in here as I should be!");
     static NSString *CellIdentifier = @"BlockCell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-    //cell.name.text = @"some text goes here";
-    // Configure the cell...
+    BlockCell *cell =  (BlockCell*) [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    Block* b = [self.blocks objectAtIndex:indexPath.row];
+    cell.moreButton.tag = indexPath.row;
+    [cell.moreButton addTarget:self action:@selector(triggerSegue:) forControlEvents:UIControlEventTouchUpInside];
+    cell.name.text = b.name;
     
     return cell;
 }
 
+-(void)  triggerSegue:(id)sender{
+    UIButton *clicked = (UIButton *) sender;
+    self.selectedBlock = [self.blocks objectAtIndex:clicked.tag];
+    [self performSegueWithIdentifier:@"selectApartments" sender:self];
+}
+
+-(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    self.selectedBlock = [self.blocks objectAtIndex:indexPath.row];
+   // NSLog(@"seleceted block is %@", self.selectedBlock.name);
+}
 /*
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
@@ -106,7 +125,7 @@
 }
 */
 
-/*
+
 #pragma mark - Navigation
 
 // In a story board-based application, you will often want to do a little preparation before navigation
@@ -114,8 +133,9 @@
 {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    ApartmentViewController* avc = (ApartmentViewController*) [segue destinationViewController];
+    NSLog(@"selected block is %@", self.selectedBlock);
+    avc.block = self.selectedBlock;
 }
-
- */
 
 @end
