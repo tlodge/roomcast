@@ -34,7 +34,6 @@
     
     self.blocks = [[d blocks] allObjects];
 
-    
     // Uncomment the following line to preserve selection between presentations.
     self.clearsSelectionOnViewWillAppear = NO;
  
@@ -134,8 +133,48 @@
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
     ApartmentViewController* avc = (ApartmentViewController*) [segue destinationViewController];
-    NSLog(@"selected block is %@", self.selectedBlock);
-    avc.block = self.selectedBlock;
+    avc.delegate = self;
+    
+    //avc.selections = self.selections for block x
+    //avc.apartments = self.apartment for block x
+
 }
+
+#pragma apartment selected delegate
+-(void) didSelectApartment:(NSString*) apartmentId withValue:(BOOL)value{
+    
+}
+
+
+/*
+
+ self.selections = [[NSMutableArray alloc] initWithCapacity:[block.apartments count]];
+
+ for (int i = 0; i < [block.apartments count]; i++){
+    [self.selections addObject: [NSNumber numberWithBool:YES]];
+ }
+
+ apartments = [block.apartments allObjects];
+
+ dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0ul);
+ 
+ dispatch_async(queue, ^{
+ //this runs on background thread!
+ BOOL success = [[DataManager sharedManager] syncWithBlock:block];
+ dispatch_async(dispatch_get_main_queue(), ^{
+ if (success){
+ 
+ self.selections = [[NSMutableArray alloc] initWithCapacity:[block.apartments count]];
+ 
+ for (int i = 0; i < [block.apartments count]; i++){
+ NSLog(@"adding object to selections");
+ [self.selections addObject: [NSNumber numberWithBool:YES]];
+ }
+ 
+ apartments = [block.apartments allObjects];
+ [self.tableView reloadData];
+ }
+ });
+ });*/
 
 @end

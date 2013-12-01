@@ -14,7 +14,6 @@
 
 @implementation ApartmentViewController
 
-@synthesize block;
 @synthesize selections;
 @synthesize apartments;
 
@@ -31,35 +30,7 @@
 {
     [super viewDidLoad];
     
-    self.selections = [[NSMutableArray alloc] initWithCapacity:[block.apartments count]];
     
-    for (int i = 0; i < [block.apartments count]; i++){
-        [self.selections addObject: [NSNumber numberWithBool:YES]];
-    }
-    
-    apartments = [block.apartments allObjects];
-    
-    /*dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0ul);
-    
-    dispatch_async(queue, ^{
-        //this runs on background thread!
-        BOOL success = [[DataManager sharedManager] syncWithBlock:block];
-        dispatch_async(dispatch_get_main_queue(), ^{
-            if (success){
-                
-                self.selections = [[NSMutableArray alloc] initWithCapacity:[block.apartments count]];
-                
-                for (int i = 0; i < [block.apartments count]; i++){
-                    NSLog(@"adding object to selections");
-                    [self.selections addObject: [NSNumber numberWithBool:YES]];
-                }
-                
-                apartments = [block.apartments allObjects];
-                [self.tableView reloadData];
-            }
-        });
-    });*/
-
     self.switchOn = [UIButton buttonWithType:UIButtonTypeCustom];
     [self.switchOn setImage:[UIImage imageNamed:@"switchon.png"] forState:UIControlStateNormal];
     self.switchOn.frame=CGRectMake(0.0, 0.0, 53.0, 32.0);

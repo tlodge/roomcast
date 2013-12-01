@@ -11,7 +11,7 @@
 #import "BlockCell.h"
 #import "ApartmentViewController.h"
 
-@interface BlockViewController : UITableViewController
+@interface BlockViewController : UITableViewController <ApartmentAddDelegate>
 
 @property (retain,nonatomic) NSArray *blocks;
 @property (weak, nonatomic) Block* selectedBlock;
