@@ -26,6 +26,6 @@
 
 @protocol ApartmentAddDelegate <NSObject>
 // recipe == nil on cancel
--(void) didSelectApartment:(NSString*) apartmentId withValue:(BOOL)value;
+-(void) didSelectApartment:(Apartment*) apartment withValue:(BOOL)value;
 
 @end

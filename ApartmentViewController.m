@@ -51,28 +51,26 @@
         [self.selectToggle initWithCustomView:self.switchOff];
        
         for (int i = 0; i < [self.apartments count]; i++){
-           // [self.apartments setObject:[NSNumber numberWithBool:YES]
-           //         atIndexedSubscript:i];
+            Apartment* a = [apartments objectAtIndex:i];
+            [self.delegate didSelectApartment:a withValue:NO];
         }
-        [self.tableView reloadData];
-        return;
     }
     else{
-        //what happens if update underlying button instead?
         [self.selectToggle initWithCustomView:self.switchOn];
+        
         for (int i = 0; i < [self.apartments count]; i++){
-            //[self.apartments setObject:[NSNumber numberWithBool:NO]
-             //       atIndexedSubscript:i];
+            Apartment* a = [apartments objectAtIndex:i];
+            [self.delegate didSelectApartment:a withValue:YES];
+            
         }
-        [self.tableView reloadData];
     }
+    [self.tableView reloadData];
 }
 
 -(void) toggleSelect:(UISwitch*)sender{
 
     Apartment* a = [apartments objectAtIndex:sender.tag];
-    NSLog(@"selected apartment %d , %@", sender.tag, a);
-    [self.delegate didSelectApartment:a.apartmentId withValue:sender.on];
+    [self.delegate didSelectApartment:a withValue:sender.on];
 }
 
 - (void)didReceiveMemoryWarning
@@ -95,9 +93,6 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSLog(@"REEEEELOADING THE DATA!!!!!!!!!!");
-    NSLog(@"SELECTIONS ARE ... %@",self.selections);
-
     static NSString *CellIdentifier = @"ApartmentCell";
     
     ApartmentCell *cell = (ApartmentCell*) [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];

@@ -9,7 +9,9 @@
 #import "BlockViewController.h"
 
 @interface BlockViewController ()
-
+-(void) _incrementTotalForBlock:(NSString*) blockId;
+-(void) _decrementTotalForBlock:(NSString*) blockId;
+-(int) _totalForBlock:(NSString *) blockId;
 @end
 
 @implementation BlockViewController
@@ -17,6 +19,7 @@
 @synthesize blocks;
 @synthesize selectedBlock;
 @synthesize selections;
+BOOL working = NO;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -27,19 +30,26 @@
     return self;
 }
 
+-(void) viewWillAppear:(BOOL)animated{
+    NSLog(@"I appeared!");
+    [self.tableView reloadData];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
     Development* d = [[DataManager sharedManager] development];
     
-    self.blocks     = [[d blocks] allObjects];
+    
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES];
+    
+    NSArray* sortDescriptors = [NSArray arrayWithObject:sortDescriptor];
+    
+    self.blocks = [[[d blocks] allObjects] sortedArrayUsingDescriptors:sortDescriptors];
+    
     self.selections = [[NSMutableDictionary alloc] init];
-    
-    //generate the selections dictionary here for all blocks
-    //avc.selections = self.selections for block x
-    //avc.apartments = [selectedBlock.apartments allObjects];
-    
+    self.totals = [[NSMutableDictionary alloc] init];
     
     // Uncomment the following line to preserve selection between presentations.
     self.clearsSelectionOnViewWillAppear = NO;
@@ -72,9 +82,13 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    NSLog(@"reloading cells!");
     static NSString *CellIdentifier = @"BlockCell";
     BlockCell *cell =  (BlockCell*) [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     Block* b = [self.blocks objectAtIndex:indexPath.row];
+    
+    cell.chosen.text = [NSString stringWithFormat:@"%d", [self _totalForBlock:b.blockId]];
+    
     cell.moreButton.tag = indexPath.row;
     [cell.moreButton addTarget:self action:@selector(triggerSegue:) forControlEvents:UIControlEventTouchUpInside];
     cell.name.text = b.name;
@@ -83,6 +97,10 @@
 }
 
 -(void)  triggerSegue:(id)sender{
+    if(working)
+        return;
+    working = YES;
+    
     UIButton *clicked = (UIButton *) sender;
     self.selectedBlock = [self.blocks objectAtIndex:clicked.tag];
     
@@ -92,6 +110,7 @@
         //this runs on background thread!
         BOOL success = [[DataManager sharedManager] syncWithBlock:selectedBlock];
         dispatch_async(dispatch_get_main_queue(), ^{
+            working = NO;
             if (success){
                 [self performSegueWithIdentifier:@"selectApartments" sender:self];
             }
@@ -162,11 +181,49 @@
 }
 
 #pragma apartment selected delegate
--(void) didSelectApartment:(NSString*) apartmentId withValue:(BOOL)value{
-    [self.selections removeObjectForKey:apartmentId];
+-(void) didSelectApartment:(Apartment*)apartment withValue:(BOOL)value{
     if (value){
-        [self.selections setObject:[NSNumber numberWithBool:value] forKey:apartmentId];
+        //if already selected, do nothing
+        if ([self.selections objectForKey:apartment.apartmentId] != nil)
+            return;
+        
+        [self _incrementTotalForBlock:selectedBlock.blockId];
+        
+        [self.selections setObject:[NSNumber numberWithBool:value] forKey:apartment.apartmentId];
+    }else{
+        //if already not selected, do nothing
+        if ([self.selections objectForKey:apartment.apartmentId] == nil)
+            return;
+        [self _decrementTotalForBlock:selectedBlock.blockId];
+        [self.selections removeObjectForKey:apartment.apartmentId];
     }
+    //pass event up the chain (if there has been a genuine change
+    [self.delegate didSelectApartment:apartment withValue:value];
+}
+
+-(void) _incrementTotalForBlock:(NSString*) blockId{
+    NSNumber* total = [self.totals objectForKey:selectedBlock.blockId];
+    
+    if (total == nil){
+        [self.totals setObject:[NSNumber numberWithInt:1] forKey:selectedBlock.blockId];
+    }
+    else{
+        [self.totals setObject:[NSNumber numberWithInt:[total intValue] + 1]forKey:selectedBlock.blockId];
+    }
+}
+
+-(void) _decrementTotalForBlock:(NSString*) blockId{
+    NSNumber* total = [self.totals objectForKey:selectedBlock.blockId];
+    if (total != nil){
+        [self.totals setObject:[NSNumber numberWithInt:[total intValue] - 1]forKey:selectedBlock.blockId];
+    }
+}
+
+-(int) _totalForBlock:(NSString *) blockId{
+     NSNumber* total = [self.totals objectForKey:blockId];
+    if (total != nil)
+        return [total intValue];
+    return 0;
 }
 
 @end

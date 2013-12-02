@@ -274,7 +274,6 @@ NSString* selectedFloor;
     
       if (pickerView == self.blockpicker){
           selectedBlock = [self.blockArray objectAtIndex:row];
-          NSLog(@"selected block is %@", selectedBlock);
           [self updateFloorsForBlock:selectedBlock];
           [self.floorpicker reloadAllComponents];
       }
@@ -291,20 +290,13 @@ NSString* selectedFloor;
     user.password = _password.text;
     user.email = _email.text;
     
-  
     PFObject *abode = [PFObject objectWithClassName:@"Apartment"];
     
     PFObject *block =[PFObject objectWithoutDataWithClassName:@"Block" objectId:selectedBlock.blockId];
     
-    NSLog(@"setting BLOCK %@",selectedBlock);
     [abode setObject:block forKey:@"block"];
-    
     [abode setObject:selectedFloor forKey:@"floor"];
-    
     [abode setObject:self.apartment.text forKey:@"name"];
-    
-    NSLog(@"%@", abode);
-    
     [user setObject:abode forKey:@"apartment"];
     
     [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {

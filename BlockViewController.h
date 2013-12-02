@@ -12,8 +12,9 @@
 #import "ApartmentViewController.h"
 
 @interface BlockViewController : UITableViewController <ApartmentAddDelegate>
-
 @property (retain,nonatomic) NSArray *blocks;
 @property (weak, nonatomic) Block* selectedBlock;
 @property (retain, nonatomic) NSMutableDictionary *selections;
+@property (retain, nonatomic) NSMutableDictionary *totals;
+@property(nonatomic, assign) id <ApartmentAddDelegate> delegate;
 @end

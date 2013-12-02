@@ -9,7 +9,7 @@
 #import "DestinationViewController.h"
 
 @interface DestinationViewController ()
-
+-(NSString*) _apartment_text;
 @end
 
 //should be dynamic, so could potentially add new scopes!
@@ -17,6 +17,7 @@
 @implementation DestinationViewController
 
 NSIndexPath *lastIndex = nil;
+@synthesize apartmentScope;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -27,10 +28,15 @@ NSIndexPath *lastIndex = nil;
     return self;
 }
 
+-(void) viewWillAppear:(BOOL)animated{
+    
+    [self.tableView reloadData];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
+    self.apartmentScope = [[NSMutableDictionary alloc] init];
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
@@ -91,8 +97,8 @@ NSIndexPath *lastIndex = nil;
     if (indexPath.row == 1){
         cell.title.text = @"specific apartment(s)";
         [cell.info setFont:[UIFont fontWithName:@"Trebuchet MS" size:24]];
-        cell.info.text = @"1,2,3,4";
-        cell.total.text = @"3";
+        cell.info.text = [self _apartment_text];
+        cell.total.text = [NSString stringWithFormat:@"%d", [self.apartmentScope count]];
         [tableView selectRowAtIndexPath:indexPath animated:NO scrollPosition: UITableViewScrollPositionNone];
         lastIndex = indexPath;
         cell.background.image = [UIImage imageNamed:@"scopecellselected.png"];
@@ -119,6 +125,11 @@ NSIndexPath *lastIndex = nil;
     }
     
     return cell;
+}
+
+-(NSString*) _apartment_text{
+    NSArray *apartments = [self.apartmentScope allValues];
+    return [[apartments valueForKey:@"name"]componentsJoinedByString:@","];
 }
 
 -(void)  triggerSegue:(id)sender{
@@ -199,16 +210,33 @@ NSIndexPath *lastIndex = nil;
 }
 */
 
-/*
+
 #pragma mark - Navigation
 
 // In a story board-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
+   
+    if ([[segue identifier] isEqualToString:@"apartmentSegue"]){
+        BlockViewController* bvc = (BlockViewController*) [segue destinationViewController];
+        bvc.delegate = self;
+        //pass apartment objects down stack, else lost at each segue to bvc!
+    }
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
 }
 
- */
+
+
+#pragma apartment selected delegate
+-(void) didSelectApartment:(Apartment*)apartment withValue:(BOOL)value{
+    NSLog(@"got to parent!");
+    if (value){
+        [self.apartmentScope setObject:apartment forKey:apartment.apartmentId];
+    }else{
+        [self.apartmentScope removeObjectForKey:apartment.apartmentId];
+    }
+    NSLog(@"%@", self.apartmentScope);
+}
 
 @end

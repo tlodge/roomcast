@@ -8,7 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import "ScopeCell.h"
+#import "BlockViewController.h"
+#import "ApartmentViewController.h"
 
-@interface DestinationViewController : UITableViewController
+@interface DestinationViewController : UITableViewController <ApartmentAddDelegate>
 
+@property(retain,nonatomic) NSMutableDictionary* apartmentScope;
 @end
