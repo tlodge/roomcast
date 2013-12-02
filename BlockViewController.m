@@ -16,6 +16,7 @@
 
 @synthesize blocks;
 @synthesize selectedBlock;
+@synthesize selections;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -32,8 +33,14 @@
     
     Development* d = [[DataManager sharedManager] development];
     
-    self.blocks = [[d blocks] allObjects];
-
+    self.blocks     = [[d blocks] allObjects];
+    self.selections = [[NSMutableDictionary alloc] init];
+    
+    //generate the selections dictionary here for all blocks
+    //avc.selections = self.selections for block x
+    //avc.apartments = [selectedBlock.apartments allObjects];
+    
+    
     // Uncomment the following line to preserve selection between presentations.
     self.clearsSelectionOnViewWillAppear = NO;
  
@@ -78,7 +85,18 @@
 -(void)  triggerSegue:(id)sender{
     UIButton *clicked = (UIButton *) sender;
     self.selectedBlock = [self.blocks objectAtIndex:clicked.tag];
-    [self performSegueWithIdentifier:@"selectApartments" sender:self];
+    
+    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0ul);
+    
+    dispatch_async(queue, ^{
+        //this runs on background thread!
+        BOOL success = [[DataManager sharedManager] syncWithBlock:selectedBlock];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (success){
+                [self performSegueWithIdentifier:@"selectApartments" sender:self];
+            }
+        });
+    });
 }
 
 -(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -130,51 +148,25 @@
 // In a story board-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
     ApartmentViewController* avc = (ApartmentViewController*) [segue destinationViewController];
+ 
     avc.delegate = self;
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES];
     
-    //avc.selections = self.selections for block x
-    //avc.apartments = self.apartment for block x
-
+    NSArray* sortDescriptors = [NSArray arrayWithObject:sortDescriptor];
+    
+    NSArray* blockapartments = [[selectedBlock.apartments allObjects] sortedArrayUsingDescriptors:sortDescriptors];
+    
+    avc.apartments = blockapartments;
+    avc.selections = self.selections;
 }
 
 #pragma apartment selected delegate
 -(void) didSelectApartment:(NSString*) apartmentId withValue:(BOOL)value{
-    
+    [self.selections removeObjectForKey:apartmentId];
+    if (value){
+        [self.selections setObject:[NSNumber numberWithBool:value] forKey:apartmentId];
+    }
 }
-
-
-/*
-
- self.selections = [[NSMutableArray alloc] initWithCapacity:[block.apartments count]];
-
- for (int i = 0; i < [block.apartments count]; i++){
-    [self.selections addObject: [NSNumber numberWithBool:YES]];
- }
-
- apartments = [block.apartments allObjects];
-
- dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0ul);
- 
- dispatch_async(queue, ^{
- //this runs on background thread!
- BOOL success = [[DataManager sharedManager] syncWithBlock:block];
- dispatch_async(dispatch_get_main_queue(), ^{
- if (success){
- 
- self.selections = [[NSMutableArray alloc] initWithCapacity:[block.apartments count]];
- 
- for (int i = 0; i < [block.apartments count]; i++){
- NSLog(@"adding object to selections");
- [self.selections addObject: [NSNumber numberWithBool:YES]];
- }
- 
- apartments = [block.apartments allObjects];
- [self.tableView reloadData];
- }
- });
- });*/
 
 @end

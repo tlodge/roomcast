@@ -15,4 +15,5 @@
 
 @property (retain,nonatomic) NSArray *blocks;
 @property (weak, nonatomic) Block* selectedBlock;
+@property (retain, nonatomic) NSMutableDictionary *selections;
 @end

@@ -121,6 +121,30 @@ NSManagedObjectContext *context;
 
 
 
+-(Apartment *) fetchApartmentWithObjectId:(NSString *) objectId{
+    
+    NSError *error;
+    
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Apartment"  inManagedObjectContext:context];
+    
+    [fetchRequest setEntity:entity];
+    
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"apartmentId == %@", objectId];
+    [fetchRequest setPredicate:predicate];
+    
+    NSArray* fetchedApartment = [context executeFetchRequest:fetchRequest error:&error];
+    
+    if ([fetchedApartment count] > 0){
+        return [fetchedApartment objectAtIndex:0];
+    }
+    
+    return nil;
+    
+}
+
+
 -(Development *) fetchDevelopmentWithObjectId:(NSString *) objectId{
     
     NSError *error;
@@ -149,7 +173,7 @@ NSManagedObjectContext *context;
 
 -(BOOL) syncWithBlock:(Block*) block{
     
-    /*
+    
     PFQuery *innerquery = [PFQuery queryWithClassName:@"Block"];
     [innerquery whereKey:@"objectId" equalTo:block.blockId];
     
@@ -169,11 +193,13 @@ NSManagedObjectContext *context;
         
         for (PFObject *apartment in apartments){
         
-            NSLog(@"got this... %@", apartment);
+            Apartment *a = [self fetchApartmentWithObjectId:[apartment objectId]];
    
-            Apartment* a = [NSEntityDescription insertNewObjectForEntityForName:@"Apartment" inManagedObjectContext:context];
-    
-            [a setValue:[apartment objectId] forKey:@"apartmentId"];
+            if (a == nil){
+                a = [NSEntityDescription insertNewObjectForEntityForName:@"Apartment" inManagedObjectContext:context];
+                [a setValue:[apartment objectId] forKey:@"apartmentId"];
+            }
+            
             [a setValue:[apartment objectForKey:@"floor"] forKey:@"floor"];
             [a setValue:[apartment objectForKey:@"name"] forKey:@"name"];
             [a setValue:block forKey:@"block"];
@@ -187,8 +213,7 @@ NSManagedObjectContext *context;
         }
         return YES;
     }
-    return NO;*/
-    return YES;
+    return NO;
 }
 
 

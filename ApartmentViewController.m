@@ -69,8 +69,10 @@
 }
 
 -(void) toggleSelect:(UISwitch*)sender{
-    NSLog(@"sender tag is %d and on is %@", sender.tag, [NSNumber numberWithBool:sender.on]);
-    [self.selections setObject:[NSNumber numberWithBool:sender.on] atIndexedSubscript:sender.tag];
+
+    Apartment* a = [apartments objectAtIndex:sender.tag];
+    NSLog(@"selected apartment %d , %@", sender.tag, a);
+    [self.delegate didSelectApartment:a.apartmentId withValue:sender.on];
 }
 
 - (void)didReceiveMemoryWarning
@@ -94,21 +96,23 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSLog(@"REEEEELOADING THE DATA!!!!!!!!!!");
-    NSLog(@"%@",self.selections);
+    NSLog(@"SELECTIONS ARE ... %@",self.selections);
 
     static NSString *CellIdentifier = @"ApartmentCell";
     
     ApartmentCell *cell = (ApartmentCell*) [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
-    NSNumber* status = (NSNumber*) [self.selections objectAtIndex:indexPath.row];
+    Apartment *apartment = [apartments objectAtIndex:indexPath.row];
     
-    [cell.selectSwitch setOn:[status boolValue]];
+    if ([self.selections objectForKey:apartment.apartmentId] != nil){
+        [cell.selectSwitch setOn:YES];
+    }else{
+        [cell.selectSwitch setOn:NO];
+    }
     
     cell.selectSwitch.tag = indexPath.row;
     
     [cell.selectSwitch addTarget:self action:@selector(toggleSelect:)forControlEvents:UIControlEventValueChanged];
-    
-    Apartment *apartment = [apartments objectAtIndex:indexPath.row];
     
     if (apartment)
         cell.name.text = apartment.name;

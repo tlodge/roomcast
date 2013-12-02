@@ -17,6 +17,7 @@
 @interface DataManager : NSObject
 +(DataManager *) sharedManager;
 -(Development *) fetchDevelopmentWithObjectId:(NSString *) objectId;
+-(Apartment *) fetchApartmentWithObjectId:(NSString *) objectId;
 
 -(BOOL) syncWithDevelopment:(NSString*) developmentId;
 -(BOOL) syncWithBlock:(Block *)block;

@@ -33,7 +33,7 @@
 -(void)viewDidAppear:(BOOL)animated
 {
     PFUser *currentUser = [PFUser currentUser];
-    if (YES){//currentUser) {
+    if (currentUser) {
         
         NSLog(@"registering for remote notifications!");
         
