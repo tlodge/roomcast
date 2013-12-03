@@ -39,6 +39,7 @@
 		A3334D8D184698F300ECA8D5 /* Block.m in Sources */ = {isa = PBXBuildFile; fileRef = A3334D8C184698F300ECA8D5 /* Block.m */; };
 		A3334D931846993700ECA8D5 /* Development.m in Sources */ = {isa = PBXBuildFile; fileRef = A3334D921846993700ECA8D5 /* Development.m */; };
 		A335AA201847AC07007096A4 /* DataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A335AA1F1847AC07007096A4 /* DataManager.m */; };
+		A335AA24184E47FB007096A4 /* home.png in Resources */ = {isa = PBXBuildFile; fileRef = A335AA23184E47FB007096A4 /* home.png */; };
 		A360581C182191EE0026615B /* FormTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A360581B182191EE0026615B /* FormTableViewController.m */; };
 		A37C6EA9181952040042489D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A37C6EA8181952040042489D /* Foundation.framework */; };
 		A37C6EAB181952040042489D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A37C6EAA181952040042489D /* CoreGraphics.framework */; };
@@ -150,6 +151,7 @@
 		A3334D921846993700ECA8D5 /* Development.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Development.m; path = ../Development.m; sourceTree = "<group>"; };
 		A335AA1E1847AC06007096A4 /* DataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataManager.h; sourceTree = "<group>"; };
 		A335AA1F1847AC07007096A4 /* DataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataManager.m; sourceTree = "<group>"; };
+		A335AA23184E47FB007096A4 /* home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = home.png; sourceTree = "<group>"; };
 		A360581A182191EE0026615B /* FormTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FormTableViewController.h; sourceTree = "<group>"; };
 		A360581B182191EE0026615B /* FormTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FormTableViewController.m; sourceTree = "<group>"; };
 		A37C6EA5181952040042489D /* roomcast.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = roomcast.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -374,6 +376,7 @@
 		A37C6E9C181952040042489D = {
 			isa = PBXGroup;
 			children = (
+				A335AA23184E47FB007096A4 /* home.png */,
 				A37C6EAE181952040042489D /* roomcast */,
 				A37C6ECD181952040042489D /* roomcastTests */,
 				A37C6EA7181952040042489D /* Frameworks */,
@@ -597,6 +600,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A335AA24184E47FB007096A4 /* home.png in Resources */,
 				A317AC2C18294B6700BE7E46 /* registerheader.png in Resources */,
 				A317AC35182AE82B00BE7E46 /* MessageView.xib in Resources */,
 				A37C6EC1181952040042489D /* Images.xcassets in Resources */,

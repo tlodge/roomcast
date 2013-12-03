@@ -14,4 +14,5 @@
 @interface DestinationViewController : UITableViewController <ApartmentAddDelegate>
 
 @property(retain,nonatomic) NSMutableDictionary* apartmentScope;
+@property(retain,nonatomic) NSIndexPath *lastIndex;
 @end

@@ -16,7 +16,7 @@
 
 @implementation DestinationViewController
 
-NSIndexPath *lastIndex = nil;
+@synthesize lastIndex;
 @synthesize apartmentScope;
 
 - (id)initWithStyle:(UITableViewStyle)style
@@ -37,6 +37,7 @@ NSIndexPath *lastIndex = nil;
 {
     [super viewDidLoad];
     self.apartmentScope = [[NSMutableDictionary alloc] init];
+    lastIndex = [NSIndexPath indexPathForItem:1 inSection:1];
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
@@ -94,15 +95,18 @@ NSIndexPath *lastIndex = nil;
     
     [cell.moreButton addTarget:self action:@selector(triggerSegue:) forControlEvents:UIControlEventTouchUpInside];
     
+    if (lastIndex.row == indexPath.row){
+        [tableView selectRowAtIndexPath:indexPath animated:NO scrollPosition: UITableViewScrollPositionNone];
+        cell.background.image = [UIImage imageNamed:@"scopecellselected.png"];
+        cell.total.alpha = 1.0;
+        lastIndex = indexPath;
+    }
+    
     if (indexPath.row == 1){
         cell.title.text = @"specific apartment(s)";
         [cell.info setFont:[UIFont fontWithName:@"Trebuchet MS" size:24]];
         cell.info.text = [self _apartment_text];
         cell.total.text = [NSString stringWithFormat:@"%d", [self.apartmentScope count]];
-        [tableView selectRowAtIndexPath:indexPath animated:NO scrollPosition: UITableViewScrollPositionNone];
-        lastIndex = indexPath;
-        cell.background.image = [UIImage imageNamed:@"scopecellselected.png"];
-        cell.total.alpha = 1.0;
         cell.moreButton.tag = indexPath.row;
     }else if (indexPath.row == 2){
         cell.title.text = @"within Burrells Wharf";
@@ -148,7 +152,6 @@ NSIndexPath *lastIndex = nil;
     cell.total.alpha = 1.0;
     
     lastIndex = currentIndex;
-    
     
     NSString *segue = @"apartmentSegue";
     
@@ -220,6 +223,7 @@ NSIndexPath *lastIndex = nil;
     if ([[segue identifier] isEqualToString:@"apartmentSegue"]){
         BlockViewController* bvc = (BlockViewController*) [segue destinationViewController];
         bvc.delegate = self;
+        bvc.selections = self.apartmentScope;
         //pass apartment objects down stack, else lost at each segue to bvc!
     }
     // Get the new view controller using [segue destinationViewController].
@@ -230,13 +234,11 @@ NSIndexPath *lastIndex = nil;
 
 #pragma apartment selected delegate
 -(void) didSelectApartment:(Apartment*)apartment withValue:(BOOL)value{
-    NSLog(@"got to parent!");
     if (value){
         [self.apartmentScope setObject:apartment forKey:apartment.apartmentId];
     }else{
         [self.apartmentScope removeObjectForKey:apartment.apartmentId];
     }
-    NSLog(@"%@", self.apartmentScope);
 }
 
 @end

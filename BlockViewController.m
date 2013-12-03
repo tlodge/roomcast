@@ -19,7 +19,6 @@
 @synthesize blocks;
 @synthesize selectedBlock;
 @synthesize selections;
-BOOL working = NO;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -48,7 +47,7 @@ BOOL working = NO;
     
     self.blocks = [[[d blocks] allObjects] sortedArrayUsingDescriptors:sortDescriptors];
     
-    self.selections = [[NSMutableDictionary alloc] init];
+    //self.selections = [[NSMutableDictionary alloc] init];
     self.totals = [[NSMutableDictionary alloc] init];
     
     // Uncomment the following line to preserve selection between presentations.
@@ -97,30 +96,15 @@ BOOL working = NO;
 }
 
 -(void)  triggerSegue:(id)sender{
-    if(working)
-        return;
-    working = YES;
-    
+
     UIButton *clicked = (UIButton *) sender;
     self.selectedBlock = [self.blocks objectAtIndex:clicked.tag];
-    
-    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0ul);
-    
-    dispatch_async(queue, ^{
-        //this runs on background thread!
-        BOOL success = [[DataManager sharedManager] syncWithBlock:selectedBlock];
-        dispatch_async(dispatch_get_main_queue(), ^{
-            working = NO;
-            if (success){
-                [self performSegueWithIdentifier:@"selectApartments" sender:self];
-            }
-        });
-    });
+    [self performSegueWithIdentifier:@"selectApartments" sender:self];
 }
 
 -(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     self.selectedBlock = [self.blocks objectAtIndex:indexPath.row];
-   // NSLog(@"seleceted block is %@", self.selectedBlock.name);
+    NSLog(@"seleceted block is %@", self.selectedBlock.name);
 }
 /*
 // Override to support conditional editing of the table view.
@@ -173,6 +157,22 @@ BOOL working = NO;
     NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES];
     
     NSArray* sortDescriptors = [NSArray arrayWithObject:sortDescriptor];
+    
+    
+    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0ul);
+    
+    dispatch_async(queue, ^{
+        //this runs on background thread!
+        BOOL success = [[DataManager sharedManager] syncWithBlock:selectedBlock];
+        dispatch_async(dispatch_get_main_queue(), ^{
+           
+            if (success){
+                NSArray* blockapartments = [[selectedBlock.apartments allObjects] sortedArrayUsingDescriptors:sortDescriptors];
+                avc.apartments = blockapartments;
+                [avc.tableView reloadData];
+            }
+        });
+    });
     
     NSArray* blockapartments = [[selectedBlock.apartments allObjects] sortedArrayUsingDescriptors:sortDescriptors];
     
