@@ -31,19 +31,19 @@ float height = 44;
     
 
     if (orientation == 0){
-        myMessageLabel = [[UILabel alloc] initWithFrame:CGRectMake(18, 15, 155, height-20)];
+        myMessageLabel = [[UILabel alloc] initWithFrame:CGRectMake(15, 6, 155, height-20)];
         imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 180, height)];
-        imageView.image = [[UIImage imageNamed:@"bubble.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(15,20,27,20) resizingMode:UIImageResizingModeTile];
+        imageView.image = [[UIImage imageNamed:@"bubble.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(15,20,47,20) resizingMode:UIImageResizingModeTile];
     }else{
-        myMessageLabel = [[UILabel alloc] initWithFrame:CGRectMake(140, 15, 155, height-20)];
+        myMessageLabel = [[UILabel alloc] initWithFrame:CGRectMake(140, 6, 155, height-20)];
         imageView = [[UIImageView alloc] initWithFrame:CGRectMake(130, 0, 180, height)];
-        imageView.image = [[UIImage imageNamed:@"bubble_r.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(15,20,27,20) resizingMode:UIImageResizingModeTile];
+        imageView.image = [[UIImage imageNamed:@"bubble_r.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(15,20,47,20) resizingMode:UIImageResizingModeTile];
     }
     [self.contentView addSubview:imageView];
-    [myMessageLabel setFont:[UIFont fontWithName:@"Trebuchet MS" size:14]];
+    [myMessageLabel setFont:[UIFont fontWithName:@"Verdana" size:12]];
     myMessageLabel.textColor = [UIColor whiteColor];
     myMessageLabel.text = message;
-    myMessageLabel.numberOfLines = 6;
+    myMessageLabel.numberOfLines = 100;
     [myMessageLabel sizeToFit];
     [self.contentView addSubview:myMessageLabel];
 }

@@ -43,7 +43,6 @@
 		A335AA4A184F85A3007096A4 /* textback.png in Resources */ = {isa = PBXBuildFile; fileRef = A335AA49184F85A3007096A4 /* textback.png */; };
 		A335AA4D184F8766007096A4 /* backbutton.png in Resources */ = {isa = PBXBuildFile; fileRef = A335AA4B184F8766007096A4 /* backbutton.png */; };
 		A335AA50184F877B007096A4 /* sendbutton.png in Resources */ = {isa = PBXBuildFile; fileRef = A335AA4F184F877B007096A4 /* sendbutton.png */; };
-		A335AA52184F878D007096A4 /* bubble.png in Resources */ = {isa = PBXBuildFile; fileRef = A335AA51184F878D007096A4 /* bubble.png */; };
 		A335AA55184F8AC5007096A4 /* registerheader.png in Resources */ = {isa = PBXBuildFile; fileRef = A335AA53184F8AC5007096A4 /* registerheader.png */; };
 		A335AA56184F8AC5007096A4 /* registerheader2.png in Resources */ = {isa = PBXBuildFile; fileRef = A335AA54184F8AC5007096A4 /* registerheader2.png */; };
 		A360581C182191EE0026615B /* FormTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A360581B182191EE0026615B /* FormTableViewController.m */; };
@@ -80,13 +79,13 @@
 		A3BD18DF184F96AC004EB6BD /* mapframe.png in Resources */ = {isa = PBXBuildFile; fileRef = A3BD18DE184F96AC004EB6BD /* mapframe.png */; };
 		A3BD18E2184FA086004EB6BD /* Conversation.m in Sources */ = {isa = PBXBuildFile; fileRef = A3BD18E1184FA086004EB6BD /* Conversation.m */; };
 		A3BD18E5184FA17C004EB6BD /* Message.m in Sources */ = {isa = PBXBuildFile; fileRef = A3BD18E4184FA17C004EB6BD /* Message.m */; };
+		A3BD18F5184FD933004EB6BD /* bubble.png in Resources */ = {isa = PBXBuildFile; fileRef = A3BD18F4184FD933004EB6BD /* bubble.png */; };
+		A3BD18F7184FD981004EB6BD /* bubble_r.png in Resources */ = {isa = PBXBuildFile; fileRef = A3BD18F6184FD981004EB6BD /* bubble_r.png */; };
 		A3C3BF161827B06A007E8803 /* message.png in Resources */ = {isa = PBXBuildFile; fileRef = A3C3BF151827B06A007E8803 /* message.png */; };
 		A3F88D15182D445D00E3BFB0 /* ChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F88D14182D445D00E3BFB0 /* ChatViewController.m */; };
 		A3F88D17182D4F4A00E3BFB0 /* continue.png in Resources */ = {isa = PBXBuildFile; fileRef = A3F88D16182D4F4A00E3BFB0 /* continue.png */; };
 		A3F88D19182ED87A00E3BFB0 /* howmanybutton.png in Resources */ = {isa = PBXBuildFile; fileRef = A3F88D18182ED87A00E3BFB0 /* howmanybutton.png */; };
 		A3F88D36183019C000E3BFB0 /* MessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F88D35183019C000E3BFB0 /* MessageCell.m */; };
-		A3F88D471831466600E3BFB0 /* bubble.png in Resources */ = {isa = PBXBuildFile; fileRef = A3F88D461831466600E3BFB0 /* bubble.png */; };
-		A3F88D491831763B00E3BFB0 /* bubble_r.png in Resources */ = {isa = PBXBuildFile; fileRef = A3F88D481831763B00E3BFB0 /* bubble_r.png */; };
 		A3F88D8A1832667E00E3BFB0 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3F88D891832667E00E3BFB0 /* CoreData.framework */; };
 		A3F88D8C1832669A00E3BFB0 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3F88D8B1832669A00E3BFB0 /* Security.framework */; };
 		A3F88D8E183266AE00E3BFB0 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3F88D8D183266AE00E3BFB0 /* SystemConfiguration.framework */; };
@@ -137,7 +136,7 @@
 		A3334D921846993700ECA8D5 /* Development.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Development.m; path = ../Development.m; sourceTree = "<group>"; };
 		A335AA1E1847AC06007096A4 /* DataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataManager.h; sourceTree = "<group>"; };
 		A335AA1F1847AC07007096A4 /* DataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataManager.m; sourceTree = "<group>"; };
-		A335AA23184E47FB007096A4 /* home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = home.png; sourceTree = "<group>"; };
+		A335AA23184E47FB007096A4 /* home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = home.png; path = ../home.png; sourceTree = "<group>"; };
 		A335AA25184F7181007096A4 /* responses_dark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = responses_dark.png; sourceTree = "<group>"; };
 		A335AA26184F7181007096A4 /* responses_light.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = responses_light.png; sourceTree = "<group>"; };
 		A335AA29184F7263007096A4 /* apartment_dark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = apartment_dark.png; sourceTree = "<group>"; };
@@ -156,7 +155,6 @@
 		A335AA49184F85A3007096A4 /* textback.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = textback.png; sourceTree = "<group>"; };
 		A335AA4B184F8766007096A4 /* backbutton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = backbutton.png; sourceTree = "<group>"; };
 		A335AA4F184F877B007096A4 /* sendbutton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sendbutton.png; sourceTree = "<group>"; };
-		A335AA51184F878D007096A4 /* bubble.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bubble.png; sourceTree = "<group>"; };
 		A335AA53184F8AC5007096A4 /* registerheader.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = registerheader.png; sourceTree = "<group>"; };
 		A335AA54184F8AC5007096A4 /* registerheader2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = registerheader2.png; sourceTree = "<group>"; };
 		A360581A182191EE0026615B /* FormTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FormTableViewController.h; sourceTree = "<group>"; };
@@ -206,6 +204,8 @@
 		A3BD18E1184FA086004EB6BD /* Conversation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Conversation.m; path = ../Conversation.m; sourceTree = "<group>"; };
 		A3BD18E3184FA17C004EB6BD /* Message.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Message.h; sourceTree = "<group>"; };
 		A3BD18E4184FA17C004EB6BD /* Message.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Message.m; sourceTree = "<group>"; };
+		A3BD18F4184FD933004EB6BD /* bubble.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bubble.png; sourceTree = "<group>"; };
+		A3BD18F6184FD981004EB6BD /* bubble_r.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bubble_r.png; sourceTree = "<group>"; };
 		A3C3BF151827B06A007E8803 /* message.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = message.png; path = ../message.png; sourceTree = "<group>"; };
 		A3F88D13182D445D00E3BFB0 /* ChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatViewController.h; sourceTree = "<group>"; };
 		A3F88D14182D445D00E3BFB0 /* ChatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatViewController.m; sourceTree = "<group>"; };
@@ -213,8 +213,6 @@
 		A3F88D18182ED87A00E3BFB0 /* howmanybutton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = howmanybutton.png; path = ../howmanybutton.png; sourceTree = "<group>"; };
 		A3F88D34183019C000E3BFB0 /* MessageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageCell.h; sourceTree = "<group>"; };
 		A3F88D35183019C000E3BFB0 /* MessageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageCell.m; sourceTree = "<group>"; };
-		A3F88D461831466600E3BFB0 /* bubble.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bubble.png; path = ../bubble.png; sourceTree = "<group>"; };
-		A3F88D481831763B00E3BFB0 /* bubble_r.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bubble_r.png; sourceTree = "<group>"; };
 		A3F88D891832667E00E3BFB0 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		A3F88D8B1832669A00E3BFB0 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		A3F88D8D183266AE00E3BFB0 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
@@ -377,7 +375,6 @@
 		A37C6E9C181952040042489D = {
 			isa = PBXGroup;
 			children = (
-				A335AA23184E47FB007096A4 /* home.png */,
 				A37C6EAE181952040042489D /* roomcast */,
 				A37C6ECD181952040042489D /* roomcastTests */,
 				A37C6EA7181952040042489D /* Frameworks */,
@@ -471,9 +468,11 @@
 		A37C6EDD181954090042489D /* images */ = {
 			isa = PBXGroup;
 			children = (
+				A3BD18F6184FD981004EB6BD /* bubble_r.png */,
+				A3BD18F4184FD933004EB6BD /* bubble.png */,
+				A335AA23184E47FB007096A4 /* home.png */,
 				A3BD18DA184F9219004EB6BD /* background.png */,
 				A3BD18D8184F8FE4004EB6BD /* help.png */,
-				A335AA51184F878D007096A4 /* bubble.png */,
 				A335AA4B184F8766007096A4 /* backbutton.png */,
 				A335AA4F184F877B007096A4 /* sendbutton.png */,
 				A335AA49184F85A3007096A4 /* textback.png */,
@@ -493,10 +492,8 @@
 				A335AA2F184F7442007096A4 /* rightnavorange.png */,
 				A335AA29184F7263007096A4 /* apartment_dark.png */,
 				A335AA2A184F7263007096A4 /* apartment_light.png */,
-				A3F88D461831466600E3BFB0 /* bubble.png */,
 				A335AA25184F7181007096A4 /* responses_dark.png */,
 				A335AA26184F7181007096A4 /* responses_light.png */,
-				A3F88D481831763B00E3BFB0 /* bubble_r.png */,
 				A3F88D18182ED87A00E3BFB0 /* howmanybutton.png */,
 				A3F88D16182D4F4A00E3BFB0 /* continue.png */,
 				A300E0AF1827B71200783E91 /* registerbutton.png */,
@@ -609,7 +606,6 @@
 				A37C6EC1181952040042489D /* Images.xcassets in Resources */,
 				A335AA27184F7181007096A4 /* responses_dark.png in Resources */,
 				A335AA4D184F8766007096A4 /* backbutton.png in Resources */,
-				A3F88D491831763B00E3BFB0 /* bubble_r.png in Resources */,
 				A335AA40184F7F44007096A4 /* switchon.png in Resources */,
 				A335AA2C184F7263007096A4 /* apartment_light.png in Resources */,
 				A335AA30184F7442007096A4 /* rightnavorange.png in Resources */,
@@ -617,9 +613,9 @@
 				A3BD18DB184F9219004EB6BD /* background.png in Resources */,
 				A3F88D17182D4F4A00E3BFB0 /* continue.png in Resources */,
 				A3BD18D9184F8FE4004EB6BD /* help.png in Resources */,
+				A3BD18F5184FD933004EB6BD /* bubble.png in Resources */,
 				A3BD18DD184F95F1004EB6BD /* authback.png in Resources */,
 				A335AA2B184F7263007096A4 /* apartment_dark.png in Resources */,
-				A3F88D471831466600E3BFB0 /* bubble.png in Resources */,
 				A335AA44184F849C007096A4 /* message_buttons_back.png in Resources */,
 				A335AA3B184F7B89007096A4 /* scopecell.png in Resources */,
 				A335AA3F184F7F44007096A4 /* switchoff.png in Resources */,
@@ -629,7 +625,6 @@
 				A300E0B01827B71200783E91 /* registerbutton.png in Resources */,
 				A3BD18DF184F96AC004EB6BD /* mapframe.png in Resources */,
 				A335AA2E184F73B6007096A4 /* blockcell.png in Resources */,
-				A335AA52184F878D007096A4 /* bubble.png in Resources */,
 				A335AA55184F8AC5007096A4 /* registerheader.png in Resources */,
 				A335AA3C184F7B89007096A4 /* scopecellselected.png in Resources */,
 				A335AA48184F84F8007096A4 /* whotobutton.png in Resources */,
@@ -641,6 +636,7 @@
 				A37C6EBC181952040042489D /* Main.storyboard in Resources */,
 				A335AA50184F877B007096A4 /* sendbutton.png in Resources */,
 				A335AA45184F849C007096A4 /* message_numbers_back.png in Resources */,
+				A3BD18F7184FD981004EB6BD /* bubble_r.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

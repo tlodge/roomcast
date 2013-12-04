@@ -65,19 +65,24 @@
 {
     Message *m = [messages objectAtIndex:indexPath.row];
     
+    NSLog(@"%@", m.body);
+    NSLog(@"lines: %d", [m.body length] / 21);
+    
+    int height = 20 +  (14 * [m.body length] / 21);
+     NSLog(@"height: %d", height);
     if (indexPath.row % 2 == 0){
         //at this point, height will have been calculated!
-        [(MessageCell *)cell initWithMessage: m.body forHeight: cell.frame.size.height forOriention:0];
+        [(MessageCell *)cell initWithMessage: m.body forHeight: height forOriention:0];
     }else{
-        [(MessageCell *)cell initWithMessage: m.body forHeight: cell.frame.size.height forOriention:1];
+        [(MessageCell *)cell initWithMessage: m.body forHeight: height forOriention:1];
     }
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    //get the text from an array, and set height accordingly!
-    if (indexPath.row % 2 == 0)
-        return 80;
-    return 60;
+    
+    Message *m = [messages objectAtIndex:indexPath.row];
+    int height = 20 + (14 * [m.body length] / 21);
+    return height;
 }
 
 /*
