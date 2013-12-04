@@ -103,10 +103,10 @@
                 <view alpha="0.79999999999999982" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7C4-HS-4Wd">
                     <rect key="frame" x="0.0" y="313" width="320" height="61"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <color key="backgroundColor" red="0.0" green="0.61960784310000006" blue="0.59215686270000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="backgroundColor" red="0.72941176470000002" green="0.78823529410000004" blue="0.66274509800000003" alpha="1" colorSpace="calibratedRGB"/>
                 </view>
             </subviews>
-            <color key="backgroundColor" red="0.0" green="0.61960784310000006" blue="0.59215686270000001" alpha="1" colorSpace="calibratedRGB"/>
+            <color key="backgroundColor" red="0.72941176470000002" green="0.78823529410000004" blue="0.66274509800000003" alpha="1" colorSpace="calibratedRGB"/>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>

@@ -11,7 +11,7 @@
 #import "Message.h"
 
 @interface MessageViewController ()
-
+-(Conversation *) saveConversationWithPFObject:(PFObject *)message;
 @end
 
 @implementation MessageViewController
@@ -202,12 +202,23 @@ BOOL _composing = YES;
     
     ChatViewController* cvc = (ChatViewController *) [segue destinationViewController];
     
-    NSSet *set = [selectedConversation valueForKey:@"messages"];
+    NSLog(@"selected conversation is %@", selectedConversation);
     
-    for (Message *m in set){
-        NSLog(@"message is %@", m.body);
-    }
+    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0ul);
     
+    dispatch_async(queue, ^{
+        //this runs on background thread!
+        BOOL success = [[DataManager sharedManager] syncWithConversation:self.selectedConversation];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            
+            if (success){
+                cvc.messages = [self.selectedConversation.messages allObjects];
+                [cvc.tableView reloadData];
+            }
+        });
+    });
+
+    NSSet *set = [self.selectedConversation valueForKey:@"messages"];
     cvc.messages = [set allObjects];
     [cvc chatID:@"mychatid"];
 }
@@ -246,7 +257,7 @@ BOOL _composing = YES;
     [msg setObject:co forKey:@"conversation"];
     
     [msg saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-        Conversation *conversation = self.saveConversation;
+        Conversation *conversation = [self saveConversationWithPFObject: msg];
         if (conversation != nil){
             [self.conversations addObject:conversation];
             [self.tableView reloadData];
@@ -258,32 +269,39 @@ BOOL _composing = YES;
     
 }
 
--(Conversation*) saveConversation{
-    Conversation *conversation = [NSEntityDescription
+-(Conversation*) saveConversationWithPFObject:(PFObject *) message{
+    
+    NSLog(@"saving %@", message);
+    
+    Conversation *c = [NSEntityDescription
                                   insertNewObjectForEntityForName:@"Conversation"
                                   inManagedObjectContext:self.managedObjectContext];
     
     //[conversation assignObjectId];
-    [conversation setValue:aView.messageView.text forKey:@"teaser"];
-    [conversation setValue:@"1D" forKey:@"initiator"];
-    [conversation setValue:[NSDate date] forKey:@"started"];
+    PFObject* conversation = [message objectForKey:@"conversation"];
     
-    Message *message = [NSEntityDescription
+    [c setValue:[conversation objectId] forKey:@"conversationId"];
+    [c setValue:[conversation objectForKey:@"teaser"] forKey:@"teaser"];
+    [c setValue:@"1D" forKey:@"initiator"];
+    [c setValue:[NSDate date] forKey:@"started"];
+    
+    Message *m = [NSEntityDescription
                         insertNewObjectForEntityForName:@"Message"
                         inManagedObjectContext:self.managedObjectContext];
     
     //[message assignObjectId];
-    [message setValue:@"1D" forKey:@"from"];
-    [message setValue:aView.messageView.text forKey:@"body"];
-    [message setValue:[NSDate date] forKey:@"sent"];
-    [message setValue:conversation forKey:@"conversation"];
+    [m setValue:[message objectId] forKey:@"messageId"];
+    [m setValue:@"1D" forKey:@"from"];
+    [m setValue:[message objectForKey:@"message"] forKey:@"body"];
+    [m setValue:[NSDate date] forKey:@"sent"];
+    [m setValue:c forKey:@"conversation"];
     
     NSError *error;
     if (![self.managedObjectContext save:&error]){
         NSLog(@"whoops! couldn't save %@", [error localizedDescription]);
         return nil;
     }
-    return conversation;
+    return c;
 }
 
 -(void) toggleComposer{

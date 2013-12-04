@@ -25,7 +25,7 @@
         <scene sceneID="ufC-wZ-h7g">
             <objects>
                 <viewController id="vXZ-lx-hvc" customClass="StartViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
+                    <view key="view" contentMode="scaleAspectFit" id="kh9-bI-dsS">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
@@ -33,24 +33,26 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="development code" textAlignment="center" minimumFontSize="17" id="7QG-M2-UTw">
-                                <rect key="frame" x="75" y="251" width="170" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="line" placeholder="development code" textAlignment="center" minimumFontSize="17" id="7QG-M2-UTw">
+                                <rect key="frame" x="75" y="275" width="170" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="18"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="textColor" red="0.45098039220000002" green="0.43921568630000002" blue="0.37647058820000001" alpha="1" colorSpace="deviceRGB"/>
+                                <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="18"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="To get started please provide me with your development's code" lineBreakMode="wordWrap" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="gcQ-Qi-aod">
-                                <rect key="frame" x="53" y="123" width="215" height="136"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="To get started please provide your development's code" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="gcQ-Qi-aod">
+                                <rect key="frame" x="61" y="126" width="198" height="129"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="22"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="19"/>
+                                <color key="textColor" red="0.45098039220000002" green="0.43921568630000002" blue="0.37647058820000001" alpha="1" colorSpace="deviceRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="foS-uA-93l">
-                                <rect key="frame" x="135" y="298" width="50" height="50"/>
+                                <rect key="frame" x="130" y="345" width="60" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="17"/>
-                                <state key="normal" title="GO" backgroundImage="continue.png">
+                                <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="17"/>
+                                <state key="normal" title="GO" backgroundImage="backbutton.png">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -58,6 +60,12 @@
                                     <action selector="lookupDevelopment:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="O7i-Wl-ZpB"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to roomcast" textAlignment="center" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" id="Gqg-Ky-jOS">
+                                <rect key="frame" x="80" y="74" width="192" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="15"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -83,17 +91,17 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="hybrid" showsUserLocation="YES" id="7U4-b2-zfp">
-                                <rect key="frame" x="30" y="114" width="264" height="301"/>
+                                <rect key="frame" x="30" y="114" width="264" height="304"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </mapView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mapframe.png" id="6iA-50-iMM">
-                                <rect key="frame" x="2" y="90" width="316" height="344"/>
+                                <rect key="frame" x="2" y="94" width="316" height="344"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="To confirm you are a Burrells Wharf resident, move into any zone shown on the map." lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="9up-dO-P06">
-                                <rect key="frame" x="90" y="23" width="221" height="68"/>
+                                <rect key="frame" x="66" y="18" width="239" height="68"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="15"/>
+                                <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="14"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -138,8 +146,8 @@
                     <tabBar key="tabBar" contentMode="scaleToFill" translucent="NO" id="Kn0-t4-dmo">
                         <rect key="frame" x="129" y="330" width="163" height="49"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                        <color key="tintColor" red="0.0" green="0.50196078430000002" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
-                        <color key="barTintColor" red="0.90588241815567017" green="0.94117653369903564" blue="0.74901962280273438" alpha="1" colorSpace="deviceRGB"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="barTintColor" red="0.45098039220000002" green="0.43921568630000002" blue="0.37647058820000001" alpha="1" colorSpace="deviceRGB"/>
                     </tabBar>
                     <connections>
                         <segue destination="Clw-Pg-kxw" kind="relationship" relationship="viewControllers" id="s3m-fq-gWB"/>
@@ -235,10 +243,10 @@
                                             <rect key="frame" x="0.0" y="3" width="320" height="70"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </imageView>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please choose the recipient(s) of your message" lineBreakMode="characterWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="usy-0g-uPv">
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please choose the recipients of your message" lineBreakMode="characterWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="usy-0g-uPv">
                                             <rect key="frame" x="62" y="3" width="248" height="62"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="18"/>
+                                            <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="16"/>
                                             <color key="textColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -248,7 +256,7 @@
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ScopeCell" rowHeight="75" id="7Nm-8k-iq3" customClass="ScopeCell">
                                 <rect key="frame" x="0.0" y="92" width="320" height="75"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="7Nm-8k-iq3" id="COX-DZ-rJr">
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.49999999999999961" contentMode="center" tableViewCell="7Nm-8k-iq3" id="COX-DZ-rJr">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="75"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
@@ -257,28 +265,30 @@
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </imageView>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="specific apartment(s)" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="qTw-ed-dbd">
-                                            <rect key="frame" x="72" y="1" width="247" height="21"/>
+                                            <rect key="frame" x="72" y="0.0" width="247" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="16"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1,2,4,5,7" textAlignment="center" lineBreakMode="characterWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="bRB-6c-w6V">
-                                            <rect key="frame" x="66" y="20" width="218" height="55"/>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1,2,4,5,7" textAlignment="center" lineBreakMode="characterWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="bRB-6c-w6V">
+                                            <rect key="frame" x="69" y="21" width="215" height="50"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="14"/>
-                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="16"/>
+                                            <color key="textColor" red="0.45098039220000002" green="0.43921568630000002" blue="0.37647058820000001" alpha="1" colorSpace="deviceRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="people" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="A6d-fo-kqx">
-                                            <rect key="frame" x="7" y="48" width="51" height="19"/>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="places" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="A6d-fo-kqx">
+                                            <rect key="frame" x="10" y="46" width="51" height="19"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="16"/>
+                                            <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="14"/>
+                                            <color key="textColor" red="0.45098039220000002" green="0.43921568630000002" blue="0.37647058820000001" alpha="1" colorSpace="deviceRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5000" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="mBm-fi-FOm">
                                             <rect key="frame" x="7" y="20" width="49" height="20"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="20"/>
+                                            <color key="textColor" red="0.45098039220000002" green="0.43921568630000002" blue="0.37647058820000001" alpha="1" colorSpace="deviceRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="LQn-dR-OiJ">
@@ -342,14 +352,15 @@
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="28E-XS-KQ5">
                                             <rect key="frame" x="293" y="6" width="19" height="42"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <state key="normal" backgroundImage="rightnavred.png">
+                                            <state key="normal" backgroundImage="rightnavorange.png">
                                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
                                         </button>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="jK6-Hi-jkZ">
-                                            <rect key="frame" x="5" y="7" width="48" height="21"/>
+                                            <rect key="frame" x="4" y="8" width="48" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="24"/>
+                                            <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="24"/>
+                                            <color key="textColor" red="0.45098039220000002" green="0.43921568630000002" blue="0.37647058820000001" alpha="1" colorSpace="deviceRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Block Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="0aj-Hg-MC9">
@@ -360,9 +371,10 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="selected" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="hlv-Dz-UHA">
-                                            <rect key="frame" x="10" y="35" width="43" height="21"/>
+                                            <rect key="frame" x="7" y="35" width="43" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="11"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
@@ -409,17 +421,23 @@
                                         <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="asC-Ka-7VC">
                                             <rect key="frame" x="251" y="6" width="51" height="31"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <color key="onTintColor" red="0.92156862745098034" green="0.61176470588235299" blue="0.28627450980392155" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="thumbTintColor" red="0.94901960784313721" green="0.83921568627450982" blue="0.50196078431372548" alpha="1" colorSpace="calibratedRGB"/>
                                         </switch>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Apartment 1" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="a8W-lm-f6V">
-                                            <rect key="frame" x="14" y="5" width="224" height="32"/>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="apartment_dark.png" id="cfZ-rI-oQ9">
+                                            <rect key="frame" x="9" y="3" width="45" height="38"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="24"/>
+                                        </imageView>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="111a" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="a8W-lm-f6V">
+                                            <rect key="frame" x="9" y="5" width="45" height="32"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="14"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
-                                <color key="backgroundColor" red="0.0" green="0.61960784310000006" blue="0.59215686270000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.72941176470000002" green="0.78823529410000004" blue="0.66274509800000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <outlet property="name" destination="a8W-lm-f6V" id="HsT-eD-cIH"/>
                                     <outlet property="selectSwitch" destination="asC-Ka-7VC" id="FI3-JX-MCf"/>
@@ -493,10 +511,10 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Summary" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="KbR-Tv-cbk">
-                                            <rect key="frame" x="64" y="5" width="175" height="31"/>
+                                            <rect key="frame" x="58" y="6" width="186" height="31"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="18"/>
-                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="14"/>
+                                            <color key="textColor" red="0.45098039220000002" green="0.43921568630000002" blue="0.37647058820000001" alpha="1" colorSpace="deviceRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="responses_dark.png" id="OkA-Au-5t5">
@@ -511,7 +529,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="apartment_dark.png" id="Q2c-lG-8Ep">
-                                            <rect key="frame" x="12" y="2" width="38" height="38"/>
+                                            <rect key="frame" x="9" y="2" width="45" height="38"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </imageView>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="15a" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="2G2-cn-gQc">
@@ -523,7 +541,7 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
-                                <color key="backgroundColor" red="0.0" green="0.61960784310000006" blue="0.59215686270000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.72941176470588232" green="0.78823529411764703" blue="0.66274509803921566" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <segue destination="jZf-Sx-3jr" kind="push" identifier="" id="tee-gB-OJ2"/>
                                 </connections>
@@ -536,10 +554,10 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Summary" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="jT6-9m-m6g">
-                                            <rect key="frame" x="69" y="10" width="175" height="21"/>
+                                            <rect key="frame" x="59" y="10" width="185" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="15"/>
-                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="14"/>
+                                            <color key="textColor" red="0.45098039220000002" green="0.43921568630000002" blue="0.37647058820000001" alpha="1" colorSpace="deviceRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="responses_light.png" id="kpP-dg-5s0">
@@ -547,26 +565,26 @@
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </imageView>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="apartment_light.png" id="x6G-LV-mvc">
-                                            <rect key="frame" x="13" y="3" width="38" height="38"/>
+                                            <rect key="frame" x="10" y="3" width="45" height="38"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </imageView>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="3" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="zq2-8h-7bO">
                                             <rect key="frame" x="253" y="10" width="34" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="17"/>
-                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="textColor" red="0.45098039220000002" green="0.43921568630000002" blue="0.37647058820000001" alpha="1" colorSpace="deviceRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="11b" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="pyO-DF-Cco">
                                             <rect key="frame" x="13" y="10" width="38" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="17"/>
-                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="textColor" red="0.45098039220000002" green="0.43921568630000002" blue="0.37647058820000001" alpha="1" colorSpace="deviceRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
-                                <color key="backgroundColor" red="0.0" green="0.50196078430000002" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.95294117647058818" green="1" blue="0.81176470588235294" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <segue destination="jZf-Sx-3jr" kind="push" id="tVW-qc-EI2"/>
                                 </connections>
@@ -673,12 +691,12 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="LUy-42-y78">
                         <rect key="frame" x="0.0" y="-44" width="0.0" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                        <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                        <color key="barTintColor" red="0.90588241820000004" green="0.94117653369999998" blue="0.74901962280000001" alpha="1" colorSpace="deviceRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="barTintColor" red="0.45098039220000002" green="0.43921568630000002" blue="0.37647058820000001" alpha="1" colorSpace="deviceRGB"/>
                         <textAttributes key="titleTextAttributes">
-                            <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="0.0"/>
-                            <color key="textColor" red="0.0" green="0.50196078430000002" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
+                            <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="0.0"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         </textAttributes>
                     </navigationBar>
                     <connections>
@@ -697,27 +715,27 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="message.png" id="xoF-ln-vjE">
-                                <rect key="frame" x="-8" y="12" width="320" height="109"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="help.png" id="xoF-ln-vjE">
+                                <rect key="frame" x="0.0" y="24" width="320" height="70"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <containerView autoresizesSubviews="NO" contentMode="scaleToFill" id="SCl-fm-7kK">
-                                <rect key="frame" x="0.0" y="110" width="320" height="362"/>
+                                <rect key="frame" x="0.0" y="94" width="320" height="342"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.45098039220000002" green="0.43921568630000002" blue="0.37647058820000001" alpha="1" colorSpace="deviceRGB"/>
                                 <connections>
                                     <segue destination="VR1-Zr-cab" kind="embed" id="Lsa-WZ-jaN"/>
                                 </connections>
                             </containerView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Great.  You may now complete your registration.  You don't need to remain in this location." lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="z7A-m1-Ohb">
-                                <rect key="frame" x="88" y="30" width="224" height="60"/>
+                                <rect key="frame" x="66" y="26" width="224" height="60"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="15"/>
+                                <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="13"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.45098039220000002" green="0.43921568630000002" blue="0.37647058820000001" alpha="1" colorSpace="deviceRGB"/>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
                 </viewController>
@@ -730,12 +748,12 @@
             <objects>
                 <tableViewController storyboardIdentifier="registration" autoresizesArchivedViewToFullSize="NO" id="VR1-Zr-cab" customClass="FormTableViewController" sceneMemberID="viewController">
                     <tableView key="view" autoresizesSubviews="NO" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleAspectFit" alwaysBounceVertical="YES" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" keyboardDismissMode="onDrag" dataMode="static" style="grouped" separatorStyle="none" allowsSelection="NO" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="44" sectionHeaderHeight="1" sectionFooterHeight="1" id="lE9-GO-Mds">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="362"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="342"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <color key="backgroundColor" red="0.45098039220000002" green="0.43921568630000002" blue="0.37647058820000001" alpha="1" colorSpace="deviceRGB"/>
                         <rect key="contentStretch" x="1" y="1" width="1" height="1"/>
-                        <color key="separatorColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        <color key="sectionIndexTrackingBackgroundColor" red="0.45098039220000002" green="0.43921568630000002" blue="0.37647058820000001" alpha="1" colorSpace="deviceRGB"/>
                         <sections>
                             <tableViewSection id="e2a-b9-NEK">
                                 <cells>
@@ -751,9 +769,8 @@
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 </imageView>
                                             </subviews>
-                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="backgroundColor" red="0.45098039220000002" green="0.43921568630000002" blue="0.37647058820000001" alpha="1" colorSpace="deviceRGB"/>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" red="0.90196078430000004" green="0.90196078430000004" blue="0.90196078430000004" alpha="1" colorSpace="calibratedRGB"/>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="4" indentationWidth="0.0" reuseIdentifier="CustomCell" id="UVJ-L8-LNr">
                                         <rect key="frame" x="0.0" y="60" width="320" height="44"/>
@@ -762,23 +779,23 @@
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="KTB-vR-RGk">
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" minimumFontSize="17" id="KTB-vR-RGk">
                                                     <rect key="frame" x="122" y="6" width="160" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="15"/>
+                                                    <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="15"/>
                                                     <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES"/>
                                                 </textField>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="username" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="AG9-FM-QQR">
                                                     <rect key="frame" x="14" y="10" width="92" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="19"/>
-                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="17"/>
+                                                    <color key="textColor" red="0.45098039220000002" green="0.43921568630000002" blue="0.37647058820000001" alpha="1" colorSpace="deviceRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" red="0.0" green="0.50196078430000002" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="0.72941176470000002" green="0.78823529410000004" blue="0.66274509800000003" alpha="1" colorSpace="calibratedRGB"/>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="4" indentationWidth="0.0" reuseIdentifier="CustomCell" id="6Og-kU-emT">
                                         <rect key="frame" x="0.0" y="104" width="320" height="44"/>
@@ -787,23 +804,23 @@
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="XRn-49-lYi">
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" minimumFontSize="17" id="XRn-49-lYi">
                                                     <rect key="frame" x="121" y="7" width="161" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="15"/>
+                                                    <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="15"/>
                                                     <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES" secureTextEntry="YES"/>
                                                 </textField>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="password" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Cnj-N8-DaH">
                                                     <rect key="frame" x="14" y="10" width="92" height="23"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="19"/>
-                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="17"/>
+                                                    <color key="textColor" red="0.45098039220000002" green="0.43921568630000002" blue="0.37647058820000001" alpha="1" colorSpace="deviceRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" red="0.0" green="0.61960784310000006" blue="0.59215686270000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="0.95294117649999999" green="1" blue="0.81176470590000005" alpha="1" colorSpace="calibratedRGB"/>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="4" indentationWidth="0.0" reuseIdentifier="CustomCell" id="Xus-IP-d6v" customClass="CustomCell">
                                         <rect key="frame" x="0.0" y="148" width="320" height="44"/>
@@ -815,20 +832,20 @@
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="email" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="3vJ-b9-RXT">
                                                     <rect key="frame" x="14" y="11" width="92" height="23"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="19"/>
-                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="17"/>
+                                                    <color key="textColor" red="0.45098039220000002" green="0.43921568630000002" blue="0.37647058820000001" alpha="1" colorSpace="deviceRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="WQs-jy-xkW">
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" minimumFontSize="17" id="WQs-jy-xkW">
                                                     <rect key="frame" x="121" y="7" width="161" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="15"/>
+                                                    <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="15"/>
                                                     <textInputTraits key="textInputTraits" keyboardType="emailAddress" enablesReturnKeyAutomatically="YES"/>
                                                 </textField>
                                             </subviews>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" red="0.0" green="0.50196078430000002" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="0.72941176470000002" green="0.78823529410000004" blue="0.66274509800000003" alpha="1" colorSpace="calibratedRGB"/>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -846,8 +863,9 @@
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 </imageView>
                                             </subviews>
+                                            <color key="backgroundColor" red="0.45098039220000002" green="0.43921568630000002" blue="0.37647058820000001" alpha="1" colorSpace="deviceRGB"/>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="backgroundColor" red="0.45098039220000002" green="0.43921568630000002" blue="0.37647058820000001" alpha="1" colorSpace="deviceRGB"/>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="PickerCell" id="Y8Q-cM-bag">
                                         <rect key="frame" x="0.0" y="215" width="320" height="44"/>
@@ -859,8 +877,8 @@
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="block" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="eZo-v6-hCc">
                                                     <rect key="frame" x="20" y="11" width="64" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="19"/>
-                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="17"/>
+                                                    <color key="textColor" red="0.45098039220000002" green="0.43921568630000002" blue="0.37647058820000001" alpha="1" colorSpace="deviceRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <pickerView contentMode="scaleToFill" id="mNC-9V-xq1">
@@ -869,7 +887,7 @@
                                                 </pickerView>
                                             </subviews>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" red="0.0" green="0.50196078430000002" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="0.72941176470000002" green="0.78823529410000004" blue="0.66274509800000003" alpha="1" colorSpace="calibratedRGB"/>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="4" indentationWidth="0.0" reuseIdentifier="Cell" id="Aoe-BF-UMP">
                                         <rect key="frame" x="0.0" y="259" width="320" height="44"/>
@@ -881,20 +899,20 @@
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="apartment number" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="8rN-tB-kSP">
                                                     <rect key="frame" x="18" y="11" width="169" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="19"/>
-                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="17"/>
+                                                    <color key="textColor" red="0.45098039220000002" green="0.43921568630000002" blue="0.37647058820000001" alpha="1" colorSpace="deviceRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="tqS-XS-sms">
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" minimumFontSize="17" id="tqS-XS-sms">
                                                     <rect key="frame" x="201" y="8" width="54" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="15"/>
+                                                    <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="16"/>
                                                     <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation" enablesReturnKeyAutomatically="YES"/>
                                                 </textField>
                                             </subviews>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" red="0.0" green="0.61960784310000006" blue="0.59215686270000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="0.95294117649999999" green="1" blue="0.81176470590000005" alpha="1" colorSpace="calibratedRGB"/>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="ebB-ZZ-plp">
                                         <rect key="frame" x="0.0" y="303" width="320" height="44"/>
@@ -906,8 +924,8 @@
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="floor" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Fuz-Wt-DV2">
                                                     <rect key="frame" x="20" y="11" width="63" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="19"/>
-                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="17"/>
+                                                    <color key="textColor" red="0.45098039220000002" green="0.43921568630000002" blue="0.37647058820000001" alpha="1" colorSpace="deviceRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <pickerView contentMode="scaleToFill" id="C73-jG-jg3">
@@ -916,7 +934,7 @@
                                                 </pickerView>
                                             </subviews>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" red="0.0" green="0.50196078430000002" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="0.72941176470000002" green="0.78823529410000004" blue="0.66274509800000003" alpha="1" colorSpace="calibratedRGB"/>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="53" id="O4L-7x-EbY">
                                         <rect key="frame" x="0.0" y="347" width="320" height="53"/>
@@ -950,6 +968,7 @@
                                                     </connections>
                                                 </button>
                                             </subviews>
+                                            <color key="backgroundColor" red="0.45098039220000002" green="0.43921568630000002" blue="0.37647058820000001" alpha="1" colorSpace="deviceRGB"/>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </tableViewCell>
@@ -978,27 +997,22 @@
         </scene>
     </scenes>
     <resources>
-        <image name="apartment_dark.png" width="76" height="76"/>
-        <image name="apartment_light.png" width="76" height="76"/>
-        <image name="authback.png" width="642" height="962"/>
-        <image name="background.png" width="640" height="961"/>
+        <image name="apartment_dark.png" width="90" height="76"/>
+        <image name="apartment_light.png" width="90" height="76"/>
+        <image name="authback.png" width="640" height="960"/>
+        <image name="backbutton.png" width="120" height="70"/>
+        <image name="background.png" width="640" height="960"/>
         <image name="blockcell.png" width="640" height="120"/>
-        <image name="continue.png" width="100" height="100"/>
-        <image name="help.png" width="640" height="140"/>
+        <image name="help.png" width="320" height="70"/>
         <image name="home.png" width="42" height="42"/>
-        <image name="mapframe.png" width="629" height="747"/>
-        <image name="message.png" width="640" height="204"/>
-        <image name="registerheader.png" width="640" height="47"/>
-        <image name="registerheader2.png" width="640" height="47"/>
-        <image name="responses_dark.png" width="64" height="64"/>
-        <image name="responses_light.png" width="64" height="64"/>
-        <image name="rightnav.png" width="74" height="169"/>
-        <image name="rightnavred.png" width="74" height="168"/>
-        <image name="scopecell.png" width="1280" height="300"/>
-        <image name="sendbutton.png" width="140" height="70"/>
-        <image name="sendbutton.png" width="140" height="70"/>
-        <image name="sendbutton.png" width="140" height="70"/>
-        <image name="sendbutton.png" width="140" height="70"/>
+        <image name="mapframe.png" width="634" height="690"/>
+        <image name="registerheader.png" width="640" height="50"/>
+        <image name="registerheader2.png" width="630" height="43"/>
+        <image name="responses_dark.png" width="68" height="68"/>
+        <image name="responses_light.png" width="68" height="68"/>
+        <image name="rightnav.png" width="36" height="84"/>
+        <image name="rightnavorange.png" width="38" height="84"/>
+        <image name="scopecell.png" width="640" height="150"/>
         <image name="sendbutton.png" width="140" height="70"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

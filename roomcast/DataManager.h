@@ -11,16 +11,20 @@
 #import "Development.h"
 #import "Block.h"
 #import "Apartment.h"
-
+#import "Conversation.h"
+#import "Message.h"
 #import <Parse/Parse.h>
 
 @interface DataManager : NSObject
 +(DataManager *) sharedManager;
+
 -(Development *) fetchDevelopmentWithObjectId:(NSString *) objectId;
 -(Apartment *) fetchApartmentWithObjectId:(NSString *) objectId;
+-(Message *) fetchMessageWithObjectId:(NSString *) objectId;
 
 -(BOOL) syncWithDevelopment:(NSString*) developmentId;
 -(BOOL) syncWithBlock:(Block *)block;
+-(BOOL) syncWithConversation:(Conversation*) conversation;
 
 @property(weak, nonatomic) Development* development;
 

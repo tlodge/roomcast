@@ -10,6 +10,8 @@
 
 @interface DestinationViewController ()
 -(NSString*) _apartment_text;
+-(void) setSelected:(ScopeCell*) cell;
+-(void) setDeselected:(ScopeCell*) cell;
 @end
 
 //should be dynamic, so could potentially add new scopes!
@@ -70,14 +72,12 @@
     
     if (lastIndex){
         ScopeCell* cell = (ScopeCell*)[tableView cellForRowAtIndexPath:lastIndex];
-        cell.background.image = [UIImage imageNamed:@"scopecell.png"];
-        cell.total.alpha = 0.0;
+        [self setDeselected:cell];
     }
     
     if (indexPath.row > 0){
         ScopeCell* cell = (ScopeCell*)[tableView cellForRowAtIndexPath:indexPath];
-        cell.background.image = [UIImage imageNamed:@"scopecellselected.png"];
-        cell.total.alpha = 1.0;
+        [self setSelected:cell];
     }
     
     lastIndex = indexPath;
@@ -97,8 +97,7 @@
     
     if (lastIndex.row == indexPath.row){
         [tableView selectRowAtIndexPath:indexPath animated:NO scrollPosition: UITableViewScrollPositionNone];
-        cell.background.image = [UIImage imageNamed:@"scopecellselected.png"];
-        cell.total.alpha = 1.0;
+        [self setSelected:cell];
         lastIndex = indexPath;
     }
     
@@ -141,16 +140,15 @@
     
     if (lastIndex != nil){
         ScopeCell* cell = (ScopeCell*)[self.tableView cellForRowAtIndexPath:lastIndex];
-        cell.background.image = [UIImage imageNamed:@"scopecell.png"];
-        cell.total.alpha = 0.0;
+        [self setDeselected:cell];
+     
         
     }
     
     NSIndexPath* currentIndex = [NSIndexPath indexPathForRow:clicked.tag inSection:0];
     ScopeCell* cell = (ScopeCell*)[self.tableView cellForRowAtIndexPath:currentIndex];
-    cell.background.image = [UIImage imageNamed:@"scopecellselected.png"];
-    cell.total.alpha = 1.0;
-    
+    [self setSelected:cell];
+   
     lastIndex = currentIndex;
     
     NSString *segue = @"apartmentSegue";
@@ -167,6 +165,21 @@
     
     
     [self performSegueWithIdentifier:segue sender:self];
+}
+
+-(void) setSelected:(ScopeCell*) cell{
+    cell.background.image = [UIImage imageNamed:@"scopecellselected.png"];
+    cell.total.alpha = 1.0;
+    cell.contentView.alpha = 1.0;
+    cell.info.alpha = 1.0;
+}
+
+-(void) setDeselected:(ScopeCell*) cell{
+    cell.background.image = [UIImage imageNamed:@"scopecell.png"];
+    cell.total.alpha = 0.0;
+    cell.contentView.alpha = 0.5;
+    cell.info.alpha = 0.0;
+
 }
 
 - (CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{

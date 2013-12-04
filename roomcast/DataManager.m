@@ -30,75 +30,6 @@ NSManagedObjectContext *context;
     return self;
 }
 
--(BOOL) syncWithDevelopment:(NSString*) developmentId{
-    PFQuery *query = [PFQuery queryWithClassName:@"Development"];
-    
-    [query includeKey:@"blocks"];
-    
-    NSError *error;
-    
-    PFObject *pfdev = [query getObjectWithId:developmentId error:&error];
-    
-    //[query getObjectInBackgroundWithId:developmentId block:^(PFObject *object, NSError *error) {
-    //    PFObject *pfdev = object;
-        
-        if (error){
-            NSLog(@"error!! %@ %@", error, [error userInfo]);
-            return NO;
-        }else{
-            
-            _development = [self fetchDevelopmentWithObjectId:[pfdev objectId]];
-            
-            id delegate = [[UIApplication sharedApplication] delegate];
-            NSManagedObjectContext *context = [delegate managedObjectContext];
-            
-            if (_development == nil){
-                _development = [NSEntityDescription insertNewObjectForEntityForName:@"Development" inManagedObjectContext:context];
-                [_development setValue:[pfdev objectId] forKey:@"developmentId"];
-            }
-            
-            NSError *error;
-            
-            
-            PFGeoPoint* gp = [pfdev objectForKey:@"location"];
-            [_development setValue:[pfdev objectForKey:@"name"] forKey:@"name"];
-            [_development setValue:[NSNumber numberWithDouble: gp.latitude] forKey:@"latitude"];
-            [_development setValue:[NSNumber numberWithDouble: gp.longitude] forKey:@"longitude"];
-            
-            //NSArray *storedBlocks = [development.blocks valueForKey:@"blockId"];
-            NSMutableDictionary *lookup = [NSMutableDictionary dictionary];
-            
-            for (Block* block in _development.blocks){
-                [lookup setObject:block forKey:block.blockId];
-            }
-            
-            for (PFObject *block in [pfdev objectForKey:@"blocks"]){
-                Block *b = [lookup objectForKey:[block objectId]];
-                
-                if (b == nil){
-                    b = [NSEntityDescription insertNewObjectForEntityForName:@"Block"
-                                                      inManagedObjectContext:context];
-                }
-                
-                NSData* jsonfloors =  [NSJSONSerialization  dataWithJSONObject:[block objectForKey:@"floors"] options:NSJSONWritingPrettyPrinted error:&error];
-                
-                NSString* floors = [[NSString alloc] initWithData:jsonfloors encoding:NSUTF8StringEncoding];
-                
-                [b setValue:[block objectId] forKey:@"blockId"];
-                [b setValue:[block objectForKey:@"name"] forKey:@"name"];
-                [b setValue:floors forKey:@"floors"];
-                [b setValue:_development forKey:@"development"];
-            }
-            
-            if (![context save:&error]){
-                NSLog(@"whoops! couldn't save %@", [error localizedDescription]);
-                return NO;
-            }
-            return YES;
-        }
-    //}//];
-}
-
 -(Development *) development{
     
     if (_development == nil){
@@ -123,6 +54,10 @@ NSManagedObjectContext *context;
 
 -(Apartment *) fetchApartmentWithObjectId:(NSString *) objectId{
     
+    if (objectId == nil)
+        return nil;
+
+    
     NSError *error;
     
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
@@ -145,7 +80,37 @@ NSManagedObjectContext *context;
 }
 
 
--(Development *) fetchDevelopmentWithObjectId:(NSString *) objectId{
+-(Apartment *) fetchMessageWithObjectId:(NSString *) objectId{
+    
+    if (objectId == nil)
+        return nil;
+
+    NSError *error;
+    
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Message"  inManagedObjectContext:context];
+    
+    [fetchRequest setEntity:entity];
+    
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"messageId == %@", objectId];
+    [fetchRequest setPredicate:predicate];
+    
+    NSArray* fetchedApartment = [context executeFetchRequest:fetchRequest error:&error];
+    
+    if ([fetchedApartment count] > 0){
+        return [fetchedApartment objectAtIndex:0];
+    }
+    
+    return nil;
+    
+}
+
+
+-(Message *) fetchDevelopmentWithObjectId:(NSString *) objectId{
+    
+    if (objectId == nil)
+        return nil;
     
     NSError *error;
     
@@ -170,9 +135,132 @@ NSManagedObjectContext *context;
     
 }
 
+#pragma sync methods
+
+
+-(BOOL) syncWithConversation:(Conversation*) conversation{
+    
+    if (conversation == nil || conversation.conversationId == nil)
+        return NO;
+    
+    NSLog(@"ok in here");
+    NSLog(@"conversation id is %@", conversation.conversationId);
+    
+    PFQuery *innerquery = [PFQuery queryWithClassName:@"Conversation"];
+    [innerquery whereKey:@"objectId" equalTo:conversation.conversationId];
+    
+    PFQuery *outerquery = [PFQuery queryWithClassName:@"Message"];
+    [outerquery whereKey:@"conversation" matchesKey:@"objectId" inQuery:innerquery];
+    
+    NSError* error;
+    
+    NSArray *messages = [outerquery findObjects:&error];
+    if (error){
+        NSLog(@"ok seen error %@", error);
+        return NO;
+    }
+    
+    if (messages != nil && [messages count] > 0){
+        
+        for (PFObject *message in messages){
+            
+            Message  *m = [self fetchMessageWithObjectId:[message objectId]];
+            
+            if (m == nil){
+                m = [NSEntityDescription insertNewObjectForEntityForName:@"Message" inManagedObjectContext:context];
+                [m setValue:[message objectId] forKey:@"messageId"];
+            }
+        
+            [m setValue:[message objectForKey:@"message"] forKey:@"body"];
+            [m setValue:conversation forKey:@"conversation"];
+            
+            NSError *cderror;
+            
+            if (![context save:&cderror]){
+                NSLog(@"whoops! couldn't save %@", [cderror localizedDescription]);
+                return NO;
+            }
+        }
+        return YES;
+    }
+    return NO;
+
+    
+}
+
+-(BOOL) syncWithDevelopment:(NSString*) developmentId{
+    
+    if (!developmentId)
+        return NO;
+    
+    PFQuery *query = [PFQuery queryWithClassName:@"Development"];
+    
+    [query includeKey:@"blocks"];
+    
+    NSError *error;
+    
+    PFObject *pfdev = [query getObjectWithId:developmentId error:&error];
+    
+    if (error){
+        NSLog(@"error!! %@ %@", error, [error userInfo]);
+        return NO;
+    }else{
+        
+        _development = [self fetchDevelopmentWithObjectId:[pfdev objectId]];
+        
+        id delegate = [[UIApplication sharedApplication] delegate];
+        NSManagedObjectContext *context = [delegate managedObjectContext];
+        
+        if (_development == nil){
+            _development = [NSEntityDescription insertNewObjectForEntityForName:@"Development" inManagedObjectContext:context];
+            [_development setValue:[pfdev objectId] forKey:@"developmentId"];
+        }
+        
+        NSError *error;
+        
+        
+        PFGeoPoint* gp = [pfdev objectForKey:@"location"];
+        [_development setValue:[pfdev objectForKey:@"name"] forKey:@"name"];
+        [_development setValue:[NSNumber numberWithDouble: gp.latitude] forKey:@"latitude"];
+        [_development setValue:[NSNumber numberWithDouble: gp.longitude] forKey:@"longitude"];
+        
+        NSMutableDictionary *lookup = [NSMutableDictionary dictionary];
+        
+        for (Block* block in _development.blocks){
+            [lookup setObject:block forKey:block.blockId];
+        }
+        
+        for (PFObject *block in [pfdev objectForKey:@"blocks"]){
+            Block *b = [lookup objectForKey:[block objectId]];
+            
+            if (b == nil){
+                b = [NSEntityDescription insertNewObjectForEntityForName:@"Block"
+                                                  inManagedObjectContext:context];
+            }
+            
+            NSData* jsonfloors =  [NSJSONSerialization  dataWithJSONObject:[block objectForKey:@"floors"] options:NSJSONWritingPrettyPrinted error:&error];
+            
+            NSString* floors = [[NSString alloc] initWithData:jsonfloors encoding:NSUTF8StringEncoding];
+            
+            [b setValue:[block objectId] forKey:@"blockId"];
+            [b setValue:[block objectForKey:@"name"] forKey:@"name"];
+            [b setValue:floors forKey:@"floors"];
+            [b setValue:_development forKey:@"development"];
+        }
+        
+        if (![context save:&error]){
+            NSLog(@"whoops! couldn't save %@", [error localizedDescription]);
+            return NO;
+        }
+        return YES;
+    }
+}
+
 
 -(BOOL) syncWithBlock:(Block*) block{
     
+    if (block == nil || block.blockId == nil)
+        return NO;
     
     PFQuery *innerquery = [PFQuery queryWithClassName:@"Block"];
     [innerquery whereKey:@"objectId" equalTo:block.blockId];

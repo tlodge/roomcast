@@ -2,7 +2,7 @@
 //  Conversation.m
 //  roomcast
 //
-//  Created by Tom Lodge on 12/11/2013.
+//  Created by Tom Lodge on 04/12/2013.
 //  Copyright (c) 2013 Tom Lodge. All rights reserved.
 //
 
@@ -12,6 +12,7 @@
 
 @implementation Conversation
 
+@dynamic conversationId;
 @dynamic initiator;
 @dynamic started;
 @dynamic teaser;
