@@ -10,8 +10,6 @@
 
 @implementation MessageCell
 
-float height = 44;
-
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];

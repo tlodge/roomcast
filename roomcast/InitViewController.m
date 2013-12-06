@@ -32,8 +32,11 @@
 }
 -(void)viewDidAppear:(BOOL)animated
 {
+    NSLog(@"got to view did appear!");
     PFUser *currentUser = [PFUser currentUser];
-    if (currentUser) {
+   // NSLog(@"and go current user as %@",currentUser);
+    
+    if (NO){//currentUser != nil) {
         
         NSLog(@"registering for remote notifications!");
         
@@ -46,6 +49,7 @@
         RootTabViewController *rtvc = [storyboard instantiateViewControllerWithIdentifier:@"registered"];
         [self presentViewController:rtvc animated:YES completion:nil];
     } else {
+         NSLog(@"segueing to the startup screen!");
          [self performSegueWithIdentifier: @"newbie" sender: self];
     }
 }

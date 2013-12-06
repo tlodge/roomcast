@@ -21,53 +21,18 @@
     [Parse setApplicationId:@"Qhp3eMa8aOQ2tVE1HqijHW7osJzV7QAdlcBVptIn" clientKey:@"SSF1WiUEzgk5pVN5wt9QEG9Xszjw09xkWvNv37NN"];
     
     [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
-
-    [application registerForRemoteNotificationTypes:UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound];
-    //NSManagedObjectContext *context = [self managedObjectContext];
-    /*
-    Conversation *conversation = [NSEntityDescription
-                                      insertNewObjectForEntityForName:@"Conversation"
-                                      inManagedObjectContext:context];
     
-    [conversation setValue:@"1A" forKey:@"initiator"];
-    [conversation setValue:@"something new now" forKey:@"teaser"];
-    [conversation setValue:[NSDate date] forKey:@"started"];
-    
-    Message *message1 = [NSEntityDescription
-                                      insertNewObjectForEntityForName:@"Message"
-                                      inManagedObjectContext:context];
-    
-    [message1 setValue:@"1A" forKey:@"from"];
-    [message1 setValue:@"this is something new and nice!" forKey:@"body"];
-    [message1 setValue:[NSDate date] forKey:@"sent"];
-    [message1 setValue:conversation forKey:@"conversation"];
-    
-    Message *message2 = [NSEntityDescription
-                                 insertNewObjectForEntityForName:@"Message"
-                                 inManagedObjectContext:context];
-    
-    [message2 setValue:@"2B" forKey:@"from"];
-    [message2 setValue:@"will it play nicely??" forKey:@"body"];
-    [message2 setValue:[NSDate date] forKey:@"sent"];
-    [message2 setValue:conversation forKey:@"conversation"];
-    
-    NSError *error;
-    if (![context save:&error]){
-        NSLog(@"whoops! couldn't save %@", [error localizedDescription]);
-    }
-    */
-    
-           
-    // Override point for customization after application launch.
     return YES;
 }
 
 -(void) application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken{
-    
     PFInstallation *currentInstallation = [PFInstallation currentInstallation];
-    [currentInstallation setObject:[PFUser currentUser] forKey:@"owner"];
+    if ([PFUser currentUser]){
+        [currentInstallation setObject:[PFUser currentUser] forKey:@"owner"];
+    }
     [currentInstallation setDeviceTokenFromData:deviceToken];
     [currentInstallation saveInBackground];
+    
 }
 
 -(void) application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo{

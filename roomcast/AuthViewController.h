@@ -7,13 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "RangeView.h"
+#import <Parse/Parse.h>
 #import <MapKit/MapKit.h>
 #import <CoreLocation/CoreLocation.h>
+#import "RangeView.h"
+#import "Development.h"
+
 
 @interface AuthViewController : UIViewController <MKMapViewDelegate, CLLocationManagerDelegate>
 @property (weak, nonatomic) IBOutlet MKMapView *zoneMap;
 @property (strong, nonatomic) RangeView *rangeView;
+@property (strong, nonatomic) Development *development;
 - (IBAction)back:(id)sender;
 
 

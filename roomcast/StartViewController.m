@@ -26,9 +26,11 @@ Development* development;
 
 - (void)viewDidLoad
 {
+     NSLog(@"loading the view..");
     [super viewDidLoad];
     _developmentId.delegate = self;
     self.developmentId.text = @"A1Ez8PPtXx";
+    NSLog(@"finished loading the view..");
 	// Do any additional setup after loading the view.
 }
 
@@ -48,7 +50,7 @@ Development* development;
 }
 
 - (IBAction)lookupDevelopment:(id)sender {
-    
+   
     dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0ul);
     
     dispatch_async(queue, ^{
@@ -56,6 +58,7 @@ Development* development;
         BOOL success = [[DataManager sharedManager] syncWithDevelopment:_developmentId.text];
         dispatch_async(dispatch_get_main_queue(), ^{
             if (success){
+                
                 [self performSegueWithIdentifier:@"authenticate" sender:self];
             }
         });
@@ -66,5 +69,12 @@ Development* development;
     NSLog(@"niceley done!");
 }
 
+// In a story board-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    AuthViewController* avc = (AuthViewController*) [segue destinationViewController];
+    Development * development = [[DataManager sharedManager] development];
+    avc.development = development;
+}
 
 @end

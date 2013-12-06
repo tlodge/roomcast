@@ -23,6 +23,7 @@
 
 @implementation AuthViewController
 
+@synthesize  development;
 
 CGMutablePathRef mpr;
 NSMutableData *receivedData;
@@ -42,17 +43,72 @@ MKPolygon *authZone;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self loadAuthZones];
        
     self.rangeView = [[RangeView alloc] initWithFrame:CGRectMake(250,380,60,60)];
     [self.view addSubview:_rangeView];
+}
+
+-(void) loadAuthZones
+{
+    NSLog(@"loading zones for development %@", development.developmentId);
     
-    NSURLRequest *theRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:@"http://roomcast.herokuapp.com/data"] cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:60.0];
+    PFQuery *innerquery = [PFQuery queryWithClassName:@"Development"];
+    [innerquery whereKey:@"objectId" equalTo:development.developmentId];
     
-    NSURLConnection *theConnection = [[NSURLConnection alloc] initWithRequest: theRequest delegate:self];
+    PFQuery *outerquery = [PFQuery queryWithClassName:@"Zone"];
+    [outerquery whereKey:@"development" matchesKey:@"objectId" inQuery:innerquery];
     
-    if (theConnection){
-        receivedData = [NSMutableData data];
-    }
+   
+    
+    [outerquery findObjectsInBackgroundWithBlock:^(NSArray *zones, NSError *error) {
+        if (!error){
+            for (PFObject *zone in zones){
+                
+                mpr = CGPathCreateMutable();
+                
+                NSInteger idx = 0;
+                
+                CLLocationCoordinate2D center;
+                
+                NSArray* zonecoords = [zone objectForKey:@"coords"];
+                
+                CLLocationCoordinate2D* coords = malloc(sizeof(CLLocationCoordinate2D) *[zonecoords count]);
+                
+                //construct the polygon
+                for (NSArray *myarray in zonecoords) {
+                    CGFloat lat = [[myarray objectAtIndex:0] floatValue];
+                    CGFloat lng = [[myarray objectAtIndex:1] floatValue];
+                    MKMapPoint mp = {lat, lng};
+                    coords[idx] = CLLocationCoordinate2DMake(lat,lng);
+                    
+                    if (idx == 0){
+                        CGPathMoveToPoint(mpr, NULL, mp.x, mp.y);
+                        center.latitude = mp.x;
+                        center.longitude = mp.y;
+                    }
+                    else
+                        CGPathAddLineToPoint(mpr, NULL, mp.x, mp.y);
+                    
+                    idx++;
+                    
+                }
+                
+                [self.zoneMap setDelegate:self];
+                
+                [self.zoneMap setRegion:MKCoordinateRegionMakeWithDistance(center, 0.05 * MPM,0.05*MPM) animated: YES];
+                
+                
+                authZone = [MKPolygon polygonWithCoordinates:coords count:[zonecoords count]];
+                
+                [self.zoneMap addOverlay:authZone];
+                
+                free(coords);
+
+            }
+        }
+    }];
+    
 }
 
 -(void)viewDidAppear:(BOOL)animated
@@ -96,52 +152,6 @@ MKPolygon *authZone;
 
 -(void) connection:(NSURLConnection *) connection didReceiveData:(NSData *) data{
     [receivedData appendData: data];
-}
-
--(void) connectionDidFinishLoading:(NSURLConnection *) connection{
-    NSLog(@"succeeded receievd %d bytes of data", [receivedData length]);
-    NSError *error = nil;
-    NSArray *jsonArray = [NSJSONSerialization JSONObjectWithData:receivedData options:kNilOptions error:&error];
-    
-    NSLog(@"JSON DATA IS %@", jsonArray);
-    
-    mpr = CGPathCreateMutable();
-    NSInteger idx = 0;
-    
-    CLLocationCoordinate2D center;
-   
-  
-    CLLocationCoordinate2D* coords = malloc(sizeof(CLLocationCoordinate2D) *[jsonArray count]);
-
-    //construct the polygon
-    for (NSArray *myarray in jsonArray) {
-        CGFloat lat = [[myarray objectAtIndex:0] floatValue];
-        CGFloat lng = [[myarray objectAtIndex:1] floatValue];
-        MKMapPoint mp = {lat, lng};
-        coords[idx] = CLLocationCoordinate2DMake(lat,lng);
-         
-        if (idx == 0){
-            CGPathMoveToPoint(mpr, NULL, mp.x, mp.y);
-            center.latitude = mp.x;
-            center.longitude = mp.y;
-        }
-        else
-            CGPathAddLineToPoint(mpr, NULL, mp.x, mp.y);
-        
-        idx++;
-    
-    }
-   
-    [self.zoneMap setDelegate:self];
-    
-    [self.zoneMap setRegion:MKCoordinateRegionMakeWithDistance(center, 0.05 * MPM,0.05*MPM) animated: YES];
-    
-   
-    authZone = [MKPolygon polygonWithCoordinates:coords count:[jsonArray count]];
-    
-    [self.zoneMap addOverlay:authZone];
-    
-    free(coords);
 }
 
 #pragma location delegate methods
@@ -246,9 +256,9 @@ MKPolygon *authZone;
 - (MKOverlayRenderer *)mapView:(MKMapView *)mapView viewForOverlay:(id<MKOverlay>)overlay {
    if ([overlay isKindOfClass:MKPolygon.class]) {
         MKPolygonRenderer *renderer = [[MKPolygonRenderer alloc] initWithOverlay:overlay];
-        renderer.strokeColor = [UIColor magentaColor];
+        renderer.strokeColor = [UIColor orangeColor];
         renderer.lineWidth = 1;
-        renderer.fillColor = [UIColor magentaColor];
+        renderer.fillColor = [UIColor orangeColor];
         return renderer;
     }
     return nil;

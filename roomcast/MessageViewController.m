@@ -35,15 +35,12 @@ BOOL _composing = YES;
     return self;
 }
 
--(void) viewWillAppear:(BOOL)animated{
-    [self getAllConversations];
-}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
     Development *development = [[DataManager sharedManager] development];
+ 
+    
     
     NSLog(@"retrieved my development as %@", development);
     
@@ -70,7 +67,7 @@ BOOL _composing = YES;
     
     id delegate = [[UIApplication sharedApplication] delegate];
     self.managedObjectContext = [delegate managedObjectContext];
-    
+    [self getAllConversations];
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
@@ -85,22 +82,28 @@ BOOL _composing = YES;
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"Conversation" inManagedObjectContext:self.managedObjectContext];
     
     [fetch setEntity:entity];
-    
     NSError *error;
-    
     NSArray *fetchedObjects = [self.managedObjectContext executeFetchRequest:fetch error:&error];
     self.conversations = [NSMutableArray arrayWithArray:fetchedObjects];
     [self.tableView reloadData];
+    
+    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0ul);
+    
+    dispatch_async(queue, ^{
+        //this runs on background thread!
+        BOOL fresh =  [[DataManager sharedManager]syncWithConversations:@"atestuser"];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (fresh){
+                NSError *error;
+                NSArray *fetchedObjects = [self.managedObjectContext executeFetchRequest:fetch error:&error];
+                self.conversations = [NSMutableArray arrayWithArray:fetchedObjects];
+                [self.tableView reloadData];
 
-    /*[self.managedObjectContext executeFetchRequest:fetch onSuccess:^(NSArray *results) {
-        NSError *error;
-        NSArray *fetchedObjects = [self.managedObjectContext executeFetchRequest:fetch error:&error];
-        self.conversations = [NSMutableArray arrayWithArray:fetchedObjects];
-        [self.tableView reloadData];
-    } onFailure:^(NSError *error) {
-        NSLog(@"Error: %@", [error localizedDescription]);
-    }];*/
-
+            }
+        });
+    });
+    
+   
 }
 
 

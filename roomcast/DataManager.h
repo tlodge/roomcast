@@ -21,9 +21,11 @@
 -(Development *) fetchDevelopmentWithObjectId:(NSString *) objectId;
 -(Apartment *) fetchApartmentWithObjectId:(NSString *) objectId;
 -(Message *) fetchMessageWithObjectId:(NSString *) objectId;
+-(Conversation *) fetchConversationWithObjectId:(NSString *) objectId;
 
 -(BOOL) syncWithDevelopment:(NSString*) developmentId;
 -(BOOL) syncWithBlock:(Block *)block;
+-(BOOL) syncWithConversations:(NSString*) userId;
 -(BOOL) syncWithConversation:(Conversation*) conversation;
 
 @property(weak, nonatomic) Development* development;

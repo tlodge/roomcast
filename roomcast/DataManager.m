@@ -80,7 +80,7 @@ NSManagedObjectContext *context;
 }
 
 
--(Apartment *) fetchMessageWithObjectId:(NSString *) objectId{
+-(Message *) fetchMessageWithObjectId:(NSString *) objectId{
     
     if (objectId == nil)
         return nil;
@@ -96,10 +96,10 @@ NSManagedObjectContext *context;
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"messageId == %@", objectId];
     [fetchRequest setPredicate:predicate];
     
-    NSArray* fetchedApartment = [context executeFetchRequest:fetchRequest error:&error];
+    NSArray* fetchedMessage = [context executeFetchRequest:fetchRequest error:&error];
     
-    if ([fetchedApartment count] > 0){
-        return [fetchedApartment objectAtIndex:0];
+    if ([fetchedMessage count] > 0){
+        return [fetchedMessage objectAtIndex:0];
     }
     
     return nil;
@@ -107,7 +107,7 @@ NSManagedObjectContext *context;
 }
 
 
--(Message *) fetchDevelopmentWithObjectId:(NSString *) objectId{
+-(Development *) fetchDevelopmentWithObjectId:(NSString *) objectId{
     
     if (objectId == nil)
         return nil;
@@ -135,16 +135,73 @@ NSManagedObjectContext *context;
     
 }
 
+-(Conversation *) fetchConversationWithObjectId:(NSString *) objectId{
+    
+    if (objectId == nil)
+        return nil;
+    
+    NSError *error;
+    
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Conversation"  inManagedObjectContext:context];
+    
+    [fetchRequest setEntity:entity];
+    
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"conversationId == %@", objectId];
+    [fetchRequest setPredicate:predicate];
+    
+    NSArray* fetchedConversation = [context executeFetchRequest:fetchRequest error:&error];
+    
+    if ([fetchedConversation count] > 0){
+        return [fetchedConversation objectAtIndex:0];
+    }
+    
+    return nil;
+}
+
+
 #pragma sync methods
 
+
+-(BOOL) syncWithConversations:(NSString*) userId{
+    
+    BOOL fresh = NO;
+    
+    NSDictionary* parameters= [[NSDictionary alloc] initWithObjects:[[NSArray alloc] initWithObjects:userId, nil] forKeys:[[NSArray alloc] initWithObjects:@"userId", nil]];
+    
+    NSArray* conversations = [PFCloud callFunction:@"conversationsForUser" withParameters:parameters];
+    
+     for (PFObject *conversation in conversations){
+         Conversation  *c = [self fetchConversationWithObjectId:[conversation objectId]];
+         
+         if (c == nil){
+           
+            c = [NSEntityDescription insertNewObjectForEntityForName:@"Conversation" inManagedObjectContext:context];
+             
+            [c setValue:[conversation objectId] forKey:@"conversationId"];
+            
+            [c setValue:[conversation objectForKey:@"teaser"] forKey:@"teaser"];
+             
+            NSError *cderror;
+             
+            if (![context save:&cderror]){
+                 NSLog(@"whoops! couldn't save %@", [cderror localizedDescription]);
+                 return fresh;
+            }
+            fresh = YES;
+         }
+     }
+    
+     return fresh;
+}
+
+//pull in all new messages associated with a conversation
 
 -(BOOL) syncWithConversation:(Conversation*) conversation{
     
     if (conversation == nil || conversation.conversationId == nil)
         return NO;
-    
-    NSLog(@"ok in here");
-    NSLog(@"conversation id is %@", conversation.conversationId);
     
     PFQuery *innerquery = [PFQuery queryWithClassName:@"Conversation"];
     [innerquery whereKey:@"objectId" equalTo:conversation.conversationId];
