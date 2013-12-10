@@ -1,19 +1,19 @@
 //
-//  RegistrationBlockViewController.m
+//  RegistrationFloorViewController.m
 //  roomcast
 //
 //  Created by Tom Lodge on 10/12/2013.
 //  Copyright (c) 2013 Tom Lodge. All rights reserved.
 //
 
-#import "RegistrationBlockViewController.h"
+#import "RegistrationFloorViewController.h"
 
-@interface RegistrationBlockViewController ()
+@interface RegistrationFloorViewController ()
 
 @end
 
-@implementation RegistrationBlockViewController
-@synthesize  blocks;
+@implementation RegistrationFloorViewController
+@synthesize floors;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -50,21 +50,16 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [blocks count];
-}
 
--(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    [self.delegate didSelectBlock: [self.blocks objectAtIndex:indexPath.row]];
-    [self.navigationController popViewControllerAnimated:YES];
+    return [floors count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"RegistrationBlockCell";
+    static NSString *CellIdentifier = @"RegistrationFloorCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
-    Block *b = [self.blocks objectAtIndex:indexPath.row];
-    cell.textLabel.text = b.name;
+    cell.textLabel.text = [floors objectAtIndex:indexPath.row];
     return cell;
 }
 

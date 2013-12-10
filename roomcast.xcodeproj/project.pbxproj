@@ -88,6 +88,7 @@
 		A3CA7EAE185626CF0079FBB5 /* development_text.png in Resources */ = {isa = PBXBuildFile; fileRef = A3CA7EAD185626CF0079FBB5 /* development_text.png */; };
 		A3CA7F3A18575F110079FBB5 /* mapframe.png in Resources */ = {isa = PBXBuildFile; fileRef = A3CA7F3918575F110079FBB5 /* mapframe.png */; };
 		A3CA7F3D185788130079FBB5 /* RegistrationBlockViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3CA7F3C185788130079FBB5 /* RegistrationBlockViewController.m */; };
+		A3CA7F401857B75F0079FBB5 /* RegistrationFloorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3CA7F3F1857B75E0079FBB5 /* RegistrationFloorViewController.m */; };
 		A3F88D15182D445D00E3BFB0 /* ChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F88D14182D445D00E3BFB0 /* ChatViewController.m */; };
 		A3F88D17182D4F4A00E3BFB0 /* continue.png in Resources */ = {isa = PBXBuildFile; fileRef = A3F88D16182D4F4A00E3BFB0 /* continue.png */; };
 		A3F88D19182ED87A00E3BFB0 /* howmanybutton.png in Resources */ = {isa = PBXBuildFile; fileRef = A3F88D18182ED87A00E3BFB0 /* howmanybutton.png */; };
@@ -220,6 +221,8 @@
 		A3CA7F3918575F110079FBB5 /* mapframe.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mapframe.png; sourceTree = "<group>"; };
 		A3CA7F3B185788130079FBB5 /* RegistrationBlockViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegistrationBlockViewController.h; sourceTree = "<group>"; };
 		A3CA7F3C185788130079FBB5 /* RegistrationBlockViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegistrationBlockViewController.m; sourceTree = "<group>"; };
+		A3CA7F3E1857B75E0079FBB5 /* RegistrationFloorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegistrationFloorViewController.h; sourceTree = "<group>"; };
+		A3CA7F3F1857B75E0079FBB5 /* RegistrationFloorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegistrationFloorViewController.m; sourceTree = "<group>"; };
 		A3F88D13182D445D00E3BFB0 /* ChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatViewController.h; sourceTree = "<group>"; };
 		A3F88D14182D445D00E3BFB0 /* ChatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatViewController.m; sourceTree = "<group>"; };
 		A3F88D16182D4F4A00E3BFB0 /* continue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = continue.png; path = ../continue.png; sourceTree = "<group>"; };
@@ -286,6 +289,8 @@
 				A360581B182191EE0026615B /* FormTableViewController.m */,
 				A3CA7F3B185788130079FBB5 /* RegistrationBlockViewController.h */,
 				A3CA7F3C185788130079FBB5 /* RegistrationBlockViewController.m */,
+				A3CA7F3E1857B75E0079FBB5 /* RegistrationFloorViewController.h */,
+				A3CA7F3F1857B75E0079FBB5 /* RegistrationFloorViewController.m */,
 			);
 			name = Registration;
 			sourceTree = "<group>";
@@ -680,6 +685,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A3CA7F401857B75F0079FBB5 /* RegistrationFloorViewController.m in Sources */,
 				A3334D87184698A900ECA8D5 /* Apartment.m in Sources */,
 				A317AC38182AE99700BE7E46 /* MessageView.m in Sources */,
 				A37C6F0F181ACCBA0042489D /* RangeView.m in Sources */,

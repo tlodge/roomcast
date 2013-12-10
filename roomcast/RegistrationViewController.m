@@ -18,11 +18,11 @@
 @synthesize  development;
 @synthesize blockLabel;
 @synthesize floorLabel;
+@synthesize selectedBlock;
+@synthesize  selectedFloor;
 
 NSArray* blocks;
 NSArray* floors;
-Block* selectedBlock;
-NSString* selectedFloor;
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -43,11 +43,10 @@ NSString* selectedFloor;
     
     NSLog(@"block array is %@", self.blockArray);
     
-    Block *b = (Block *)[self.blockArray objectAtIndex:0];
+    self.selectedBlock = [self.blockArray objectAtIndex:0];
+    [self updateFloorsForBlock:self.selectedBlock];
     
-    [self updateFloorsForBlock:b];
-    
-    NSString *floorString = b.floors;
+    NSString *floorString = self.selectedBlock.floors;
     NSData *jsonFloors = [floorString dataUsingEncoding:NSUTF8StringEncoding];
     NSError *error;
     
@@ -56,9 +55,9 @@ NSString* selectedFloor;
     
     //(NSArray*)[(PFObject*)[self.blockArray objectAtIndex:0] objectForKey:@"floors"];
     
-    selectedBlock = [self.blockArray objectAtIndex:0];
     
-    NSLog(@"currently selected block is %@", selectedBlock);
+    self.blockLabel.text = self.selectedBlock.name;
+    NSLog(@"currently selected block is %@", self.selectedBlock);
     
     selectedFloor = [self.floorArray objectAtIndex:0];
     
@@ -132,10 +131,34 @@ NSString* selectedFloor;
     
 }
 
+#pragma delegate methods
+
+-(void) didSelectFloor:(NSString*) floor{
+    self.selectedFloor = floor;
+    self.floorLabel.text = self.selectedFloor;
+}
+
+-(void) didSelectBlock:(Block*) block{
+    NSLog(@"block %@ has been selected", block.name);
+    self.selectedBlock = block;
+    self.blockLabel.text = self.selectedBlock.name;
+}
+
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     NSLog(@"preparing for segue!!!");
     
+    if ([[segue identifier] isEqualToString:@"registerblock"]){
+        RegistrationBlockViewController* rbvc = (RegistrationBlockViewController*) [segue destinationViewController];
+        rbvc.blocks = self.blockArray;
+        rbvc.delegate = self;
+    }
+    
+    if ([[segue identifier] isEqualToString:@"registerfloor"]){
+        RegistrationFloorViewController* rfvc = (RegistrationFloorViewController*) [segue destinationViewController];
+        rfvc.floors = self.floorArray;
+        rfvc.delegate = self;
+    }
    /* if ([[segue identifier] isEqualToString:@"apartmentSegue"]){
         BlockViewController* bvc = (BlockViewController*) [segue destinationViewController];
         bvc.delegate = self;
