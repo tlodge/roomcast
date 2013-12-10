@@ -16,7 +16,7 @@
 
 @interface AuthViewController : UIViewController <MKMapViewDelegate, CLLocationManagerDelegate>
 @property (weak, nonatomic) IBOutlet MKMapView *zoneMap;
-@property (strong, nonatomic) RangeView *rangeView;
+@property (weak, nonatomic) IBOutlet RangeView *rangeView;
 @property (strong, nonatomic) Development *development;
 - (IBAction)back:(id)sender;
 

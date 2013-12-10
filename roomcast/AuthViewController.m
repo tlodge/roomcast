@@ -7,7 +7,7 @@
 //
 
 #import "AuthViewController.h"
-#import "RegistrationContainerViewController.h"
+#import "RegistrationViewController.h"
 //define meters per mile
 #define MPM 1609.344
 
@@ -45,8 +45,8 @@ MKPolygon *authZone;
     [super viewDidLoad];
     [self loadAuthZones];
        
-    self.rangeView = [[RangeView alloc] initWithFrame:CGRectMake(250,380,60,60)];
-    [self.view addSubview:_rangeView];
+    //self.rangeView = [[RangeView alloc] initWithFrame:CGRectMake(250,380,60,60)];
+    //[self.view addSubview:_rangeView];
 }
 
 -(void) loadAuthZones
