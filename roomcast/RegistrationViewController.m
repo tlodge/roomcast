@@ -7,7 +7,6 @@
 //
 
 #import "RegistrationViewController.h"
-#import "FormTableViewController.h"
 
 @interface RegistrationViewController ()
 -(void) updateFloorsForBlock:(Block*)block;
@@ -46,20 +45,19 @@ NSArray* floors;
     self.selectedBlock = [self.blockArray objectAtIndex:0];
     [self updateFloorsForBlock:self.selectedBlock];
     
-    NSString *floorString = self.selectedBlock.floors;
-    NSData *jsonFloors = [floorString dataUsingEncoding:NSUTF8StringEncoding];
-    NSError *error;
+   // NSString *floorString = self.selectedBlock.floors;
+   // NSData *jsonFloors = [floorString dataUsingEncoding:NSUTF8StringEncoding];
+    //NSError *error;
     
-    self.floorArray = [NSJSONSerialization JSONObjectWithData:  jsonFloors options: NSJSONReadingMutableContainers error:&error];
+    //self.floorArray = [NSJSONSerialization JSONObjectWithData:  jsonFloors options: NSJSONReadingMutableContainers error:&error];
     
     
     //(NSArray*)[(PFObject*)[self.blockArray objectAtIndex:0] objectForKey:@"floors"];
     
     
     self.blockLabel.text = self.selectedBlock.name;
-    NSLog(@"currently selected block is %@", self.selectedBlock);
     
-    selectedFloor = [self.floorArray objectAtIndex:0];
+    [self updateFloorsForBlock:selectedBlock];
     
     self.username.delegate = self;
     self.username.enablesReturnKeyAutomatically = NO;
@@ -129,6 +127,9 @@ NSArray* floors;
     
     self.floorArray = [NSJSONSerialization JSONObjectWithData:  jsonFloors options: NSJSONReadingMutableContainers error:&error];
     
+    self.selectedFloor = [self.floorArray objectAtIndex:0];
+    self.floorLabel.text = self.selectedFloor;
+    
 }
 
 #pragma delegate methods
@@ -139,15 +140,15 @@ NSArray* floors;
 }
 
 -(void) didSelectBlock:(Block*) block{
-    NSLog(@"block %@ has been selected", block.name);
+    if ([selectedBlock.name isEqualToString:block.name])
+        return;
     self.selectedBlock = block;
     self.blockLabel.text = self.selectedBlock.name;
+    [self updateFloorsForBlock:selectedBlock];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    NSLog(@"preparing for segue!!!");
-    
     if ([[segue identifier] isEqualToString:@"registerblock"]){
         RegistrationBlockViewController* rbvc = (RegistrationBlockViewController*) [segue destinationViewController];
         rbvc.blocks = self.blockArray;
@@ -159,14 +160,6 @@ NSArray* floors;
         rfvc.floors = self.floorArray;
         rfvc.delegate = self;
     }
-   /* if ([[segue identifier] isEqualToString:@"apartmentSegue"]){
-        BlockViewController* bvc = (BlockViewController*) [segue destinationViewController];
-        bvc.delegate = self;
-        bvc.selections = self.apartmentScope;
-        //pass apartment objects down stack, else lost at each segue to bvc!
-    }*/
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
 }
 
 

@@ -19,9 +19,10 @@
 @synthesize conversations;
 @synthesize managedObjectContext;
 @synthesize selectedConversation;
+@synthesize composing;
 
 MessageView* aView;
-BOOL _composing = YES;
+
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -308,7 +309,7 @@ BOOL _composing = YES;
 }
 
 -(void) toggleComposer{
-    if (_composing){
+    if (self.composing){
         CGRect mainframe = [[UIScreen mainScreen] bounds];
         float width = mainframe.size.width;
         
@@ -343,12 +344,12 @@ BOOL _composing = YES;
         [self.composeButton setEnabled:YES];
         
     }
-    _composing = !_composing;
+    self.composing = !self.composing;
 }
 
 
 
-#pragma textfield deligate
+#pragma textfield delegate
 
 
 @end

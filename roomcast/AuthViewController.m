@@ -44,7 +44,10 @@ MKPolygon *authZone;
 {
     [super viewDidLoad];
     [self loadAuthZones];
-       
+    [self.rangeView setBackgroundColor:[UIColor clearColor]];
+    
+    self.rangeView.circleColor = [UIColor redColor];
+    
     //self.rangeView = [[RangeView alloc] initWithFrame:CGRectMake(250,380,60,60)];
     //[self.view addSubview:_rangeView];
 }

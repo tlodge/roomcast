@@ -27,7 +27,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
+    NSLog(@"floors are %@", floors);
+    
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
@@ -62,6 +63,12 @@
     cell.textLabel.text = [floors objectAtIndex:indexPath.row];
     return cell;
 }
+
+-(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    [self.delegate didSelectFloor: [self.floors objectAtIndex:indexPath.row]];
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
 
 /*
 // Override to support conditional editing of the table view.

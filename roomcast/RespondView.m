@@ -1,16 +1,14 @@
 //
-//  MessageView.m
+//  RespondView.m
 //  roomcast
 //
-//  Created by Tom Lodge on 06/11/2013.
+//  Created by Tom Lodge on 11/12/2013.
 //  Copyright (c) 2013 Tom Lodge. All rights reserved.
 //
 
-#import "MessageView.h"
+#import "RespondView.h"
 
-@implementation MessageView
-
-@synthesize backButton;
+@implementation RespondView
 
 - (id)initWithFrame:(CGRect)frame
 {

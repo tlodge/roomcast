@@ -24,4 +24,5 @@
 @property (nonatomic, strong) NSMutableArray *conversations;
 @property (strong, nonatomic) Conversation* selectedConversation;
 
+@property(nonatomic, assign) BOOL composing;
 @end

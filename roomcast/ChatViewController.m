@@ -15,6 +15,9 @@
 @implementation ChatViewController
 
 @synthesize messages;
+@synthesize respondView;
+@synthesize respondButton;
+@synthesize composing;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -29,7 +32,19 @@
 {
     [super viewDidLoad];
 
-   
+     NSArray *nibContents = [[NSBundle mainBundle] loadNibNamed:@"MessageView"
+                                                         owner:self
+                                                       options:nil];
+    self.respondView = [nibContents objectAtIndex:0];
+    
+   // [self.respondView addTarget:self action:@selector(closeKeyboard:) forControlEvents:UIControlEventAllTouchEvents];
+    
+    /*[self.respondView.cancelButton addTarget:self action:@selector(toggleMessage:)
+               forControlEvents:UIControlEventTouchUpInside];
+    
+    [self.respondView.respondButton addTarget:self action:@selector(sendMessage:) forControlEvents:UIControlEventTouchUpInside];*/
+    
+
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
@@ -136,6 +151,63 @@
 }
 
  */
+
+
+-(void) closeKeyboard:(UIControl *) sender{
+    [sender endEditing:YES];
+}
+
+-(void) sendMessage:(id) sender{
+    NSLog(@"would send a message!");
+}
+
+
+- (IBAction)respondClicked:(id)sender {
+    [self toggleComposer];
+}
+
+- (IBAction)toggleMessage:(id)sender {
+    [self toggleComposer];
+}
+
+-(void) toggleComposer{
+    if (self.composing){
+        CGRect mainframe = [[UIScreen mainScreen] bounds];
+        float width = mainframe.size.width;
+        
+        self.respondView.frame = CGRectMake(0,-313+self.tableView.contentOffset.y,width,313); //or whatever coordinates you need
+        
+        [self.tableView addSubview:self.respondView];
+        
+        [UIView animateWithDuration:0.5f
+                              delay:0.0f
+                            options:UIViewAnimationCurveEaseInOut
+                         animations:^{
+                              self.respondView.frame = CGRectMake(0,self.tableView.contentOffset.y,width,313);
+                             
+                         }
+                         completion:^(BOOL finished) {
+                         }];
+        [self.respondButton setEnabled:NO];
+    }else{
+        CGRect mainframe = [[UIScreen mainScreen] bounds];
+        float width = mainframe.size.width;
+        
+        [UIView animateWithDuration:0.5f
+                              delay:0.0f
+                            options:UIViewAnimationCurveEaseInOut
+                         animations:^{
+                              self.respondView.frame = CGRectMake(0,-313,width,313);
+                             
+                         }
+                         completion:^(BOOL finished) {
+                             [self.respondView removeFromSuperview];
+                         }];
+        [self.respondButton setEnabled:YES];
+        
+    }
+    self.composing = !self.composing;
+}
 
 
 -(void) chatID: (NSString *) chatID{
