@@ -15,7 +15,7 @@
 - (IBAction)respondClicked:(id)sender;
 @property (weak, nonatomic) IBOutlet UIButton *respondButton;
 -(void) chatID: (NSString *) chatID;
-@property (weak, nonatomic) RespondView* respondView;
+@property (strong, nonatomic) RespondView* respondView;
 @property (strong, nonatomic) NSArray* messages;
 @property(nonatomic, assign) BOOL composing;
 @end

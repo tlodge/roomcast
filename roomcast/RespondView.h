@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface RespondView : UIView
+@interface RespondView : UIControl
 @property (weak, nonatomic) IBOutlet UIButton *respondButton;
 @property (weak, nonatomic) IBOutlet UIButton *cancelButton;
 @property (weak, nonatomic) IBOutlet UITextView *responseText;

@@ -32,17 +32,18 @@
 {
     [super viewDidLoad];
 
-     NSArray *nibContents = [[NSBundle mainBundle] loadNibNamed:@"MessageView"
-                                                         owner:self
-                                                       options:nil];
-    self.respondView = [nibContents objectAtIndex:0];
+    self.composing = YES;
     
-   // [self.respondView addTarget:self action:@selector(closeKeyboard:) forControlEvents:UIControlEventAllTouchEvents];
+    NSArray *nibContents = [[NSBundle mainBundle] loadNibNamed:@"RespondView" owner:self options:nil];
     
-    /*[self.respondView.cancelButton addTarget:self action:@selector(toggleMessage:)
+    respondView = [nibContents objectAtIndex:0];
+    
+    [respondView addTarget:self action:@selector(closeKeyboard:) forControlEvents:UIControlEventAllTouchEvents];
+    
+    [respondView.cancelButton addTarget:self action:@selector(toggleMessage:)
                forControlEvents:UIControlEventTouchUpInside];
     
-    [self.respondView.respondButton addTarget:self action:@selector(sendMessage:) forControlEvents:UIControlEventTouchUpInside];*/
+    [respondView.respondButton addTarget:self action:@selector(sendMessage:) forControlEvents:UIControlEventTouchUpInside];
     
 
     // Uncomment the following line to preserve selection between presentations.
@@ -172,18 +173,20 @@
 
 -(void) toggleComposer{
     if (self.composing){
+        
+        NSLog(@"ok I am in here!!!!!!");
         CGRect mainframe = [[UIScreen mainScreen] bounds];
         float width = mainframe.size.width;
         
-        self.respondView.frame = CGRectMake(0,-313+self.tableView.contentOffset.y,width,313); //or whatever coordinates you need
+        respondView.frame = CGRectMake(0,-respondView.frame.size.height+self.tableView.contentOffset.y,width,respondView.frame.size.height);
         
-        [self.tableView addSubview:self.respondView];
+        [self.tableView addSubview:respondView];
         
         [UIView animateWithDuration:0.5f
                               delay:0.0f
                             options:UIViewAnimationCurveEaseInOut
                          animations:^{
-                              self.respondView.frame = CGRectMake(0,self.tableView.contentOffset.y,width,313);
+                              respondView.frame = CGRectMake(0,self.tableView.contentOffset.y,width,respondView.frame.size.height);
                              
                          }
                          completion:^(BOOL finished) {
@@ -197,11 +200,11 @@
                               delay:0.0f
                             options:UIViewAnimationCurveEaseInOut
                          animations:^{
-                              self.respondView.frame = CGRectMake(0,-313,width,313);
+                              respondView.frame = CGRectMake(0,-respondView.frame.size.height,width,respondView.frame.size.height);
                              
                          }
                          completion:^(BOOL finished) {
-                             [self.respondView removeFromSuperview];
+                             [respondView removeFromSuperview];
                          }];
         [self.respondButton setEnabled:YES];
         

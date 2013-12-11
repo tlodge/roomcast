@@ -20,8 +20,8 @@
 @synthesize managedObjectContext;
 @synthesize selectedConversation;
 @synthesize composing;
+@synthesize messageView;
 
-MessageView* aView;
 
 
 - (id)initWithStyle:(UITableViewStyle)style
@@ -39,26 +39,25 @@ MessageView* aView;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    Development *development = [[DataManager sharedManager] development];
+    
+    self.composing = YES;
+   // Development *development = [[DataManager sharedManager] development];
  
-    
-    
-    NSLog(@"retrieved my development as %@", development);
     
     NSArray *nibContents = [[NSBundle mainBundle] loadNibNamed:@"MessageView"
                                                          owner:self
                                                        options:nil];
-    aView = [nibContents objectAtIndex:0];
+    messageView = [nibContents objectAtIndex:0];
     
-    [aView addTarget:self action:@selector(closeKeyboard:) forControlEvents:UIControlEventAllTouchEvents];
+    [messageView addTarget:self action:@selector(closeKeyboard:) forControlEvents:UIControlEventAllTouchEvents];
     
-    [aView.backButton addTarget:self action:@selector(toggleMessage:)
+    [messageView.backButton addTarget:self action:@selector(toggleMessage:)
                forControlEvents:UIControlEventTouchUpInside];
     
-    [aView.sendButton addTarget:self action:@selector(sendMessage:) forControlEvents:UIControlEventTouchUpInside];
+    [messageView.sendButton addTarget:self action:@selector(sendMessage:) forControlEvents:UIControlEventTouchUpInside];
     
     
-    [aView.whotoButton addTarget:self action:@selector(pushDestination:) forControlEvents:UIControlEventTouchUpInside];
+    [messageView.whotoButton addTarget:self action:@selector(pushDestination:) forControlEvents:UIControlEventTouchUpInside];
     
     
     //self.managedObjectContext = [[[SMClient defaultClient] coreDataStore] contextForCurrentThread];
@@ -243,20 +242,20 @@ MessageView* aView;
 }
 
 -(void) sendMessage:(UIButton *)sender{
-    if ([aView.messageView.text length] == 0)
+    if ([messageView.messageView.text length] == 0)
         return;
     
-    NSLog(@"sending! %@", aView.messageView.text);
+    NSLog(@"sending! %@", messageView.messageView.text);
     //id delegate = [[UIApplication sharedApplication] delegate];
     //self.managedObjectContext = [delegate managedObjectContext];
     
     
     PFObject *co = [PFObject objectWithClassName:@"Conversation"];
     [co setObject:@"normal" forKey:@"type"];
-    [co setObject:aView.messageView.text forKey:@"teaser"];
+    [co setObject:messageView.messageView.text forKey:@"teaser"];
     
     PFObject *msg = [PFObject objectWithClassName:@"Message"];
-    [msg setObject:aView.messageView.text forKey:@"message"];
+    [msg setObject:messageView.messageView.text forKey:@"message"];
     [msg setObject:[NSNumber numberWithBool:NO] forKey:@"anonymous"];
     [msg setObject:co forKey:@"conversation"];
     
@@ -265,7 +264,7 @@ MessageView* aView;
         if (conversation != nil){
             [self.conversations addObject:conversation];
             [self.tableView reloadData];
-            aView.messageView.text = @"";
+            messageView.messageView.text = @"";
             [self toggleComposer];
         }
     }];
@@ -313,15 +312,15 @@ MessageView* aView;
         CGRect mainframe = [[UIScreen mainScreen] bounds];
         float width = mainframe.size.width;
         
-        aView.frame = CGRectMake(0,-313+self.tableView.contentOffset.y,width,313); //or whatever coordinates you need
+        messageView.frame = CGRectMake(0,-313+self.tableView.contentOffset.y,width,313); //or whatever coordinates you need
         
-        [self.tableView addSubview:aView];
+        [self.tableView addSubview:messageView];
        
         [UIView animateWithDuration:0.5f
                               delay:0.0f
                             options:UIViewAnimationCurveEaseInOut
                          animations:^{
-                             aView.frame = CGRectMake(0,self.tableView.contentOffset.y,width,313);
+                             messageView.frame = CGRectMake(0,self.tableView.contentOffset.y,width,313);
                              
                          }
                          completion:^(BOOL finished) {
@@ -335,11 +334,11 @@ MessageView* aView;
                               delay:0.0f
                             options:UIViewAnimationCurveEaseInOut
                          animations:^{
-                             aView.frame = CGRectMake(0,-313,width,313);
+                             messageView.frame = CGRectMake(0,-313,width,313);
                              
                          }
                          completion:^(BOOL finished) {
-                             [aView removeFromSuperview];
+                             [messageView removeFromSuperview];
                          }];
         [self.composeButton setEnabled:YES];
         

@@ -25,4 +25,5 @@
 @property (strong, nonatomic) Conversation* selectedConversation;
 
 @property(nonatomic, assign) BOOL composing;
+@property (strong, nonatomic) MessageView* messageView;
 @end
