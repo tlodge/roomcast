@@ -18,6 +18,8 @@
 @synthesize respondView;
 @synthesize respondButton;
 @synthesize composing;
+@synthesize conversationId;
+@synthesize delegate;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -159,7 +161,15 @@
 }
 
 -(void) sendMessage:(id) sender{
-    NSLog(@"would send a message!");
+    
+    NSLog(@"would send message to %@", self.conversationId);
+   
+    [delegate didRespondToConversation:self.conversationId withMessage:respondView.responseText.text];
+    
+    [self toggleComposer];
+    //append message to conversation
+
+    
 }
 
 
@@ -174,7 +184,6 @@
 -(void) toggleComposer{
     if (self.composing){
         
-        NSLog(@"ok I am in here!!!!!!");
         CGRect mainframe = [[UIScreen mainScreen] bounds];
         float width = mainframe.size.width;
         
@@ -215,5 +224,13 @@
 
 -(void) chatID: (NSString *) chatID{
     NSLog(@"set chat id to %@", chatID);
+}
+
+-(void) observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context{
+    if ([keyPath isEqual:@"messages"]){
+        NSLog(@"seen a change to this conversation, so reloading data!!");
+        
+        [self.tableView reloadData];
+    }
 }
 @end

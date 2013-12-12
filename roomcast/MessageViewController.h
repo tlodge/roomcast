@@ -14,7 +14,8 @@
 #import "Development.h"
 #import "DataManager.h"
 
-@interface MessageViewController : UITableViewController <UITextViewDelegate>
+@interface MessageViewController : UITableViewController <UITextViewDelegate, RespondDelegate>
+
 @property (weak, nonatomic) IBOutlet UIButton *composeButton;
 
 @property (nonatomic, strong) NSManagedObjectContext* managedObjectContext;

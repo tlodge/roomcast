@@ -180,7 +180,8 @@ NSManagedObjectContext *context;
             c = [NSEntityDescription insertNewObjectForEntityForName:@"Conversation" inManagedObjectContext:context];
              
             [c setValue:[conversation objectId] forKey:@"conversationId"];
-            
+            [c setValue: [conversation createdAt] forKey:@"started"];
+             
             [c setValue:[conversation objectForKey:@"teaser"] forKey:@"teaser"];
              
             NSError *cderror;
@@ -226,6 +227,8 @@ NSManagedObjectContext *context;
             if (m == nil){
                 m = [NSEntityDescription insertNewObjectForEntityForName:@"Message" inManagedObjectContext:context];
                 [m setValue:[message objectId] forKey:@"messageId"];
+                [m setValue:[message createdAt] forKey:@"sent"];
+                
             }
         
             [m setValue:[message objectForKey:@"message"] forKey:@"body"];

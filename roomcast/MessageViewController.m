@@ -60,13 +60,10 @@
     [messageView.whotoButton addTarget:self action:@selector(pushDestination:) forControlEvents:UIControlEventTouchUpInside];
     
     
-    //self.managedObjectContext = [[[SMClient defaultClient] coreDataStore] contextForCurrentThread];
+    id maindelegate = [[UIApplication sharedApplication] delegate];
     
-   //  [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didReceiveSyncDidFinishNotification:) name:@"FinishedSync" object:nil];
+    self.managedObjectContext = [maindelegate managedObjectContext];
     
-    
-    id delegate = [[UIApplication sharedApplication] delegate];
-    self.managedObjectContext = [delegate managedObjectContext];
     [self getAllConversations];
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -82,9 +79,18 @@
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"Conversation" inManagedObjectContext:self.managedObjectContext];
     
     [fetch setEntity:entity];
+  
+    
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"started" ascending:YES];
+    
+    NSArray* sortDescriptors = [NSArray arrayWithObject:sortDescriptor];
+    
     NSError *error;
     NSArray *fetchedObjects = [self.managedObjectContext executeFetchRequest:fetch error:&error];
-    self.conversations = [NSMutableArray arrayWithArray:fetchedObjects];
+    
+    self.conversations = [NSMutableArray arrayWithArray:[[NSMutableArray arrayWithArray:fetchedObjects] sortedArrayUsingDescriptors:sortDescriptors]];
+    
+   
     [self.tableView reloadData];
     
     dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0ul);
@@ -200,6 +206,10 @@
     NSIndexPath *ip = [self.tableView indexPathForCell: (UITableViewCell *) sender];
     self.selectedConversation = [conversations objectAtIndex: [conversations count] - ip.row - 1];
     
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"sent" ascending:YES];
+    
+    NSArray* sortDescriptors = [NSArray arrayWithObject:sortDescriptor];
+
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
     
@@ -215,14 +225,21 @@
         dispatch_async(dispatch_get_main_queue(), ^{
             
             if (success){
-                cvc.messages = [self.selectedConversation.messages allObjects];
+                cvc.messages = [[self.selectedConversation.messages allObjects] sortedArrayUsingDescriptors:sortDescriptors];
+                cvc.conversationId = self.selectedConversation.conversationId;
                 [cvc.tableView reloadData];
             }
         });
     });
 
     NSSet *set = [self.selectedConversation valueForKey:@"messages"];
-    cvc.messages = [set allObjects];
+    cvc.delegate = self;
+    cvc.messages = [[set allObjects] sortedArrayUsingDescriptors:sortDescriptors];
+    
+    cvc.conversationId = self.selectedConversation.conversationId;
+    
+    [self.selectedConversation addObserver:cvc forKeyPath:@"messages" options:(NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld) context:NULL];
+    
     [cvc chatID:@"mychatid"];
 }
 
@@ -242,14 +259,10 @@
 }
 
 -(void) sendMessage:(UIButton *)sender{
+    
     if ([messageView.messageView.text length] == 0)
         return;
-    
-    NSLog(@"sending! %@", messageView.messageView.text);
-    //id delegate = [[UIApplication sharedApplication] delegate];
-    //self.managedObjectContext = [delegate managedObjectContext];
-    
-    
+   
     PFObject *co = [PFObject objectWithClassName:@"Conversation"];
     [co setObject:@"normal" forKey:@"type"];
     [co setObject:messageView.messageView.text forKey:@"teaser"];
@@ -274,7 +287,6 @@
 
 -(Conversation*) saveConversationWithPFObject:(PFObject *) message{
     
-    NSLog(@"saving %@", message);
     
     Conversation *c = [NSEntityDescription
                                   insertNewObjectForEntityForName:@"Conversation"
@@ -346,9 +358,38 @@
     self.composing = !self.composing;
 }
 
+#pragma delegate methods
+
+-(void) didRespondToConversation:(NSString*) conversationId withMessage:(NSString*) message{
+    
+    PFObject *conversation =[PFObject objectWithoutDataWithClassName:@"Conversation" objectId:conversationId];
+    
+    PFObject *msg = [PFObject objectWithClassName:@"Message"];
+    [msg setObject:message forKey:@"message"];
+    [msg setObject:[NSNumber numberWithBool:NO] forKey:@"anonymous"];
+    [msg setObject:conversation forKey:@"conversation"];
+    
+    [msg saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        if (succeeded){
+            dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0ul);
+            
+            dispatch_async(queue, ^{
+                BOOL success = [[DataManager sharedManager] syncWithConversation:self.selectedConversation];
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    
+                    if (success){
+                        //[self.selectedConversation.conversationId didChangeValueForKey:@"messages"];
+                        /*cvc.messages = [[self.selectedConversation.messages allObjects] sortedArrayUsingDescriptors:sortDescriptors];
+                        cvc.conversationId = self.selectedConversation.conversationId;
+                        [cvc.tableView reloadData];*/
+                    }
+                });
+            });
+        }
+    }];
+}
 
 
-#pragma textfield delegate
 
 
 @end
