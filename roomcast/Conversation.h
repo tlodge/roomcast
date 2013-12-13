@@ -2,7 +2,7 @@
 //  Conversation.h
 //  roomcast
 //
-//  Created by Tom Lodge on 04/12/2013.
+//  Created by Tom Lodge on 13/12/2013.
 //  Copyright (c) 2013 Tom Lodge. All rights reserved.
 //
 
@@ -17,6 +17,8 @@
 @property (nonatomic, retain) NSString * initiator;
 @property (nonatomic, retain) NSDate * started;
 @property (nonatomic, retain) NSString * teaser;
+@property (nonatomic, retain) NSDate * lastUpdate;
+@property (nonatomic, retain) NSNumber * responses;
 @property (nonatomic, retain) NSSet *messages;
 @end
 

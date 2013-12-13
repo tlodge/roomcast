@@ -11,7 +11,7 @@
 #import "Message.h"
 
 @interface MessageViewController ()
--(Conversation *) saveConversationWithPFObject:(PFObject *)message;
+
 @end
 
 @implementation MessageViewController
@@ -41,7 +41,14 @@
     [super viewDidLoad];
     
     self.composing = YES;
-   // Development *development = [[DataManager sharedManager] development];
+    
+    [[NSNotificationCenter defaultCenter] addObserverForName:@"conversationUpdate" object:nil queue:nil usingBlock:^(NSNotification *note) {
+        self.conversations = [[DataManager sharedManager] conversationsForUser];
+        NSLog(@"MVC --- seen a conversation update!!!");
+        NSLog(@"%@", self.conversations);
+        [self.tableView reloadData];
+        
+    }];    
  
     
     NSArray *nibContents = [[NSBundle mainBundle] loadNibNamed:@"MessageView"
@@ -64,7 +71,11 @@
     
     self.managedObjectContext = [maindelegate managedObjectContext];
     
-    [self getAllConversations];
+    //[self getAllConversations];
+    
+    self.conversations = [[DataManager sharedManager] conversationsForUser];
+    [self.tableView reloadData];
+
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
@@ -72,45 +83,7 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
--(void) getAllConversations{
-    
-    NSFetchRequest *fetch = [[NSFetchRequest alloc] init];
-    
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Conversation" inManagedObjectContext:self.managedObjectContext];
-    
-    [fetch setEntity:entity];
-  
-    
-    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"started" ascending:YES];
-    
-    NSArray* sortDescriptors = [NSArray arrayWithObject:sortDescriptor];
-    
-    NSError *error;
-    NSArray *fetchedObjects = [self.managedObjectContext executeFetchRequest:fetch error:&error];
-    
-    self.conversations = [NSMutableArray arrayWithArray:[[NSMutableArray arrayWithArray:fetchedObjects] sortedArrayUsingDescriptors:sortDescriptors]];
-    
-   
-    [self.tableView reloadData];
-    
-    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0ul);
-    
-    dispatch_async(queue, ^{
-        //this runs on background thread!
-        BOOL fresh =  [[DataManager sharedManager]syncWithConversations:@"atestuser"];
-        dispatch_async(dispatch_get_main_queue(), ^{
-            if (fresh){
-                NSError *error;
-                NSArray *fetchedObjects = [self.managedObjectContext executeFetchRequest:fetch error:&error];
-                self.conversations = [NSMutableArray arrayWithArray:fetchedObjects];
-                [self.tableView reloadData];
 
-            }
-        });
-    });
-    
-   
-}
 
 
 //- (void)didReceiveSyncDidFinishNotification:(NSNotification *)notification
@@ -136,6 +109,9 @@
     return [conversations count];
 }
 
+
+
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSString *CellIdentifier = @"LightGreenMessageCell";
@@ -154,7 +130,7 @@
 
     fromLabel.text = conversation.initiator;
     bodyLabel.text = conversation.teaser;
-    repliesLabel.text = [NSString stringWithFormat:@"%d",[conversation.messages count]];
+    repliesLabel.text = [NSString stringWithFormat:@"%@", conversation.responses];
     return cell;
 }
 
@@ -206,41 +182,16 @@
     NSIndexPath *ip = [self.tableView indexPathForCell: (UITableViewCell *) sender];
     self.selectedConversation = [conversations objectAtIndex: [conversations count] - ip.row - 1];
     
-    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"sent" ascending:YES];
-    
-    NSArray* sortDescriptors = [NSArray arrayWithObject:sortDescriptor];
-
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
     
     ChatViewController* cvc = (ChatViewController *) [segue destinationViewController];
     
-    NSLog(@"selected conversation is %@", selectedConversation);
+    NSLog(@"----THE selected conversation is %@", selectedConversation);
     
-    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0ul);
-    
-    dispatch_async(queue, ^{
-        //this runs on background thread!
-        BOOL success = [[DataManager sharedManager] syncWithConversation:self.selectedConversation];
-        dispatch_async(dispatch_get_main_queue(), ^{
-            
-            if (success){
-                cvc.messages = [[self.selectedConversation.messages allObjects] sortedArrayUsingDescriptors:sortDescriptors];
-                cvc.conversationId = self.selectedConversation.conversationId;
-                [cvc.tableView reloadData];
-            }
-        });
-    });
-
-    NSSet *set = [self.selectedConversation valueForKey:@"messages"];
     cvc.delegate = self;
-    cvc.messages = [[set allObjects] sortedArrayUsingDescriptors:sortDescriptors];
-    
     cvc.conversationId = self.selectedConversation.conversationId;
-    
-    [self.selectedConversation addObserver:cvc forKeyPath:@"messages" options:(NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld) context:NULL];
-    
-    [cvc chatID:@"mychatid"];
+    //[self.selectedConversation addObserver:cvc forKeyPath:@"messages" options:(NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld) context:NULL];
 }
 
  
@@ -258,66 +209,14 @@
     [self.navigationController pushViewController:destination animated:YES];
 }
 
--(void) sendMessage:(UIButton *)sender{
-    
+-(void) sendMessage:(UIButton *)sender{    
     if ([messageView.messageView.text length] == 0)
         return;
-   
-    PFObject *co = [PFObject objectWithClassName:@"Conversation"];
-    [co setObject:@"normal" forKey:@"type"];
-    [co setObject:messageView.messageView.text forKey:@"teaser"];
-    
-    PFObject *msg = [PFObject objectWithClassName:@"Message"];
-    [msg setObject:messageView.messageView.text forKey:@"message"];
-    [msg setObject:[NSNumber numberWithBool:NO] forKey:@"anonymous"];
-    [msg setObject:co forKey:@"conversation"];
-    
-    [msg saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-        Conversation *conversation = [self saveConversationWithPFObject: msg];
-        if (conversation != nil){
-            [self.conversations addObject:conversation];
-            [self.tableView reloadData];
-            messageView.messageView.text = @"";
-            [self toggleComposer];
-        }
-    }];
-    
-    
+
+    [[DataManager sharedManager ]createConversationWithMessage:messageView.messageView.text parameters:nil];
+    [self toggleComposer];
 }
 
--(Conversation*) saveConversationWithPFObject:(PFObject *) message{
-    
-    
-    Conversation *c = [NSEntityDescription
-                                  insertNewObjectForEntityForName:@"Conversation"
-                                  inManagedObjectContext:self.managedObjectContext];
-    
-    //[conversation assignObjectId];
-    PFObject* conversation = [message objectForKey:@"conversation"];
-    
-    [c setValue:[conversation objectId] forKey:@"conversationId"];
-    [c setValue:[conversation objectForKey:@"teaser"] forKey:@"teaser"];
-    [c setValue:@"1D" forKey:@"initiator"];
-    [c setValue:[NSDate date] forKey:@"started"];
-    
-    Message *m = [NSEntityDescription
-                        insertNewObjectForEntityForName:@"Message"
-                        inManagedObjectContext:self.managedObjectContext];
-    
-    //[message assignObjectId];
-    [m setValue:[message objectId] forKey:@"messageId"];
-    [m setValue:@"1D" forKey:@"from"];
-    [m setValue:[message objectForKey:@"message"] forKey:@"body"];
-    [m setValue:[NSDate date] forKey:@"sent"];
-    [m setValue:c forKey:@"conversation"];
-    
-    NSError *error;
-    if (![self.managedObjectContext save:&error]){
-        NSLog(@"whoops! couldn't save %@", [error localizedDescription]);
-        return nil;
-    }
-    return c;
-}
 
 -(void) toggleComposer{
     if (self.composing){
@@ -362,31 +261,6 @@
 
 -(void) didRespondToConversation:(NSString*) conversationId withMessage:(NSString*) message{
     
-    PFObject *conversation =[PFObject objectWithoutDataWithClassName:@"Conversation" objectId:conversationId];
-    
-    PFObject *msg = [PFObject objectWithClassName:@"Message"];
-    [msg setObject:message forKey:@"message"];
-    [msg setObject:[NSNumber numberWithBool:NO] forKey:@"anonymous"];
-    [msg setObject:conversation forKey:@"conversation"];
-    
-    [msg saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-        if (succeeded){
-            dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0ul);
-            
-            dispatch_async(queue, ^{
-                BOOL success = [[DataManager sharedManager] syncWithConversation:self.selectedConversation];
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    
-                    if (success){
-                        //[self.selectedConversation.conversationId didChangeValueForKey:@"messages"];
-                        /*cvc.messages = [[self.selectedConversation.messages allObjects] sortedArrayUsingDescriptors:sortDescriptors];
-                        cvc.conversationId = self.selectedConversation.conversationId;
-                        [cvc.tableView reloadData];*/
-                    }
-                });
-            });
-        }
-    }];
 }
 
 

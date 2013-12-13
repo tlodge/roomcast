@@ -11,17 +11,18 @@
 #import "MessageCell.h"
 #import "Message.h"
 #import "RespondView.h"
+#import "Conversation.h"
+#import "DataManager.h"
 
 @protocol RespondDelegate;
 
 @interface ChatViewController : UITableViewController <UITextViewDelegate>
 - (IBAction)respondClicked:(id)sender;
 @property (weak, nonatomic) IBOutlet UIButton *respondButton;
--(void) chatID: (NSString *) chatID;
 @property (strong, nonatomic) RespondView* respondView;
 @property (strong, nonatomic) NSArray* messages;
 @property(nonatomic, assign) BOOL composing;
-@property(weak, nonatomic) NSString* conversationId;
+@property(nonatomic, strong) NSString *conversationId;
 @property(nonatomic, assign) id <RespondDelegate> delegate;
 @end
 

@@ -9,7 +9,6 @@
 #import "ChatViewController.h"
 
 @interface ChatViewController ()
-
 @end
 
 @implementation ChatViewController
@@ -18,8 +17,8 @@
 @synthesize respondView;
 @synthesize respondButton;
 @synthesize composing;
-@synthesize conversationId;
 @synthesize delegate;
+@synthesize conversationId;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -34,6 +33,16 @@
 {
     [super viewDidLoad];
 
+    //observe any changes to messages for this conversation
+    [[NSNotificationCenter defaultCenter] addObserverForName:@"conversationUpdate" object:nil queue:nil usingBlock:^(NSNotification *note) {
+        NSDictionary* userInfo = note.userInfo;
+        NSString* updatedConversation = [userInfo objectForKey:@"conversationId"];
+        if ([updatedConversation isEqualToString:self.conversationId]){
+            self.messages = [[DataManager sharedManager] messagesForConversation:conversationId];
+            [self.tableView reloadData];
+        }
+    }];
+    
     self.composing = YES;
     
     NSArray *nibContents = [[NSBundle mainBundle] loadNibNamed:@"RespondView" owner:self options:nil];
@@ -47,12 +56,7 @@
     
     [respondView.respondButton addTarget:self action:@selector(sendMessage:) forControlEvents:UIControlEventTouchUpInside];
     
-
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    self.messages = [[DataManager sharedManager] messagesForConversation:conversationId];
 }
 
 - (void)didReceiveMemoryWarning
@@ -71,36 +75,34 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [messages count];
+    return [self.messages count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    Message *m = [self.messages objectAtIndex:indexPath.row];
+ 
     MessageCell * cell = [[MessageCell alloc] init];
+    
+    int height = 20 +  (int) (14 * [m.body length] / 21);
+    
+    if (indexPath.row % 2 == 0){
+        [(MessageCell *) cell initWithMessage: m.body forHeight: height forOriention:0];
+    }else{
+        [(MessageCell *)cell initWithMessage: m.body forHeight: height forOriention:1];
+    }
+
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    Message *m = [messages objectAtIndex:indexPath.row];
-    
-    NSLog(@"%@", m.body);
-    NSLog(@"lines: %d", [m.body length] / 21);
-    
-    int height = 20 +  (14 * [m.body length] / 21);
-     NSLog(@"height: %d", height);
-    if (indexPath.row % 2 == 0){
-        //at this point, height will have been calculated!
-        [(MessageCell *)cell initWithMessage: m.body forHeight: height forOriention:0];
-    }else{
-        [(MessageCell *)cell initWithMessage: m.body forHeight: height forOriention:1];
-    }
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    Message *m = [messages objectAtIndex:indexPath.row];
-    int height = 20 + (14 * [m.body length] / 21);
+    Message *m = [self.messages objectAtIndex:indexPath.row];
+    int height = 20 + (int)(14 * [m.body length] / 21);
     return height;
 }
 
@@ -162,9 +164,11 @@
 
 -(void) sendMessage:(id) sender{
     
-    NSLog(@"would send message to %@", self.conversationId);
-   
-    [delegate didRespondToConversation:self.conversationId withMessage:respondView.responseText.text];
+    NSLog(@"would send message to %@", conversationId);
+    [[DataManager sharedManager] addMessageToConversation:respondView.responseText.text forConversationId:conversationId];
+    
+         
+    //[delegate didRespondToConversation:conversationId withMessage:respondView.responseText.text];
     
     [self toggleComposer];
     //append message to conversation
@@ -221,16 +225,12 @@
     self.composing = !self.composing;
 }
 
-
--(void) chatID: (NSString *) chatID{
-    NSLog(@"set chat id to %@", chatID);
-}
-
+/*
 -(void) observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context{
     if ([keyPath isEqual:@"messages"]){
-        NSLog(@"seen a change to this conversation, so reloading data!!");
-        
-        [self.tableView reloadData];
+        return;
+       // [self performSelectorOnMainThread:@selector(loadData) withObject:self waitUntilDone:NO];
     }
-}
+}*/
+
 @end

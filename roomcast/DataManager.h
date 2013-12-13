@@ -25,8 +25,13 @@
 
 -(BOOL) syncWithDevelopment:(NSString*) developmentId;
 -(BOOL) syncWithBlock:(Block *)block;
--(BOOL) syncWithConversations:(NSString*) userId;
--(BOOL) syncWithConversation:(Conversation*) conversation;
+
+
+-(void) addMessageToConversation:(NSString*) message forConversationId:(NSString*)conversationId;
+-(void) createConversationWithMessage:(NSString *) message parameters:(NSDictionary *) params;
+
+-(NSArray *) conversationsForUser;
+-(NSArray *) messagesForConversation:(NSString*) conversationId;
 
 @property(weak, nonatomic) Development* development;
 

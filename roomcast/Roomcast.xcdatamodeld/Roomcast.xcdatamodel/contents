@@ -16,6 +16,8 @@
     <entity name="Conversation" representedClassName="Conversation" syncable="YES">
         <attribute name="conversationId" optional="YES" attributeType="String" indexed="YES" syncable="YES"/>
         <attribute name="initiator" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="lastUpdate" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="responses" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="started" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="teaser" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="messages" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Message" inverseName="conversation" inverseEntity="Message" syncable="YES"/>
@@ -35,10 +37,10 @@
         <relationship name="conversation" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Conversation" inverseName="messages" inverseEntity="Conversation" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Conversation" positionX="-1332" positionY="-613" width="128" height="118"/>
-        <element name="Development" positionX="-1325" positionY="-783" width="128" height="118"/>
-        <element name="Message" positionX="-1143" positionY="-613" width="128" height="118"/>
-        <element name="Block" positionX="-1206" positionY="-784" width="128" height="118"/>
         <element name="Apartment" positionX="-1001" positionY="-783" width="128" height="103"/>
+        <element name="Block" positionX="-1206" positionY="-784" width="128" height="118"/>
+        <element name="Conversation" positionX="-1332" positionY="-613" width="128" height="148"/>
+        <element name="Development" positionX="-1422" positionY="-774" width="128" height="118"/>
+        <element name="Message" positionX="-1143" positionY="-613" width="128" height="118"/>
     </elements>
 </model>

@@ -61,6 +61,7 @@
 		A37C6EF2181971D90042489D /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A37C6EF1181971D90042489D /* MapKit.framework */; };
 		A37C6EF4181971ED0042489D /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A37C6EF3181971ED0042489D /* CoreLocation.framework */; };
 		A37C6F0F181ACCBA0042489D /* RangeView.m in Sources */ = {isa = PBXBuildFile; fileRef = A37C6F0E181ACCBA0042489D /* RangeView.m */; };
+		A39E8BB7185B6F1100600856 /* Conversation.m in Sources */ = {isa = PBXBuildFile; fileRef = A39E8BB6185B6F1100600856 /* Conversation.m */; };
 		A3B6DADA18365EEF00A860CA /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3B6DAD918365EEF00A860CA /* Parse.framework */; };
 		A3B6DADC18365F3100A860CA /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3B6DADB18365F3100A860CA /* AudioToolbox.framework */; };
 		A3B6DADE18365F4600A860CA /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3B6DADD18365F4600A860CA /* CFNetwork.framework */; };
@@ -71,7 +72,6 @@
 		A3B6DAEA183BE0FA00A860CA /* RegistrationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3B6DAE9183BE0FA00A860CA /* RegistrationViewController.m */; };
 		A3B6DAED183E60C500A860CA /* DestinationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3B6DAEC183E60C500A860CA /* DestinationViewController.m */; };
 		A3BD18DD184F95F1004EB6BD /* authback.png in Resources */ = {isa = PBXBuildFile; fileRef = A3BD18DC184F95F1004EB6BD /* authback.png */; };
-		A3BD18E2184FA086004EB6BD /* Conversation.m in Sources */ = {isa = PBXBuildFile; fileRef = A3BD18E1184FA086004EB6BD /* Conversation.m */; };
 		A3BD18E5184FA17C004EB6BD /* Message.m in Sources */ = {isa = PBXBuildFile; fileRef = A3BD18E4184FA17C004EB6BD /* Message.m */; };
 		A3BD18F5184FD933004EB6BD /* bubble.png in Resources */ = {isa = PBXBuildFile; fileRef = A3BD18F4184FD933004EB6BD /* bubble.png */; };
 		A3BD18F7184FD981004EB6BD /* bubble_r.png in Resources */ = {isa = PBXBuildFile; fileRef = A3BD18F6184FD981004EB6BD /* bubble_r.png */; };
@@ -189,6 +189,8 @@
 		A37C6EF3181971ED0042489D /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		A37C6F0D181ACCBA0042489D /* RangeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RangeView.h; sourceTree = "<group>"; };
 		A37C6F0E181ACCBA0042489D /* RangeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RangeView.m; sourceTree = "<group>"; };
+		A39E8BB5185B6F1100600856 /* Conversation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Conversation.h; sourceTree = "<group>"; };
+		A39E8BB6185B6F1100600856 /* Conversation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Conversation.m; sourceTree = "<group>"; };
 		A3B6DAD918365EEF00A860CA /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		A3B6DADB18365F3100A860CA /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		A3B6DADD18365F4600A860CA /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
@@ -202,8 +204,6 @@
 		A3B6DAEB183E60C500A860CA /* DestinationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DestinationViewController.h; sourceTree = "<group>"; };
 		A3B6DAEC183E60C500A860CA /* DestinationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DestinationViewController.m; sourceTree = "<group>"; };
 		A3BD18DC184F95F1004EB6BD /* authback.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = authback.png; sourceTree = "<group>"; };
-		A3BD18E0184FA086004EB6BD /* Conversation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Conversation.h; path = ../Conversation.h; sourceTree = "<group>"; };
-		A3BD18E1184FA086004EB6BD /* Conversation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Conversation.m; path = ../Conversation.m; sourceTree = "<group>"; };
 		A3BD18E3184FA17C004EB6BD /* Message.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Message.h; sourceTree = "<group>"; };
 		A3BD18E4184FA17C004EB6BD /* Message.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Message.m; sourceTree = "<group>"; };
 		A3BD18F4184FD933004EB6BD /* bubble.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bubble.png; sourceTree = "<group>"; };
@@ -538,8 +538,6 @@
 		A3F88D911832706400E3BFB0 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				A3BD18E0184FA086004EB6BD /* Conversation.h */,
-				A3BD18E1184FA086004EB6BD /* Conversation.m */,
 				A3334D911846993700ECA8D5 /* Development.h */,
 				A3334D921846993700ECA8D5 /* Development.m */,
 				A3334D8B184698F300ECA8D5 /* Block.h */,
@@ -548,6 +546,8 @@
 				A3334D86184698A900ECA8D5 /* Apartment.m */,
 				A3BD18E3184FA17C004EB6BD /* Message.h */,
 				A3BD18E4184FA17C004EB6BD /* Message.m */,
+				A39E8BB5185B6F1100600856 /* Conversation.h */,
+				A39E8BB6185B6F1100600856 /* Conversation.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -693,6 +693,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A39E8BB7185B6F1100600856 /* Conversation.m in Sources */,
 				A3CA7F401857B75F0079FBB5 /* RegistrationFloorViewController.m in Sources */,
 				A3334D87184698A900ECA8D5 /* Apartment.m in Sources */,
 				A317AC38182AE99700BE7E46 /* MessageView.m in Sources */,
@@ -716,7 +717,6 @@
 				A3F88D15182D445D00E3BFB0 /* ChatViewController.m in Sources */,
 				A3334D931846993700ECA8D5 /* Development.m in Sources */,
 				A3334D451843B41800ECA8D5 /* ScopeCell.m in Sources */,
-				A3BD18E2184FA086004EB6BD /* Conversation.m in Sources */,
 				A3334D601845077500ECA8D5 /* BlockViewController.m in Sources */,
 				A3F88D36183019C000E3BFB0 /* MessageCell.m in Sources */,
 				A3334D6C1845159500ECA8D5 /* BlockCell.m in Sources */,

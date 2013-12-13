@@ -10,4 +10,5 @@
 
 @interface MessageCell : UITableViewCell
 -(void) initWithMessage: (NSString *) message forHeight: (CGFloat) height forOriention: (NSInteger) orientation;
+@property(strong, nonatomic) UILabel *message;
 @end

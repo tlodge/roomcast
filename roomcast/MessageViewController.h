@@ -19,10 +19,10 @@
 @property (weak, nonatomic) IBOutlet UIButton *composeButton;
 
 @property (nonatomic, strong) NSManagedObjectContext* managedObjectContext;
-@property (nonatomic, strong) NSMutableArray *messages;
+@property (nonatomic, strong) NSMutableArray *messages;//defunct??
 
 - (IBAction)toggleMessage:(id)sender;
-@property (nonatomic, strong) NSMutableArray *conversations;
+@property (nonatomic, strong) NSArray *conversations;
 @property (strong, nonatomic) Conversation* selectedConversation;
 
 @property(nonatomic, assign) BOOL composing;
