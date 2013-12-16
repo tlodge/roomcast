@@ -19,6 +19,7 @@
 @synthesize blocks;
 @synthesize selectedBlock;
 @synthesize selections;
+@synthesize apartmentdelegate;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -198,7 +199,7 @@
         [self.selections removeObjectForKey:apartment.apartmentId];
     }
     //pass event up the chain (if there has been a genuine change
-    [self.delegate didSelectApartment:apartment withValue:value];
+    [self.apartmentdelegate didSelectApartment:apartment withValue:value];
 }
 
 -(void) _incrementTotalForBlock:(NSString*) blockId{

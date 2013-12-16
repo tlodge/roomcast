@@ -16,5 +16,5 @@
 @property (weak, nonatomic) Block* selectedBlock;
 @property (retain, nonatomic) NSMutableDictionary *selections;
 @property (retain, nonatomic) NSMutableDictionary *totals;
-@property(nonatomic, assign) id <ApartmentAddDelegate> delegate;
+@property(nonatomic, assign) id <ApartmentAddDelegate> apartmentdelegate;
 @end

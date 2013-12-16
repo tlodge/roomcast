@@ -44,8 +44,6 @@
     
     [[NSNotificationCenter defaultCenter] addObserverForName:@"conversationUpdate" object:nil queue:nil usingBlock:^(NSNotification *note) {
         self.conversations = [[DataManager sharedManager] conversationsForUser];
-        NSLog(@"MVC --- seen a conversation update!!!");
-        NSLog(@"%@", self.conversations);
         [self.tableView reloadData];
         
     }];    
@@ -62,7 +60,6 @@
                forControlEvents:UIControlEventTouchUpInside];
     
     [messageView.sendButton addTarget:self action:@selector(sendMessage:) forControlEvents:UIControlEventTouchUpInside];
-    
     
     [messageView.whotoButton addTarget:self action:@selector(pushDestination:) forControlEvents:UIControlEventTouchUpInside];
     
@@ -186,9 +183,6 @@
     // Pass the selected object to the new view controller.
     
     ChatViewController* cvc = (ChatViewController *) [segue destinationViewController];
-    
-    NSLog(@"----THE selected conversation is %@", selectedConversation);
-    
     cvc.delegate = self;
     cvc.conversationId = self.selectedConversation.conversationId;
     //[self.selectedConversation addObserver:cvc forKeyPath:@"messages" options:(NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld) context:NULL];
@@ -205,7 +199,9 @@
 
 -(void) pushDestination:(UIButton *) sender{
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    UITableViewController *destination = [storyboard instantiateViewControllerWithIdentifier:@"sendto"];
+    DestinationViewController *destination = (DestinationViewController*)[storyboard instantiateViewControllerWithIdentifier:@"sendto"];
+    destination.scopedelegate = self;
+    
     [self.navigationController pushViewController:destination animated:YES];
 }
 
@@ -263,6 +259,17 @@
     
 }
 
+-(void) didSelectScope:(NSDictionary*) scope{
+    NSString *type = [scope objectForKey:@"type"];
+    NSLog(@"seen a %@ scope selected", [scope objectForKey:@"type"]);
+    
+    if ([type isEqualToString:@"apartment"]){
+        NSArray *apartments = [scope objectForKey:@"scope"];
+        for (Apartment* apartment in apartments){
+            NSLog(@"%@ %@", apartment.apartmentId, apartment.name);
+        }
+    }
+}
 
 
 

@@ -20,6 +20,7 @@
 
 @synthesize lastIndex;
 @synthesize apartmentScope;
+@synthesize scopedelegate;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -235,7 +236,7 @@
    
     if ([[segue identifier] isEqualToString:@"apartmentSegue"]){
         BlockViewController* bvc = (BlockViewController*) [segue destinationViewController];
-        bvc.delegate = self;
+        bvc.apartmentdelegate = self;
         bvc.selections = self.apartmentScope;
         //pass apartment objects down stack, else lost at each segue to bvc!
     }
@@ -244,14 +245,19 @@
 }
 
 
-
 #pragma apartment selected delegate
 -(void) didSelectApartment:(Apartment*)apartment withValue:(BOOL)value{
     if (value){
         [self.apartmentScope setObject:apartment forKey:apartment.apartmentId];
+        NSMutableDictionary* scope = [NSMutableDictionary dictionary];
+        [scope setObject:@"apartment" forKey:@"type"];
+        [scope setObject:[self.apartmentScope allValues] forKey:@"scope"];
+        [self.scopedelegate didSelectScope:scope]; //tell parent (MessageViewController) to update scope
     }else{
         [self.apartmentScope removeObjectForKey:apartment.apartmentId];
     }
+    
+   
 }
 
 @end

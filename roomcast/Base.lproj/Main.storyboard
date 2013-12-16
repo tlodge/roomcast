@@ -37,7 +37,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background.png" translatesAutoresizingMaskIntoConstraints="NO" id="MnQ-QX-1q4">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background_splash.png" translatesAutoresizingMaskIntoConstraints="NO" id="MnQ-QX-1q4">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
@@ -63,7 +63,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="rSi-Co-E3r"/>
                                 </constraints>
-                                <color key="textColor" red="0.45098039220000002" green="0.43921568630000002" blue="0.37647058820000001" alpha="1" colorSpace="deviceRGB"/>
+                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                 <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="18"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -74,7 +74,7 @@
                                     <constraint firstAttribute="height" constant="89" id="tJj-Kf-Ltl"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="19"/>
-                                <color key="textColor" red="0.45098039220000002" green="0.43921568630000002" blue="0.37647058820000001" alpha="1" colorSpace="deviceRGB"/>
+                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="foS-uA-93l">
@@ -416,7 +416,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rD3-4e-drd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1247" y="1491"/>
+            <point key="canvasLocation" x="1823" y="1355"/>
         </scene>
         <!--Block View Controller-->
         <scene sceneID="EOc-wS-7jh">
@@ -489,7 +489,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1o8-wJ-23P" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1970" y="742"/>
+            <point key="canvasLocation" x="2562" y="726"/>
         </scene>
         <!--Apartment View Controller-->
         <scene sceneID="10o-2M-b6H">
@@ -551,7 +551,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mjr-A9-T4y" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2478" y="742"/>
+            <point key="canvasLocation" x="3134" y="734"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="Tm9-Sm-3z9">
@@ -570,7 +570,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8Rd-Zw-LWM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1964" y="2629"/>
+            <point key="canvasLocation" x="2578" y="2533"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="1MK-ej-4dz">
@@ -589,7 +589,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Npt-fD-sDT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1970" y="1977"/>
+            <point key="canvasLocation" x="2538" y="1697"/>
         </scene>
         <!--Message View Controller-->
         <scene sceneID="NYe-Xb-GyN">
@@ -792,7 +792,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m8j-AK-tNR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1970" y="1364"/>
+            <point key="canvasLocation" x="3106" y="1396"/>
         </scene>
         <!--Navigation Controller - Registration-->
         <scene sceneID="Ia6-eh-HGh">
@@ -1006,6 +1006,11 @@
                                             </connections>
                                         </button>
                                     </barButtonItem>
+                                    <barButtonItem title="-->" id="CTg-ln-WI8">
+                                        <connections>
+                                            <segue destination="MvH-2W-fd9" kind="modal" id="sEw-4n-rA2"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </items>
                                 <color key="barTintColor" name="disabledControlTextColor" catalog="System" colorSpace="catalog"/>
                             </toolbar>
@@ -1021,7 +1026,7 @@
                         <outlet property="floorLabel" destination="WHx-Kj-5bR" id="f5u-xK-6O7"/>
                         <outlet property="password" destination="XRn-49-lYi" id="8es-mp-RTK"/>
                         <outlet property="username" destination="KTB-vR-RGk" id="rHL-oq-TiJ"/>
-                        <segue destination="Clw-Pg-kxw" kind="modal" identifier="messages" id="rpj-r0-BRE"/>
+                        <segue destination="MvH-2W-fd9" kind="modal" identifier="messages" id="ZtC-7N-iB7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qSK-Gr-OK5" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1110,7 +1115,8 @@
         <image name="apartment_light.png" width="90" height="76"/>
         <image name="backbutton.png" width="120" height="70"/>
         <image name="background.png" width="640" height="1136"/>
-        <image name="background_frame.png" width="600" height="940"/>
+        <image name="background_frame.png" width="1236" height="1877"/>
+        <image name="background_splash.png" width="1280" height="2272"/>
         <image name="blockcell.png" width="640" height="120"/>
         <image name="development_text.png" width="360" height="60"/>
         <image name="help.png" width="640" height="140"/>
@@ -1131,9 +1137,9 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="s3m-fq-gWB"/>
-        <segue reference="tVW-qc-EI2"/>
         <segue reference="VAE-vi-8hH"/>
         <segue reference="7HT-RJ-otI"/>
+        <segue reference="sEw-4n-rA2"/>
+        <segue reference="tVW-qc-EI2"/>
     </inferredMetricsTieBreakers>
 </document>

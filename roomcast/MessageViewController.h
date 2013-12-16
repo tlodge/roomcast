@@ -10,11 +10,13 @@
 #import "Message.h"
 #import "MessageView.h"
 #import "ChatViewController.h"
+#import "DestinationViewController.h"
 #import <Parse/Parse.h>
 #import "Development.h"
 #import "DataManager.h"
+#import "Apartment.h"
 
-@interface MessageViewController : UITableViewController <UITextViewDelegate, RespondDelegate>
+@interface MessageViewController : UITableViewController <UITextViewDelegate, RespondDelegate, MessageScopeDelegate>
 
 @property (weak, nonatomic) IBOutlet UIButton *composeButton;
 
