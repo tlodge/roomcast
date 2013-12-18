@@ -32,7 +32,7 @@
 }
 -(void)viewDidAppear:(BOOL)animated
 {
-    NSLog(@"got to view did appear!");
+   
     PFUser *currentUser = [PFUser currentUser];
    // NSLog(@"and go current user as %@",currentUser);
     

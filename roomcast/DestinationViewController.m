@@ -9,18 +9,39 @@
 #import "DestinationViewController.h"
 
 @interface DestinationViewController ()
--(NSString*) _apartment_text;
+-(NSString *) _text_for_scope:(NSString *) scopename;
+-(NSString *) _total_for_scope:(NSString *) scopename;
 -(void) setSelected:(ScopeCell*) cell;
 -(void) setDeselected:(ScopeCell*) cell;
 @end
 
 //should be dynamic, so could potentially add new scopes!
+//scope
+
+
+//[scope] :: NSMutableDict [type, entity]
+//type    :: "apartment", "development", "developments", "region"
+//entity  :: NSMutableDict [key, object]
+//key     :: objectId
+//object  :: Apartment || Block || Development
+
+
+//[filter]:: NSMutableDict [type, entity]
+//type    :: "apartment", "development", "developments", "region"
+//entity  :: NSMutableDict [filtertype, object]
+//filtertype:: floor, tenancy, management company
+
 
 @implementation DestinationViewController
 
 @synthesize lastIndex;
-@synthesize apartmentScope;
 @synthesize scopedelegate;
+@synthesize currentScope;
+@synthesize scopeTypes;
+@synthesize scope;
+@synthesize filter;
+@synthesize blocks;
+@synthesize development;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -39,7 +60,21 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.apartmentScope = [[NSMutableDictionary alloc] init];
+    
+    
+    self.development = [[DataManager sharedManager] development];
+    
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES];
+    
+    NSArray* sortDescriptors = [NSArray arrayWithObject:sortDescriptor];
+    
+    self.blocks = [[[self.development blocks] allObjects] sortedArrayUsingDescriptors:sortDescriptors];
+
+    
+    
+    //self.scope  = [[NSMutableDictionary alloc] init];
+    self.filter = [[NSMutableDictionary alloc] init];
+    self.currentScope = [self.scopeTypes objectAtIndex:0];
     lastIndex = [NSIndexPath indexPathForItem:1 inSection:1];
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -65,7 +100,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return 5;
+    return [self.scopeTypes count] + 1;
 }
 
 
@@ -82,12 +117,19 @@
     }
     
     lastIndex = indexPath;
-
+    
+    if (indexPath.row > 0){
+        if (![self.currentScope isEqualToString:[self.scopeTypes objectAtIndex:indexPath.row-1]]){
+            self.currentScope = [self.scopeTypes objectAtIndex:indexPath.row-1];
+            [self.scopedelegate didSelectScope:self.currentScope withValues:[scope objectForKey:self.currentScope]];
+        }
+       
+    }
+    
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-
     if (indexPath.row == 0){
         return[tableView dequeueReusableCellWithIdentifier:@"InfoCell" forIndexPath:indexPath];
     }
@@ -104,9 +146,9 @@
     
     if (indexPath.row == 1){
         cell.title.text = @"specific apartment(s)";
-        [cell.info setFont:[UIFont fontWithName:@"Trebuchet MS" size:24]];
-        cell.info.text = [self _apartment_text];
-        cell.total.text = [NSString stringWithFormat:@"%d", [self.apartmentScope count]];
+        [cell.info setFont:[UIFont fontWithName:@"Verdana" size:24]];
+        cell.info.text = [self _text_for_scope:[self.scopeTypes objectAtIndex:indexPath.row-1]];
+        cell.total.text = [self _total_for_scope:[self.scopeTypes objectAtIndex:indexPath.row-1]];
         cell.moreButton.tag = indexPath.row;
     }else if (indexPath.row == 2){
         cell.title.text = @"within Burrells Wharf";
@@ -131,9 +173,14 @@
     return cell;
 }
 
--(NSString*) _apartment_text{
-    NSArray *apartments = [self.apartmentScope allValues];
-    return [[apartments valueForKey:@"name"]componentsJoinedByString:@","];
+-(NSString*) _text_for_scope:(NSString *) scopename{
+    NSArray *entities = [[self.scope objectForKey:scopename] allValues];
+    return [[entities valueForKey:@"name"]componentsJoinedByString:@","];
+}
+
+-(NSString *) _total_for_scope:(NSString *) scopename{
+     NSArray *entities = [[self.scope objectForKey:scopename] allValues];
+    return [NSString stringWithFormat:@"%d", [entities count]];
 }
 
 -(void)  triggerSegue:(id)sender{
@@ -142,8 +189,6 @@
     if (lastIndex != nil){
         ScopeCell* cell = (ScopeCell*)[self.tableView cellForRowAtIndexPath:lastIndex];
         [self setDeselected:cell];
-     
-        
     }
     
     NSIndexPath* currentIndex = [NSIndexPath indexPathForRow:clicked.tag inSection:0];
@@ -180,7 +225,6 @@
     cell.total.alpha = 0.0;
     cell.contentView.alpha = 0.5;
     cell.info.alpha = 0.0;
-
 }
 
 - (CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -235,29 +279,51 @@
 {
    
     if ([[segue identifier] isEqualToString:@"apartmentSegue"]){
-        BlockViewController* bvc = (BlockViewController*) [segue destinationViewController];
+        BlockViewController* bvc = (BlockViewController *) [segue destinationViewController];
         bvc.apartmentdelegate = self;
-        bvc.selections = self.apartmentScope;
-        //pass apartment objects down stack, else lost at each segue to bvc!
+        bvc.selections = [self.scope objectForKey:@"apartment"];
+        bvc.blocks = self.blocks;
     }
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    else if ([[segue identifier] isEqualToString:@"withinDevelopmentSegue"]){
+        DevelopmentViewController* dvc = (DevelopmentViewController *) [segue destinationViewController];
+        dvc.developmentdelegate = self;
+        dvc.blocks = self.blocks;
+        dvc.developmentName = self.development.name;
+        dvc.selections = [self.scope objectForKey:@"development"];
+    }
 }
 
 
-#pragma apartment selected delegate
+-(void) viewWillDisappear:(BOOL)animated{
+    if ([self isMovingFromParentViewController]){
+        [self.scopedelegate didSelectScope:self.currentScope withValues:[scope objectForKey:self.currentScope]];
+       
+    }
+}
+
+#pragma delegate methods
+
 -(void) didSelectApartment:(Apartment*)apartment withValue:(BOOL)value{
     if (value){
-        [self.apartmentScope setObject:apartment forKey:apartment.apartmentId];
-        NSMutableDictionary* scope = [NSMutableDictionary dictionary];
-        [scope setObject:@"apartment" forKey:@"type"];
-        [scope setObject:[self.apartmentScope allValues] forKey:@"scope"];
-        [self.scopedelegate didSelectScope:scope]; //tell parent (MessageViewController) to update scope
+       [[self.scope objectForKey:@"apartment" ] setObject:apartment forKey:apartment.apartmentId];
     }else{
-        [self.apartmentScope removeObjectForKey:apartment.apartmentId];
+        [[self.scope objectForKey:@"apartment" ] removeObjectForKey:apartment.apartmentId];
     }
-    
-   
+}
+
+-(void) didSelectBlock:(Block*) block withValue: (BOOL) value{
+    if (value){
+        [[self.scope objectForKey:@"development" ] setObject:block forKey:block.blockId];
+    }else{
+        [[self.scope objectForKey:@"development" ] removeObjectForKey:block.blockId];
+    }
+}
+
+-(void) didSelectAllBlocks{
+    for (int i=0; i < [self.blocks count]; i++){
+        Block *b = [self.blocks objectAtIndex:i];
+        [[self.scope objectForKey:@"development" ] setObject:b forKey:b.blockId];
+    }
 }
 
 @end

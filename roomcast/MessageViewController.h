@@ -21,12 +21,12 @@
 @property (weak, nonatomic) IBOutlet UIButton *composeButton;
 
 @property (nonatomic, strong) NSManagedObjectContext* managedObjectContext;
-@property (nonatomic, strong) NSMutableArray *messages;//defunct??
-
-- (IBAction)toggleMessage:(id)sender;
+@property (nonatomic, strong) NSMutableDictionary *scope;
 @property (nonatomic, strong) NSArray *conversations;
 @property (strong, nonatomic) Conversation* selectedConversation;
-
-@property(nonatomic, assign) BOOL composing;
+@property (nonatomic, assign) BOOL composing;
 @property (strong, nonatomic) MessageView* messageView;
+@property (weak, nonatomic) Development* development;
+
+- (IBAction)toggleMessage:(id)sender;
 @end

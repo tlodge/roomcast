@@ -1,0 +1,30 @@
+//
+//  DevelopmentViewController.h
+//  roomcast
+//
+//  Created by Tom Lodge on 17/12/2013.
+//  Copyright (c) 2013 Tom Lodge. All rights reserved.
+//
+
+#import <UIKit/UIKit.h>
+#import "DataManager.h"
+#import "DevelopmentBlockCell.h"
+
+@protocol DevelopmentAddDelegate;
+
+@interface DevelopmentViewController : UITableViewController
+@property(nonatomic,weak) NSArray* blocks;
+@property(nonatomic,strong) NSMutableDictionary *selections;
+@property(nonatomic,assign) BOOL aggregateSelect;
+
+- (IBAction)selectionChanged:(id)sender;
+@property(nonatomic, strong) NSString* developmentName;
+
+@property(assign, nonatomic) id <DevelopmentAddDelegate> developmentdelegate;
+
+@end
+
+@protocol DevelopmentAddDelegate <NSObject>
+-(void) didSelectBlock:(Block*) block withValue: (BOOL) value;
+-(void) didSelectAllBlocks;
+@end

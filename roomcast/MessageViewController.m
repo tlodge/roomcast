@@ -21,7 +21,9 @@
 @synthesize selectedConversation;
 @synthesize composing;
 @synthesize messageView;
+@synthesize scope;
 
+static NSArray* TYPES;
 
 
 - (id)initWithStyle:(UITableViewStyle)style
@@ -30,8 +32,7 @@
 
     self = [super initWithStyle:style];
     if (self) {
-        NSLog(@"custom init!");
-        // Custom initialization
+
     }
     return self;
 }
@@ -39,8 +40,17 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.development = [[DataManager sharedManager] development];
+    TYPES = [NSArray arrayWithObjects:@"apartment", @"development", @"developments", @"region",  nil];
     
     self.composing = YES;
+    
+    self.scope = [[NSMutableDictionary alloc] init];
+   
+    for (NSString *type in TYPES){
+        NSMutableDictionary *entities = [[NSMutableDictionary alloc] init];
+        [self.scope setObject:entities forKey:type];
+    }
     
     [[NSNotificationCenter defaultCenter] addObserverForName:@"conversationUpdate" object:nil queue:nil usingBlock:^(NSNotification *note) {
         self.conversations = [[DataManager sharedManager] conversationsForUser];
@@ -201,6 +211,8 @@
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     DestinationViewController *destination = (DestinationViewController*)[storyboard instantiateViewControllerWithIdentifier:@"sendto"];
     destination.scopedelegate = self;
+    destination.scope = self.scope;
+    destination.scopeTypes = TYPES;
     
     [self.navigationController pushViewController:destination animated:YES];
 }
@@ -259,18 +271,25 @@
     
 }
 
--(void) didSelectScope:(NSDictionary*) scope{
-    NSString *type = [scope objectForKey:@"type"];
-    NSLog(@"seen a %@ scope selected", [scope objectForKey:@"type"]);
+-(void) didSelectScope:(NSString*) scopeName withValues:(NSDictionary*) scopeValues{
     
-    if ([type isEqualToString:@"apartment"]){
-        NSArray *apartments = [scope objectForKey:@"scope"];
-        for (Apartment* apartment in apartments){
-            NSLog(@"%@ %@", apartment.apartmentId, apartment.name);
+    [self.scope setObject:scopeValues forKey: scopeName];
+    
+    if ([scopeName isEqualToString:@"apartment"]){
+        [self.messageView.whotoButton setTitle:[NSString stringWithFormat:@"%d apartments", [scopeValues count]] forState:UIControlStateNormal];
+        [self.messageView.numberButton setTitle:[NSString stringWithFormat:@"%d", [scopeValues count]] forState:UIControlStateNormal];
+    }else if([scopeName isEqualToString:@"development"]){
+        //interpret specific blocks chosen means entire development
+        NSString* whoto;
+        if ([scopeValues count] == [self.development.blocks count]){
+            whoto = [NSString stringWithFormat:@"all of %@", self.development.name];
+        }else{
+            NSArray *entities = [scopeValues allValues];
+            whoto = [[entities valueForKey:@"name"]componentsJoinedByString:@","];
         }
+        [self.messageView.whotoButton setTitle:whoto forState:UIControlStateNormal];
     }
 }
-
 
 
 @end

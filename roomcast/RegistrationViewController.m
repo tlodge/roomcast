@@ -40,8 +40,6 @@ NSArray* floors;
     self.blockArray = [development.blocks allObjects];
     
     
-    NSLog(@"block array is %@", self.blockArray);
-    
     self.selectedBlock = [self.blockArray objectAtIndex:0];
     [self updateFloorsForBlock:self.selectedBlock];
     

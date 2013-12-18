@@ -31,22 +31,12 @@
 }
 
 -(void) viewWillAppear:(BOOL)animated{
-    NSLog(@"I appeared!");
-    [self.tableView reloadData];
+   // [self.tableView reloadData];
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    Development* d = [[DataManager sharedManager] development];
-    
-    
-    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES];
-    
-    NSArray* sortDescriptors = [NSArray arrayWithObject:sortDescriptor];
-    
-    self.blocks = [[[d blocks] allObjects] sortedArrayUsingDescriptors:sortDescriptors];
     
     //self.selections = [[NSMutableDictionary alloc] init];
     self.totals = [[NSMutableDictionary alloc] init];
@@ -82,7 +72,6 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSLog(@"reloading cells!");
     static NSString *CellIdentifier = @"BlockCell";
     BlockCell *cell =  (BlockCell*) [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     Block* b = [self.blocks objectAtIndex:indexPath.row];
@@ -105,7 +94,6 @@
 
 -(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     self.selectedBlock = [self.blocks objectAtIndex:indexPath.row];
-    NSLog(@"seleceted block is %@", self.selectedBlock.name);
 }
 /*
 // Override to support conditional editing of the table view.
