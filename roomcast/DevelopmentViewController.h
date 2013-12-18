@@ -26,5 +26,5 @@
 
 @protocol DevelopmentAddDelegate <NSObject>
 -(void) didSelectBlock:(Block*) block withValue: (BOOL) value;
--(void) didSelectAllBlocks;
+-(void) didSelectAllBlocks: (BOOL) value;
 @end

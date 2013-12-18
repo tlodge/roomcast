@@ -20,9 +20,9 @@
 @property(retain, nonatomic) NSMutableDictionary *scope;
 @property(retain, nonatomic) NSMutableDictionary *filter;
 @property(retain, nonatomic) NSString *currentScope;
-@property(weak, nonatomic) NSArray *scopeTypes;
+@property(weak, nonatomic)  NSArray *scopeTypes;
 @property(strong, nonatomic) NSArray *blocks;
-@property(weak, nonatomic) Development *development;
+@property(strong, nonatomic)  NSString *developmentName;
 @property(assign, nonatomic) id <MessageScopeDelegate> scopedelegate;
 @end
 

@@ -139,34 +139,27 @@
 
 - (IBAction)selectionChanged:(UISwitch*)sender {
   
-    NSLog(@"sender is on is %@", [NSNumber numberWithBool:sender.on]);
-    NSLog(@"selections count is %d", [selections count]);
-    
-    if (sender.tag == 0){ //special case - bulk select (note can't select 0 blocks!)
-        NSLog(@"bulk select");
+    if (sender.tag == 0){
         if (sender.on){
             for (int i = 0; i < [self.blocks count]; i++){
                 Block *b = [self.blocks objectAtIndex:i];
                 [self.selections setObject:[NSNumber numberWithBool:YES] forKey:b.blockId];
             }
-            [self.developmentdelegate didSelectAllBlocks];
+        }else{
+            [self.selections removeAllObjects];
         }
+        
+        [self.developmentdelegate didSelectAllBlocks:sender.on];
     }else{
-        NSLog(@"specific select");
         Block* b = [blocks objectAtIndex:sender.tag-1];
         if (sender.on){
-            NSLog(@"setting object.. %@", b.blockId);
             [self.selections setObject:[NSNumber numberWithBool:YES] forKey:b.blockId];
             [self.developmentdelegate didSelectBlock:b withValue:sender.on];
         }else{
-            if ([self.selections count] > 1){ //can't select 0 blocks!
-                NSLog(@"removing object %@", b.blockId);
-                [self.selections removeObjectForKey:b.blockId];
-                [self.developmentdelegate didSelectBlock:b withValue:sender.on];
-            }
+            [self.selections removeObjectForKey:b.blockId];
+            [self.developmentdelegate didSelectBlock:b withValue:sender.on];
+            
         }
-        NSLog(@"selections is %@", self.selections);
-        
     }
     [self.tableView reloadData];
 }

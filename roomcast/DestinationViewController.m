@@ -41,7 +41,7 @@
 @synthesize scope;
 @synthesize filter;
 @synthesize blocks;
-@synthesize development;
+@synthesize developmentName;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -60,18 +60,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    
-    self.development = [[DataManager sharedManager] development];
-    
-    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES];
-    
-    NSArray* sortDescriptors = [NSArray arrayWithObject:sortDescriptor];
-    
-    self.blocks = [[[self.development blocks] allObjects] sortedArrayUsingDescriptors:sortDescriptors];
-
-    
-    
     //self.scope  = [[NSMutableDictionary alloc] init];
     self.filter = [[NSMutableDictionary alloc] init];
     self.currentScope = [self.scopeTypes objectAtIndex:0];
@@ -145,17 +133,16 @@
     }
     
     if (indexPath.row == 1){
+        cell.title.text = [NSString stringWithFormat:@"within %@",self.developmentName];
+        cell.info.text = [self _text_for_scope:[self.scopeTypes objectAtIndex:indexPath.row-1]];
+        cell.total.text = @"";
+        cell.moreButton.tag = indexPath.row;
+    }else if (indexPath.row == 2){
         cell.title.text = @"specific apartment(s)";
         [cell.info setFont:[UIFont fontWithName:@"Verdana" size:24]];
         cell.info.text = [self _text_for_scope:[self.scopeTypes objectAtIndex:indexPath.row-1]];
         cell.total.text = [self _total_for_scope:[self.scopeTypes objectAtIndex:indexPath.row-1]];
         cell.moreButton.tag = indexPath.row;
-    }else if (indexPath.row == 2){
-        cell.title.text = @"within Burrells Wharf";
-        cell.info.text = @"floor 3, Charthouse";
-        cell.total.text = @"125";
-        cell.moreButton.tag = indexPath.row;
-
     }else if (indexPath.row ==3){
         cell.title.text = @"across developments";
         cell.info.text = @"Burrells Wharf, Langbourne Place, Canary Riverside";
@@ -197,10 +184,10 @@
    
     lastIndex = currentIndex;
     
-    NSString *segue = @"apartmentSegue";
+    NSString *segue = @"withinDevelopmentSegue";
     
     if (clicked.tag == 2){
-       segue = @"withinDevelopmentSegue";
+       segue = @"apartmentSegue";
     }
     else if (clicked.tag == 3){
        segue = @"acrossDevelopmentSegue";
@@ -288,7 +275,7 @@
         DevelopmentViewController* dvc = (DevelopmentViewController *) [segue destinationViewController];
         dvc.developmentdelegate = self;
         dvc.blocks = self.blocks;
-        dvc.developmentName = self.development.name;
+        dvc.developmentName = self.developmentName;
         dvc.selections = [self.scope objectForKey:@"development"];
     }
 }
@@ -319,10 +306,14 @@
     }
 }
 
--(void) didSelectAllBlocks{
-    for (int i=0; i < [self.blocks count]; i++){
-        Block *b = [self.blocks objectAtIndex:i];
-        [[self.scope objectForKey:@"development" ] setObject:b forKey:b.blockId];
+-(void) didSelectAllBlocks: (BOOL)selected{
+    if (selected){
+        for (int i=0; i < [self.blocks count]; i++){
+            Block *b = [self.blocks objectAtIndex:i];
+            [[self.scope objectForKey:@"development" ] setObject:b forKey:b.blockId];
+        }
+    }else{
+        [[self.scope objectForKey:@"development"] removeAllObjects];
     }
 }
 

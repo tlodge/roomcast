@@ -41,7 +41,7 @@ static NSArray* TYPES;
 {
     [super viewDidLoad];
     self.development = [[DataManager sharedManager] development];
-    TYPES = [NSArray arrayWithObjects:@"apartment", @"development", @"developments", @"region",  nil];
+    TYPES = [NSArray arrayWithObjects:@"development", @"apartment", @"developments", @"region",  nil];
     
     self.composing = YES;
     
@@ -78,25 +78,9 @@ static NSArray* TYPES;
     
     self.managedObjectContext = [maindelegate managedObjectContext];
     
-    //[self getAllConversations];
-    
     self.conversations = [[DataManager sharedManager] conversationsForUser];
     [self.tableView reloadData];
-
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
-
-
-
-
-//- (void)didReceiveSyncDidFinishNotification:(NSNotification *)notification
-//{
-//    [self getAllConversations];
-//}
 
 - (void)didReceiveMemoryWarning
 {
@@ -117,8 +101,6 @@ static NSArray* TYPES;
 }
 
 
-
-
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSString *CellIdentifier = @"LightGreenMessageCell";
@@ -129,8 +111,6 @@ static NSArray* TYPES;
     
    Conversation *conversation = [self.conversations objectAtIndex:[conversations count] - indexPath.row - 1];
     
-    
-    //Message *message = [self.messages objectAtIndex:indexPath.row];
     UILabel *fromLabel  = (UILabel*)[cell viewWithTag:1];
     UILabel *bodyLabel  = (UILabel*)[cell viewWithTag:2];
     UILabel *repliesLabel = (UILabel*)[cell viewWithTag:3];
@@ -209,11 +189,20 @@ static NSArray* TYPES;
 
 -(void) pushDestination:(UIButton *) sender{
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    
     DestinationViewController *destination = (DestinationViewController*)[storyboard instantiateViewControllerWithIdentifier:@"sendto"];
+    
     destination.scopedelegate = self;
     destination.scope = self.scope;
     destination.scopeTypes = TYPES;
+    destination.developmentName = self.development.name;
     
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES];
+    
+    NSArray* sortDescriptors = [NSArray arrayWithObject:sortDescriptor];
+    
+    destination.blocks = [[[self.development blocks] allObjects] sortedArrayUsingDescriptors:sortDescriptors];
+   
     [self.navigationController pushViewController:destination animated:YES];
 }
 
