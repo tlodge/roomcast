@@ -23,6 +23,7 @@
 @synthesize messageView;
 @synthesize scope;
 @synthesize totals;
+
 static NSArray* TYPES;
 
 
@@ -47,6 +48,7 @@ static NSArray* TYPES;
     
     self.scope =  [NSMutableDictionary dictionary];
     self.totals = [NSMutableDictionary dictionary];
+    
     
     for (NSString *type in TYPES){
         NSMutableDictionary *entities = [NSMutableDictionary dictionary];
@@ -209,8 +211,7 @@ static NSArray* TYPES;
     destination.totals = self.totals;
     destination.scopeTypes = TYPES;
     destination.developmentName = self.development.name;
-    
-    
+  
     NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES];
     
     NSArray* sortDescriptors = [NSArray arrayWithObject:sortDescriptor];

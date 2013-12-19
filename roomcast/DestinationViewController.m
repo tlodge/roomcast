@@ -63,9 +63,11 @@
 {
     [super viewDidLoad];
     self.filter = [NSMutableDictionary dictionary];
+    //self.apartmenttotals = [NSMutableDictionary dictionary];
+    
     self.currentScope = [self.scopeTypes objectAtIndex:0];
-    lastIndex = [NSIndexPath indexPathForItem:1 inSection:1];
-    self.clearsSelectionOnViewWillAppear = NO;
+     lastIndex = [NSIndexPath indexPathForItem:1 inSection:1];
+     self.clearsSelectionOnViewWillAppear = NO;
 }
 
 - (void)didReceiveMemoryWarning

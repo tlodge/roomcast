@@ -19,10 +19,9 @@
 @interface MessageViewController : UITableViewController <UITextViewDelegate, RespondDelegate, MessageScopeDelegate>
 
 @property (weak, nonatomic) IBOutlet UIButton *composeButton;
-
 @property (nonatomic, strong) NSManagedObjectContext* managedObjectContext;
 @property (nonatomic, strong) NSMutableDictionary *scope;
-@property (nonatomic, strong) NSDictionary* totals;
+@property (nonatomic, strong) NSMutableDictionary* totals;
 @property (nonatomic, strong) NSArray *conversations;
 @property (strong, nonatomic) Conversation* selectedConversation;
 @property (nonatomic, assign) BOOL composing;

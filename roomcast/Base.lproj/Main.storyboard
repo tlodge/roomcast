@@ -852,7 +852,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m8j-AK-tNR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3142" y="1348"/>
+            <point key="canvasLocation" x="3118" y="1348"/>
         </scene>
         <!--Navigation Controller - Registration-->
         <scene sceneID="Ia6-eh-HGh">
@@ -1032,7 +1032,7 @@
                                     <segue destination="sGy-im-jZh" kind="push" identifier="registerfloor" id="t4o-A0-jX3"/>
                                 </connections>
                             </button>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nCZ-ad-Mzf">
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nCZ-ad-Mzf">
                                 <rect key="frame" x="0.0" y="372" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <color key="backgroundColor" name="disabledControlTextColor" catalog="System" colorSpace="catalog"/>
@@ -1076,6 +1076,11 @@
                             </toolbar>
                         </subviews>
                         <color key="backgroundColor" red="0.72941176470000002" green="0.78823529410000004" blue="0.66274509800000003" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="nCZ-ad-Mzf" firstAttribute="leading" secondItem="IvV-XC-Z2r" secondAttribute="leading" id="tdE-DP-ZAR"/>
+                            <constraint firstAttribute="bottom" secondItem="nCZ-ad-Mzf" secondAttribute="bottom" id="xbQ-gL-QUt"/>
+                            <constraint firstAttribute="trailing" secondItem="nCZ-ad-Mzf" secondAttribute="trailing" id="yOz-rV-F20"/>
+                        </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <navigationItem key="navigationItem" title="Register" id="Q1M-IJ-EYi"/>

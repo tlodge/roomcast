@@ -16,12 +16,13 @@
 
 @interface DestinationViewController : UITableViewController <ApartmentAddDelegate, DevelopmentAddDelegate>
 
-@property(retain,nonatomic) NSIndexPath *lastIndex;
+
 @property(retain, nonatomic) NSMutableDictionary *scope;
 @property(retain, nonatomic) NSMutableDictionary *filter;
 @property(retain, nonatomic) NSString *currentScope;
 @property(weak, nonatomic)  NSArray *scopeTypes;
 @property(weak, nonatomic) NSMutableDictionary *totals;
+@property(strong, nonatomic) NSIndexPath *lastIndex;
 //@property(strong, nonatomic) NSMutableDictionary *apartmenttotals;
 @property(strong, nonatomic) NSArray *blocks;
 @property(strong, nonatomic)  NSString *developmentName;
