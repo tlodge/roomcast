@@ -3,13 +3,14 @@
     <entity name="Apartment" representedClassName="Apartment" syncable="YES">
         <attribute name="apartmentId" optional="YES" attributeType="String" indexed="YES" syncable="YES"/>
         <attribute name="floor" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" indexed="YES" syncable="YES"/>
         <relationship name="block" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Block" inverseName="apartments" inverseEntity="Block" syncable="YES"/>
     </entity>
     <entity name="Block" representedClassName="Block" syncable="YES">
         <attribute name="blockId" optional="YES" attributeType="String" indexed="YES" syncable="YES"/>
         <attribute name="floors" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" indexed="YES" syncable="YES"/>
+        <attribute name="residents" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <relationship name="apartments" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Apartment" inverseName="block" inverseEntity="Apartment" syncable="YES"/>
         <relationship name="development" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Development" inverseName="blocks" inverseEntity="Development" syncable="YES"/>
     </entity>
@@ -27,6 +28,7 @@
         <attribute name="latitude" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="longitude" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="residents" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <relationship name="blocks" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Block" inverseName="development" inverseEntity="Block" syncable="YES"/>
     </entity>
     <entity name="Message" representedClassName="Message" syncable="YES">
@@ -38,9 +40,9 @@
     </entity>
     <elements>
         <element name="Apartment" positionX="-1001" positionY="-783" width="128" height="103"/>
-        <element name="Block" positionX="-1206" positionY="-784" width="128" height="118"/>
+        <element name="Block" positionX="-1206" positionY="-784" width="128" height="133"/>
         <element name="Conversation" positionX="-1332" positionY="-613" width="128" height="148"/>
-        <element name="Development" positionX="-1422" positionY="-774" width="128" height="118"/>
+        <element name="Development" positionX="-1422" positionY="-819" width="128" height="133"/>
         <element name="Message" positionX="-1143" positionY="-613" width="128" height="118"/>
     </elements>
 </model>

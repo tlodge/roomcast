@@ -2,7 +2,7 @@
 //  Block.h
 //  roomcast
 //
-//  Created by Tom Lodge on 27/11/2013.
+//  Created by Tom Lodge on 19/12/2013.
 //  Copyright (c) 2013 Tom Lodge. All rights reserved.
 //
 
@@ -14,8 +14,9 @@
 @interface Block : NSManagedObject
 
 @property (nonatomic, retain) NSString * blockId;
-@property (nonatomic, retain) NSString * name;
 @property (nonatomic, retain) NSString * floors;
+@property (nonatomic, retain) NSString * name;
+@property (nonatomic, retain) NSNumber * residents;
 @property (nonatomic, retain) NSSet *apartments;
 @property (nonatomic, retain) Development *development;
 @end

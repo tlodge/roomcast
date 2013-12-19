@@ -28,18 +28,18 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
     [self setDelegate:self];
     
-    NSLog(@"tab bar..........view did load!!");
     //load up the development here!
     
 	// Do any additional setup after loading the view.
 }
 
 -(BOOL)tabBarController:(UITabBarController *)tabBarController shouldSelectViewController:(UIViewController *)viewController{
-    NSLog(@"doing a check....");
+  
     if ([viewController isKindOfClass:[MessageViewController class]]){
-        NSLog(@"VERY COOL!!");
+        NSLog(@"Segue to message view controller");
     }
     return YES;
 }

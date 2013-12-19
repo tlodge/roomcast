@@ -20,8 +20,6 @@
 		A3334D7A1846582800ECA8D5 /* ApartmentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A3334D791846582700ECA8D5 /* ApartmentCell.m */; };
 		A3334D7D18468FFB00ECA8D5 /* RootTabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3334D7C18468FFB00ECA8D5 /* RootTabViewController.m */; };
 		A3334D87184698A900ECA8D5 /* Apartment.m in Sources */ = {isa = PBXBuildFile; fileRef = A3334D86184698A900ECA8D5 /* Apartment.m */; };
-		A3334D8D184698F300ECA8D5 /* Block.m in Sources */ = {isa = PBXBuildFile; fileRef = A3334D8C184698F300ECA8D5 /* Block.m */; };
-		A3334D931846993700ECA8D5 /* Development.m in Sources */ = {isa = PBXBuildFile; fileRef = A3334D921846993700ECA8D5 /* Development.m */; };
 		A335AA201847AC07007096A4 /* DataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A335AA1F1847AC07007096A4 /* DataManager.m */; };
 		A335AA24184E47FB007096A4 /* home.png in Resources */ = {isa = PBXBuildFile; fileRef = A335AA23184E47FB007096A4 /* home.png */; };
 		A335AA27184F7181007096A4 /* responses_dark.png in Resources */ = {isa = PBXBuildFile; fileRef = A335AA25184F7181007096A4 /* responses_dark.png */; };
@@ -65,6 +63,8 @@
 		A39E8BC1185F5C6C00600856 /* background_frame.png in Resources */ = {isa = PBXBuildFile; fileRef = A39E8BC0185F5C6C00600856 /* background_frame.png */; };
 		A39E8BCA1860AE9400600856 /* DevelopmentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A39E8BC91860AE9400600856 /* DevelopmentViewController.m */; };
 		A39E8BCD1860B3BB00600856 /* DevelopmentBlockCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A39E8BCC1860B3BB00600856 /* DevelopmentBlockCell.m */; };
+		A39E8BD01863355100600856 /* Development.m in Sources */ = {isa = PBXBuildFile; fileRef = A39E8BCF1863355100600856 /* Development.m */; };
+		A39E8BD91863378F00600856 /* Block.m in Sources */ = {isa = PBXBuildFile; fileRef = A39E8BD81863378F00600856 /* Block.m */; };
 		A3B6DADA18365EEF00A860CA /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3B6DAD918365EEF00A860CA /* Parse.framework */; };
 		A3B6DADC18365F3100A860CA /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3B6DADB18365F3100A860CA /* AudioToolbox.framework */; };
 		A3B6DADE18365F4600A860CA /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3B6DADD18365F4600A860CA /* CFNetwork.framework */; };
@@ -138,10 +138,6 @@
 		A3334D7C18468FFB00ECA8D5 /* RootTabViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootTabViewController.m; sourceTree = "<group>"; };
 		A3334D85184698A900ECA8D5 /* Apartment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Apartment.h; sourceTree = "<group>"; };
 		A3334D86184698A900ECA8D5 /* Apartment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Apartment.m; sourceTree = "<group>"; };
-		A3334D8B184698F300ECA8D5 /* Block.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Block.h; path = ../Block.h; sourceTree = "<group>"; };
-		A3334D8C184698F300ECA8D5 /* Block.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Block.m; path = ../Block.m; sourceTree = "<group>"; };
-		A3334D911846993700ECA8D5 /* Development.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Development.h; path = ../Development.h; sourceTree = "<group>"; };
-		A3334D921846993700ECA8D5 /* Development.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Development.m; path = ../Development.m; sourceTree = "<group>"; };
 		A335AA1E1847AC06007096A4 /* DataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataManager.h; sourceTree = "<group>"; };
 		A335AA1F1847AC07007096A4 /* DataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataManager.m; sourceTree = "<group>"; };
 		A335AA23184E47FB007096A4 /* home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = home.png; path = ../home.png; sourceTree = "<group>"; };
@@ -196,6 +192,10 @@
 		A39E8BC91860AE9400600856 /* DevelopmentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DevelopmentViewController.m; sourceTree = "<group>"; };
 		A39E8BCB1860B3BB00600856 /* DevelopmentBlockCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DevelopmentBlockCell.h; sourceTree = "<group>"; };
 		A39E8BCC1860B3BB00600856 /* DevelopmentBlockCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DevelopmentBlockCell.m; sourceTree = "<group>"; };
+		A39E8BCE1863355100600856 /* Development.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Development.h; path = ../Development.h; sourceTree = "<group>"; };
+		A39E8BCF1863355100600856 /* Development.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Development.m; path = ../Development.m; sourceTree = "<group>"; };
+		A39E8BD71863378F00600856 /* Block.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Block.h; path = ../Block.h; sourceTree = "<group>"; };
+		A39E8BD81863378F00600856 /* Block.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Block.m; path = ../Block.m; sourceTree = "<group>"; };
 		A3B6DAD918365EEF00A860CA /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		A3B6DADB18365F3100A860CA /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		A3B6DADD18365F4600A860CA /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
@@ -543,12 +543,12 @@
 		A3F88D911832706400E3BFB0 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				A3334D911846993700ECA8D5 /* Development.h */,
-				A3334D921846993700ECA8D5 /* Development.m */,
-				A3334D8B184698F300ECA8D5 /* Block.h */,
-				A3334D8C184698F300ECA8D5 /* Block.m */,
+				A39E8BD71863378F00600856 /* Block.h */,
+				A39E8BD81863378F00600856 /* Block.m */,
 				A3334D85184698A900ECA8D5 /* Apartment.h */,
 				A3334D86184698A900ECA8D5 /* Apartment.m */,
+				A39E8BCE1863355100600856 /* Development.h */,
+				A39E8BCF1863355100600856 /* Development.m */,
 				A3BD18E3184FA17C004EB6BD /* Message.h */,
 				A3BD18E4184FA17C004EB6BD /* Message.m */,
 				A39E8BB5185B6F1100600856 /* Conversation.h */,
@@ -713,6 +713,7 @@
 				A37C6EBF181952040042489D /* ViewController.m in Sources */,
 				A335AA201847AC07007096A4 /* DataManager.m in Sources */,
 				A317AC41182BD95C00BE7E46 /* MessageViewController.m in Sources */,
+				A39E8BD91863378F00600856 /* Block.m in Sources */,
 				A3334D7A1846582800ECA8D5 /* ApartmentCell.m in Sources */,
 				A3F88DEE18329C9700E3BFB0 /* Roomcast.xcdatamodeld in Sources */,
 				A37C6EB9181952040042489D /* AppDelegate.m in Sources */,
@@ -721,13 +722,12 @@
 				A3B6DAEA183BE0FA00A860CA /* RegistrationViewController.m in Sources */,
 				A3BD18E5184FA17C004EB6BD /* Message.m in Sources */,
 				A3F88D15182D445D00E3BFB0 /* ChatViewController.m in Sources */,
-				A3334D931846993700ECA8D5 /* Development.m in Sources */,
 				A3334D451843B41800ECA8D5 /* ScopeCell.m in Sources */,
 				A39E8BCD1860B3BB00600856 /* DevelopmentBlockCell.m in Sources */,
 				A3334D601845077500ECA8D5 /* BlockViewController.m in Sources */,
 				A3F88D36183019C000E3BFB0 /* MessageCell.m in Sources */,
+				A39E8BD01863355100600856 /* Development.m in Sources */,
 				A3334D6C1845159500ECA8D5 /* BlockCell.m in Sources */,
-				A3334D8D184698F300ECA8D5 /* Block.m in Sources */,
 				A3B6DAED183E60C500A860CA /* DestinationViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

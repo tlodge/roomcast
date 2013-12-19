@@ -19,6 +19,7 @@
 @synthesize developmentdelegate;
 @synthesize selections;
 @synthesize aggregateSelect;
+@synthesize totalSelected;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -32,6 +33,16 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    self.totalSelected = 0;
+    
+    for (int i = 0; i < [self.blocks count]; i++){
+        Block* b = [self.blocks objectAtIndex:i];
+        if ([self.selections objectForKey:b.blockId] != nil){
+            self.totalSelected += [b.residents intValue];
+        }
+    }
+    
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -66,15 +77,26 @@
     //special case for the first row
     if (indexPath.row == 0){
         cell.blockNameLabel.text = [NSString stringWithFormat:@"All of %@", self.developmentName];
-        [cell.selectedSwitch setOn:([self.selections count] == [self.blocks count])];
+
+        if ([self.selections count] == [self.blocks count]){
+            cell.totalSelectedLabel.text = [NSString stringWithFormat:@"%d",self.totalSelected];
+            [cell.selectedSwitch setOn:YES];
+        }
+        else{
+             cell.totalSelectedLabel.text = @"";
+        }
     }
     else{
         Block *b = [self.blocks objectAtIndex:indexPath.row - 1];
         cell.blockNameLabel.text = b.name;
+        
         if ([self.selections objectForKey:b.blockId] != nil){
              [cell.selectedSwitch setOn:YES];
+            cell.totalSelectedLabel.text = [NSString stringWithFormat:@"%d", [b.residents intValue]];
+
         }else{
-              [cell.selectedSwitch setOn:NO];
+            [cell.selectedSwitch setOn:NO];
+            cell.totalSelectedLabel.text = @"";
         }
     }
     cell.selectedSwitch.tag = indexPath.row;
@@ -140,10 +162,13 @@
 - (IBAction)selectionChanged:(UISwitch*)sender {
   
     if (sender.tag == 0){
+        totalSelected = 0;
         if (sender.on){
+            
             for (int i = 0; i < [self.blocks count]; i++){
                 Block *b = [self.blocks objectAtIndex:i];
                 [self.selections setObject:[NSNumber numberWithBool:YES] forKey:b.blockId];
+                totalSelected += [b.residents intValue];
             }
         }else{
             [self.selections removeAllObjects];
@@ -155,10 +180,11 @@
         if (sender.on){
             [self.selections setObject:[NSNumber numberWithBool:YES] forKey:b.blockId];
             [self.developmentdelegate didSelectBlock:b withValue:sender.on];
+            self.totalSelected += [b.residents intValue];
         }else{
             [self.selections removeObjectForKey:b.blockId];
             [self.developmentdelegate didSelectBlock:b withValue:sender.on];
-            
+            self.totalSelected -= [b.residents intValue];
         }
     }
     [self.tableView reloadData];

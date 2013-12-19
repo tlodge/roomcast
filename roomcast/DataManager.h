@@ -24,7 +24,7 @@
 -(Conversation *) fetchConversationWithObjectId:(NSString *) objectId;
 
 -(BOOL) syncWithDevelopment:(NSString*) developmentId;
--(BOOL) syncWithBlock:(Block *)block;
+
 
 
 -(void) addMessageToConversation:(NSString*) message forConversationId:(NSString*)conversationId;
@@ -32,6 +32,7 @@
 
 -(NSArray *) conversationsForUser;
 -(NSArray *) messagesForConversation:(NSString*) conversationId;
+-(NSArray *) apartmentsForBlock:(NSString *) blockId;
 
 @property(weak, nonatomic) Development* development;
 

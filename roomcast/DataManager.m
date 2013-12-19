@@ -9,8 +9,9 @@
 #import "DataManager.h"
 
 @interface DataManager ()
--(void) syncWithConversation:(NSString*) cid;
+-(void) syncWithConversation:(Conversation*) conversation;
 -(void) syncWithConversations;
+-(void) syncWithBlock:(Block *)block;
 
 -(BOOL) addMessageToCoreData:(PFObject*) message forConversation:(Conversation*) conversation;
 -(BOOL) addConversationToCoreData:(PFObject*) conversation withMessage:(PFObject*)message;
@@ -133,10 +134,38 @@ NSManagedObjectContext *context;
     if ([fetchedDevelopment count] > 0){
         return [fetchedDevelopment objectAtIndex:0];
     }
+    return nil;
+}
+
+
+-(Block *) fetchBlockWithObjectId:(NSString *) objectId{
+    
+    if (objectId == nil)
+        return nil;
+    
+    NSError *error;
+    
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Block"  inManagedObjectContext:context];
+    
+    //[fetchRequest setReturnsObjectsAsFaults:NO];
+    
+    [fetchRequest setEntity:entity];
+    
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"blockId == %@", objectId];
+    [fetchRequest setPredicate:predicate];
+    
+    NSArray* fetchedBlock = [context executeFetchRequest:fetchRequest error:&error];
+    
+    if ([fetchedBlock count] > 0){
+        return [fetchedBlock objectAtIndex:0];
+    }
     
     return nil;
     
 }
+
 
 -(NSArray*) fetchAllConversations{
     NSError* error;
@@ -187,10 +216,14 @@ NSManagedObjectContext *context;
     [PFCloud callFunctionInBackground:@"conversationsForUser" withParameters:parameters block:^(NSArray* conversations, NSError *error){
         if(!error){
             if (conversations){
+                
+                BOOL update = FALSE;
+                
                 for (PFObject *conversation in conversations){
                     Conversation  *c = [self fetchConversationWithObjectId:[conversation objectId]];
                     
                     if (c == nil){
+                        update = TRUE;
                         c = [NSEntityDescription insertNewObjectForEntityForName:@"Conversation" inManagedObjectContext:context];
                         
                         [c setValue:[conversation objectId] forKey:@"conversationId"];
@@ -202,9 +235,11 @@ NSManagedObjectContext *context;
                    
                     NSError *cderror;
                         
-                    if (![context save:&cderror]){
-                        NSLog(@"whoops! couldn't save %@", [cderror localizedDescription]);
-                    }
+                    update = update || (update && [context save:&cderror]);
+                    
+                }
+                if (update){
+                    [[NSNotificationCenter defaultCenter] postNotificationName:@"conversationsUpdate" object:nil];
                 }
             }
         }
@@ -213,15 +248,13 @@ NSManagedObjectContext *context;
 
 //pull in all new messages associated with a conversation
 
--(void) syncWithConversation:(NSString*) cid{
+-(void) syncWithConversation:(Conversation*) conversation{
     
-    if (cid == nil || cid == nil)
+    if (conversation == nil || conversation.conversationId == nil)
         return;
     
-    Conversation *conversation = [self fetchConversationWithObjectId:cid];
-    
     PFQuery *innerquery = [PFQuery queryWithClassName:@"Conversation"];
-    [innerquery whereKey:@"objectId" equalTo:cid];
+    [innerquery whereKey:@"objectId" equalTo:conversation.conversationId];
     
     PFQuery *outerquery = [PFQuery queryWithClassName:@"Message"];
     [outerquery whereKey:@"conversation" matchesKey:@"objectId" inQuery:innerquery];
@@ -245,7 +278,7 @@ NSManagedObjectContext *context;
                 }
                 if (update){
                     NSMutableDictionary* userInfo = [NSMutableDictionary dictionary];
-                    [userInfo setObject:cid forKey:@"conversationId"];
+                    [userInfo setObject:conversation.conversationId forKey:@"conversationId"];
                     [[NSNotificationCenter defaultCenter] postNotificationName:@"conversationUpdate" object:nil userInfo:userInfo];
                 }
             }
@@ -288,7 +321,7 @@ NSManagedObjectContext *context;
         [_development setValue:[pfdev objectForKey:@"name"] forKey:@"name"];
         [_development setValue:[NSNumber numberWithDouble: gp.latitude] forKey:@"latitude"];
         [_development setValue:[NSNumber numberWithDouble: gp.longitude] forKey:@"longitude"];
-        
+        [_development setValue:[pfdev objectForKey:@"residents"] forKey:@"residents"];
         NSMutableDictionary *lookup = [NSMutableDictionary dictionary];
         
         for (Block* block in _development.blocks){
@@ -310,6 +343,7 @@ NSManagedObjectContext *context;
             [b setValue:[block objectId] forKey:@"blockId"];
             [b setValue:[block objectForKey:@"name"] forKey:@"name"];
             [b setValue:floors forKey:@"floors"];
+            [b setValue:[block objectForKey:@"residents"] forKey:@"residents"];
             [b setValue:_development forKey:@"development"];
         }
         
@@ -321,11 +355,10 @@ NSManagedObjectContext *context;
     }
 }
 
-
--(BOOL) syncWithBlock:(Block*) block{
+-(void) syncWithBlock:(Block*) block{
     
-    if (block == nil || block.blockId == nil)
-        return NO;
+    if (block==nil || block.blockId == nil)
+        return;
     
     PFQuery *innerquery = [PFQuery queryWithClassName:@"Block"];
     [innerquery whereKey:@"objectId" equalTo:block.blockId];
@@ -333,42 +366,40 @@ NSManagedObjectContext *context;
     PFQuery *outerquery = [PFQuery queryWithClassName:@"Apartment"];
     [outerquery whereKey:@"block" matchesKey:@"objectId" inQuery:innerquery];
     
-    NSError* error;
-    
-    NSArray *apartments = [outerquery findObjects:&error];
-    
-    if (error){
-        NSLog(@"ok seen error %@", error);
-        return NO;
-    }
-    
-    if (apartments != nil && [apartments count] > 0){
+    [outerquery findObjectsInBackgroundWithBlock:^(NSArray *apartments, NSError *error) {
         
-        for (PFObject *apartment in apartments){
-        
-            Apartment *a = [self fetchApartmentWithObjectId:[apartment objectId]];
-   
-            if (a == nil){
-                a = [NSEntityDescription insertNewObjectForEntityForName:@"Apartment" inManagedObjectContext:context];
-                [a setValue:[apartment objectId] forKey:@"apartmentId"];
-            }
+        if (!error){
             
-            [a setValue:[apartment objectForKey:@"floor"] forKey:@"floor"];
-            [a setValue:[apartment objectForKey:@"name"] forKey:@"name"];
-            [a setValue:block forKey:@"block"];
-    
-            NSError *cderror;
-    
-            if (![context save:&cderror]){
-                NSLog(@"whoops! couldn't save %@", [cderror localizedDescription]);
-                return NO;
+            BOOL update = FALSE;
+
+            if (apartments != nil && [apartments count] > 0){
+        
+                for (PFObject *apartment in apartments){
+        
+                    Apartment *a = [self fetchApartmentWithObjectId:[apartment objectId]];
+   
+                    if (a == nil){
+                        
+                        a = [NSEntityDescription insertNewObjectForEntityForName:@"Apartment" inManagedObjectContext:context];
+                        [a setValue:[apartment objectId] forKey:@"apartmentId"];
+                        [a setValue:[apartment objectForKey:@"floor"] forKey:@"floor"];
+                        [a setValue:[apartment objectForKey:@"name"] forKey:@"name"];
+                        [a setValue:block forKey:@"block"];
+                        NSError *cderror;
+                        
+                        update = update || [context save:&cderror];
+                    }
+                    if (update){
+                        NSMutableDictionary* userInfo = [NSMutableDictionary dictionary];
+                        [userInfo setObject:block.blockId forKey:@"blockId"];
+                        [[NSNotificationCenter defaultCenter] postNotificationName:@"blockUpdate" object:nil userInfo:userInfo];
+                    }
+                }
             }
         }
-        return YES;
-    }
-    return NO;
+    }];
 }
-
+     
 
 -(BOOL) addConversationToCoreData:(PFObject*) conversation withMessage:(PFObject*)message{
     
@@ -433,12 +464,6 @@ NSManagedObjectContext *context;
 #pragma setter public methods
 
 
-
--(NSArray *) conversationsForUser{
-    [self syncWithConversations];
-    return [self fetchAllConversations];
-}
-
 -(void) createConversationWithMessage:(NSString *) message parameters:(NSDictionary *) params{
     
      PFObject *co = [PFObject objectWithClassName:@"Conversation"];
@@ -489,17 +514,41 @@ NSManagedObjectContext *context;
 
 #pragma getter public methods
 
+-(NSArray*) apartmentsForBlock:(NSString *)blockId{
+    
+    Block *block = [self fetchBlockWithObjectId:blockId];
+    
+    if (block){
+        [self syncWithBlock:block];
+        
+        if (block.apartments){
+            return [[block.apartments allObjects] sortedArrayUsingDescriptors:[NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]]];
+        }
+    }
+    //return empty array if nothing found in core data!
+    return [[NSArray alloc]init];
+}
+
+-(NSArray *) conversationsForUser{
+    [self syncWithConversations];
+    return [self fetchAllConversations];
+}
+
 -(NSArray *) messagesForConversation:(NSString*) conversationId{
     
     //could do some caching here too
     
     //sync over network on a background thread
-    [self syncWithConversation:conversationId];
+   
     
     //pull current latest from core data
     Conversation *conversation = [self fetchConversationWithObjectId:conversationId];
     
+   
+    
     if (conversation){
+        [self syncWithConversation:conversation];
+       
         if (conversation.messages){
         
             return [[conversation.messages allObjects] sortedArrayUsingDescriptors:[NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"sent" ascending:YES]]];
@@ -507,7 +556,7 @@ NSManagedObjectContext *context;
     }
     
     //return empty array if nothing found in core data!
-    
+   
     return [[NSArray alloc]init];
 }
 

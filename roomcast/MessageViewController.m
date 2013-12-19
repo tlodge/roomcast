@@ -22,7 +22,7 @@
 @synthesize composing;
 @synthesize messageView;
 @synthesize scope;
-
+@synthesize totals;
 static NSArray* TYPES;
 
 
@@ -45,10 +45,20 @@ static NSArray* TYPES;
     
     self.composing = YES;
     
-    self.scope = [[NSMutableDictionary alloc] init];
-   
+    self.scope =  [NSMutableDictionary dictionary];
+    self.totals = [NSMutableDictionary dictionary];
+    
     for (NSString *type in TYPES){
-        NSMutableDictionary *entities = [[NSMutableDictionary alloc] init];
+        NSMutableDictionary *entities = [NSMutableDictionary dictionary];
+        //set the default scope to whole development i.e. all blocks selected
+        int total = 0;
+        if ([type isEqualToString:@"development"]){
+            for (Block* block in self.development.blocks){
+                [entities setObject:block forKey:block.blockId];
+                total += [block.residents intValue];
+            }
+            [self.totals setValue:[NSNumber numberWithInt:total] forKey:@"development"];
+        }
         [self.scope setObject:entities forKey:type];
     }
     
@@ -58,6 +68,12 @@ static NSArray* TYPES;
         
     }];    
  
+    [[NSNotificationCenter defaultCenter] addObserverForName:@"conversationsUpdate" object:nil queue:nil usingBlock:^(NSNotification *note) {
+        self.conversations = [[DataManager sharedManager] conversationsForUser];
+        [self.tableView reloadData];
+        
+    }];
+
     
     NSArray *nibContents = [[NSBundle mainBundle] loadNibNamed:@"MessageView"
                                                          owner:self
@@ -169,13 +185,9 @@ static NSArray* TYPES;
     NSIndexPath *ip = [self.tableView indexPathForCell: (UITableViewCell *) sender];
     self.selectedConversation = [conversations objectAtIndex: [conversations count] - ip.row - 1];
     
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-    
     ChatViewController* cvc = (ChatViewController *) [segue destinationViewController];
     cvc.delegate = self;
     cvc.conversationId = self.selectedConversation.conversationId;
-    //[self.selectedConversation addObserver:cvc forKeyPath:@"messages" options:(NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld) context:NULL];
 }
 
  
@@ -193,9 +205,11 @@ static NSArray* TYPES;
     DestinationViewController *destination = (DestinationViewController*)[storyboard instantiateViewControllerWithIdentifier:@"sendto"];
     
     destination.scopedelegate = self;
-    destination.scope = self.scope;
+    destination.scope  = self.scope;
+    destination.totals = self.totals;
     destination.scopeTypes = TYPES;
     destination.developmentName = self.development.name;
+    
     
     NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES];
     
@@ -268,7 +282,7 @@ static NSArray* TYPES;
         [self.messageView.whotoButton setTitle:[NSString stringWithFormat:@"%d apartments", [scopeValues count]] forState:UIControlStateNormal];
         [self.messageView.numberButton setTitle:[NSString stringWithFormat:@"%d", [scopeValues count]] forState:UIControlStateNormal];
     }else if([scopeName isEqualToString:@"development"]){
-        //interpret specific blocks chosen means entire development
+      
         NSString* whoto;
         if ([scopeValues count] == [self.development.blocks count]){
             whoto = [NSString stringWithFormat:@"all of %@", self.development.name];

@@ -9,8 +9,8 @@
 #import "BlockViewController.h"
 
 @interface BlockViewController ()
--(void) _incrementTotalForBlock:(NSString*) blockId;
--(void) _decrementTotalForBlock:(NSString*) blockId;
+/*-(void) _incrementTotalForBlock:(NSString*) blockId;
+-(void) _decrementTotalForBlock:(NSString*) blockId;*/
 -(int) _totalForBlock:(NSString *) blockId;
 @end
 
@@ -37,15 +37,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    //self.selections = [[NSMutableDictionary alloc] init];
-    self.totals = [[NSMutableDictionary alloc] init];
-    
-    // Uncomment the following line to preserve selection between presentations.
     self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
 - (void)didReceiveMemoryWarning
@@ -76,6 +68,8 @@
     BlockCell *cell =  (BlockCell*) [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     Block* b = [self.blocks objectAtIndex:indexPath.row];
     
+    NSLog(@"setting totals for %@", b.blockId);
+    
     cell.chosen.text = [NSString stringWithFormat:@"%d", [self _totalForBlock:b.blockId]];
     
     cell.moreButton.tag = indexPath.row;
@@ -95,44 +89,6 @@
 -(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     self.selectedBlock = [self.blocks objectAtIndex:indexPath.row];
 }
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
 
 
 #pragma mark - Navigation
@@ -142,30 +98,11 @@
 {
     ApartmentViewController* avc = (ApartmentViewController*) [segue destinationViewController];
  
-    avc.delegate = self;
-    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES];
+    NSArray* blockapartments = [[DataManager sharedManager] apartmentsForBlock:selectedBlock.blockId];
     
-    NSArray* sortDescriptors = [NSArray arrayWithObject:sortDescriptor];
-    
-    
-    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0ul);
-    
-    dispatch_async(queue, ^{
-        //this runs on background thread!
-        BOOL success = [[DataManager sharedManager] syncWithBlock:selectedBlock];
-        dispatch_async(dispatch_get_main_queue(), ^{
-           
-            if (success){
-                NSArray* blockapartments = [[selectedBlock.apartments allObjects] sortedArrayUsingDescriptors:sortDescriptors];
-                avc.apartments = blockapartments;
-                [avc.tableView reloadData];
-            }
-        });
-    });
-    
-    NSArray* blockapartments = [[selectedBlock.apartments allObjects] sortedArrayUsingDescriptors:sortDescriptors];
-    
+    avc.delegate   = self;
     avc.apartments = blockapartments;
+    avc.blockId    = selectedBlock.blockId;
     avc.selections = self.selections;
 }
 
@@ -176,43 +113,33 @@
         if ([self.selections objectForKey:apartment.apartmentId] != nil)
             return;
         
-        [self _incrementTotalForBlock:selectedBlock.blockId];
+        //[self _incrementTotalForBlock:selectedBlock.blockId];
         
         [self.selections setObject:[NSNumber numberWithBool:value] forKey:apartment.apartmentId];
     }else{
         //if already not selected, do nothing
         if ([self.selections objectForKey:apartment.apartmentId] == nil)
             return;
-        [self _decrementTotalForBlock:selectedBlock.blockId];
+        //[self _decrementTotalForBlock:selectedBlock.blockId];
         [self.selections removeObjectForKey:apartment.apartmentId];
     }
     //pass event up the chain (if there has been a genuine change
     [self.apartmentdelegate didSelectApartment:apartment withValue:value];
-}
+    [self.tableView reloadData];
 
--(void) _incrementTotalForBlock:(NSString*) blockId{
-    NSNumber* total = [self.totals objectForKey:selectedBlock.blockId];
-    
-    if (total == nil){
-        [self.totals setObject:[NSNumber numberWithInt:1] forKey:selectedBlock.blockId];
-    }
-    else{
-        [self.totals setObject:[NSNumber numberWithInt:[total intValue] + 1]forKey:selectedBlock.blockId];
-    }
-}
-
--(void) _decrementTotalForBlock:(NSString*) blockId{
-    NSNumber* total = [self.totals objectForKey:selectedBlock.blockId];
-    if (total != nil){
-        [self.totals setObject:[NSNumber numberWithInt:[total intValue] - 1]forKey:selectedBlock.blockId];
-    }
 }
 
 -(int) _totalForBlock:(NSString *) blockId{
-     NSNumber* total = [self.totals objectForKey:blockId];
-    if (total != nil)
-        return [total intValue];
-    return 0;
+    NSArray* blockapartments = [[DataManager sharedManager] apartmentsForBlock:blockId];
+    int total = 0;
+    
+    for (int i = 0; i < [blockapartments count]; i++){
+        Apartment *a = [blockapartments objectAtIndex:i];
+        if ([self.selections objectForKey:a.apartmentId] != nil){
+            total += 1;
+        }
+    }
+    return total;
 }
 
 @end

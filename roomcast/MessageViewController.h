@@ -22,6 +22,7 @@
 
 @property (nonatomic, strong) NSManagedObjectContext* managedObjectContext;
 @property (nonatomic, strong) NSMutableDictionary *scope;
+@property (nonatomic, strong) NSDictionary* totals;
 @property (nonatomic, strong) NSArray *conversations;
 @property (strong, nonatomic) Conversation* selectedConversation;
 @property (nonatomic, assign) BOOL composing;

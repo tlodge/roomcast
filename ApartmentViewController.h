@@ -20,6 +20,7 @@
 @property (retain, nonatomic) UIButton *switchOff;
 @property (retain, nonatomic) NSArray* apartments;
 @property (retain, nonatomic) NSDictionary* selections;
+@property (retain, nonatomic) NSString* blockId;
 
 @property(nonatomic, assign) id <ApartmentAddDelegate> delegate;
 @end

@@ -2,7 +2,7 @@
 //  Development.h
 //  roomcast
 //
-//  Created by Tom Lodge on 27/11/2013.
+//  Created by Tom Lodge on 19/12/2013.
 //  Copyright (c) 2013 Tom Lodge. All rights reserved.
 //
 
@@ -14,9 +14,10 @@
 @interface Development : NSManagedObject
 
 @property (nonatomic, retain) NSString * developmentId;
-@property (nonatomic, retain) NSString * name;
 @property (nonatomic, retain) NSNumber * latitude;
 @property (nonatomic, retain) NSNumber * longitude;
+@property (nonatomic, retain) NSString * name;
+@property (nonatomic, retain) NSNumber * residents;
 @property (nonatomic, retain) NSSet *blocks;
 @end
 

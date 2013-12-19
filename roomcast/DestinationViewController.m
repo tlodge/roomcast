@@ -42,6 +42,8 @@
 @synthesize filter;
 @synthesize blocks;
 @synthesize developmentName;
+@synthesize totals;
+//@synthesize apartmenttotals;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -60,21 +62,15 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    //self.scope  = [[NSMutableDictionary alloc] init];
-    self.filter = [[NSMutableDictionary alloc] init];
+    self.filter = [NSMutableDictionary dictionary];
     self.currentScope = [self.scopeTypes objectAtIndex:0];
     lastIndex = [NSIndexPath indexPathForItem:1 inSection:1];
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    self.clearsSelectionOnViewWillAppear = NO;
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 #pragma mark - Table view data source
@@ -135,7 +131,7 @@
     if (indexPath.row == 1){
         cell.title.text = [NSString stringWithFormat:@"within %@",self.developmentName];
         cell.info.text = [self _text_for_scope:[self.scopeTypes objectAtIndex:indexPath.row-1]];
-        cell.total.text = @"";
+        cell.total.text = [self _total_for_scope:[self.scopeTypes objectAtIndex:indexPath.row-1]];
         cell.moreButton.tag = indexPath.row;
     }else if (indexPath.row == 2){
         cell.title.text = @"specific apartment(s)";
@@ -166,8 +162,9 @@
 }
 
 -(NSString *) _total_for_scope:(NSString *) scopename{
-     NSArray *entities = [[self.scope objectForKey:scopename] allValues];
-    return [NSString stringWithFormat:@"%d", [entities count]];
+    if ([self.totals objectForKey:scopename] != nil)
+        return [NSString stringWithFormat:@"%@",[self.totals objectForKey:scopename]];
+    return @"0";
 }
 
 -(void)  triggerSegue:(id)sender{
@@ -270,6 +267,7 @@
         bvc.apartmentdelegate = self;
         bvc.selections = [self.scope objectForKey:@"apartment"];
         bvc.blocks = self.blocks;
+       // bvc.apartmenttotals = self.apartmenttotals;
     }
     else if ([[segue identifier] isEqualToString:@"withinDevelopmentSegue"]){
         DevelopmentViewController* dvc = (DevelopmentViewController *) [segue destinationViewController];
@@ -296,25 +294,52 @@
     }else{
         [[self.scope objectForKey:@"apartment" ] removeObjectForKey:apartment.apartmentId];
     }
+    
+    [self.totals setObject:[NSNumber numberWithInt:[[[self.scope objectForKey:@"apartment"] allValues] count]] forKey:@"apartment"];
 }
 
 -(void) didSelectBlock:(Block*) block withValue: (BOOL) value{
+    int total = 0;
+    NSNumber* residents = [self.totals objectForKey:@"development"];
+    
+    if (!residents)
+        residents = [NSNumber numberWithInt:0];
+    
+   //Block *b = [[self.scope objectForKey:@"development" ] objectForKey:block.blockId];
+    
     if (value){
-        [[self.scope objectForKey:@"development" ] setObject:block forKey:block.blockId];
+        //if (b == nil){
+            [[self.scope objectForKey:@"development" ] setObject:block forKey:block.blockId];
+            total = [residents intValue] + [block.residents intValue];
+            [self.totals setObject:[NSNumber numberWithInt:total] forKey:@"development"];
+       // }
+        
     }else{
-        [[self.scope objectForKey:@"development" ] removeObjectForKey:block.blockId];
+        //if (b != nil){
+            [[self.scope objectForKey:@"development" ] removeObjectForKey:block.blockId];
+            total = [residents intValue] - [block.residents intValue];
+            [self.totals setObject:[NSNumber numberWithInt:total] forKey:@"development"];
+        //}
     }
+   
 }
 
 -(void) didSelectAllBlocks: (BOOL)selected{
+   
+    int total = 0;
+    
     if (selected){
         for (int i=0; i < [self.blocks count]; i++){
             Block *b = [self.blocks objectAtIndex:i];
             [[self.scope objectForKey:@"development" ] setObject:b forKey:b.blockId];
+            total += [b.residents intValue];
         }
     }else{
         [[self.scope objectForKey:@"development"] removeAllObjects];
     }
+    
+    [self.totals setObject:[NSNumber numberWithInt:total] forKey:@"development"];
+    
 }
 
 @end

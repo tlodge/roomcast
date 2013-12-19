@@ -18,6 +18,7 @@
 @property(nonatomic,assign) BOOL aggregateSelect;
 
 - (IBAction)selectionChanged:(id)sender;
+@property(nonatomic, assign) int totalSelected;
 @property(nonatomic, strong) NSString* developmentName;
 
 @property(assign, nonatomic) id <DevelopmentAddDelegate> developmentdelegate;

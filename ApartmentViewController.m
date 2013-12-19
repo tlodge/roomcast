@@ -16,6 +16,7 @@
 
 @synthesize selections;
 @synthesize apartments;
+@synthesize blockId;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -30,7 +31,16 @@
 {
     [super viewDidLoad];
     
-    
+    //observe any changes to messages for this conversation
+    [[NSNotificationCenter defaultCenter] addObserverForName:@"blockUpdate" object:nil queue:nil usingBlock:^(NSNotification *note) {
+        NSDictionary* userInfo = note.userInfo;
+        NSString* updatedBlock = [userInfo objectForKey:@"blockId"];
+        if ([updatedBlock isEqualToString:self.blockId]){
+            self.apartments = [[DataManager sharedManager] apartmentsForBlock:self.blockId];
+            [self.tableView reloadData];
+        }
+    }];
+
     self.switchOn = [UIButton buttonWithType:UIButtonTypeCustom];
     [self.switchOn setImage:[UIImage imageNamed:@"switchon.png"] forState:UIControlStateNormal];
     self.switchOn.frame=CGRectMake(0.0, 0.0, 53.0, 32.0);

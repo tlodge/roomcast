@@ -14,7 +14,6 @@
 @interface BlockViewController : UITableViewController <ApartmentAddDelegate>
 @property (weak,nonatomic) NSArray *blocks;
 @property (weak, nonatomic) Block* selectedBlock;
-@property (strong, nonatomic) NSMutableDictionary *selections;
-@property (strong, nonatomic) NSMutableDictionary *totals;
+@property (weak, nonatomic) NSMutableDictionary *selections;
 @property(nonatomic, assign) id <ApartmentAddDelegate> apartmentdelegate;
 @end
