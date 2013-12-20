@@ -29,8 +29,6 @@ static NSArray* TYPES;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
-   
-
     self = [super initWithStyle:style];
     if (self) {
 
@@ -49,6 +47,20 @@ static NSArray* TYPES;
     self.scope =  [NSMutableDictionary dictionary];
     self.totals = [NSMutableDictionary dictionary];
     
+    NSArray *nibContents = [[NSBundle mainBundle] loadNibNamed:@"MessageView"
+                                                         owner:self
+                                                       options:nil];
+    messageView = [nibContents objectAtIndex:0];
+    
+    [messageView addTarget:self action:@selector(closeKeyboard:) forControlEvents:UIControlEventAllTouchEvents];
+    
+    [messageView.backButton addTarget:self action:@selector(toggleMessage:)
+                     forControlEvents:UIControlEventTouchUpInside];
+    
+    [messageView.sendButton addTarget:self action:@selector(sendMessage:) forControlEvents:UIControlEventTouchUpInside];
+    
+    [messageView.whotoButton addTarget:self action:@selector(pushDestination:) forControlEvents:UIControlEventTouchUpInside];
+
     
     for (NSString *type in TYPES){
         NSMutableDictionary *entities = [NSMutableDictionary dictionary];
@@ -60,6 +72,7 @@ static NSArray* TYPES;
                 total += [block.residents intValue];
             }
             [self.totals setValue:[NSNumber numberWithInt:total] forKey:@"development"];
+            [self.messageView.numberButton setTitle:[NSString stringWithFormat:@"%d", total] forState:UIControlStateNormal];
         }
         [self.scope setObject:entities forKey:type];
     }
@@ -77,19 +90,6 @@ static NSArray* TYPES;
     }];
 
     
-    NSArray *nibContents = [[NSBundle mainBundle] loadNibNamed:@"MessageView"
-                                                         owner:self
-                                                       options:nil];
-    messageView = [nibContents objectAtIndex:0];
-    
-    [messageView addTarget:self action:@selector(closeKeyboard:) forControlEvents:UIControlEventAllTouchEvents];
-    
-    [messageView.backButton addTarget:self action:@selector(toggleMessage:)
-               forControlEvents:UIControlEventTouchUpInside];
-    
-    [messageView.sendButton addTarget:self action:@selector(sendMessage:) forControlEvents:UIControlEventTouchUpInside];
-    
-    [messageView.whotoButton addTarget:self action:@selector(pushDestination:) forControlEvents:UIControlEventTouchUpInside];
     
     
     id maindelegate = [[UIApplication sharedApplication] delegate];
@@ -280,8 +280,9 @@ static NSArray* TYPES;
     [self.scope setObject:scopeValues forKey: scopeName];
     
     if ([scopeName isEqualToString:@"apartment"]){
-        [self.messageView.whotoButton setTitle:[NSString stringWithFormat:@"%d apartments", [scopeValues count]] forState:UIControlStateNormal];
-        [self.messageView.numberButton setTitle:[NSString stringWithFormat:@"%d", [scopeValues count]] forState:UIControlStateNormal];
+        [self.messageView.whotoButton setTitle:[NSString stringWithFormat:@"%d apartments", [[self.totals objectForKey:@"apartment"] intValue]] forState:UIControlStateNormal];
+        
+        [self.messageView.numberButton setTitle:[NSString stringWithFormat:@"%d", [[self.totals objectForKey:@"apartment"] intValue]] forState:UIControlStateNormal];
     }else if([scopeName isEqualToString:@"development"]){
       
         NSString* whoto;
@@ -291,7 +292,10 @@ static NSArray* TYPES;
             NSArray *entities = [scopeValues allValues];
             whoto = [[entities valueForKey:@"name"]componentsJoinedByString:@","];
         }
+       
         [self.messageView.whotoButton setTitle:whoto forState:UIControlStateNormal];
+        
+        [self.messageView.numberButton setTitle:[NSString stringWithFormat:@"%d", [[self.totals objectForKey:@"development"] intValue]] forState:UIControlStateNormal];
     }
 }
 
