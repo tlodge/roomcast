@@ -40,7 +40,7 @@ static NSArray* TYPES;
 {
     [super viewDidLoad];
     
-    self.development = [[DataManager sharedManager] development];
+    self.development  = [[DataManager sharedManager] development];
     
     self.developments = [[DataManager sharedManager] developmentsInRange];
 
