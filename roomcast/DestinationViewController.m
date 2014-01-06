@@ -41,6 +41,7 @@
 @synthesize scope;
 @synthesize filter;
 @synthesize blocks;
+@synthesize developments;
 @synthesize developmentName;
 @synthesize totals;
 //@synthesize apartmenttotals;

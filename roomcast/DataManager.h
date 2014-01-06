@@ -30,6 +30,7 @@
 -(void) addMessageToConversation:(NSString*) message forConversationId:(NSString*)conversationId;
 -(void) createConversationWithMessage:(NSString *) message parameters:(NSDictionary *) params;
 
+-(NSArray *) developmentsInRange;
 -(NSArray *) conversationsForUser;
 -(NSArray *) messagesForConversation:(NSString*) conversationId;
 -(NSArray *) apartmentsForBlock:(NSString *) blockId;

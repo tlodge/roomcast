@@ -514,6 +514,10 @@ NSManagedObjectContext *context;
 
 #pragma getter public methods
 
+-(NSArray*) developmentsInRange{
+    return nil;
+}
+
 -(NSArray*) apartmentsForBlock:(NSString *)blockId{
     
     Block *block = [self fetchBlockWithObjectId:blockId];

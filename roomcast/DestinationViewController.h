@@ -25,7 +25,9 @@
 @property(strong, nonatomic) NSIndexPath *lastIndex;
 //@property(strong, nonatomic) NSMutableDictionary *apartmenttotals;
 @property(strong, nonatomic) NSArray *blocks;
+@property(strong, nonatomic) NSArray *developments;
 @property(strong, nonatomic)  NSString *developmentName;
+
 @property(assign, nonatomic) id <MessageScopeDelegate> scopedelegate;
 @end
 

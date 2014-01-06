@@ -1664,15 +1664,15 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.25"
-     inkscape:cx="3041.2424"
-     inkscape:cy="-812.20066"
+     inkscape:zoom="1"
+     inkscape:cx="1817.7278"
+     inkscape:cy="-2443.5578"
      inkscape:document-units="px"
-     inkscape:current-layer="layer1"
+     inkscape:current-layer="layer3"
      showgrid="false"
      inkscape:window-width="1280"
      inkscape:window-height="726"
-     inkscape:window-x="53"
+     inkscape:window-x="24"
      inkscape:window-y="0"
      inkscape:window-maximized="0"
      showguides="true"
@@ -2503,6 +2503,46 @@
        id="path6200"
        d="m 2915.3805,1641.2181 545.1793,-31.4791 0,40.1629 z"
        style="fill:#697060;fill-opacity:1;stroke:none" />
+    <path
+       style="fill:none;stroke:#ffffff;stroke-width:1.56158662;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       d="m 1976.8833,2691.7263 -0.185,-35.889 36.4385,1.2817 0,35.1567 z"
+       id="path4094"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/Users/tlodge/roomcast_images/apartment_dark.png"
+       inkscape:export-xdpi="179.87073"
+       inkscape:export-ydpi="179.87073" />
+    <path
+       inkscape:export-ydpi="179.87073"
+       inkscape:export-xdpi="179.87073"
+       inkscape:export-filename="/Users/tlodge/roomcast_images/apartment_light.png"
+       style="fill:none;stroke:#ffffff;stroke-width:1.56158662;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       d="m 1877.564,2770.8547 -0.185,-35.8891 36.4385,1.2817 0,35.1567 z"
+       id="path4096"
+       inkscape:connector-curvature="0" />
+    <path
+       inkscape:export-ydpi="179.87073"
+       inkscape:export-xdpi="179.87073"
+       inkscape:export-filename="/Users/tlodge/roomcast_images/apartment_dark.png"
+       inkscape:connector-curvature="0"
+       id="path4098"
+       d="m 1975.8833,2911.7263 -0.185,-35.889 36.4385,1.2817 0,35.1567 z"
+       style="fill:none;stroke:#ffffff;stroke-width:1.56158662;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+    <path
+       inkscape:connector-curvature="0"
+       id="path4165"
+       d="m 1876.564,2842.8547 -0.185,-35.8891 36.4385,1.2817 0,35.1567 z"
+       style="fill:none;stroke:#ffffff;stroke-width:1.56158662;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       inkscape:export-filename="/Users/tlodge/roomcast_images/apartment_light.png"
+       inkscape:export-xdpi="179.87073"
+       inkscape:export-ydpi="179.87073" />
+    <path
+       style="fill:none;stroke:#ffffff;stroke-width:1.56158662;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       d="m 1979.8833,2774.7263 -0.185,-35.889 36.4385,1.2817 0,35.1567 z"
+       id="path4183"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/Users/tlodge/roomcast_images/apartment_dark.png"
+       inkscape:export-xdpi="179.87073"
+       inkscape:export-ydpi="179.87073" />
   </g>
   <g
      inkscape:groupmode="layer"
@@ -2510,6 +2550,26 @@
      inkscape:label="Layer#1"
      style="display:inline"
      transform="translate(-70.71065,620.4014)">
+    <rect
+       inkscape:export-ydpi="180"
+       inkscape:export-xdpi="180"
+       inkscape:export-filename="/Users/tlodge/roomcast_images/message_buttons_back.png"
+       y="2795.4521"
+       x="1866.6842"
+       height="70"
+       width="320"
+       id="rect4128"
+       style="fill:#bac9a9;fill-opacity:1;stroke:none" />
+    <rect
+       style="fill:#bac9a9;fill-opacity:1;stroke:none"
+       id="rect4102"
+       width="320"
+       height="70"
+       x="1868.6842"
+       y="2654.4521"
+       inkscape:export-filename="/Users/tlodge/roomcast_images/message_buttons_back.png"
+       inkscape:export-xdpi="180"
+       inkscape:export-ydpi="180" />
     <rect
        inkscape:export-ydpi="180"
        inkscape:export-xdpi="180"
@@ -2697,6 +2757,7 @@
          y="-194.56845"><tspan
    style="font-size:36px;fill:#008080"
    id="tspan7455">account</tspan>
+
 
 
 
@@ -7169,6 +7230,231 @@
        inkscape:export-filename="/Users/tlodge/roomcast_images/bubble_r.png"
        inkscape:export-xdpi="89.099998"
        inkscape:export-ydpi="89.099998" />
+    <rect
+       y="2594.5776"
+       x="1868.8342"
+       height="60.097656"
+       width="320.14966"
+       id="rect4100"
+       style="fill:#697060;fill-opacity:1;stroke:none" />
+    <rect
+       inkscape:export-ydpi="180"
+       inkscape:export-xdpi="180"
+       inkscape:export-filename="/Users/tlodge/roomcast_images/message_buttons_back.png"
+       y="2723.9058"
+       x="1867.2385"
+       height="70"
+       width="320"
+       id="rect4104"
+       style="fill:#f3ffcf;fill-opacity:1;stroke:none" />
+    <text
+       sodipodi:linespacing="125%"
+       id="text4106"
+       y="2633.5232"
+       x="1950.5488"
+       style="font-size:20px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#329e97;fill-opacity:1;stroke:none;font-family:Trebuchet MS;-inkscape-font-specification:Trebuchet MS"
+       xml:space="preserve"><tspan
+         style="fill:#ffffff"
+         y="2633.5232"
+         x="1950.5488"
+         id="tspan4108"
+         sodipodi:role="line">My Messages</tspan></text>
+    <path
+       sodipodi:nodetypes="ccccc"
+       style="fill:#f2d680;fill-opacity:1;stroke:#eb9c49;stroke-width:1.11861646px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 2105.9528,2606.1601 0,35.3553 70.4326,2.1213 2.1213,-37.4766 z"
+       id="path4122"
+       inkscape:connector-curvature="0" />
+    <text
+       transform="scale(0.99482562,1.0052013)"
+       xml:space="preserve"
+       style="font-size:18px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#333333;fill-opacity:1;stroke:none;font-family:Verdana;-inkscape-font-specification:Verdana"
+       x="2132.6223"
+       y="2617.1536"
+       id="text4124"
+       sodipodi:linespacing="125%"><tspan
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#ffffff;font-family:Verdana;-inkscape-font-specification:Verdana"
+         sodipodi:role="line"
+         id="tspan4126"
+         x="2132.6223"
+         y="2617.1536">send</tspan></text>
+    <rect
+       style="fill:#f3ffcf;fill-opacity:1;stroke:none"
+       id="rect4130"
+       width="320"
+       height="70"
+       x="1865.2385"
+       y="2865.9058"
+       inkscape:export-filename="/Users/tlodge/roomcast_images/message_buttons_back.png"
+       inkscape:export-xdpi="180"
+       inkscape:export-ydpi="180" />
+    <path
+       inkscape:export-ydpi="180"
+       inkscape:export-xdpi="180"
+       inkscape:export-filename="/Users/tlodge/roomcast_images/responses_light.png"
+       transform="matrix(0.92794499,0,0,0.88928068,-1651.7378,2916.6193)"
+       d="m 4115.3616,-22.239727 a 16.263456,16.970562 0 1 1 -32.5269,0 16.263456,16.970562 0 1 1 32.5269,0 z"
+       sodipodi:ry="16.970562"
+       sodipodi:rx="16.263456"
+       sodipodi:cy="-22.239727"
+       sodipodi:cx="4099.0981"
+       id="path4133"
+       style="fill:#697060;fill-opacity:1;stroke:#ffffff;stroke-width:1.10082793;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+       sodipodi:type="arc" />
+    <path
+       style="fill:#697060;fill-opacity:1;stroke:#ffffff;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 1872.9659,2877.1325 0,36.9962 43.4962,0 -0.8915,-35.6046 z"
+       id="path4137"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="ccccc" />
+    <text
+       xml:space="preserve"
+       style="font-size:20px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#329e97;fill-opacity:1;stroke:none;font-family:Verdana;-inkscape-font-specification:Verdana"
+       x="1879.9047"
+       y="2900.1917"
+       id="text4139"
+       sodipodi:linespacing="125%"><tspan
+         style="font-size:15px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#ffffff;font-family:Verdana;-inkscape-font-specification:Verdana"
+         sodipodi:role="line"
+         id="tspan4141"
+         x="1879.9047"
+         y="2900.1917">11a</tspan></text>
+    <text
+       sodipodi:linespacing="125%"
+       id="text4143"
+       y="2901.2773"
+       x="1927.1595"
+       style="font-size:20px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#697060;fill-opacity:1;stroke:none;font-family:Trebuchet MS;-inkscape-font-specification:Trebuchet MS"
+       xml:space="preserve"><tspan
+         y="2901.2773"
+         x="1927.1595"
+         id="tspan4145"
+         sodipodi:role="line"
+         style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#697060;fill-opacity:1;font-family:Verdana;-inkscape-font-specification:Verdana">I'm not too sure about the...</tspan></text>
+    <text
+       sodipodi:linespacing="125%"
+       id="text4151"
+       y="2900.813"
+       x="2146.7188"
+       style="font-size:16px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#329e97;fill-opacity:1;stroke:none;font-family:Verdana;-inkscape-font-specification:Verdana"
+       xml:space="preserve"><tspan
+         y="2900.813"
+         x="2146.7188"
+         id="tspan4153"
+         sodipodi:role="line"
+         style="font-size:16px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#ffffff;font-family:Verdana;-inkscape-font-specification:Verdana">1</tspan></text>
+    <path
+       transform="matrix(0.92794499,0,0,0.88928068,-1648.661,2850.093)"
+       d="m 4115.3616,-22.239727 a 16.263456,16.970562 0 1 1 -32.5269,0 16.263456,16.970562 0 1 1 32.5269,0 z"
+       sodipodi:ry="16.970562"
+       sodipodi:rx="16.263456"
+       sodipodi:cy="-22.239727"
+       sodipodi:cx="4099.0981"
+       id="path4167"
+       style="fill:#ffffff;fill-opacity:1;stroke:#697060;stroke-width:1.10082793;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+       sodipodi:type="arc"
+       inkscape:export-filename="/Users/tlodge/roomcast_images/responses_dark.png"
+       inkscape:export-xdpi="180"
+       inkscape:export-ydpi="180"
+       inkscape:transform-center-x="-55.63626"
+       inkscape:transform-center-y="-15.980875" />
+    <text
+       sodipodi:linespacing="125%"
+       id="text4169"
+       y="2836.825"
+       x="1930.1595"
+       style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#697060;fill-opacity:1;stroke:none;font-family:Verdana;-inkscape-font-specification:Verdana"
+       xml:space="preserve"><tspan
+         y="2836.825"
+         x="1930.1595"
+         id="tspan4171"
+         sodipodi:role="line"
+         style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#697060;fill-opacity:1;font-family:Verdana;-inkscape-font-specification:Verdana">This needs to look much be.</tspan></text>
+    <text
+       sodipodi:linespacing="125%"
+       id="text4173"
+       y="2835.5322"
+       x="2149.7266"
+       style="font-size:16px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#697060;fill-opacity:1;stroke:none;font-family:Verdana;-inkscape-font-specification:Verdana"
+       xml:space="preserve"><tspan
+         y="2835.5322"
+         x="2149.7266"
+         id="tspan4175"
+         sodipodi:role="line"
+         style="font-size:16px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#697060;fill-opacity:1;font-family:Verdana;-inkscape-font-specification:Verdana">1</tspan></text>
+    <path
+       style="fill:#ffffff;fill-opacity:1;stroke:#697060;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 1875.9659,2811.6325 0,36.9962 43.4962,0 -0.8915,-35.6046 z"
+       id="path4177"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="ccccc" />
+    <text
+       xml:space="preserve"
+       style="font-size:20px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#697060;fill-opacity:1;stroke:none;font-family:Verdana;-inkscape-font-specification:Verdana"
+       x="1881.9047"
+       y="2834.6917"
+       id="text4179"
+       sodipodi:linespacing="125%"><tspan
+         style="font-size:15px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#697060;fill-opacity:1;font-family:Verdana;-inkscape-font-specification:Verdana"
+         sodipodi:role="line"
+         id="tspan4181"
+         x="1881.9047"
+         y="2834.6917">11a</tspan></text>
+    <path
+       sodipodi:type="arc"
+       style="fill:#697060;fill-opacity:1;stroke:#ffffff;stroke-width:1.10082793;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+       id="path4185"
+       sodipodi:cx="4099.0981"
+       sodipodi:cy="-22.239727"
+       sodipodi:rx="16.263456"
+       sodipodi:ry="16.970562"
+       d="m 4115.3616,-22.239727 a 16.263456,16.970562 0 1 1 -32.5269,0 16.263456,16.970562 0 1 1 32.5269,0 z"
+       transform="matrix(0.92794499,0,0,0.88928068,-1647.7378,2779.6193)"
+       inkscape:export-filename="/Users/tlodge/roomcast_images/responses_light.png"
+       inkscape:export-xdpi="180"
+       inkscape:export-ydpi="180" />
+    <path
+       sodipodi:nodetypes="ccccc"
+       inkscape:connector-curvature="0"
+       id="path4187"
+       d="m 1876.9659,2740.1325 0,36.9962 43.4962,0 -0.8915,-35.6046 z"
+       style="fill:#697060;fill-opacity:1;stroke:#ffffff;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+    <text
+       sodipodi:linespacing="125%"
+       id="text4189"
+       y="2763.1917"
+       x="1883.9047"
+       style="font-size:20px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#329e97;fill-opacity:1;stroke:none;font-family:Verdana;-inkscape-font-specification:Verdana"
+       xml:space="preserve"><tspan
+         y="2763.1917"
+         x="1883.9047"
+         id="tspan4191"
+         sodipodi:role="line"
+         style="font-size:15px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#ffffff;font-family:Verdana;-inkscape-font-specification:Verdana">11a</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:20px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#697060;fill-opacity:1;stroke:none;font-family:Trebuchet MS;-inkscape-font-specification:Trebuchet MS"
+       x="1931.1595"
+       y="2764.2773"
+       id="text4193"
+       sodipodi:linespacing="125%"><tspan
+         style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#697060;fill-opacity:1;font-family:Verdana;-inkscape-font-specification:Verdana"
+         sodipodi:role="line"
+         id="tspan4195"
+         x="1931.1595"
+         y="2764.2773">I'm not too sure about the...</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:16px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#329e97;fill-opacity:1;stroke:none;font-family:Verdana;-inkscape-font-specification:Verdana"
+       x="2150.7188"
+       y="2763.813"
+       id="text4197"
+       sodipodi:linespacing="125%"><tspan
+         style="font-size:16px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#ffffff;font-family:Verdana;-inkscape-font-specification:Verdana"
+         sodipodi:role="line"
+         id="tspan4199"
+         x="2150.7188"
+         y="2763.813">1</tspan></text>
   </g>
   <g
      inkscape:groupmode="layer"

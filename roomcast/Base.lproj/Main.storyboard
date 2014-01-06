@@ -221,6 +221,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="helpLabel" destination="9up-dO-P06" id="r5A-Ko-Nla"/>
                         <outlet property="rangeView" destination="io7-vF-8uT" id="9tg-OF-qai"/>
                         <outlet property="zoneMap" destination="7U4-b2-zfp" id="EKU-oI-gz7"/>
                         <segue destination="CdV-EC-TlJ" kind="modal" identifier="register" modalTransitionStyle="flipHorizontal" id="Ef0-to-7s3"/>
@@ -914,7 +915,7 @@
                         <viewControllerLayoutGuide type="bottom" id="qxq-ZW-F3i"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="IvV-XC-Z2r">
-                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="help.png" translatesAutoresizingMaskIntoConstraints="NO" id="xoF-ln-vjE">
@@ -1033,7 +1034,7 @@
                                 </connections>
                             </button>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nCZ-ad-Mzf">
-                                <rect key="frame" x="0.0" y="372" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="436" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <color key="backgroundColor" name="disabledControlTextColor" catalog="System" colorSpace="catalog"/>
                                 <items>
@@ -1204,7 +1205,7 @@
     <inferredMetricsTieBreakers>
         <segue reference="AWd-Cq-Hkb"/>
         <segue reference="VAE-vi-8hH"/>
-        <segue reference="7HT-RJ-otI"/>
+        <segue reference="Ef0-to-7s3"/>
         <segue reference="sEw-4n-rA2"/>
         <segue reference="tVW-qc-EI2"/>
     </inferredMetricsTieBreakers>

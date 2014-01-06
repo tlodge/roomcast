@@ -39,7 +39,12 @@ static NSArray* TYPES;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
     self.development = [[DataManager sharedManager] development];
+    
+    self.developments = [[DataManager sharedManager] developmentsInRange];
+
+    
     TYPES = [NSArray arrayWithObjects:@"development", @"apartment", @"developments", @"region",  nil];
     
     self.composing = YES;
@@ -206,12 +211,13 @@ static NSArray* TYPES;
     
     DestinationViewController *destination = (DestinationViewController*)[storyboard instantiateViewControllerWithIdentifier:@"sendto"];
     
-    destination.scopedelegate = self;
-    destination.scope  = self.scope;
-    destination.totals = self.totals;
-    destination.scopeTypes = TYPES;
-    destination.developmentName = self.development.name;
-  
+    destination.scopedelegate       = self;
+    destination.scope               = self.scope;
+    destination.totals              = self.totals;
+    destination.scopeTypes          = TYPES;
+    destination.developmentName     = self.development.name;
+    destination.developments        = self.developments;
+    
     NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES];
     
     NSArray* sortDescriptors = [NSArray arrayWithObject:sortDescriptor];
@@ -296,6 +302,10 @@ static NSArray* TYPES;
         [self.messageView.whotoButton setTitle:whoto forState:UIControlStateNormal];
         
         [self.messageView.numberButton setTitle:[NSString stringWithFormat:@"%d", [[self.totals objectForKey:@"development"] intValue]] forState:UIControlStateNormal];
+        
+    }else if([scopeName isEqualToString:@"developments"]){
+    
+        //set the relevant label to the list of developments that this will be sent to!
     }
 }
 

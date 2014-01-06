@@ -24,6 +24,7 @@
 @implementation AuthViewController
 
 @synthesize  development;
+@synthesize helpLabel;
 
 CGMutablePathRef mpr;
 NSMutableData *receivedData;
@@ -44,6 +45,9 @@ MKPolygon *authZone;
 {
     [super viewDidLoad];
     [self loadAuthZones];
+    
+    self.helpLabel.text = [NSString stringWithFormat:@"To confirm you are a %@ resident, move into any zone shown on the map.", self.development.name];
+    
     [self.rangeView setBackgroundColor:[UIColor clearColor]];
     
     self.rangeView.circleColor = [UIColor redColor];
