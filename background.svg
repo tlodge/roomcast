@@ -1682,9 +1682,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="1.4142136"
-     inkscape:cx="1978.5073"
-     inkscape:cy="-2467.0328"
+     inkscape:zoom="2"
+     inkscape:cx="1969.3415"
+     inkscape:cy="-2470.2664"
      inkscape:document-units="px"
      inkscape:current-layer="layer3"
      showgrid="false"
@@ -2530,45 +2530,21 @@
        inkscape:export-xdpi="179.87073"
        inkscape:export-ydpi="179.87073" />
     <path
+       style="fill:none;stroke:#ffffff;stroke-width:1.56158662;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       d="m 1979.1762,2796.7263 -0.185,-35.889 36.4385,1.2817 0,35.1567 z"
+       id="path5615"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="/Users/tlodge/roomcast_images/apartment_dark.png"
+       inkscape:export-xdpi="179.87073"
+       inkscape:export-ydpi="179.87073" />
+    <path
        inkscape:export-ydpi="179.87073"
        inkscape:export-xdpi="179.87073"
        inkscape:export-filename="/Users/tlodge/roomcast_images/apartment_dark.png"
        inkscape:connector-curvature="0"
-       id="path4098"
-       d="m 1608.3091,2986.1405 -0.185,-35.889 36.4385,1.2817 0,35.1567 z"
+       id="path5712"
+       d="m 1979.6762,2960.2263 -0.185,-35.889 36.4385,1.2817 0,35.1567 z"
        style="fill:none;stroke:#ffffff;stroke-width:1.56158662;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
-    <path
-       inkscape:connector-curvature="0"
-       id="path4165"
-       d="m 1508.9898,2917.2689 -0.185,-35.8891 36.4385,1.2817 0,35.1567 z"
-       style="fill:none;stroke:#ffffff;stroke-width:1.56158662;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
-       inkscape:export-filename="/Users/tlodge/roomcast_images/apartment_light.png"
-       inkscape:export-xdpi="179.87073"
-       inkscape:export-ydpi="179.87073" />
-    <path
-       style="fill:none;stroke:#ffffff;stroke-width:1.56158662;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
-       d="m 1979.8833,2796.7263 -0.185,-35.889 36.4385,1.2817 0,35.1567 z"
-       id="path4183"
-       inkscape:connector-curvature="0"
-       inkscape:export-filename="/Users/tlodge/roomcast_images/apartment_dark.png"
-       inkscape:export-xdpi="179.87073"
-       inkscape:export-ydpi="179.87073" />
-    <path
-       inkscape:connector-curvature="0"
-       id="path5315"
-       d="m 1511.9466,2916.2423 -0.2157,-37.4439 42.4714,1.3373 0,36.6797 z"
-       style="fill:none;stroke:#ffffff;stroke-width:1.72203863;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
-       inkscape:export-filename="/Users/tlodge/roomcast_images/apartment_light.png"
-       inkscape:export-xdpi="179.87073"
-       inkscape:export-ydpi="179.87073" />
-    <path
-       inkscape:connector-curvature="0"
-       id="path5335"
-       d="m 1511.4466,2983.7423 -0.2157,-37.4439 42.4714,1.3373 0,36.6797 z"
-       style="fill:none;stroke:#ffffff;stroke-width:1.72203863;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
-       inkscape:export-filename="/Users/tlodge/roomcast_images/apartment_light.png"
-       inkscape:export-xdpi="179.87073"
-       inkscape:export-ydpi="179.87073" />
   </g>
   <g
      inkscape:groupmode="layer"
@@ -2578,31 +2554,10 @@
      transform="translate(-70.71065,620.4014)">
     <path
        style="fill:#bac9a9;fill-opacity:1;stroke:none"
-       d="m 1867.5126,2816.4901 318.8786,-2.2218 -1,78 -317.8805,1 z"
+       d="m 1867.5126,2820.4901 318.8786,-2.2218 -1,78 -317.8805,1 z"
        id="rect4128"
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="ccccc" />
-    <path
-       style="fill:#f3ffcf;fill-opacity:1;stroke:none"
-       d="m 1867.2385,2739.9058 320,2 0,64 -320,4 z"
-       id="rect4104"
-       inkscape:connector-curvature="0"
-       sodipodi:nodetypes="ccccc" />
-    <path
-       style="fill:#f2d680;fill-opacity:1;stroke:none"
-       d="m 1868.0799,2818.2461 c 317.713,-4.0649 -0.5469,-0.6482 318.4793,-3.9311 l 0.2207,-19.3524 c -100.4556,-0.8236 -208.1053,-0.1715 -318.7,0 z"
-       id="path5357"
-       inkscape:connector-curvature="0"
-       sodipodi:nodetypes="ccccc"
-       inkscape:export-filename="/Users/tlodge/roomcast_images/scopecellselected.png"
-       inkscape:export-xdpi="180"
-       inkscape:export-ydpi="180" />
-    <path
-       sodipodi:nodetypes="ccccc"
-       inkscape:connector-curvature="0"
-       id="path4205"
-       d="m 1498.6643,2931.32 320,2 0,64 -320,4 z"
-       style="fill:#f3ffcf;fill-opacity:1;stroke:none" />
     <rect
        style="fill:#bac9a9;fill-opacity:1;stroke:none"
        id="rect4102"
@@ -7311,298 +7266,6 @@
          id="tspan4126"
          x="2132.6223"
          y="2617.1536">send</tspan></text>
-    <path
-       inkscape:export-ydpi="180"
-       inkscape:export-xdpi="180"
-       inkscape:export-filename="/Users/tlodge/roomcast_images/responses_light.png"
-       transform="matrix(0.92794499,0,0,0.88928068,-2013.312,2985.0335)"
-       d="m 4115.3616,-22.239727 a 16.263456,16.970562 0 1 1 -32.5269,0 16.263456,16.970562 0 1 1 32.5269,0 z"
-       sodipodi:ry="16.970562"
-       sodipodi:rx="16.263456"
-       sodipodi:cy="-22.239727"
-       sodipodi:cx="4099.0981"
-       id="path4133"
-       style="fill:#697060;fill-opacity:1;stroke:#ffffff;stroke-width:1.10082793;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
-       sodipodi:type="arc" />
-    <text
-       sodipodi:linespacing="125%"
-       id="text4143"
-       y="2956.1917"
-       x="1563.5853"
-       style="font-size:20px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#697060;fill-opacity:1;stroke:none;font-family:Trebuchet MS;-inkscape-font-specification:Trebuchet MS"
-       xml:space="preserve"><tspan
-         y="2956.1917"
-         x="1563.5853"
-         id="tspan4145"
-         sodipodi:role="line"
-         style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#697060;fill-opacity:1;font-family:Verdana;-inkscape-font-specification:Verdana">I'm not too sure about the...</tspan></text>
-    <text
-       sodipodi:linespacing="125%"
-       id="text4151"
-       y="2969.2273"
-       x="1785.1445"
-       style="font-size:16px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#329e97;fill-opacity:1;stroke:none;font-family:Verdana;-inkscape-font-specification:Verdana"
-       xml:space="preserve"><tspan
-         y="2969.2273"
-         x="1785.1445"
-         id="tspan4153"
-         sodipodi:role="line"
-         style="font-size:16px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#ffffff;font-family:Verdana;-inkscape-font-specification:Verdana">1</tspan></text>
-    <path
-       transform="matrix(0.92794499,0,0,0.88928068,-2012.2352,2914.5072)"
-       d="m 4115.3616,-22.239727 a 16.263456,16.970562 0 1 1 -32.5269,0 16.263456,16.970562 0 1 1 32.5269,0 z"
-       sodipodi:ry="16.970562"
-       sodipodi:rx="16.263456"
-       sodipodi:cy="-22.239727"
-       sodipodi:cx="4099.0981"
-       id="path4167"
-       style="fill:#ffffff;fill-opacity:1;stroke:#697060;stroke-width:1.10082793;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
-       sodipodi:type="arc"
-       inkscape:export-filename="/Users/tlodge/roomcast_images/responses_dark.png"
-       inkscape:export-xdpi="180"
-       inkscape:export-ydpi="180"
-       inkscape:transform-center-x="-55.63626"
-       inkscape:transform-center-y="-15.980875" />
-    <text
-       sodipodi:linespacing="125%"
-       id="text4169"
-       y="2884.2393"
-       x="1566.0853"
-       style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#697060;fill-opacity:1;stroke:none;font-family:Verdana;-inkscape-font-specification:Verdana"
-       xml:space="preserve"><tspan
-         y="2884.2393"
-         x="1566.0853"
-         id="tspan4171"
-         sodipodi:role="line"
-         style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#697060;fill-opacity:1;font-family:Verdana;-inkscape-font-specification:Verdana">This needs to look much be.</tspan></text>
-    <text
-       sodipodi:linespacing="125%"
-       id="text4173"
-       y="2899.9465"
-       x="1786.1523"
-       style="font-size:16px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#697060;fill-opacity:1;stroke:none;font-family:Verdana;-inkscape-font-specification:Verdana"
-       xml:space="preserve"><tspan
-         y="2899.9465"
-         x="1786.1523"
-         id="tspan4175"
-         sodipodi:role="line"
-         style="font-size:16px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#697060;fill-opacity:1;font-family:Verdana;-inkscape-font-specification:Verdana">1</tspan></text>
-    <text
-       xml:space="preserve"
-       style="font-size:20px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#697060;fill-opacity:1;stroke:none;font-family:Trebuchet MS;-inkscape-font-specification:Trebuchet MS"
-       x="1935.1595"
-       y="2763.2773"
-       id="text4193"
-       sodipodi:linespacing="125%"><tspan
-         style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#697060;fill-opacity:1;font-family:Verdana;-inkscape-font-specification:Verdana"
-         sodipodi:role="line"
-         id="tspan4195"
-         x="1935.1595"
-         y="2763.2773">I'm not too sure about the...</tspan></text>
-    <g
-       id="g5360"
-       transform="matrix(0.99940729,-0.0344249,0.0344249,0.99940729,10.29722,90.02576)">
-      <path
-         inkscape:connector-curvature="0"
-         id="path4096"
-         d="m 1776.5208,2770.3281 -0.2157,-37.4439 42.4714,1.3373 0,36.6797 z"
-         style="fill:none;stroke:#ffffff;stroke-width:1.72203863;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;display:inline"
-         inkscape:export-filename="/Users/tlodge/roomcast_images/apartment_light.png"
-         inkscape:export-xdpi="179.87073"
-         inkscape:export-ydpi="179.87073" />
-      <path
-         style="fill:#ffffff;fill-opacity:1;stroke:none"
-         d="m 1781.6611,2725.5598 40.1413,1.3773 0,52.214 -46.7853,-0.5008 -0.5537,-48.8332 -0.1384,-4.5078 z"
-         id="path4243"
-         inkscape:connector-curvature="0"
-         inkscape:export-filename="/Users/tlodge/roomcast_images/background.png"
-         inkscape:export-xdpi="90"
-         inkscape:export-ydpi="90" />
-      <rect
-         style="fill:none;stroke:none"
-         id="rect4245"
-         width="56.488647"
-         height="12.850475"
-         x="1769.7009"
-         y="2723.0742"
-         inkscape:export-filename="/Users/tlodge/roomcast_images/background.png"
-         inkscape:export-xdpi="90"
-         inkscape:export-ydpi="90" />
-      <path
-         style="fill:#bac9a9;fill-opacity:1;stroke:#000000;filter:url(#filter4382)"
-         d="m -767.20185,-474.55887 2.04241,669.20072 535.66647,-10.37877 -2.04239,-640.08507 -535.66649,-18.73688 z m 27.29393,18.73688 491.56915,18.64504 -4.27049,613.0819 -491.47631,2.1125 4.17765,-633.83944 z"
-         id="path4247"
-         inkscape:connector-curvature="0"
-         clip-path="url(#clipPath4412)"
-         transform="matrix(0.09239895,0,0,0.08258373,1844.4115,2764.0207)"
-         inkscape:export-filename="/Users/tlodge/roomcast_images/background.png"
-         inkscape:export-xdpi="90"
-         inkscape:export-ydpi="90" />
-      <path
-         style="fill:#bac9a9;fill-opacity:1;stroke:#000000;stroke-width:0.0909268px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-         d="m 1772.9264,2723.5393 -0.099,4.318 50.401,0.4317 0,-4.8216 z"
-         id="path4249"
-         inkscape:connector-curvature="0"
-         sodipodi:nodetypes="ccccc"
-         inkscape:export-filename="/Users/tlodge/roomcast_images/background.png"
-         inkscape:export-xdpi="90"
-         inkscape:export-ydpi="90" />
-      <path
-         style="fill:#000000;stroke:#000000;stroke-width:0.08247538px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-         d="m 1772.7376,2775.8677 3.1085,-1.9431 45.3804,0.072 2.3629,1.8712 z"
-         id="path4251"
-         inkscape:connector-curvature="0"
-         sodipodi:nodetypes="ccccc" />
-      <path
-         inkscape:export-ydpi="90"
-         inkscape:export-xdpi="90"
-         inkscape:export-filename="/Users/tlodge/roomcast_images/background.png"
-         sodipodi:nodetypes="ccccc"
-         inkscape:connector-curvature="0"
-         id="path4253"
-         d="m 1772.6679,2775.2809 -0.1026,6.719 51.8191,0.6719 0,-7.503 z"
-         style="fill:#bac9a9;fill-opacity:1;stroke:#000000;stroke-width:0.11500927px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
-      <path
-         style="fill:#697060;fill-opacity:1;stroke:none"
-         d="m 1772.7995,2727.825 50.374,-1.4757 0,1.8828 z"
-         id="path4255"
-         inkscape:connector-curvature="0"
-         sodipodi:nodetypes="cccc" />
-      <path
-         sodipodi:nodetypes="cccc"
-         inkscape:connector-curvature="0"
-         id="path4257"
-         d="m 1773.9083,2782.0131 50.3739,-2.2654 0,2.8904 z"
-         style="fill:#697060;fill-opacity:1;stroke:none" />
-    </g>
-    <path
-       style="fill:#ffffff;fill-opacity:1;stroke:none"
-       d="m 1517.0869,2871.474 40.1413,1.3773 0,52.214 -46.7853,-0.5008 -0.5537,-48.8332 -0.1384,-4.5078 z"
-       id="path5317"
-       inkscape:connector-curvature="0"
-       inkscape:export-filename="/Users/tlodge/roomcast_images/background.png"
-       inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90" />
-    <rect
-       style="fill:none;stroke:none"
-       id="rect5319"
-       width="56.488647"
-       height="12.850475"
-       x="1505.1267"
-       y="2868.9885"
-       inkscape:export-filename="/Users/tlodge/roomcast_images/background.png"
-       inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90" />
-    <path
-       style="fill:#f3ffcf;fill-opacity:1;stroke:#000000;filter:url(#filter4382)"
-       d="m -767.20185,-474.55887 2.04241,669.20072 535.66647,-10.37877 -2.04239,-640.08507 -535.66649,-18.73688 z m 27.29393,18.73688 491.56915,18.64504 -4.27049,613.0819 -491.47631,2.1125 4.17765,-633.83944 z"
-       id="path5322"
-       inkscape:connector-curvature="0"
-       clip-path="url(#clipPath4412)"
-       transform="matrix(0.09239895,0,0,0.08258373,1579.8373,2909.9349)"
-       inkscape:export-filename="/Users/tlodge/roomcast_images/background.png"
-       inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90" />
-    <path
-       style="fill:#f3ffcf;fill-opacity:1;stroke:#000000;stroke-width:0.0909268px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="m 1508.3522,2869.4535 -0.099,4.318 50.401,0.4317 0,-4.8216 z"
-       id="path5324"
-       inkscape:connector-curvature="0"
-       sodipodi:nodetypes="ccccc"
-       inkscape:export-filename="/Users/tlodge/roomcast_images/background.png"
-       inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90" />
-    <path
-       style="fill:#000000;stroke:#000000;stroke-width:0.08247538px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="m 1508.1634,2921.7819 3.1085,-1.9431 45.3804,0.072 2.3629,1.8712 z"
-       id="path5326"
-       inkscape:connector-curvature="0"
-       sodipodi:nodetypes="ccccc" />
-    <path
-       inkscape:export-ydpi="90"
-       inkscape:export-xdpi="90"
-       inkscape:export-filename="/Users/tlodge/roomcast_images/background.png"
-       sodipodi:nodetypes="ccccc"
-       inkscape:connector-curvature="0"
-       id="path5328"
-       d="m 1508.0937,2921.1951 -0.1026,6.719 51.8191,0.6719 0,-7.503 z"
-       style="fill:#f3ffcf;fill-opacity:1;stroke:#000000;stroke-width:0.11500927px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
-    <path
-       style="fill:#828b75;fill-opacity:1;stroke:none"
-       d="m 1508.2253,2873.7392 50.374,-1.4757 0,1.8828 z"
-       id="path5330"
-       inkscape:connector-curvature="0"
-       sodipodi:nodetypes="cccc" />
-    <path
-       sodipodi:nodetypes="cccc"
-       inkscape:connector-curvature="0"
-       id="path5332"
-       d="m 1509.3341,2927.9273 50.3739,-2.2654 0,2.8904 z"
-       style="fill:#697060;fill-opacity:1;stroke:none" />
-    <path
-       style="fill:#ffffff;fill-opacity:1;stroke:none"
-       d="m 1516.5869,2938.974 40.1413,1.3773 0,52.214 -46.7853,-0.5008 -0.5537,-48.8332 -0.1384,-4.5078 z"
-       id="path5337"
-       inkscape:connector-curvature="0"
-       inkscape:export-filename="/Users/tlodge/roomcast_images/background.png"
-       inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90" />
-    <rect
-       style="fill:none;stroke:none"
-       id="rect5339"
-       width="56.488647"
-       height="12.850475"
-       x="1504.6267"
-       y="2936.4885"
-       inkscape:export-filename="/Users/tlodge/roomcast_images/background.png"
-       inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90" />
-    <path
-       style="fill:#bac9a9;fill-opacity:1;stroke:#000000;filter:url(#filter4382)"
-       d="m -767.20185,-474.55887 2.04241,669.20072 535.66647,-10.37877 -2.04239,-640.08507 -535.66649,-18.73688 z m 27.29393,18.73688 491.56915,18.64504 -4.27049,613.0819 -491.47631,2.1125 4.17765,-633.83944 z"
-       id="path5341"
-       inkscape:connector-curvature="0"
-       clip-path="url(#clipPath4412)"
-       transform="matrix(0.09239895,0,0,0.08258373,1579.3373,2977.4349)"
-       inkscape:export-filename="/Users/tlodge/roomcast_images/background.png"
-       inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90" />
-    <path
-       style="fill:#bac9a9;fill-opacity:1;stroke:#000000;stroke-width:0.0909268px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="m 1507.8522,2936.9535 -0.099,4.318 50.401,0.4317 0,-4.8216 z"
-       id="path5343"
-       inkscape:connector-curvature="0"
-       sodipodi:nodetypes="ccccc"
-       inkscape:export-filename="/Users/tlodge/roomcast_images/background.png"
-       inkscape:export-xdpi="90"
-       inkscape:export-ydpi="90" />
-    <path
-       style="fill:#000000;stroke:#000000;stroke-width:0.08247538px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="m 1507.6634,2989.2819 3.1085,-1.9431 45.3804,0.072 2.3629,1.8712 z"
-       id="path5345"
-       inkscape:connector-curvature="0"
-       sodipodi:nodetypes="ccccc" />
-    <path
-       inkscape:export-ydpi="90"
-       inkscape:export-xdpi="90"
-       inkscape:export-filename="/Users/tlodge/roomcast_images/background.png"
-       sodipodi:nodetypes="ccccc"
-       inkscape:connector-curvature="0"
-       id="path5347"
-       d="m 1507.5937,2988.6951 -0.1026,6.719 51.8191,0.6719 0,-7.503 z"
-       style="fill:#bac9a9;fill-opacity:1;stroke:#000000;stroke-width:0.11500927px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
-    <path
-       style="fill:#697060;fill-opacity:1;stroke:none"
-       d="m 1507.7253,2941.2392 50.374,-1.4757 0,1.8828 z"
-       id="path5349"
-       inkscape:connector-curvature="0"
-       sodipodi:nodetypes="cccc" />
-    <path
-       sodipodi:nodetypes="cccc"
-       inkscape:connector-curvature="0"
-       id="path5351"
-       d="m 1508.8341,2995.4273 50.3739,-2.2654 0,2.8904 z"
-       style="fill:#697060;fill-opacity:1;stroke:none" />
     <text
        sodipodi:linespacing="125%"
        id="text5353"
@@ -7615,46 +7278,6 @@
          id="tspan5355"
          sodipodi:role="line"
          style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#697060;fill-opacity:1;font-family:Verdana;-inkscape-font-specification:Verdana">last message: 5 hours ago.</tspan></text>
-    <text
-       xml:space="preserve"
-       style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Verdana;-inkscape-font-specification:Verdana"
-       x="2004.6595"
-       y="2808.825"
-       id="text5371"
-       sodipodi:linespacing="125%"><tspan
-         style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#ffffff;fill-opacity:1;font-family:Verdana;-inkscape-font-specification:Verdana"
-         sodipodi:role="line"
-         id="tspan5373"
-         x="2004.6595"
-         y="2808.825">last message: 5 min ago</tspan></text>
-    <text
-       xml:space="preserve"
-       style="font-size:18px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Verdana;-inkscape-font-specification:Verdana"
-       x="1886.2107"
-       y="2783.8232"
-       id="text5375"
-       sodipodi:linespacing="125%"><tspan
-         sodipodi:role="line"
-         id="tspan5377"
-         x="1886.2107"
-         y="2783.8232">12a</tspan></text>
-    <path
-       style="fill:#697060;fill-opacity:1;stroke:#ffffff;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="m 2147.4606,2753.0731 32,-1.5 0.25,31.25 -31.75,0.25 z"
-       id="path5383"
-       inkscape:connector-curvature="0" />
-    <text
-       xml:space="preserve"
-       style="font-size:16px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#329e97;fill-opacity:1;stroke:none;font-family:Verdana;-inkscape-font-specification:Verdana"
-       x="2157.7188"
-       y="2773.313"
-       id="text4197"
-       sodipodi:linespacing="125%"><tspan
-         style="font-size:16px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#ffffff;font-family:Verdana;-inkscape-font-specification:Verdana"
-         sodipodi:role="line"
-         id="tspan4199"
-         x="2157.7188"
-         y="2773.313">1</tspan></text>
     <path
        inkscape:export-ydpi="89.099998"
        inkscape:export-xdpi="89.099998"
@@ -7671,45 +7294,38 @@
        sodipodi:nodetypes="ccccc"
        inkscape:connector-curvature="0"
        id="path5530"
-       d="m 1867.3728,2896.0278 c 317.713,-4.0649 -0.5469,-0.6482 318.4793,-3.9311 l 0.2207,-19.3524 c -100.4556,-0.8236 -208.1053,-0.1715 -318.7,0 z"
+       d="m 1867.3728,2900.0278 c 317.713,-4.0649 -0.5469,-0.6482 318.4793,-3.9311 l 0.2207,-19.3524 c -100.4556,-0.8236 -208.1053,-0.1715 -318.7,0 z"
        style="fill:#eb9c49;fill-opacity:1;stroke:none" />
     <g
-       transform="matrix(0.99940729,-0.0344249,0.0344249,0.99940729,12.41854,163.56487)"
-       id="g5532">
-      <path
-         inkscape:export-ydpi="179.87073"
-         inkscape:export-xdpi="179.87073"
-         inkscape:export-filename="/Users/tlodge/roomcast_images/apartment_light.png"
-         style="fill:none;stroke:#ffffff;stroke-width:1.72203863;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;display:inline"
-         d="m 1776.5208,2770.3281 -0.2157,-37.4439 42.4714,1.3373 0,36.6797 z"
-         id="path5534"
-         inkscape:connector-curvature="0" />
+       transform="matrix(0.09776521,0,0,0.07912737,1716.8259,2583.3674)"
+       id="g5694"
+       style="display:inline">
       <path
          inkscape:export-ydpi="90"
          inkscape:export-xdpi="90"
          inkscape:export-filename="/Users/tlodge/roomcast_images/background.png"
          inkscape:connector-curvature="0"
-         id="path5536"
-         d="m 1781.6611,2725.5598 40.1413,1.3773 0,52.214 -46.7853,-0.5008 -0.5537,-48.8332 -0.1384,-4.5078 z"
+         id="path5696"
+         d="m 1707.2869,3098.7685 434.434,19.139 0,725.5419 -506.3403,-6.9596 -5.9922,-678.5644 -1.498,-62.6368 z"
          style="fill:#ffffff;fill-opacity:1;stroke:none" />
       <rect
          inkscape:export-ydpi="90"
          inkscape:export-xdpi="90"
          inkscape:export-filename="/Users/tlodge/roomcast_images/background.png"
-         y="2723.0742"
-         x="1769.7009"
-         height="12.850475"
-         width="56.488647"
-         id="rect5538"
+         y="3064.23"
+         x="1577.8467"
+         height="178.56436"
+         width="611.35596"
+         id="rect5698"
          style="fill:none;stroke:none" />
       <path
          inkscape:export-ydpi="90"
          inkscape:export-xdpi="90"
          inkscape:export-filename="/Users/tlodge/roomcast_images/background.png"
-         transform="matrix(0.09239895,0,0,0.08258373,1844.4115,2764.0207)"
+         transform="matrix(1,0,0,1.1475459,2386.4111,3633.205)"
          clip-path="url(#clipPath4412)"
          inkscape:connector-curvature="0"
-         id="path5540"
+         id="path5700"
          d="m -767.20185,-474.55887 2.04241,669.20072 535.66647,-10.37877 -2.04239,-640.08507 -535.66649,-18.73688 z m 27.29393,18.73688 491.56915,18.64504 -4.27049,613.0819 -491.47631,2.1125 4.17765,-633.83944 z"
          style="fill:#bac9a9;fill-opacity:1;stroke:#000000;filter:url(#filter4382)" />
       <path
@@ -7718,19 +7334,19 @@
          inkscape:export-filename="/Users/tlodge/roomcast_images/background.png"
          sodipodi:nodetypes="ccccc"
          inkscape:connector-curvature="0"
-         id="path5542"
-         d="m 1772.9264,2723.5393 -0.099,4.318 50.401,0.4317 0,-4.8216 z"
-         style="fill:#bac9a9;fill-opacity:1;stroke:#000000;stroke-width:0.0909268px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+         id="path5702"
+         d="m 1612.7539,3070.6935 -1.0745,60 545.4712,6 0,-67 z"
+         style="fill:#bac9a9;fill-opacity:1;stroke:#000000;stroke-width:1.11505485px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
       <path
          sodipodi:nodetypes="ccccc"
          inkscape:connector-curvature="0"
-         id="path5544"
-         d="m 1772.7376,2775.8677 3.1085,-1.9431 45.3804,0.072 2.3629,1.8712 z"
-         style="fill:#000000;stroke:#000000;stroke-width:0.08247538px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+         id="path5704"
+         d="m 1610.7107,3797.8231 33.6428,-27 491.134,1 25.5739,26 z"
+         style="fill:#000000;stroke:#000000;stroke-width:1.01141322px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
       <path
-         style="fill:#bac9a9;fill-opacity:1;stroke:#000000;stroke-width:0.11500927px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-         d="m 1772.6679,2775.2809 -0.1026,6.719 51.8191,0.6719 0,-7.503 z"
-         id="path5546"
+         style="fill:#bac9a9;fill-opacity:1;stroke:#000000;stroke-width:1.41038322px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         d="m 1609.9558,3789.6701 -1.1048,93.3644 560.8197,9.3365 0,-104.257 z"
+         id="path5706"
          inkscape:connector-curvature="0"
          sodipodi:nodetypes="ccccc"
          inkscape:export-filename="/Users/tlodge/roomcast_images/background.png"
@@ -7739,35 +7355,35 @@
       <path
          sodipodi:nodetypes="cccc"
          inkscape:connector-curvature="0"
-         id="path5548"
-         d="m 1772.7995,2727.825 50.374,-1.4757 0,1.8828 z"
+         id="path5708"
+         d="m 1611.3805,3130.2451 545.1793,-20.5061 0,26.1629 z"
          style="fill:#697060;fill-opacity:1;stroke:none" />
       <path
          style="fill:#697060;fill-opacity:1;stroke:none"
-         d="m 1773.9083,2782.0131 50.3739,-2.2654 0,2.8904 z"
-         id="path5550"
+         d="m 1623.3805,3883.2181 545.1793,-31.4791 0,40.1629 z"
+         id="path5710"
          inkscape:connector-curvature="0"
          sodipodi:nodetypes="cccc" />
     </g>
     <text
        sodipodi:linespacing="125%"
        id="text5552"
-       y="2857.3623"
+       y="2861.3623"
        x="1892.332"
        style="font-size:18px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Verdana;-inkscape-font-specification:Verdana"
        xml:space="preserve"><tspan
-         y="2857.3623"
+         y="2861.3623"
          x="1892.332"
          id="tspan5554"
          sodipodi:role="line">9b</tspan></text>
     <text
        sodipodi:linespacing="125%"
        id="text5556"
-       y="2886.6067"
+       y="2890.6067"
        x="2006.0737"
        style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Verdana;-inkscape-font-specification:Verdana"
        xml:space="preserve"><tspan
-         y="2886.6067"
+         y="2890.6067"
          x="2006.0737"
          id="tspan5558"
          sodipodi:role="line"
@@ -7775,32 +7391,304 @@
     <path
        inkscape:connector-curvature="0"
        id="path5560"
-       d="m 2146.0464,2829.4406 32,-1.5 0.25,31.25 -31.75,0.25 z"
+       d="m 2146.0464,2833.4406 32,-1.5 0.25,31.25 -31.75,0.25 z"
        style="fill:#ffffff;fill-opacity:1;stroke:#697060;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
     <text
        sodipodi:linespacing="125%"
        id="text5562"
-       y="2849.6804"
+       y="2853.6804"
        x="2156.3044"
        style="font-size:16px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#697060;fill-opacity:1;stroke:none;font-family:Verdana;-inkscape-font-specification:Verdana"
        xml:space="preserve"><tspan
-         y="2849.6804"
+         y="2853.6804"
          x="2156.3044"
          id="tspan5564"
          sodipodi:role="line"
-         style="font-size:16px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#697060;font-family:Verdana;-inkscape-font-specification:Verdana;fill-opacity:1">1</tspan></text>
+         style="font-size:16px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#697060;fill-opacity:1;font-family:Verdana;-inkscape-font-specification:Verdana">1</tspan></text>
     <text
        sodipodi:linespacing="125%"
        id="text5566"
-       y="2841.0591"
+       y="2845.0591"
        x="1937.2809"
        style="font-size:20px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#697060;fill-opacity:1;stroke:none;font-family:Trebuchet MS;-inkscape-font-specification:Trebuchet MS"
        xml:space="preserve"><tspan
-         y="2841.0591"
+         y="2845.0591"
          x="1937.2809"
          id="tspan5568"
          sodipodi:role="line"
          style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#697060;fill-opacity:1;font-family:Verdana;-inkscape-font-specification:Verdana">I'm not too sure about the...</tspan></text>
+    <path
+       style="fill:#f3ffcf;fill-opacity:1;stroke:none"
+       d="m 1866.5314,2739.9058 317.8787,-2.9497 2.1213,68.9497 -320,4 z"
+       id="path5617"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="ccccc" />
+    <path
+       style="fill:#f2d680;fill-opacity:1;stroke:none"
+       d="m 1867.3728,2818.2461 c 317.713,-4.0649 -0.5469,-0.6482 318.4793,-3.9311 l 0.2207,-19.3524 c -100.4556,-0.8236 -208.1053,-0.1715 -318.7,0 z"
+       id="path5619"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="ccccc"
+       inkscape:export-filename="/Users/tlodge/roomcast_images/scopecellselected.png"
+       inkscape:export-xdpi="180"
+       inkscape:export-ydpi="180" />
+    <text
+       xml:space="preserve"
+       style="font-size:20px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#697060;fill-opacity:1;stroke:none;font-family:Trebuchet MS;-inkscape-font-specification:Trebuchet MS"
+       x="1934.4524"
+       y="2763.2773"
+       id="text5621"
+       sodipodi:linespacing="125%"><tspan
+         style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#697060;fill-opacity:1;font-family:Verdana;-inkscape-font-specification:Verdana"
+         sodipodi:role="line"
+         id="tspan5623"
+         x="1934.4524"
+         y="2763.2773">I'm not too sure about the...</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Verdana;-inkscape-font-specification:Verdana"
+       x="2003.9524"
+       y="2808.825"
+       id="text5645"
+       sodipodi:linespacing="125%"><tspan
+         style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#ffffff;fill-opacity:1;font-family:Verdana;-inkscape-font-specification:Verdana"
+         sodipodi:role="line"
+         id="tspan5647"
+         x="2003.9524"
+         y="2808.825">last message: 5 min ago</tspan></text>
+    <path
+       style="fill:#697060;fill-opacity:1;stroke:#bac9a9;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 2146.7535,2753.0731 32,-1.5 0.25,31.25 -31.75,0.25 z"
+       id="path5653"
+       inkscape:connector-curvature="0" />
+    <text
+       xml:space="preserve"
+       style="font-size:16px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#329e97;fill-opacity:1;stroke:none;font-family:Verdana;-inkscape-font-specification:Verdana"
+       x="2157.0117"
+       y="2773.313"
+       id="text5655"
+       sodipodi:linespacing="125%"><tspan
+         style="font-size:16px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#ffffff;font-family:Verdana;-inkscape-font-specification:Verdana"
+         sodipodi:role="line"
+         id="tspan5657"
+         x="2157.0117"
+         y="2773.313">1</tspan></text>
+    <g
+       style="display:inline"
+       id="g5675"
+       transform="matrix(0.09776521,0,0,0.07912737,1716.8259,2503.3674)">
+      <path
+         style="fill:#ffffff;fill-opacity:1;stroke:none"
+         d="m 1707.2869,3098.7685 434.434,19.139 0,725.5419 -506.3403,-6.9596 -5.9922,-678.5644 -1.498,-62.6368 z"
+         id="path5659"
+         inkscape:connector-curvature="0"
+         inkscape:export-filename="/Users/tlodge/roomcast_images/background.png"
+         inkscape:export-xdpi="90"
+         inkscape:export-ydpi="90" />
+      <rect
+         style="fill:none;stroke:none"
+         id="rect5661"
+         width="611.35596"
+         height="178.56436"
+         x="1577.8467"
+         y="3064.23"
+         inkscape:export-filename="/Users/tlodge/roomcast_images/background.png"
+         inkscape:export-xdpi="90"
+         inkscape:export-ydpi="90" />
+      <path
+         style="fill:#bac9a9;fill-opacity:1;stroke:#000000;filter:url(#filter4382)"
+         d="m -767.20185,-474.55887 2.04241,669.20072 535.66647,-10.37877 -2.04239,-640.08507 -535.66649,-18.73688 z m 27.29393,18.73688 491.56915,18.64504 -4.27049,613.0819 -491.47631,2.1125 4.17765,-633.83944 z"
+         id="path5663"
+         inkscape:connector-curvature="0"
+         clip-path="url(#clipPath4412)"
+         transform="matrix(1,0,0,1.1475459,2386.4111,3633.205)"
+         inkscape:export-filename="/Users/tlodge/roomcast_images/background.png"
+         inkscape:export-xdpi="90"
+         inkscape:export-ydpi="90" />
+      <path
+         style="fill:#bac9a9;fill-opacity:1;stroke:#000000;stroke-width:1.11505485px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         d="m 1612.7539,3070.6935 -1.0745,60 545.4712,6 0,-67 z"
+         id="path5665"
+         inkscape:connector-curvature="0"
+         sodipodi:nodetypes="ccccc"
+         inkscape:export-filename="/Users/tlodge/roomcast_images/background.png"
+         inkscape:export-xdpi="90"
+         inkscape:export-ydpi="90" />
+      <path
+         style="fill:#000000;stroke:#000000;stroke-width:1.01141322px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         d="m 1610.7107,3797.8231 33.6428,-27 491.134,1 25.5739,26 z"
+         id="path5667"
+         inkscape:connector-curvature="0"
+         sodipodi:nodetypes="ccccc" />
+      <path
+         inkscape:export-ydpi="90"
+         inkscape:export-xdpi="90"
+         inkscape:export-filename="/Users/tlodge/roomcast_images/background.png"
+         sodipodi:nodetypes="ccccc"
+         inkscape:connector-curvature="0"
+         id="path5669"
+         d="m 1609.9558,3789.6701 -1.1048,93.3644 560.8197,9.3365 0,-104.257 z"
+         style="fill:#bac9a9;fill-opacity:1;stroke:#000000;stroke-width:1.41038322px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+      <path
+         style="fill:#697060;fill-opacity:1;stroke:none"
+         d="m 1611.3805,3130.2451 545.1793,-20.5061 0,26.1629 z"
+         id="path5671"
+         inkscape:connector-curvature="0"
+         sodipodi:nodetypes="cccc" />
+      <path
+         sodipodi:nodetypes="cccc"
+         inkscape:connector-curvature="0"
+         id="path5673"
+         d="m 1623.3805,3883.2181 545.1793,-31.4791 0,40.1629 z"
+         style="fill:#697060;fill-opacity:1;stroke:none" />
+    </g>
+    <text
+       xml:space="preserve"
+       style="font-size:18px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Verdana;-inkscape-font-specification:Verdana"
+       x="1886.2107"
+       y="2780.9946"
+       id="text5649"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan5651"
+         x="1886.2107"
+         y="2780.9946">12a</tspan></text>
+    <path
+       sodipodi:nodetypes="ccccc"
+       inkscape:connector-curvature="0"
+       id="path5714"
+       d="m 1867.0314,2903.4058 317.8787,-2.9497 2.1213,68.9497 -320,4 z"
+       style="fill:#f3ffcf;fill-opacity:1;stroke:none" />
+    <path
+       inkscape:export-ydpi="180"
+       inkscape:export-xdpi="180"
+       inkscape:export-filename="/Users/tlodge/roomcast_images/scopecellselected.png"
+       sodipodi:nodetypes="ccccc"
+       inkscape:connector-curvature="0"
+       id="path5716"
+       d="m 1867.8728,2981.7461 c 317.713,-4.0649 -0.5469,-0.6482 318.4793,-3.9311 l 0.2207,-19.3524 c -100.4556,-0.8236 -208.1053,-0.1715 -318.7,0 z"
+       style="fill:#f2d680;fill-opacity:1;stroke:none" />
+    <text
+       sodipodi:linespacing="125%"
+       id="text5718"
+       y="2926.7773"
+       x="1934.9524"
+       style="font-size:20px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#697060;fill-opacity:1;stroke:none;font-family:Trebuchet MS;-inkscape-font-specification:Trebuchet MS"
+       xml:space="preserve"><tspan
+         y="2926.7773"
+         x="1934.9524"
+         id="tspan5720"
+         sodipodi:role="line"
+         style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#697060;fill-opacity:1;font-family:Verdana;-inkscape-font-specification:Verdana">I'm not too sure about the...</tspan></text>
+    <text
+       sodipodi:linespacing="125%"
+       id="text5722"
+       y="2972.325"
+       x="2004.4524"
+       style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Verdana;-inkscape-font-specification:Verdana"
+       xml:space="preserve"><tspan
+         y="2972.325"
+         x="2004.4524"
+         id="tspan5724"
+         sodipodi:role="line"
+         style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#ffffff;fill-opacity:1;font-family:Verdana;-inkscape-font-specification:Verdana">last message: 5 min ago</tspan></text>
+    <path
+       inkscape:connector-curvature="0"
+       id="path5726"
+       d="m 2147.2535,2916.5731 32,-1.5 0.25,31.25 -31.75,0.25 z"
+       style="fill:#697060;fill-opacity:1;stroke:#bac9a9;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+    <text
+       sodipodi:linespacing="125%"
+       id="text5728"
+       y="2936.813"
+       x="2157.5117"
+       style="font-size:16px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#329e97;fill-opacity:1;stroke:none;font-family:Verdana;-inkscape-font-specification:Verdana"
+       xml:space="preserve"><tspan
+         y="2936.813"
+         x="2157.5117"
+         id="tspan5730"
+         sodipodi:role="line"
+         style="font-size:16px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#ffffff;font-family:Verdana;-inkscape-font-specification:Verdana">1</tspan></text>
+    <g
+       transform="matrix(0.09776521,0,0,0.07912737,1717.3259,2666.8674)"
+       id="g5732"
+       style="display:inline">
+      <path
+         inkscape:export-ydpi="90"
+         inkscape:export-xdpi="90"
+         inkscape:export-filename="/Users/tlodge/roomcast_images/background.png"
+         inkscape:connector-curvature="0"
+         id="path5734"
+         d="m 1707.2869,3098.7685 434.434,19.139 0,725.5419 -506.3403,-6.9596 -5.9922,-678.5644 -1.498,-62.6368 z"
+         style="fill:#ffffff;fill-opacity:1;stroke:none" />
+      <rect
+         inkscape:export-ydpi="90"
+         inkscape:export-xdpi="90"
+         inkscape:export-filename="/Users/tlodge/roomcast_images/background.png"
+         y="3064.23"
+         x="1577.8467"
+         height="178.56436"
+         width="611.35596"
+         id="rect5736"
+         style="fill:none;stroke:none" />
+      <path
+         inkscape:export-ydpi="90"
+         inkscape:export-xdpi="90"
+         inkscape:export-filename="/Users/tlodge/roomcast_images/background.png"
+         transform="matrix(1,0,0,1.1475459,2386.4111,3633.205)"
+         clip-path="url(#clipPath4412)"
+         inkscape:connector-curvature="0"
+         id="path5738"
+         d="m -767.20185,-474.55887 2.04241,669.20072 535.66647,-10.37877 -2.04239,-640.08507 -535.66649,-18.73688 z m 27.29393,18.73688 491.56915,18.64504 -4.27049,613.0819 -491.47631,2.1125 4.17765,-633.83944 z"
+         style="fill:#bac9a9;fill-opacity:1;stroke:#000000;filter:url(#filter4382)" />
+      <path
+         inkscape:export-ydpi="90"
+         inkscape:export-xdpi="90"
+         inkscape:export-filename="/Users/tlodge/roomcast_images/background.png"
+         sodipodi:nodetypes="ccccc"
+         inkscape:connector-curvature="0"
+         id="path5740"
+         d="m 1612.7539,3070.6935 -1.0745,60 545.4712,6 0,-67 z"
+         style="fill:#bac9a9;fill-opacity:1;stroke:#000000;stroke-width:1.11505485px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+      <path
+         sodipodi:nodetypes="ccccc"
+         inkscape:connector-curvature="0"
+         id="path5742"
+         d="m 1610.7107,3797.8231 33.6428,-27 491.134,1 25.5739,26 z"
+         style="fill:#000000;stroke:#000000;stroke-width:1.01141322px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+      <path
+         style="fill:#bac9a9;fill-opacity:1;stroke:#000000;stroke-width:1.41038322px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         d="m 1609.9558,3789.6701 -1.1048,93.3644 560.8197,9.3365 0,-104.257 z"
+         id="path5744"
+         inkscape:connector-curvature="0"
+         sodipodi:nodetypes="ccccc"
+         inkscape:export-filename="/Users/tlodge/roomcast_images/background.png"
+         inkscape:export-xdpi="90"
+         inkscape:export-ydpi="90" />
+      <path
+         sodipodi:nodetypes="cccc"
+         inkscape:connector-curvature="0"
+         id="path5746"
+         d="m 1611.3805,3130.2451 545.1793,-20.5061 0,26.1629 z"
+         style="fill:#697060;fill-opacity:1;stroke:none" />
+      <path
+         style="fill:#697060;fill-opacity:1;stroke:none"
+         d="m 1623.3805,3883.2181 545.1793,-31.4791 0,40.1629 z"
+         id="path5748"
+         inkscape:connector-curvature="0"
+         sodipodi:nodetypes="cccc" />
+    </g>
+    <text
+       sodipodi:linespacing="125%"
+       id="text5751"
+       y="2944.4946"
+       x="1886.7107"
+       style="font-size:18px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Verdana;-inkscape-font-specification:Verdana"
+       xml:space="preserve"><tspan
+         y="2944.4946"
+         x="1886.7107"
+         id="tspan5753"
+         sodipodi:role="line">12a</tspan></text>
   </g>
   <g
      inkscape:groupmode="layer"

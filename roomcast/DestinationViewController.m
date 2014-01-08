@@ -144,8 +144,8 @@
         cell.moreButton.tag = indexPath.row;
     }else if (indexPath.row ==3){
         cell.title.text = @"across developments";
-        cell.info.text = @"Burrells Wharf, Langbourne Place, Canary Riverside";
-        cell.total.text = @"293";
+        cell.info.text = [self _text_for_scope:[self.scopeTypes objectAtIndex:indexPath.row-1]];
+        cell.total.text =[self _total_for_scope:[self.scopeTypes objectAtIndex:indexPath.row-1]];
         cell.moreButton.tag = indexPath.row;
 
     }else if (indexPath.row == 4){
@@ -190,7 +190,7 @@
        segue = @"apartmentSegue";
     }
     else if (clicked.tag == 3){
-       segue = @"acrossDevelopmentSegue";
+       segue = @"acrossDevelopmentsSegue";
     }else if (clicked.tag == 4){
        segue = @"withinRegionSegue";
     }
@@ -278,6 +278,12 @@
         dvc.blocks = self.blocks;
         dvc.developmentName = self.developmentName;
         dvc.selections = [self.scope objectForKey:@"development"];
+    }else if ([[segue identifier] isEqualToString:@"acrossDevelopmentsSegue"]){
+        
+        DevelopmentsViewController* dsvc = (DevelopmentsViewController *) [segue destinationViewController];
+        dsvc.developments = self.developments;
+        dsvc.selections = [self.scope objectForKey:@"developments"];
+        dsvc.developmentsdelegate = self;
     }
 }
 
@@ -291,6 +297,26 @@
 
 #pragma delegate methods
 
+-(void) didSelectDevelopment:(Development*)development withValue:(BOOL)value{
+    
+    int total = 0;
+    
+    NSNumber* residents = [self.totals objectForKey:@"developments"];
+    
+    if (!residents)
+        residents = [NSNumber numberWithInt:0];
+
+    if (value){
+        [[self.scope objectForKey:@"developments" ] setObject:development forKey:development.developmentId];
+         total = [residents intValue] + [development.residents intValue];
+        [self.totals setObject:[NSNumber numberWithInt:total] forKey:@"developments"];
+    }else{
+        [[self.scope objectForKey:@"developments" ] removeObjectForKey:development.developmentId];
+        total = [residents intValue] - [development.residents intValue];
+        [self.totals setObject:[NSNumber numberWithInt:total] forKey:@"developments"];
+    }
+}
+
 -(void) didSelectApartment:(Apartment*)apartment withValue:(BOOL)value{
     if (value){
        [[self.scope objectForKey:@"apartment" ] setObject:apartment forKey:apartment.apartmentId];
@@ -302,27 +328,22 @@
 }
 
 -(void) didSelectBlock:(Block*) block withValue: (BOOL) value{
+    
     int total = 0;
     NSNumber* residents = [self.totals objectForKey:@"development"];
     
     if (!residents)
         residents = [NSNumber numberWithInt:0];
     
-   //Block *b = [[self.scope objectForKey:@"development" ] objectForKey:block.blockId];
-    
     if (value){
-        //if (b == nil){
-            [[self.scope objectForKey:@"development" ] setObject:block forKey:block.blockId];
-            total = [residents intValue] + [block.residents intValue];
-            [self.totals setObject:[NSNumber numberWithInt:total] forKey:@"development"];
-       // }
+        [[self.scope objectForKey:@"development" ] setObject:block forKey:block.blockId];
+        total = [residents intValue] + [block.residents intValue];
+        [self.totals setObject:[NSNumber numberWithInt:total] forKey:@"development"];
         
     }else{
-        //if (b != nil){
-            [[self.scope objectForKey:@"development" ] removeObjectForKey:block.blockId];
-            total = [residents intValue] - [block.residents intValue];
-            [self.totals setObject:[NSNumber numberWithInt:total] forKey:@"development"];
-        //}
+        [[self.scope objectForKey:@"development" ] removeObjectForKey:block.blockId];
+        total = [residents intValue] - [block.residents intValue];
+        [self.totals setObject:[NSNumber numberWithInt:total] forKey:@"development"];
     }
    
 }

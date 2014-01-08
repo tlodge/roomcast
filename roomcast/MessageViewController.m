@@ -42,8 +42,26 @@ static NSArray* TYPES;
     
     self.development  = [[DataManager sharedManager] development];
     
-    self.developments = [[DataManager sharedManager] developmentsInRange];
-
+    
+    [[NSNotificationCenter defaultCenter] addObserverForName:@"conversationUpdate" object:nil queue:nil usingBlock:^(NSNotification *note) {
+        self.conversations = [[DataManager sharedManager] conversationsForUser];
+        [self.tableView reloadData];
+        
+    }];
+    
+    [[NSNotificationCenter defaultCenter] addObserverForName:@"conversationsUpdate" object:nil queue:nil usingBlock:^(NSNotification *note) {
+        self.conversations = [[DataManager sharedManager] conversationsForUser];
+        [self.tableView reloadData];
+        
+    }];
+    
+    [[NSNotificationCenter defaultCenter] addObserverForName:@"developmentsUpdate" object:nil queue:nil usingBlock:^(NSNotification *note) {
+        NSLog(@"--------- seen a developments update from network, so refetching from CD for development %@", self.development);
+        self.developments = [[DataManager sharedManager] neighboursForDevelopment:self.development.developmentId];
+        
+    }];
+    
+    self.developments = [[DataManager sharedManager] neighboursForDevelopment:self.development.developmentId];
     
     TYPES = [NSArray arrayWithObjects:@"development", @"apartment", @"developments", @"region",  nil];
     
@@ -81,20 +99,6 @@ static NSArray* TYPES;
         }
         [self.scope setObject:entities forKey:type];
     }
-    
-    [[NSNotificationCenter defaultCenter] addObserverForName:@"conversationUpdate" object:nil queue:nil usingBlock:^(NSNotification *note) {
-        self.conversations = [[DataManager sharedManager] conversationsForUser];
-        [self.tableView reloadData];
-        
-    }];    
- 
-    [[NSNotificationCenter defaultCenter] addObserverForName:@"conversationsUpdate" object:nil queue:nil usingBlock:^(NSNotification *note) {
-        self.conversations = [[DataManager sharedManager] conversationsForUser];
-        [self.tableView reloadData];
-        
-    }];
-
-    
     
     
     id maindelegate = [[UIApplication sharedApplication] delegate];
@@ -142,6 +146,11 @@ static NSArray* TYPES;
     bodyLabel.text = conversation.teaser;
     repliesLabel.text = [NSString stringWithFormat:@"%@", conversation.responses];
     return cell;
+}
+
+- (CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+
+    return 75.0;
 }
 
 /*

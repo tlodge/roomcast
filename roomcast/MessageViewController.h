@@ -26,8 +26,7 @@
 @property (strong, nonatomic) Conversation* selectedConversation;
 @property (nonatomic, assign) BOOL composing;
 @property (strong, nonatomic) MessageView* messageView;
-@property (weak, nonatomic) Development* development;
-@property (weak, nonatomic) NSArray* developments;
-
+@property (strong, nonatomic) Development* development;
+@property (strong, nonatomic) NSArray* developments;   
 - (IBAction)toggleMessage:(id)sender;
 @end

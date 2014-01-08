@@ -36,7 +36,7 @@
     PFUser *currentUser = [PFUser currentUser];
    // NSLog(@"and go current user as %@",currentUser);
     
-    if (NO){//currentUser != nil) {
+    if (currentUser != nil) {
         
         NSLog(@"registering for remote notifications!");
         

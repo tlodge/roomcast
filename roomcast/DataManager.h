@@ -22,19 +22,19 @@
 -(Apartment *) fetchApartmentWithObjectId:(NSString *) objectId;
 -(Message *) fetchMessageWithObjectId:(NSString *) objectId;
 -(Conversation *) fetchConversationWithObjectId:(NSString *) objectId;
+-(NSArray *)  fetchNeighboursForDevelopment:(NSString *) objectId;
 
 -(BOOL) syncWithDevelopment:(NSString*) developmentId;
-
 
 
 -(void) addMessageToConversation:(NSString*) message forConversationId:(NSString*)conversationId;
 -(void) createConversationWithMessage:(NSString *) message parameters:(NSDictionary *) params;
 
--(NSArray *) developmentsInRange;
+-(NSArray *) neighboursForDevelopment:(NSString*)developmentId;
 -(NSArray *) conversationsForUser;
 -(NSArray *) messagesForConversation:(NSString*) conversationId;
 -(NSArray *) apartmentsForBlock:(NSString *) blockId;
 
-@property(weak, nonatomic) Development* development;
+@property(strong, nonatomic) Development* development;
 
 @end

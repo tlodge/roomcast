@@ -14,7 +14,7 @@
 
 @interface DevelopmentViewController : UITableViewController
 @property(nonatomic,weak) NSArray* blocks;
-@property(nonatomic,strong) NSMutableDictionary *selections;
+@property(nonatomic,strong) NSMutableDictionary *selections;//can be weak now?
 @property(nonatomic,assign) BOOL aggregateSelect;
 
 - (IBAction)selectionChanged:(id)sender;

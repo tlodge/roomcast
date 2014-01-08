@@ -11,6 +11,7 @@
 @interface DataManager ()
 -(void) syncWithConversation:(Conversation*) conversation;
 -(void) syncWithConversations;
+-(void) syncWithDevelopments: (NSString*)developmentId;
 -(void) syncWithBlock:(Block *)block;
 
 -(BOOL) addMessageToCoreData:(PFObject*) message forConversation:(Conversation*) conversation;
@@ -57,7 +58,22 @@ NSManagedObjectContext *context;
     return _development;
 }
 
-
+-(NSArray *) fetchNeighboursForDevelopment:(NSString *)objectId{
+    NSError *error;
+    
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Development"  inManagedObjectContext:context];
+    
+    [fetchRequest setEntity:entity];
+    
+    NSArray* developments = [context executeFetchRequest:fetchRequest error:&error];
+    
+    if (!error){
+        return developments;
+    }
+    return [[NSArray alloc] init];
+}
 
 -(Apartment *) fetchApartmentWithObjectId:(NSString *) objectId{
     
@@ -134,6 +150,7 @@ NSManagedObjectContext *context;
     if ([fetchedDevelopment count] > 0){
         return [fetchedDevelopment objectAtIndex:0];
     }
+    NSLog(@"returning nil for fetch dev with object id %@", objectId);
     return nil;
 }
 
@@ -205,7 +222,46 @@ NSManagedObjectContext *context;
 
 
 #pragma sync methods
+-(void) syncWithDevelopments:(NSString*) developmentId{
+    
+    NSDictionary* parameters= [[NSDictionary alloc] initWithObjects:[[NSArray alloc] initWithObjects:developmentId, nil] forKeys:[[NSArray alloc] initWithObjects:@"developmentId", nil]];
+    
+    [PFCloud callFunctionInBackground:@"neighboursForDevelopment" withParameters:parameters block:^(NSArray* developments, NSError *error){
+        if(!error){
+            if (developments){
+                BOOL update = FALSE;
+               
+                for (PFObject *development in developments){
+                    
+                    Development  *d = [self fetchDevelopmentWithObjectId:[development objectId]];
+                    
+                    if (d == nil){
+                        
+                        
+                        d = [NSEntityDescription insertNewObjectForEntityForName:@"Development" inManagedObjectContext:context];
+                        
+                        [d setValue:[development objectId] forKey:@"developmentId"];
+                        PFGeoPoint* gp = [development objectForKey:@"location"];
+                        [d setValue:[development objectForKey:@"name"] forKey:@"name"];
+                        [d setValue:[NSNumber numberWithDouble: gp.latitude] forKey:@"latitude"];
+                        [d setValue:[NSNumber numberWithDouble: gp.longitude] forKey:@"longitude"];
+                        [d setValue:[development objectForKey:@"residents"] forKey:@"residents"];
+                       
+                        NSError *derror;
+                        update = update || [context save:&derror];
+                        if (derror){
+                            NSLog(@"failed to save with error %@", derror);
+                        }
+                    }
+                }
+                if (update){
+                    [[NSNotificationCenter defaultCenter] postNotificationName:@"developmentsUpdate" object:nil];
+                }
+            }
+        }
+    }];
 
+}
 
 -(void) syncWithConversations{
     
@@ -514,8 +570,22 @@ NSManagedObjectContext *context;
 
 #pragma getter public methods
 
--(NSArray*) developmentsInRange{
-    return nil;
+-(NSArray*) neighboursForDevelopment: (NSString*)developmentId{
+    
+    NSArray* developments = [self fetchNeighboursForDevelopment:developmentId];
+    
+    if (developments){
+        //check for updates (asynchronously)
+        [self syncWithDevelopments:developmentId];
+        
+        
+        //and return what we currently have...
+        if ([developments count] > 0){
+            return [developments sortedArrayUsingDescriptors:[NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]]];
+        }
+    }
+    //return empty array if nothing found in core data!
+    return [[NSArray alloc]init];
 }
 
 -(NSArray*) apartmentsForBlock:(NSString *)blockId{
