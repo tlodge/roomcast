@@ -14,7 +14,6 @@
 
 @dynamic latitude;
 @dynamic longitude;
-@dynamic name;
 @dynamic residents;
 @dynamic blocks;
 

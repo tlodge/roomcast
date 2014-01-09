@@ -15,7 +15,6 @@
 @interface Apartment : Space
 
 @property (nonatomic, retain) NSString * floor;
-@property (nonatomic, retain) NSString * name;
 @property (nonatomic, retain) Block *block;
 
 @end

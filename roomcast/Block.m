@@ -14,7 +14,6 @@
 @implementation Block
 
 @dynamic floors;
-@dynamic name;
 @dynamic residents;
 @dynamic apartments;
 @dynamic development;

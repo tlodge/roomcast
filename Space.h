@@ -13,5 +13,6 @@
 @interface Space : NSManagedObject
 
 @property (nonatomic, retain) NSString * objectId;
+@property (nonatomic, retain) NSString * name;
 
 @end

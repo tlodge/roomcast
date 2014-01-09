@@ -12,5 +12,6 @@
 @implementation Space
 
 @dynamic objectId;
+@dynamic name;
 
 @end

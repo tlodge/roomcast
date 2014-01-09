@@ -13,7 +13,6 @@
 @implementation Apartment
 
 @dynamic floor;
-@dynamic name;
 @dynamic block;
 
 @end
