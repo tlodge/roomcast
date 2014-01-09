@@ -2,8 +2,8 @@
 //  Block.m
 //  roomcast
 //
-//  Created by Tom Lodge on 19/12/2013.
-//  Copyright (c) 2013 Tom Lodge. All rights reserved.
+//  Created by Tom Lodge on 09/01/2014.
+//  Copyright (c) 2014 Tom Lodge. All rights reserved.
 //
 
 #import "Block.h"
@@ -13,7 +13,6 @@
 
 @implementation Block
 
-@dynamic blockId;
 @dynamic floors;
 @dynamic name;
 @dynamic residents;

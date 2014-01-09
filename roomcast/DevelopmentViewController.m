@@ -38,7 +38,7 @@
     
     for (int i = 0; i < [self.blocks count]; i++){
         Block* b = [self.blocks objectAtIndex:i];
-        if ([self.selections objectForKey:b.blockId] != nil){
+        if ([self.selections objectForKey:b.objectId] != nil){
             self.totalSelected += [b.residents intValue];
         }
     }
@@ -90,7 +90,7 @@
         Block *b = [self.blocks objectAtIndex:indexPath.row - 1];
         cell.blockNameLabel.text = b.name;
         
-        if ([self.selections objectForKey:b.blockId] != nil){
+        if ([self.selections objectForKey:b.objectId] != nil){
              [cell.selectedSwitch setOn:YES];
             cell.totalSelectedLabel.text = [NSString stringWithFormat:@"%d", [b.residents intValue]];
 
@@ -167,7 +167,7 @@
             
             for (int i = 0; i < [self.blocks count]; i++){
                 Block *b = [self.blocks objectAtIndex:i];
-                [self.selections setObject:[NSNumber numberWithBool:YES] forKey:b.blockId];
+                [self.selections setObject:[NSNumber numberWithBool:YES] forKey:b.objectId];
                 totalSelected += [b.residents intValue];
             }
         }else{
@@ -178,11 +178,11 @@
     }else{
         Block* b = [blocks objectAtIndex:sender.tag-1];
         if (sender.on){
-            [self.selections setObject:[NSNumber numberWithBool:YES] forKey:b.blockId];
+            [self.selections setObject:[NSNumber numberWithBool:YES] forKey:b.objectId];
             [self.developmentdelegate didSelectBlock:b withValue:sender.on];
             self.totalSelected += [b.residents intValue];
         }else{
-            [self.selections removeObjectForKey:b.blockId];
+            [self.selections removeObjectForKey:b.objectId];
             [self.developmentdelegate didSelectBlock:b withValue:sender.on];
             self.totalSelected -= [b.residents intValue];
         }

@@ -19,7 +19,6 @@
 		A3334D6F18452F2400ECA8D5 /* ApartmentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3334D6E18452F2400ECA8D5 /* ApartmentViewController.m */; };
 		A3334D7A1846582800ECA8D5 /* ApartmentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A3334D791846582700ECA8D5 /* ApartmentCell.m */; };
 		A3334D7D18468FFB00ECA8D5 /* RootTabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3334D7C18468FFB00ECA8D5 /* RootTabViewController.m */; };
-		A3334D87184698A900ECA8D5 /* Apartment.m in Sources */ = {isa = PBXBuildFile; fileRef = A3334D86184698A900ECA8D5 /* Apartment.m */; };
 		A335AA201847AC07007096A4 /* DataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A335AA1F1847AC07007096A4 /* DataManager.m */; };
 		A335AA24184E47FB007096A4 /* home.png in Resources */ = {isa = PBXBuildFile; fileRef = A335AA23184E47FB007096A4 /* home.png */; };
 		A335AA27184F7181007096A4 /* responses_dark.png in Resources */ = {isa = PBXBuildFile; fileRef = A335AA25184F7181007096A4 /* responses_dark.png */; };
@@ -44,6 +43,10 @@
 		A35E3B12187C9D3F00C8FBF1 /* messageback2.png in Resources */ = {isa = PBXBuildFile; fileRef = A35E3B10187C9D3E00C8FBF1 /* messageback2.png */; };
 		A35E3B15187DBCD400C8FBF1 /* DevelopmentsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A35E3B14187DBCD400C8FBF1 /* DevelopmentsViewController.m */; };
 		A35E3B18187DBEAB00C8FBF1 /* DevelopmentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A35E3B17187DBEAB00C8FBF1 /* DevelopmentCell.m */; };
+		A35E3B1B187F0A7500C8FBF1 /* Space.m in Sources */ = {isa = PBXBuildFile; fileRef = A35E3B1A187F0A7400C8FBF1 /* Space.m */; };
+		A35E3B1E187F0AE300C8FBF1 /* Block.m in Sources */ = {isa = PBXBuildFile; fileRef = A35E3B1D187F0AE300C8FBF1 /* Block.m */; };
+		A35E3B21187F0B1000C8FBF1 /* Development.m in Sources */ = {isa = PBXBuildFile; fileRef = A35E3B20187F0B1000C8FBF1 /* Development.m */; };
+		A35E3B24187F0B3B00C8FBF1 /* Apartment.m in Sources */ = {isa = PBXBuildFile; fileRef = A35E3B23187F0B3B00C8FBF1 /* Apartment.m */; };
 		A37C6EA9181952040042489D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A37C6EA8181952040042489D /* Foundation.framework */; };
 		A37C6EAB181952040042489D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A37C6EAA181952040042489D /* CoreGraphics.framework */; };
 		A37C6EAD181952040042489D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A37C6EAC181952040042489D /* UIKit.framework */; };
@@ -67,8 +70,6 @@
 		A39E8BC1185F5C6C00600856 /* background_frame.png in Resources */ = {isa = PBXBuildFile; fileRef = A39E8BC0185F5C6C00600856 /* background_frame.png */; };
 		A39E8BCA1860AE9400600856 /* DevelopmentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A39E8BC91860AE9400600856 /* DevelopmentViewController.m */; };
 		A39E8BCD1860B3BB00600856 /* DevelopmentBlockCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A39E8BCC1860B3BB00600856 /* DevelopmentBlockCell.m */; };
-		A39E8BD01863355100600856 /* Development.m in Sources */ = {isa = PBXBuildFile; fileRef = A39E8BCF1863355100600856 /* Development.m */; };
-		A39E8BD91863378F00600856 /* Block.m in Sources */ = {isa = PBXBuildFile; fileRef = A39E8BD81863378F00600856 /* Block.m */; };
 		A3B6DADA18365EEF00A860CA /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3B6DAD918365EEF00A860CA /* Parse.framework */; };
 		A3B6DADC18365F3100A860CA /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3B6DADB18365F3100A860CA /* AudioToolbox.framework */; };
 		A3B6DADE18365F4600A860CA /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3B6DADD18365F4600A860CA /* CFNetwork.framework */; };
@@ -140,8 +141,6 @@
 		A3334D791846582700ECA8D5 /* ApartmentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ApartmentCell.m; sourceTree = "<group>"; };
 		A3334D7B18468FFB00ECA8D5 /* RootTabViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootTabViewController.h; sourceTree = "<group>"; };
 		A3334D7C18468FFB00ECA8D5 /* RootTabViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootTabViewController.m; sourceTree = "<group>"; };
-		A3334D85184698A900ECA8D5 /* Apartment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Apartment.h; sourceTree = "<group>"; };
-		A3334D86184698A900ECA8D5 /* Apartment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Apartment.m; sourceTree = "<group>"; };
 		A335AA1E1847AC06007096A4 /* DataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataManager.h; sourceTree = "<group>"; };
 		A335AA1F1847AC07007096A4 /* DataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataManager.m; sourceTree = "<group>"; };
 		A335AA23184E47FB007096A4 /* home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = home.png; path = ../home.png; sourceTree = "<group>"; };
@@ -169,6 +168,14 @@
 		A35E3B14187DBCD400C8FBF1 /* DevelopmentsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DevelopmentsViewController.m; sourceTree = "<group>"; };
 		A35E3B16187DBEAB00C8FBF1 /* DevelopmentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DevelopmentCell.h; sourceTree = "<group>"; };
 		A35E3B17187DBEAB00C8FBF1 /* DevelopmentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DevelopmentCell.m; sourceTree = "<group>"; };
+		A35E3B19187F0A7400C8FBF1 /* Space.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Space.h; path = ../Space.h; sourceTree = "<group>"; };
+		A35E3B1A187F0A7400C8FBF1 /* Space.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Space.m; path = ../Space.m; sourceTree = "<group>"; };
+		A35E3B1C187F0AE300C8FBF1 /* Block.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Block.h; sourceTree = "<group>"; };
+		A35E3B1D187F0AE300C8FBF1 /* Block.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Block.m; sourceTree = "<group>"; };
+		A35E3B1F187F0B1000C8FBF1 /* Development.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Development.h; sourceTree = "<group>"; };
+		A35E3B20187F0B1000C8FBF1 /* Development.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Development.m; sourceTree = "<group>"; };
+		A35E3B22187F0B3B00C8FBF1 /* Apartment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Apartment.h; sourceTree = "<group>"; };
+		A35E3B23187F0B3B00C8FBF1 /* Apartment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Apartment.m; sourceTree = "<group>"; };
 		A37C6EA5181952040042489D /* roomcast.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = roomcast.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A37C6EA8181952040042489D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		A37C6EAA181952040042489D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -202,10 +209,6 @@
 		A39E8BC91860AE9400600856 /* DevelopmentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DevelopmentViewController.m; sourceTree = "<group>"; };
 		A39E8BCB1860B3BB00600856 /* DevelopmentBlockCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DevelopmentBlockCell.h; sourceTree = "<group>"; };
 		A39E8BCC1860B3BB00600856 /* DevelopmentBlockCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DevelopmentBlockCell.m; sourceTree = "<group>"; };
-		A39E8BCE1863355100600856 /* Development.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Development.h; path = ../Development.h; sourceTree = "<group>"; };
-		A39E8BCF1863355100600856 /* Development.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Development.m; path = ../Development.m; sourceTree = "<group>"; };
-		A39E8BD71863378F00600856 /* Block.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Block.h; path = ../Block.h; sourceTree = "<group>"; };
-		A39E8BD81863378F00600856 /* Block.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Block.m; path = ../Block.m; sourceTree = "<group>"; };
 		A3B6DAD918365EEF00A860CA /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		A3B6DADB18365F3100A860CA /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		A3B6DADD18365F4600A860CA /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
@@ -559,16 +562,18 @@
 		A3F88D911832706400E3BFB0 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				A39E8BD71863378F00600856 /* Block.h */,
-				A39E8BD81863378F00600856 /* Block.m */,
-				A3334D85184698A900ECA8D5 /* Apartment.h */,
-				A3334D86184698A900ECA8D5 /* Apartment.m */,
-				A39E8BCE1863355100600856 /* Development.h */,
-				A39E8BCF1863355100600856 /* Development.m */,
+				A35E3B22187F0B3B00C8FBF1 /* Apartment.h */,
+				A35E3B23187F0B3B00C8FBF1 /* Apartment.m */,
+				A35E3B19187F0A7400C8FBF1 /* Space.h */,
+				A35E3B1A187F0A7400C8FBF1 /* Space.m */,
+				A35E3B1F187F0B1000C8FBF1 /* Development.h */,
+				A35E3B20187F0B1000C8FBF1 /* Development.m */,
 				A3BD18E3184FA17C004EB6BD /* Message.h */,
 				A3BD18E4184FA17C004EB6BD /* Message.m */,
 				A39E8BB5185B6F1100600856 /* Conversation.h */,
 				A39E8BB6185B6F1100600856 /* Conversation.m */,
+				A35E3B1C187F0AE300C8FBF1 /* Block.h */,
+				A35E3B1D187F0AE300C8FBF1 /* Block.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -716,9 +721,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A35E3B24187F0B3B00C8FBF1 /* Apartment.m in Sources */,
 				A39E8BB7185B6F1100600856 /* Conversation.m in Sources */,
 				A3CA7F401857B75F0079FBB5 /* RegistrationFloorViewController.m in Sources */,
-				A3334D87184698A900ECA8D5 /* Apartment.m in Sources */,
+				A35E3B21187F0B1000C8FBF1 /* Development.m in Sources */,
 				A317AC38182AE99700BE7E46 /* MessageView.m in Sources */,
 				A39E8BCA1860AE9400600856 /* DevelopmentViewController.m in Sources */,
 				A35E3B18187DBEAB00C8FBF1 /* DevelopmentCell.m in Sources */,
@@ -733,20 +739,20 @@
 				A37C6EBF181952040042489D /* ViewController.m in Sources */,
 				A335AA201847AC07007096A4 /* DataManager.m in Sources */,
 				A317AC41182BD95C00BE7E46 /* MessageViewController.m in Sources */,
-				A39E8BD91863378F00600856 /* Block.m in Sources */,
 				A3334D7A1846582800ECA8D5 /* ApartmentCell.m in Sources */,
 				A3F88DEE18329C9700E3BFB0 /* Roomcast.xcdatamodeld in Sources */,
 				A37C6EB9181952040042489D /* AppDelegate.m in Sources */,
 				A3334D7D18468FFB00ECA8D5 /* RootTabViewController.m in Sources */,
 				A37C6EB5181952040042489D /* main.m in Sources */,
 				A3B6DAEA183BE0FA00A860CA /* RegistrationViewController.m in Sources */,
+				A35E3B1E187F0AE300C8FBF1 /* Block.m in Sources */,
 				A3BD18E5184FA17C004EB6BD /* Message.m in Sources */,
 				A3F88D15182D445D00E3BFB0 /* ChatViewController.m in Sources */,
 				A3334D451843B41800ECA8D5 /* ScopeCell.m in Sources */,
 				A39E8BCD1860B3BB00600856 /* DevelopmentBlockCell.m in Sources */,
 				A3334D601845077500ECA8D5 /* BlockViewController.m in Sources */,
 				A3F88D36183019C000E3BFB0 /* MessageCell.m in Sources */,
-				A39E8BD01863355100600856 /* Development.m in Sources */,
+				A35E3B1B187F0A7500C8FBF1 /* Space.m in Sources */,
 				A3334D6C1845159500ECA8D5 /* BlockCell.m in Sources */,
 				A3B6DAED183E60C500A860CA /* DestinationViewController.m in Sources */,
 			);

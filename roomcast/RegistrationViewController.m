@@ -86,7 +86,7 @@ NSArray* floors;
     
     PFObject *abode = [PFObject objectWithClassName:@"Apartment"];
     
-    PFObject *block =[PFObject objectWithoutDataWithClassName:@"Block" objectId:selectedBlock.blockId];
+    PFObject *block =[PFObject objectWithoutDataWithClassName:@"Block" objectId:selectedBlock.objectId];
     
     [abode setObject:block forKey:@"block"];
     [abode setObject:selectedFloor forKey:@"floor"];

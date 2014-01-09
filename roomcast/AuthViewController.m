@@ -58,10 +58,10 @@ MKPolygon *authZone;
 
 -(void) loadAuthZones
 {
-    NSLog(@"loading zones for development %@", development.developmentId);
+    NSLog(@"loading zones for development %@", development.objectId);
     
     PFQuery *innerquery = [PFQuery queryWithClassName:@"Development"];
-    [innerquery whereKey:@"objectId" equalTo:development.developmentId];
+    [innerquery whereKey:@"objectId" equalTo:development.objectId];
     
     PFQuery *outerquery = [PFQuery queryWithClassName:@"Zone"];
     [outerquery whereKey:@"development" matchesKey:@"objectId" inQuery:innerquery];

@@ -11,7 +11,7 @@
 @interface DataManager ()
 -(void) syncWithConversation:(Conversation*) conversation;
 -(void) syncWithConversations;
--(void) syncWithDevelopments: (NSString*)developmentId;
+-(void) syncWithDevelopments: (NSString*)objectId;
 -(void) syncWithBlock:(Block *)block;
 
 -(BOOL) addMessageToCoreData:(PFObject*) message forConversation:(Conversation*) conversation;
@@ -89,7 +89,7 @@ NSManagedObjectContext *context;
     
     [fetchRequest setEntity:entity];
     
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"apartmentId == %@", objectId];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"objectId == %@", objectId];
     [fetchRequest setPredicate:predicate];
     
     NSArray* fetchedApartment = [context executeFetchRequest:fetchRequest error:&error];
@@ -142,7 +142,7 @@ NSManagedObjectContext *context;
     
     [fetchRequest setEntity:entity];
     
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"developmentId == %@", objectId];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"objectId == %@", objectId];
     [fetchRequest setPredicate:predicate];
     
     NSArray* fetchedDevelopment = [context executeFetchRequest:fetchRequest error:&error];
@@ -170,7 +170,7 @@ NSManagedObjectContext *context;
     
     [fetchRequest setEntity:entity];
     
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"blockId == %@", objectId];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"objectId == %@", objectId];
     [fetchRequest setPredicate:predicate];
     
     NSArray* fetchedBlock = [context executeFetchRequest:fetchRequest error:&error];
@@ -222,15 +222,18 @@ NSManagedObjectContext *context;
 
 
 #pragma sync methods
--(void) syncWithDevelopments:(NSString*) developmentId{
+-(void) syncWithDevelopments:(NSString*) objectId{
     
-    NSDictionary* parameters= [[NSDictionary alloc] initWithObjects:[[NSArray alloc] initWithObjects:developmentId, nil] forKeys:[[NSArray alloc] initWithObjects:@"developmentId", nil]];
+    NSLog(@"syncing with developments for %@", objectId);
+    
+    NSDictionary* parameters= [[NSDictionary alloc] initWithObjects:[[NSArray alloc] initWithObjects:objectId, nil] forKeys:[[NSArray alloc] initWithObjects:@"objectId", nil]];
     
     [PFCloud callFunctionInBackground:@"neighboursForDevelopment" withParameters:parameters block:^(NSArray* developments, NSError *error){
         if(!error){
             if (developments){
                 BOOL update = FALSE;
-               
+                NSLog(@"got following from parse");
+                NSLog(@"%@",developments);
                 for (PFObject *development in developments){
                     
                     Development  *d = [self fetchDevelopmentWithObjectId:[development objectId]];
@@ -240,7 +243,7 @@ NSManagedObjectContext *context;
                         
                         d = [NSEntityDescription insertNewObjectForEntityForName:@"Development" inManagedObjectContext:context];
                         
-                        [d setValue:[development objectId] forKey:@"developmentId"];
+                        [d setValue:[development objectId] forKey:@"objectId"];
                         PFGeoPoint* gp = [development objectForKey:@"location"];
                         [d setValue:[development objectForKey:@"name"] forKey:@"name"];
                         [d setValue:[NSNumber numberWithDouble: gp.latitude] forKey:@"latitude"];
@@ -342,9 +345,9 @@ NSManagedObjectContext *context;
     }];
 }
 
--(BOOL) syncWithDevelopment:(NSString*) developmentId{
+-(BOOL) syncWithDevelopment:(NSString*) objectId{
     
-    if (!developmentId)
+    if (!objectId)
         return NO;
     
     PFQuery *query = [PFQuery queryWithClassName:@"Development"];
@@ -353,7 +356,7 @@ NSManagedObjectContext *context;
     
     NSError *error;
     
-    PFObject *pfdev = [query getObjectWithId:developmentId error:&error];
+    PFObject *pfdev = [query getObjectWithId:objectId error:&error];
     
     if (error){
         NSLog(@"error!! %@ %@", error, [error userInfo]);
@@ -367,7 +370,7 @@ NSManagedObjectContext *context;
         
         if (_development == nil){
             _development = [NSEntityDescription insertNewObjectForEntityForName:@"Development" inManagedObjectContext:context];
-            [_development setValue:[pfdev objectId] forKey:@"developmentId"];
+            [_development setValue:[pfdev objectId] forKey:@"objectId"];
         }
         
         NSError *error;
@@ -381,7 +384,7 @@ NSManagedObjectContext *context;
         NSMutableDictionary *lookup = [NSMutableDictionary dictionary];
         
         for (Block* block in _development.blocks){
-            [lookup setObject:block forKey:block.blockId];
+            [lookup setObject:block forKey:block.objectId];
         }
         
         for (PFObject *block in [pfdev objectForKey:@"blocks"]){
@@ -396,7 +399,7 @@ NSManagedObjectContext *context;
             
             NSString* floors = [[NSString alloc] initWithData:jsonfloors encoding:NSUTF8StringEncoding];
             
-            [b setValue:[block objectId] forKey:@"blockId"];
+            [b setValue:[block objectId] forKey:@"objectId"];
             [b setValue:[block objectForKey:@"name"] forKey:@"name"];
             [b setValue:floors forKey:@"floors"];
             [b setValue:[block objectForKey:@"residents"] forKey:@"residents"];
@@ -413,11 +416,11 @@ NSManagedObjectContext *context;
 
 -(void) syncWithBlock:(Block*) block{
     
-    if (block==nil || block.blockId == nil)
+    if (block==nil || block.objectId == nil)
         return;
     
     PFQuery *innerquery = [PFQuery queryWithClassName:@"Block"];
-    [innerquery whereKey:@"objectId" equalTo:block.blockId];
+    [innerquery whereKey:@"objectId" equalTo:block.objectId];
     
     PFQuery *outerquery = [PFQuery queryWithClassName:@"Apartment"];
     [outerquery whereKey:@"block" matchesKey:@"objectId" inQuery:innerquery];
@@ -437,7 +440,7 @@ NSManagedObjectContext *context;
                     if (a == nil){
                         
                         a = [NSEntityDescription insertNewObjectForEntityForName:@"Apartment" inManagedObjectContext:context];
-                        [a setValue:[apartment objectId] forKey:@"apartmentId"];
+                        [a setValue:[apartment objectId] forKey:@"objectId"];
                         [a setValue:[apartment objectForKey:@"floor"] forKey:@"floor"];
                         [a setValue:[apartment objectForKey:@"name"] forKey:@"name"];
                         [a setValue:block forKey:@"block"];
@@ -447,7 +450,7 @@ NSManagedObjectContext *context;
                     }
                     if (update){
                         NSMutableDictionary* userInfo = [NSMutableDictionary dictionary];
-                        [userInfo setObject:block.blockId forKey:@"blockId"];
+                        [userInfo setObject:block.objectId forKey:@"objectId"];
                         [[NSNotificationCenter defaultCenter] postNotificationName:@"blockUpdate" object:nil userInfo:userInfo];
                     }
                 }
@@ -570,13 +573,13 @@ NSManagedObjectContext *context;
 
 #pragma getter public methods
 
--(NSArray*) neighboursForDevelopment: (NSString*)developmentId{
+-(NSArray*) neighboursForDevelopment: (NSString*)objectId{
     
-    NSArray* developments = [self fetchNeighboursForDevelopment:developmentId];
+    NSArray* developments = [self fetchNeighboursForDevelopment:objectId];
     
     if (developments){
         //check for updates (asynchronously)
-        [self syncWithDevelopments:developmentId];
+        [self syncWithDevelopments:objectId];
         
         
         //and return what we currently have...
@@ -588,9 +591,9 @@ NSManagedObjectContext *context;
     return [[NSArray alloc]init];
 }
 
--(NSArray*) apartmentsForBlock:(NSString *)blockId{
+-(NSArray*) apartmentsForBlock:(NSString *)objectId{
     
-    Block *block = [self fetchBlockWithObjectId:blockId];
+    Block *block = [self fetchBlockWithObjectId:objectId];
     
     if (block){
         [self syncWithBlock:block];

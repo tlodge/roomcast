@@ -307,11 +307,11 @@
         residents = [NSNumber numberWithInt:0];
 
     if (value){
-        [[self.scope objectForKey:@"developments" ] setObject:development forKey:development.developmentId];
+        [[self.scope objectForKey:@"developments" ] setObject:development forKey:development.objectId];
          total = [residents intValue] + [development.residents intValue];
         [self.totals setObject:[NSNumber numberWithInt:total] forKey:@"developments"];
     }else{
-        [[self.scope objectForKey:@"developments" ] removeObjectForKey:development.developmentId];
+        [[self.scope objectForKey:@"developments" ] removeObjectForKey:development.objectId];
         total = [residents intValue] - [development.residents intValue];
         [self.totals setObject:[NSNumber numberWithInt:total] forKey:@"developments"];
     }
@@ -319,9 +319,9 @@
 
 -(void) didSelectApartment:(Apartment*)apartment withValue:(BOOL)value{
     if (value){
-       [[self.scope objectForKey:@"apartment" ] setObject:apartment forKey:apartment.apartmentId];
+       [[self.scope objectForKey:@"apartment" ] setObject:apartment forKey:apartment.objectId];
     }else{
-        [[self.scope objectForKey:@"apartment" ] removeObjectForKey:apartment.apartmentId];
+        [[self.scope objectForKey:@"apartment" ] removeObjectForKey:apartment.objectId];
     }
     
     [self.totals setObject:[NSNumber numberWithInt:[[[self.scope objectForKey:@"apartment"] allValues] count]] forKey:@"apartment"];
@@ -336,12 +336,12 @@
         residents = [NSNumber numberWithInt:0];
     
     if (value){
-        [[self.scope objectForKey:@"development" ] setObject:block forKey:block.blockId];
+        [[self.scope objectForKey:@"development" ] setObject:block forKey:block.objectId];
         total = [residents intValue] + [block.residents intValue];
         [self.totals setObject:[NSNumber numberWithInt:total] forKey:@"development"];
         
     }else{
-        [[self.scope objectForKey:@"development" ] removeObjectForKey:block.blockId];
+        [[self.scope objectForKey:@"development" ] removeObjectForKey:block.objectId];
         total = [residents intValue] - [block.residents intValue];
         [self.totals setObject:[NSNumber numberWithInt:total] forKey:@"development"];
     }
@@ -355,7 +355,7 @@
     if (selected){
         for (int i=0; i < [self.blocks count]; i++){
             Block *b = [self.blocks objectAtIndex:i];
-            [[self.scope objectForKey:@"development" ] setObject:b forKey:b.blockId];
+            [[self.scope objectForKey:@"development" ] setObject:b forKey:b.objectId];
             total += [b.residents intValue];
         }
     }else{

@@ -24,16 +24,16 @@
 -(Conversation *) fetchConversationWithObjectId:(NSString *) objectId;
 -(NSArray *)  fetchNeighboursForDevelopment:(NSString *) objectId;
 
--(BOOL) syncWithDevelopment:(NSString*) developmentId;
+-(BOOL) syncWithDevelopment:(NSString*) objectId;
 
 
 -(void) addMessageToConversation:(NSString*) message forConversationId:(NSString*)conversationId;
 -(void) createConversationWithMessage:(NSString *) message parameters:(NSDictionary *) params;
 
--(NSArray *) neighboursForDevelopment:(NSString*)developmentId;
+-(NSArray *) neighboursForDevelopment:(NSString*)objectId;
 -(NSArray *) conversationsForUser;
 -(NSArray *) messagesForConversation:(NSString*) conversationId;
--(NSArray *) apartmentsForBlock:(NSString *) blockId;
+-(NSArray *) apartmentsForBlock:(NSString *) objectId;
 
 @property(strong, nonatomic) Development* development;
 

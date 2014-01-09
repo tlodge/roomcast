@@ -9,9 +9,9 @@
 #import "BlockViewController.h"
 
 @interface BlockViewController ()
-/*-(void) _incrementTotalForBlock:(NSString*) blockId;
--(void) _decrementTotalForBlock:(NSString*) blockId;*/
--(int) _totalForBlock:(NSString *) blockId;
+/*-(void) _incrementTotalForBlock:(NSString*) objectId;
+-(void) _decrementTotalForBlock:(NSString*) objectId;*/
+-(int) _totalForBlock:(NSString *) objectId;
 @end
 
 @implementation BlockViewController
@@ -68,9 +68,9 @@
     BlockCell *cell =  (BlockCell*) [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     Block* b = [self.blocks objectAtIndex:indexPath.row];
     
-    NSLog(@"setting totals for %@", b.blockId);
+    NSLog(@"setting totals for %@", b.objectId);
     
-    cell.chosen.text = [NSString stringWithFormat:@"%d", [self _totalForBlock:b.blockId]];
+    cell.chosen.text = [NSString stringWithFormat:@"%d", [self _totalForBlock:b.objectId]];
     
     cell.moreButton.tag = indexPath.row;
     [cell.moreButton addTarget:self action:@selector(triggerSegue:) forControlEvents:UIControlEventTouchUpInside];
@@ -98,11 +98,11 @@
 {
     ApartmentViewController* avc = (ApartmentViewController*) [segue destinationViewController];
  
-    NSArray* blockapartments = [[DataManager sharedManager] apartmentsForBlock:selectedBlock.blockId];
+    NSArray* blockapartments = [[DataManager sharedManager] apartmentsForBlock:selectedBlock.objectId];
     
     avc.delegate   = self;
     avc.apartments = blockapartments;
-    avc.blockId    = selectedBlock.blockId;
+    avc.objectId    = selectedBlock.objectId;
     avc.selections = self.selections;
 }
 
@@ -110,18 +110,18 @@
 -(void) didSelectApartment:(Apartment*)apartment withValue:(BOOL)value{
     if (value){
         //if already selected, do nothing
-        if ([self.selections objectForKey:apartment.apartmentId] != nil)
+        if ([self.selections objectForKey:apartment.objectId] != nil)
             return;
         
-        //[self _incrementTotalForBlock:selectedBlock.blockId];
+        //[self _incrementTotalForBlock:selectedBlock.objectId];
         
-        [self.selections setObject:[NSNumber numberWithBool:value] forKey:apartment.apartmentId];
+        [self.selections setObject:[NSNumber numberWithBool:value] forKey:apartment.objectId];
     }else{
         //if already not selected, do nothing
-        if ([self.selections objectForKey:apartment.apartmentId] == nil)
+        if ([self.selections objectForKey:apartment.objectId] == nil)
             return;
-        //[self _decrementTotalForBlock:selectedBlock.blockId];
-        [self.selections removeObjectForKey:apartment.apartmentId];
+        //[self _decrementTotalForBlock:selectedBlock.objectId];
+        [self.selections removeObjectForKey:apartment.objectId];
     }
     //pass event up the chain (if there has been a genuine change
     [self.apartmentdelegate didSelectApartment:apartment withValue:value];
@@ -129,13 +129,13 @@
 
 }
 
--(int) _totalForBlock:(NSString *) blockId{
-    NSArray* blockapartments = [[DataManager sharedManager] apartmentsForBlock:blockId];
+-(int) _totalForBlock:(NSString *) objectId{
+    NSArray* blockapartments = [[DataManager sharedManager] apartmentsForBlock:objectId];
     int total = 0;
     
     for (int i = 0; i < [blockapartments count]; i++){
         Apartment *a = [blockapartments objectAtIndex:i];
-        if ([self.selections objectForKey:a.apartmentId] != nil){
+        if ([self.selections objectForKey:a.objectId] != nil){
             total += 1;
         }
     }

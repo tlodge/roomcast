@@ -2,20 +2,20 @@
 //  Apartment.h
 //  roomcast
 //
-//  Created by Tom Lodge on 27/11/2013.
-//  Copyright (c) 2013 Tom Lodge. All rights reserved.
+//  Created by Tom Lodge on 09/01/2014.
+//  Copyright (c) 2014 Tom Lodge. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
+#import "Space.h"
 
 @class Block;
 
-@interface Apartment : NSManagedObject
+@interface Apartment : Space
 
-@property (nonatomic, retain) NSString * apartmentId;
-@property (nonatomic, retain) NSString * name;
 @property (nonatomic, retain) NSString * floor;
+@property (nonatomic, retain) NSString * name;
 @property (nonatomic, retain) Block *block;
 
 @end

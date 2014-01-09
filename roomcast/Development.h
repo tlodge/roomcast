@@ -2,18 +2,18 @@
 //  Development.h
 //  roomcast
 //
-//  Created by Tom Lodge on 19/12/2013.
-//  Copyright (c) 2013 Tom Lodge. All rights reserved.
+//  Created by Tom Lodge on 09/01/2014.
+//  Copyright (c) 2014 Tom Lodge. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
+#import "Space.h"
 
 @class Block;
 
-@interface Development : NSManagedObject
+@interface Development : Space
 
-@property (nonatomic, retain) NSString * developmentId;
 @property (nonatomic, retain) NSNumber * latitude;
 @property (nonatomic, retain) NSNumber * longitude;
 @property (nonatomic, retain) NSString * name;

@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="3396" systemVersion="12F45" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
-    <entity name="Apartment" representedClassName="Apartment" syncable="YES">
-        <attribute name="apartmentId" optional="YES" attributeType="String" indexed="YES" syncable="YES"/>
+    <entity name="Apartment" representedClassName="Apartment" parentEntity="Space" syncable="YES">
         <attribute name="floor" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" indexed="YES" syncable="YES"/>
         <relationship name="block" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Block" inverseName="apartments" inverseEntity="Block" syncable="YES"/>
     </entity>
-    <entity name="Block" representedClassName="Block" syncable="YES">
-        <attribute name="blockId" optional="YES" attributeType="String" indexed="YES" syncable="YES"/>
+    <entity name="Block" representedClassName="Block" parentEntity="Space" syncable="YES">
         <attribute name="floors" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" indexed="YES" syncable="YES"/>
         <attribute name="residents" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
@@ -23,8 +21,7 @@
         <attribute name="teaser" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="messages" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Message" inverseName="conversation" inverseEntity="Message" syncable="YES"/>
     </entity>
-    <entity name="Development" representedClassName="Development" syncable="YES">
-        <attribute name="developmentId" optional="YES" attributeType="String" indexed="YES" syncable="YES"/>
+    <entity name="Development" representedClassName="Development" parentEntity="Space" syncable="YES">
         <attribute name="latitude" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="longitude" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
@@ -38,11 +35,15 @@
         <attribute name="sent" optional="YES" attributeType="Date" syncable="YES"/>
         <relationship name="conversation" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Conversation" inverseName="messages" inverseEntity="Conversation" syncable="YES"/>
     </entity>
+    <entity name="Space" representedClassName="Space" syncable="YES">
+        <attribute name="objectId" optional="YES" attributeType="String" indexed="YES" syncable="YES"/>
+    </entity>
     <elements>
-        <element name="Apartment" positionX="-1001" positionY="-783" width="128" height="103"/>
-        <element name="Block" positionX="-1206" positionY="-784" width="128" height="133"/>
-        <element name="Conversation" positionX="-1332" positionY="-613" width="128" height="148"/>
-        <element name="Development" positionX="-1422" positionY="-819" width="128" height="133"/>
-        <element name="Message" positionX="-1143" positionY="-613" width="128" height="118"/>
+        <element name="Apartment" positionX="-1001" positionY="-666" width="128" height="88"/>
+        <element name="Block" positionX="-1197" positionY="-684" width="128" height="118"/>
+        <element name="Conversation" positionX="-1397" positionY="-522" width="128" height="148"/>
+        <element name="Development" positionX="-1406" positionY="-682" width="128" height="118"/>
+        <element name="Message" positionX="-1197" positionY="-496" width="128" height="118"/>
+        <element name="Space" positionX="-1199" positionY="-799" width="128" height="58"/>
     </elements>
 </model>

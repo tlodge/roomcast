@@ -22,6 +22,7 @@
 @synthesize composing;
 @synthesize messageView;
 @synthesize scope;
+@synthesize currentScope;
 @synthesize totals;
 
 static NSArray* TYPES;
@@ -57,11 +58,11 @@ static NSArray* TYPES;
     
     [[NSNotificationCenter defaultCenter] addObserverForName:@"developmentsUpdate" object:nil queue:nil usingBlock:^(NSNotification *note) {
         NSLog(@"--------- seen a developments update from network, so refetching from CD for development %@", self.development);
-        self.developments = [[DataManager sharedManager] neighboursForDevelopment:self.development.developmentId];
+        self.developments = [[DataManager sharedManager] neighboursForDevelopment:self.development.objectId];
         
     }];
     
-    self.developments = [[DataManager sharedManager] neighboursForDevelopment:self.development.developmentId];
+    self.developments = [[DataManager sharedManager] neighboursForDevelopment:self.development.objectId];
     
     TYPES = [NSArray arrayWithObjects:@"development", @"apartment", @"developments", @"region",  nil];
     
@@ -91,7 +92,7 @@ static NSArray* TYPES;
         int total = 0;
         if ([type isEqualToString:@"development"]){
             for (Block* block in self.development.blocks){
-                [entities setObject:block forKey:block.blockId];
+                [entities setObject:block forKey:block.objectId];
                 total += [block.residents intValue];
             }
             [self.totals setValue:[NSNumber numberWithInt:total] forKey:@"development"];
@@ -240,7 +241,10 @@ static NSArray* TYPES;
     if ([messageView.messageView.text length] == 0)
         return;
 
+    NSLog(@"send with scope %@ %@", self.currentScope, [self.scope objectForKey:self.currentScope]);
+                                                        
     [[DataManager sharedManager ]createConversationWithMessage:messageView.messageView.text parameters:nil];
+    
     [self toggleComposer];
 }
 
@@ -292,6 +296,8 @@ static NSArray* TYPES;
 
 -(void) didSelectScope:(NSString*) scopeName withValues:(NSDictionary*) scopeValues{
     
+    self.currentScope = scopeName;
+    
     [self.scope setObject:scopeValues forKey: scopeName];
     
     if ([scopeName isEqualToString:@"apartment"]){
@@ -313,8 +319,14 @@ static NSArray* TYPES;
         [self.messageView.numberButton setTitle:[NSString stringWithFormat:@"%d", [[self.totals objectForKey:@"development"] intValue]] forState:UIControlStateNormal];
         
     }else if([scopeName isEqualToString:@"developments"]){
-    
-        //set the relevant label to the list of developments that this will be sent to!
+        NSString* whoto;
+        
+        NSArray *entities = [scopeValues allValues];
+        whoto = [[entities valueForKey:@"name"]componentsJoinedByString:@","];
+        
+        [self.messageView.whotoButton setTitle:whoto forState:UIControlStateNormal];
+        
+        [self.messageView.numberButton setTitle:[NSString stringWithFormat:@"%d", [[self.totals objectForKey:@"development"] intValue]] forState:UIControlStateNormal];
     }
 }
 

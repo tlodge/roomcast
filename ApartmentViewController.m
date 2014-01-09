@@ -16,7 +16,7 @@
 
 @synthesize selections;
 @synthesize apartments;
-@synthesize blockId;
+@synthesize objectId;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -34,9 +34,9 @@
     //observe any changes to messages for this conversation
     [[NSNotificationCenter defaultCenter] addObserverForName:@"blockUpdate" object:nil queue:nil usingBlock:^(NSNotification *note) {
         NSDictionary* userInfo = note.userInfo;
-        NSString* updatedBlock = [userInfo objectForKey:@"blockId"];
-        if ([updatedBlock isEqualToString:self.blockId]){
-            self.apartments = [[DataManager sharedManager] apartmentsForBlock:self.blockId];
+        NSString* updatedBlock = [userInfo objectForKey:@"objectId"];
+        if ([updatedBlock isEqualToString:self.objectId]){
+            self.apartments = [[DataManager sharedManager] apartmentsForBlock:self.objectId];
             [self.tableView reloadData];
         }
     }];
@@ -109,7 +109,7 @@
     
     Apartment *apartment = [apartments objectAtIndex:indexPath.row];
     
-    if ([self.selections objectForKey:apartment.apartmentId] != nil){
+    if ([self.selections objectForKey:apartment.objectId] != nil){
         [cell.selectSwitch setOn:YES];
     }else{
         [cell.selectSwitch setOn:NO];
