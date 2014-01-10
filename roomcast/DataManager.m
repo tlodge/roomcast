@@ -13,9 +13,11 @@
 -(void) syncWithConversations;
 -(void) syncWithDevelopments: (NSString*)objectId;
 -(void) syncWithBlock:(Block *)block;
+//-(BOOL) addMessageToCoreData:(PFObject*) message;
+//-(BOOL) addMessageToCoreData:(PFObject*) message forConversation:(Conversation*) conversation;
+//-(BOOL) addConversationToCoreData:(PFObject*) conversation withMessage:(PFObject*)message;
+-(BOOL) addConversationToCoreData:(PFObject*) message;
 
--(BOOL) addMessageToCoreData:(PFObject*) message forConversation:(Conversation*) conversation;
--(BOOL) addConversationToCoreData:(PFObject*) conversation withMessage:(PFObject*)message;
 @end
 
 @implementation DataManager
@@ -458,16 +460,18 @@ NSManagedObjectContext *context;
         }
     }];
 }
-     
 
--(BOOL) addConversationToCoreData:(PFObject*) conversation withMessage:(PFObject*)message{
+
+-(BOOL) addConversationToCoreData:(PFObject*) message{
+    
+    PFObject* conversation = [message objectForKey:@"conversation"];
     
     Conversation *c = [NSEntityDescription
                        insertNewObjectForEntityForName:@"Conversation"
                        inManagedObjectContext:context];
     
     [c setValue:[conversation objectId] forKey:@"conversationId"];
-    [c setValue:[conversation objectForKey:@"teaser"] forKey:@"teaser"];
+    [c setValue:[message objectForKey:@"message"] forKey:@"teaser"];
     [c setValue:[NSNumber numberWithInt:1] forKey:@"responses"];
     [c setValue:[conversation updatedAt] forKey:@"lastUpdate"];
     [c setValue:@"1D" forKey:@"initiator"];
@@ -523,6 +527,30 @@ NSManagedObjectContext *context;
 #pragma setter public methods
 
 
+-(void) createConversationWithMessage:(NSString *)message parameters:(NSDictionary *)params{
+
+    NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
+    [parameters setObject:message forKey:@"message"];
+    [parameters addEntriesFromDictionary:params];
+    
+    NSLog(@"params are %@", parameters);
+    
+    [PFCloud callFunctionInBackground:@"createConversation" withParameters:parameters block:^(PFObject* message, NSError *error){
+        
+            PFObject *conversation = [message objectForKey:@"conversation"];
+        
+            BOOL stored = [self addConversationToCoreData:message];
+        
+            if (stored){
+                    NSMutableDictionary* userInfo = [NSMutableDictionary dictionary];
+                    [userInfo setObject:[conversation objectId] forKey:@"conversationId"];
+                    [[NSNotificationCenter defaultCenter] postNotificationName:@"conversationUpdate" object:nil userInfo:userInfo];
+            }
+        }
+    ];
+
+}
+/*
 -(void) createConversationWithMessage:(NSString *) message parameters:(NSDictionary *) params{
     
      PFObject *co = [PFObject objectWithClassName:@"Conversation"];
@@ -545,7 +573,7 @@ NSManagedObjectContext *context;
          }
      }];
 }
-
+*/
 
 -(void) addMessageToConversation:(NSString*) message forConversationId:(NSString*)conversationId{
     

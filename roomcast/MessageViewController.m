@@ -57,7 +57,7 @@ static NSArray* TYPES;
     }];
     
     [[NSNotificationCenter defaultCenter] addObserverForName:@"developmentsUpdate" object:nil queue:nil usingBlock:^(NSNotification *note) {
-        NSLog(@"--------- seen a developments update from network, so refetching from CD for development %@", self.development);
+        NSLog(@"seen a developments update from network, so refetching from core data for development %@", self.development);
         self.developments = [[DataManager sharedManager] neighboursForDevelopment:self.development.objectId];
         
     }];
@@ -238,12 +238,21 @@ static NSArray* TYPES;
 }
 
 -(void) sendMessage:(UIButton *)sender{    
+    
     if ([messageView.messageView.text length] == 0)
         return;
 
-    NSLog(@"send with scope %@ %@", self.currentScope, [self.scope objectForKey:self.currentScope]);
-                                                        
-    [[DataManager sharedManager ]createConversationWithMessage:messageView.messageView.text parameters:nil];
+    NSArray *spaces = [[[self.scope objectForKey:self.currentScope] allObjects] valueForKey:@"objectId"];
+
+    for (int i = 0; i < [spaces count]; i++){
+        NSLog(@"%@", [spaces objectAtIndex:i]);
+    }
+    
+    NSDictionary *scopeparam = [[NSDictionary alloc] initWithObjectsAndKeys:self.currentScope,@"type", spaces,@"list", nil];
+    
+    NSDictionary *parameters = [[NSDictionary alloc] initWithObjectsAndKeys:scopeparam,@"scope", nil];
+                                
+    [[DataManager sharedManager ]createConversationWithMessage:messageView.messageView.text parameters:parameters];
     
     [self toggleComposer];
 }
