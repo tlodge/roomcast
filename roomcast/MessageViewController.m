@@ -132,8 +132,8 @@ static NSArray* TYPES;
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSString *CellIdentifier = @"LightGreenMessageCell";
-    if (indexPath.row % 2 == 0)
-        CellIdentifier = @"DarkGreenMessageCell";
+    //if (indexPath.row % 2 == 0)
+    //    CellIdentifier = @"DarkGreenMessageCell";
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
