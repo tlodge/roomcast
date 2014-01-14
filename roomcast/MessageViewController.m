@@ -135,17 +135,23 @@ static NSArray* TYPES;
     //if (indexPath.row % 2 == 0)
     //    CellIdentifier = @"DarkGreenMessageCell";
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    ConversationCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
-   Conversation *conversation = [self.conversations objectAtIndex:[conversations count] - indexPath.row - 1];
+    Conversation *conversation = [self.conversations objectAtIndex:[conversations count] - indexPath.row - 1];
     
-    UILabel *fromLabel  = (UILabel*)[cell viewWithTag:1];
-    UILabel *bodyLabel  = (UILabel*)[cell viewWithTag:2];
-    UILabel *repliesLabel = (UILabel*)[cell viewWithTag:3];
+    //UILabel *fromLabel  = (UILabel*)[cell viewWithTag:1];
+    //UILabel *bodyLabel  = (UILabel*)[cell viewWithTag:2];
+    //UILabel *repliesLabel = (UILabel*)[cell viewWithTag:3];
+    NSLog(@"scope is now %@", conversation.scope);
+    
+    cell.sinceLabel.text  = @"5 mins ago";
+    cell.teaserLabel.text = conversation.teaser;
+    cell.scopeLabel.text = conversation.scope;
+    cell.responseLabel.text = [NSString stringWithFormat:@"%@", conversation.responses];
 
-    fromLabel.text = conversation.initiator;
-    bodyLabel.text = conversation.teaser;
-    repliesLabel.text = [NSString stringWithFormat:@"%@", conversation.responses];
+    cell.scopeImage.image = [UIImage imageNamed:[NSString stringWithFormat:@"%@.png", conversation.scope]];
+    
+    //repliesLabel.text = [NSString stringWithFormat:@"%@", conversation.responses];
     return cell;
 }
 

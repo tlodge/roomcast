@@ -15,6 +15,7 @@
 #import "Development.h"
 #import "DataManager.h"
 #import "Apartment.h"
+#import "ConversationCell.h"
 
 @interface MessageViewController : UITableViewController <UITextViewDelegate, RespondDelegate, MessageScopeDelegate>
 

@@ -2,8 +2,8 @@
 //  Conversation.h
 //  roomcast
 //
-//  Created by Tom Lodge on 13/12/2013.
-//  Copyright (c) 2013 Tom Lodge. All rights reserved.
+//  Created by Tom Lodge on 14/01/2014.
+//  Copyright (c) 2014 Tom Lodge. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
@@ -15,10 +15,11 @@
 
 @property (nonatomic, retain) NSString * conversationId;
 @property (nonatomic, retain) NSString * initiator;
-@property (nonatomic, retain) NSDate * started;
-@property (nonatomic, retain) NSString * teaser;
 @property (nonatomic, retain) NSDate * lastUpdate;
 @property (nonatomic, retain) NSNumber * responses;
+@property (nonatomic, retain) NSDate * started;
+@property (nonatomic, retain) NSString * teaser;
+@property (nonatomic, retain) NSString * scope;
 @property (nonatomic, retain) NSSet *messages;
 @end
 

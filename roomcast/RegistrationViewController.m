@@ -86,13 +86,19 @@ NSArray* floors;
     
     PFObject *abode = [PFObject objectWithClassName:@"Apartment"];
     
-    PFObject *block =[PFObject objectWithoutDataWithClassName:@"Block" objectId:selectedBlock.objectId];
+    PFObject *block = [PFObject objectWithoutDataWithClassName:@"Block" objectId:selectedBlock.objectId];
+    
+    PFObject *dev  =  [PFObject objectWithoutDataWithClassName:@"Development" objectId:development.objectId];
+    
     
     [abode setObject:block forKey:@"block"];
     [abode setObject:selectedFloor forKey:@"floor"];
     [abode setObject:self.apartment.text forKey:@"name"];
-    [user setObject:abode forKey:@"apartment"];
     
+    [user setObject:dev forKey:@"development"];
+    [user setObject:block forKey:@"block"];
+    [user setObject:abode forKey:@"apartment"];
+   
     [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if (!error){
             

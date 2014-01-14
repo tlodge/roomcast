@@ -290,6 +290,8 @@ NSManagedObjectContext *context;
                         [c setValue:[conversation objectId] forKey:@"conversationId"];
                         [c setValue:[conversation createdAt] forKey:@"started"];
                         [c setValue:[conversation objectForKey:@"teaser"] forKey:@"teaser"];
+                         [c setValue:[conversation objectForKey:@"scope"] forKey:@"scope"];
+                        
                     }
                     [c setValue:[conversation objectForKey:@"messages"] forKey:@"responses"];
                     [c setValue:[conversation updatedAt] forKey:@"lastUpdate"];
@@ -472,6 +474,7 @@ NSManagedObjectContext *context;
     
     [c setValue:[conversation objectId] forKey:@"conversationId"];
     [c setValue:[message objectForKey:@"message"] forKey:@"teaser"];
+    [c setValue:[conversation objectForKey:@"scope"] forKey:@"scope"];
     [c setValue:[NSNumber numberWithInt:1] forKey:@"responses"];
     [c setValue:[conversation updatedAt] forKey:@"lastUpdate"];
     [c setValue:@"1D" forKey:@"initiator"];
