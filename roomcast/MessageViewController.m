@@ -26,7 +26,7 @@
 @synthesize totals;
 
 static NSArray* TYPES;
-
+static NSDictionary *scopelabels;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -40,9 +40,11 @@ static NSArray* TYPES;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+  
     
     self.development  = [[DataManager sharedManager] development];
     
+    scopelabels = [NSDictionary dictionaryWithObjects:[NSArray arrayWithObjects:@"between apartments", [NSString stringWithFormat:@"within %@", self.development.name], @"across developments", @"across region",nil] forKeys:[NSArray arrayWithObjects:@"apartment", @"development", @"developments", @"region", nil]];
     
     [[NSNotificationCenter defaultCenter] addObserverForName:@"conversationUpdate" object:nil queue:nil usingBlock:^(NSNotification *note) {
         self.conversations = [[DataManager sharedManager] conversationsForUser];
@@ -139,14 +141,12 @@ static NSArray* TYPES;
     
     Conversation *conversation = [self.conversations objectAtIndex:[conversations count] - indexPath.row - 1];
     
-    //UILabel *fromLabel  = (UILabel*)[cell viewWithTag:1];
-    //UILabel *bodyLabel  = (UILabel*)[cell viewWithTag:2];
-    //UILabel *repliesLabel = (UILabel*)[cell viewWithTag:3];
     NSLog(@"scope is now %@", conversation.scope);
+    NSLog(@"%@", scopelabels);
     
     cell.sinceLabel.text  = @"5 mins ago";
     cell.teaserLabel.text = conversation.teaser;
-    cell.scopeLabel.text = conversation.scope;
+    cell.scopeLabel.text = [scopelabels objectForKey:conversation.scope];
     cell.responseLabel.text = [NSString stringWithFormat:@"%@", conversation.responses];
 
     cell.scopeImage.image = [UIImage imageNamed:[NSString stringWithFormat:@"%@.png", conversation.scope]];

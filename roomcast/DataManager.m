@@ -512,7 +512,7 @@ NSManagedObjectContext *context;
     }
     
     int responses = [conversation.responses intValue];
-    responses += 1;
+    //responses += 1;
     [conversation setValue:[NSNumber numberWithInt:responses] forKey:@"responses"];
     
     NSError *error;

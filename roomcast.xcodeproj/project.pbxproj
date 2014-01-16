@@ -902,8 +902,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Tom Lodge (C4DACQ32K3)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Tom Lodge (C4DACQ32K3)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/tlodge/iphone/roomcast/roomcast,
@@ -911,11 +911,12 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "roomcast/roomcast-Prefix.pch";
 				INFOPLIST_FILE = "roomcast/roomcast-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "76F7949B-4CAC-40D4-A11D-0B4ECF638FBA";
+				PROVISIONING_PROFILE = "A2D36A26-1970-4FBD-A362-D7BD1FABFB4C";
+				SDKROOT = iphoneos6.1;
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
@@ -926,8 +927,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Tom Lodge (C4DACQ32K3)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Tom Lodge (C4DACQ32K3)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/tlodge/iphone/roomcast/roomcast,
@@ -935,11 +936,12 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "roomcast/roomcast-Prefix.pch";
 				INFOPLIST_FILE = "roomcast/roomcast-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "76F7949B-4CAC-40D4-A11D-0B4ECF638FBA";
+				PROVISIONING_PROFILE = "A2D36A26-1970-4FBD-A362-D7BD1FABFB4C";
+				SDKROOT = iphoneos6.1;
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
