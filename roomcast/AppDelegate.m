@@ -38,6 +38,7 @@
 
 -(void) application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo{
     [PFPush handlePush:userInfo];
+     [[NSNotificationCenter defaultCenter] postNotificationName:@"conversationsUpdate" object:nil];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application

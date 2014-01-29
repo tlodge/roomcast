@@ -260,8 +260,10 @@ MKPolygon *authZone;
     return [self degrees: brng+360] % 360;
 }
 
+
 - (MKOverlayRenderer *)mapView:(MKMapView *)mapView viewForOverlay:(id<MKOverlay>)overlay {
-   if ([overlay isKindOfClass:MKPolygon.class]) {
+  
+    if ([overlay isKindOfClass:MKPolygon.class]) {
         MKPolygonRenderer *renderer = [[MKPolygonRenderer alloc] initWithOverlay:overlay];
         renderer.strokeColor = [UIColor orangeColor];
         renderer.lineWidth = 1;
