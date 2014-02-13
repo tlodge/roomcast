@@ -39,6 +39,8 @@
 		A335AA4A184F85A3007096A4 /* textback.png in Resources */ = {isa = PBXBuildFile; fileRef = A335AA49184F85A3007096A4 /* textback.png */; };
 		A335AA55184F8AC5007096A4 /* registerheader.png in Resources */ = {isa = PBXBuildFile; fileRef = A335AA53184F8AC5007096A4 /* registerheader.png */; };
 		A335AA56184F8AC5007096A4 /* registerheader2.png in Resources */ = {isa = PBXBuildFile; fileRef = A335AA54184F8AC5007096A4 /* registerheader2.png */; };
+		A34354C818AD5F7400C0A34C /* RootPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A34354C718AD5F7400C0A34C /* RootPageViewController.m */; };
+		A34354CE18AD600200C0A34C /* PageButtonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A34354CD18AD600200C0A34C /* PageButtonViewController.m */; };
 		A35E3B12187C9D3F00C8FBF1 /* messageback2.png in Resources */ = {isa = PBXBuildFile; fileRef = A35E3B10187C9D3E00C8FBF1 /* messageback2.png */; };
 		A35E3B15187DBCD400C8FBF1 /* DevelopmentsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A35E3B14187DBCD400C8FBF1 /* DevelopmentsViewController.m */; };
 		A35E3B18187DBEAB00C8FBF1 /* DevelopmentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A35E3B17187DBEAB00C8FBF1 /* DevelopmentCell.m */; };
@@ -166,6 +168,10 @@
 		A335AA49184F85A3007096A4 /* textback.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = textback.png; sourceTree = "<group>"; };
 		A335AA53184F8AC5007096A4 /* registerheader.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = registerheader.png; sourceTree = "<group>"; };
 		A335AA54184F8AC5007096A4 /* registerheader2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = registerheader2.png; sourceTree = "<group>"; };
+		A34354C618AD5F7400C0A34C /* RootPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootPageViewController.h; sourceTree = "<group>"; };
+		A34354C718AD5F7400C0A34C /* RootPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootPageViewController.m; sourceTree = "<group>"; };
+		A34354CC18AD600200C0A34C /* PageButtonViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PageButtonViewController.h; sourceTree = "<group>"; };
+		A34354CD18AD600200C0A34C /* PageButtonViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PageButtonViewController.m; sourceTree = "<group>"; };
 		A35E3B10187C9D3E00C8FBF1 /* messageback2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = messageback2.png; sourceTree = "<group>"; };
 		A35E3B13187DBCD400C8FBF1 /* DevelopmentsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DevelopmentsViewController.h; sourceTree = "<group>"; };
 		A35E3B14187DBCD400C8FBF1 /* DevelopmentsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DevelopmentsViewController.m; sourceTree = "<group>"; };
@@ -478,6 +484,10 @@
 				A3F88D911832706400E3BFB0 /* Model */,
 				A3605819182000EF0026615B /* iPad */,
 				A37C6EBA181952040042489D /* Main.storyboard */,
+				A34354C618AD5F7400C0A34C /* RootPageViewController.h */,
+				A34354C718AD5F7400C0A34C /* RootPageViewController.m */,
+				A34354CC18AD600200C0A34C /* PageButtonViewController.h */,
+				A34354CD18AD600200C0A34C /* PageButtonViewController.m */,
 				A3CA7F411858CA3F0079FBB5 /* RespondView.xib */,
 				A3F88DEC18329C9700E3BFB0 /* Roomcast.xcdatamodeld */,
 				A317AC34182AE82B00BE7E46 /* MessageView.xib */,
@@ -747,6 +757,7 @@
 				A3CA7F451858CD650079FBB5 /* RespondView.m in Sources */,
 				A3B48EDB188489F700C09426 /* ConversationCell.m in Sources */,
 				A37C6F0F181ACCBA0042489D /* RangeView.m in Sources */,
+				A34354CE18AD600200C0A34C /* PageButtonViewController.m in Sources */,
 				A3B6DAE7183BD22F00A860CA /* StartViewController.m in Sources */,
 				A317AC30182A7AD600BE7E46 /* InitViewController.m in Sources */,
 				A3334D6F18452F2400ECA8D5 /* ApartmentViewController.m in Sources */,
@@ -757,6 +768,7 @@
 				A335AA201847AC07007096A4 /* DataManager.m in Sources */,
 				A317AC41182BD95C00BE7E46 /* MessageViewController.m in Sources */,
 				A3334D7A1846582800ECA8D5 /* ApartmentCell.m in Sources */,
+				A34354C818AD5F7400C0A34C /* RootPageViewController.m in Sources */,
 				A3F88DEE18329C9700E3BFB0 /* Roomcast.xcdatamodeld in Sources */,
 				A3B48EDE1885D3EC00C09426 /* Conversation.m in Sources */,
 				A37C6EB9181952040042489D /* AppDelegate.m in Sources */,
