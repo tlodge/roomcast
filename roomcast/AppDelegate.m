@@ -22,7 +22,12 @@
     [Parse setApplicationId:@"Qhp3eMa8aOQ2tVE1HqijHW7osJzV7QAdlcBVptIn" clientKey:@"SSF1WiUEzgk5pVN5wt9QEG9Xszjw09xkWvNv37NN"];
     
     [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
-    
+    // Override point for customization after application launch.
+    UIPageControl *pageControl = [UIPageControl appearance];
+    pageControl.pageIndicatorTintColor = [UIColor lightGrayColor];
+    pageControl.currentPageIndicatorTintColor = [UIColor blackColor];
+    pageControl.backgroundColor = [UIColor clearColor];//UIColorFromRGB(0x5c7046);
+
     return YES;
 }
 

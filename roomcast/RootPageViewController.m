@@ -9,7 +9,6 @@
 #import "RootPageViewController.h"
 
 @interface RootPageViewController ()
-
 @end
 
 @implementation RootPageViewController
@@ -37,7 +36,7 @@
     [self.pageViewController setViewControllers:viewControllers direction:UIPageViewControllerNavigationDirectionForward animated:NO completion:nil];
     // Do any additional setup after loading the view, typically from a nib.
     
-    self.pageViewController.view.frame = CGRectMake(0,0, self.view.frame.size.width, self.view.frame.size.height-30);
+    self.pageViewController.view.frame = CGRectMake(0,0, self.view.frame.size.width, self.view.frame.size.height);
     [self addChildViewController:_pageViewController];
     [self.view addSubview:_pageViewController.view];
     [self.pageViewController didMoveToParentViewController:self];

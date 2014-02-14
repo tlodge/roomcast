@@ -7,10 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ButtonCell.h"
 
-@interface PageButtonViewController : UIViewController
+@interface PageButtonViewController : UIViewController  <UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 
+@property(nonatomic, strong) NSArray *buttons;
 @property NSUInteger pageIndex;
 @property NSString *titleText;
 @property NSString *imageFile;

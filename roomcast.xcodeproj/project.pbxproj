@@ -41,6 +41,7 @@
 		A335AA56184F8AC5007096A4 /* registerheader2.png in Resources */ = {isa = PBXBuildFile; fileRef = A335AA54184F8AC5007096A4 /* registerheader2.png */; };
 		A34354C818AD5F7400C0A34C /* RootPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A34354C718AD5F7400C0A34C /* RootPageViewController.m */; };
 		A34354CE18AD600200C0A34C /* PageButtonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A34354CD18AD600200C0A34C /* PageButtonViewController.m */; };
+		A34354D118AE6F8A00C0A34C /* ButtonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A34354D018AE6F8A00C0A34C /* ButtonCell.m */; };
 		A35E3B12187C9D3F00C8FBF1 /* messageback2.png in Resources */ = {isa = PBXBuildFile; fileRef = A35E3B10187C9D3E00C8FBF1 /* messageback2.png */; };
 		A35E3B15187DBCD400C8FBF1 /* DevelopmentsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A35E3B14187DBCD400C8FBF1 /* DevelopmentsViewController.m */; };
 		A35E3B18187DBEAB00C8FBF1 /* DevelopmentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A35E3B17187DBEAB00C8FBF1 /* DevelopmentCell.m */; };
@@ -172,6 +173,8 @@
 		A34354C718AD5F7400C0A34C /* RootPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootPageViewController.m; sourceTree = "<group>"; };
 		A34354CC18AD600200C0A34C /* PageButtonViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PageButtonViewController.h; sourceTree = "<group>"; };
 		A34354CD18AD600200C0A34C /* PageButtonViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PageButtonViewController.m; sourceTree = "<group>"; };
+		A34354CF18AE6F8A00C0A34C /* ButtonCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ButtonCell.h; sourceTree = "<group>"; };
+		A34354D018AE6F8A00C0A34C /* ButtonCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ButtonCell.m; sourceTree = "<group>"; };
 		A35E3B10187C9D3E00C8FBF1 /* messageback2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = messageback2.png; sourceTree = "<group>"; };
 		A35E3B13187DBCD400C8FBF1 /* DevelopmentsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DevelopmentsViewController.h; sourceTree = "<group>"; };
 		A35E3B14187DBCD400C8FBF1 /* DevelopmentsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DevelopmentsViewController.m; sourceTree = "<group>"; };
@@ -488,6 +491,8 @@
 				A34354C718AD5F7400C0A34C /* RootPageViewController.m */,
 				A34354CC18AD600200C0A34C /* PageButtonViewController.h */,
 				A34354CD18AD600200C0A34C /* PageButtonViewController.m */,
+				A34354CF18AE6F8A00C0A34C /* ButtonCell.h */,
+				A34354D018AE6F8A00C0A34C /* ButtonCell.m */,
 				A3CA7F411858CA3F0079FBB5 /* RespondView.xib */,
 				A3F88DEC18329C9700E3BFB0 /* Roomcast.xcdatamodeld */,
 				A317AC34182AE82B00BE7E46 /* MessageView.xib */,
@@ -753,6 +758,7 @@
 				A35E3B2A187F4DE100C8FBF1 /* Development.m in Sources */,
 				A317AC38182AE99700BE7E46 /* MessageView.m in Sources */,
 				A39E8BCA1860AE9400600856 /* DevelopmentViewController.m in Sources */,
+				A34354D118AE6F8A00C0A34C /* ButtonCell.m in Sources */,
 				A35E3B18187DBEAB00C8FBF1 /* DevelopmentCell.m in Sources */,
 				A3CA7F451858CD650079FBB5 /* RespondView.m in Sources */,
 				A3B48EDB188489F700C09426 /* ConversationCell.m in Sources */,
