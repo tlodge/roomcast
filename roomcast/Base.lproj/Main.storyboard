@@ -237,17 +237,17 @@
             <objects>
                 <tabBarController storyboardIdentifier="registered" definesPresentationContext="YES" id="MvH-2W-fd9" customClass="RootTabViewController" sceneMemberID="viewController">
                     <nil key="simulatedBottomBarMetrics"/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" translucent="NO" id="Kn0-t4-dmo">
+                    <tabBar key="tabBar" contentMode="scaleToFill" barStyle="black" translucent="NO" id="Kn0-t4-dmo">
                         <rect key="frame" x="129" y="330" width="163" height="49"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="tintColor" red="0.92156862745098034" green="0.61176470588235299" blue="0.28627450980392155" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="barTintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
                         <segue destination="Clw-Pg-kxw" kind="relationship" relationship="viewControllers" id="s3m-fq-gWB"/>
-                        <segue destination="WfG-NK-XM6" kind="relationship" relationship="viewControllers" id="bzw-Tm-zpk"/>
                         <segue destination="hBW-D1-bHJ" kind="relationship" relationship="viewControllers" id="dbY-Eq-ia4"/>
                         <segue destination="uah-U2-Cwv" kind="relationship" relationship="viewControllers" id="Gc1-Ge-PTb"/>
+                        <segue destination="WfG-NK-XM6" kind="relationship" relationship="viewControllers" id="bzw-Tm-zpk"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yXe-5x-S3X" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -283,7 +283,7 @@
         <scene sceneID="fVy-nM-tUn">
             <objects>
                 <navigationController definesPresentationContext="YES" id="hBW-D1-bHJ" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="notifications" image="myplan_selected.png" id="IYM-I9-Xop"/>
+                    <tabBarItem key="tabBarItem" title="notifications" image="notification_selected.png" id="IYM-I9-Xop"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="nsd-Jg-rcX">
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -327,7 +327,7 @@
             </objects>
             <point key="canvasLocation" x="43" y="1379"/>
         </scene>
-        <!--Root Page View Controller - Item-->
+        <!--Root Page View Controller - buttons-->
         <scene sceneID="pY9-5z-0JE">
             <objects>
                 <viewController id="uah-U2-Cwv" customClass="RootPageViewController" sceneMemberID="viewController">
@@ -340,7 +340,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" red="0.48627450979999998" green="0.58823529409999997" blue="0.36862745099999999" alpha="1" colorSpace="deviceRGB"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="epQ-e4-gdW"/>
+                    <tabBarItem key="tabBarItem" title="buttons" image="button_selected.png" id="epQ-e4-gdW"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MJF-L5-rgy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -757,7 +757,7 @@
                         <rect key="frame" x="0.0" y="64" width="320" height="367"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <color key="separatorColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="separatorColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="gray" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="LightGreenMessageCell" rowHeight="75" id="OPU-Wa-Ugw" customClass="ConversationCell">
@@ -772,35 +772,42 @@
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </imageView>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="within development" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Vg-zZ-yKY">
-                                            <rect key="frame" x="54" y="50" width="187" height="21"/>
+                                            <rect key="frame" x="3" y="52" width="223" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="12"/>
+                                            <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="13"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Summary this is summary and so there" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="169" translatesAutoresizingMaskIntoConstraints="NO" id="KbR-Tv-cbk">
-                                            <rect key="frame" x="72" y="8" width="169" height="38"/>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Summary this is summary and so there" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="222" translatesAutoresizingMaskIntoConstraints="NO" id="KbR-Tv-cbk">
+                                            <rect key="frame" x="51" y="8" width="222" height="38"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="13"/>
-                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="acrossdevelopments.png" translatesAutoresizingMaskIntoConstraints="NO" id="ITb-KU-PkX">
-                                            <rect key="frame" x="-1" y="1" width="65" height="70"/>
+                                            <rect key="frame" x="8" y="7" width="35" height="40"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </imageView>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="3" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="10" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XuM-5g-duh">
-                                            <rect key="frame" x="261" y="16" width="34" height="22"/>
+                                            <rect key="frame" x="281" y="11" width="39" height="22"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="17"/>
                                             <color key="textColor" name="disabledControlTextColor" catalog="System" colorSpace="catalog"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="5 min ago" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="72" translatesAutoresizingMaskIntoConstraints="NO" id="RoG-Dt-LJU">
-                                            <rect key="frame" x="248" y="36" width="72" height="38"/>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="3" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="replies" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ifi-lx-ZwQ">
+                                            <rect key="frame" x="271" y="33" width="57" height="22"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="12"/>
-                                            <color key="textColor" red="0.45098039220000002" green="0.43921568630000002" blue="0.37647058820000001" alpha="1" colorSpace="deviceRGB"/>
+                                            <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="11"/>
+                                            <color key="textColor" name="disabledControlTextColor" catalog="System" colorSpace="catalog"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="2" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="5 min ago" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="86" translatesAutoresizingMaskIntoConstraints="NO" id="RoG-Dt-LJU">
+                                            <rect key="frame" x="234" y="44" width="86" height="38"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="11"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
@@ -823,7 +830,7 @@
                                 <rect key="frame" x="233" y="5" width="71" height="33"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="TrebuchetMS" family="Trebuchet MS" pointSize="17"/>
-                                <state key="normal" title="SEND" backgroundImage="sendbutton.png">
+                                <state key="normal" title="SEND">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </state>
@@ -976,14 +983,14 @@
         <scene sceneID="Ia6-eh-HGh">
             <objects>
                 <navigationController title="Registration" definesPresentationContext="YES" id="Clw-Pg-kxw" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="chat" image="home_selected.png" id="Rdj-Uf-AbZ"/>
+                    <tabBarItem key="tabBarItem" title="chat" image="chat_selected.png" id="Rdj-Uf-AbZ"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="LUy-42-y78">
                         <rect key="frame" x="0.0" y="-44" width="0.0" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <color key="barTintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="barTintColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                         <textAttributes key="titleTextAttributes">
                             <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="0.0"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1302,14 +1309,15 @@
         <image name="background_splash.png" width="1280" height="2272"/>
         <image name="blockcell.png" width="640" height="120"/>
         <image name="blockcell.png" width="640" height="120"/>
+        <image name="button_selected.png" width="25" height="25"/>
+        <image name="chat_selected.png" width="25" height="25"/>
         <image name="development_text.png" width="360" height="60"/>
         <image name="help.png" width="640" height="140"/>
         <image name="help.png" width="640" height="140"/>
         <image name="help.png" width="640" height="140"/>
-        <image name="home_selected.png" width="42" height="42"/>
         <image name="mapframe.png" width="600" height="860"/>
         <image name="messageback.png" width="640" height="150"/>
-        <image name="myplan_selected.png" width="42" height="42"/>
+        <image name="notification_selected.png" width="25" height="25"/>
         <image name="rightnav.png" width="36" height="84"/>
         <image name="rightnavorange.png" width="38" height="84"/>
         <image name="rightnavorange.png" width="38" height="84"/>
@@ -1319,8 +1327,7 @@
         <image name="sendbutton.png" width="140" height="70"/>
         <image name="sendbutton.png" width="140" height="70"/>
         <image name="sendbutton.png" width="140" height="70"/>
-        <image name="sendbutton.png" width="140" height="70"/>
-        <image name="settings_selected.png" width="42" height="42"/>
+        <image name="settings_selected.png" width="25" height="25"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>

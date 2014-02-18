@@ -42,6 +42,9 @@
 		A34354C818AD5F7400C0A34C /* RootPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A34354C718AD5F7400C0A34C /* RootPageViewController.m */; };
 		A34354CE18AD600200C0A34C /* PageButtonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A34354CD18AD600200C0A34C /* PageButtonViewController.m */; };
 		A34354D118AE6F8A00C0A34C /* ButtonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A34354D018AE6F8A00C0A34C /* ButtonCell.m */; };
+		A34354D518B3FB7900C0A34C /* chat_selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A34354D418B3FB7900C0A34C /* chat_selected@2x.png */; };
+		A34354D718B3FE3D00C0A34C /* button_selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A34354D618B3FE3D00C0A34C /* button_selected@2x.png */; };
+		A34354D918B401AF00C0A34C /* notification_selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A34354D818B401AF00C0A34C /* notification_selected@2x.png */; };
 		A35E3B12187C9D3F00C8FBF1 /* messageback2.png in Resources */ = {isa = PBXBuildFile; fileRef = A35E3B10187C9D3E00C8FBF1 /* messageback2.png */; };
 		A35E3B15187DBCD400C8FBF1 /* DevelopmentsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A35E3B14187DBCD400C8FBF1 /* DevelopmentsViewController.m */; };
 		A35E3B18187DBEAB00C8FBF1 /* DevelopmentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A35E3B17187DBEAB00C8FBF1 /* DevelopmentCell.m */; };
@@ -94,7 +97,6 @@
 		A3BD19041850ACF0004EB6BD /* backbutton.png in Resources */ = {isa = PBXBuildFile; fileRef = A3BD19021850ACF0004EB6BD /* backbutton.png */; };
 		A3BD19051850ACF0004EB6BD /* sendbutton.png in Resources */ = {isa = PBXBuildFile; fileRef = A3BD19031850ACF0004EB6BD /* sendbutton.png */; };
 		A3BD19391850BD8C004EB6BD /* home_selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A3BD19361850BD8C004EB6BD /* home_selected@2x.png */; };
-		A3BD193A1850BD8C004EB6BD /* myplan_selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A3BD19371850BD8C004EB6BD /* myplan_selected@2x.png */; };
 		A3BD193B1850BD8C004EB6BD /* settings_selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A3BD19381850BD8C004EB6BD /* settings_selected@2x.png */; };
 		A3C3BF161827B06A007E8803 /* message.png in Resources */ = {isa = PBXBuildFile; fileRef = A3C3BF151827B06A007E8803 /* message.png */; };
 		A3CA7E9E18561FEF0079FBB5 /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = A3CA7E9D18561FEF0079FBB5 /* background.png */; };
@@ -175,6 +177,9 @@
 		A34354CD18AD600200C0A34C /* PageButtonViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PageButtonViewController.m; sourceTree = "<group>"; };
 		A34354CF18AE6F8A00C0A34C /* ButtonCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ButtonCell.h; sourceTree = "<group>"; };
 		A34354D018AE6F8A00C0A34C /* ButtonCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ButtonCell.m; sourceTree = "<group>"; };
+		A34354D418B3FB7900C0A34C /* chat_selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "chat_selected@2x.png"; sourceTree = "<group>"; };
+		A34354D618B3FE3D00C0A34C /* button_selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button_selected@2x.png"; sourceTree = "<group>"; };
+		A34354D818B401AF00C0A34C /* notification_selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "notification_selected@2x.png"; sourceTree = "<group>"; };
 		A35E3B10187C9D3E00C8FBF1 /* messageback2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = messageback2.png; sourceTree = "<group>"; };
 		A35E3B13187DBCD400C8FBF1 /* DevelopmentsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DevelopmentsViewController.h; sourceTree = "<group>"; };
 		A35E3B14187DBCD400C8FBF1 /* DevelopmentsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DevelopmentsViewController.m; sourceTree = "<group>"; };
@@ -248,7 +253,6 @@
 		A3BD19021850ACF0004EB6BD /* backbutton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = backbutton.png; sourceTree = "<group>"; };
 		A3BD19031850ACF0004EB6BD /* sendbutton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sendbutton.png; sourceTree = "<group>"; };
 		A3BD19361850BD8C004EB6BD /* home_selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "home_selected@2x.png"; sourceTree = "<group>"; };
-		A3BD19371850BD8C004EB6BD /* myplan_selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "myplan_selected@2x.png"; sourceTree = "<group>"; };
 		A3BD19381850BD8C004EB6BD /* settings_selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "settings_selected@2x.png"; sourceTree = "<group>"; };
 		A3C3BF151827B06A007E8803 /* message.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = message.png; path = ../message.png; sourceTree = "<group>"; };
 		A3CA7E9D18561FEF0079FBB5 /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
@@ -552,8 +556,10 @@
 				A3CA7EAD185626CF0079FBB5 /* development_text.png */,
 				A3CA7E9D18561FEF0079FBB5 /* background.png */,
 				A3BD19361850BD8C004EB6BD /* home_selected@2x.png */,
-				A3BD19371850BD8C004EB6BD /* myplan_selected@2x.png */,
+				A34354D618B3FE3D00C0A34C /* button_selected@2x.png */,
 				A3BD19381850BD8C004EB6BD /* settings_selected@2x.png */,
+				A34354D818B401AF00C0A34C /* notification_selected@2x.png */,
+				A34354D418B3FB7900C0A34C /* chat_selected@2x.png */,
 				A3BD19021850ACF0004EB6BD /* backbutton.png */,
 				A3BD19031850ACF0004EB6BD /* sendbutton.png */,
 				A3BD18F6184FD981004EB6BD /* bubble_r.png */,
@@ -694,15 +700,16 @@
 				A335AA56184F8AC5007096A4 /* registerheader2.png in Resources */,
 				A335AA24184E47FB007096A4 /* home.png in Resources */,
 				A317AC35182AE82B00BE7E46 /* MessageView.xib in Resources */,
+				A34354D718B3FE3D00C0A34C /* button_selected@2x.png in Resources */,
 				A37C6EC1181952040042489D /* Images.xcassets in Resources */,
 				A335AA27184F7181007096A4 /* responses_dark.png in Resources */,
 				A3BD193B1850BD8C004EB6BD /* settings_selected@2x.png in Resources */,
 				A39E8BC1185F5C6C00600856 /* background_frame.png in Resources */,
-				A3BD193A1850BD8C004EB6BD /* myplan_selected@2x.png in Resources */,
 				A3BD18FD1850A936004EB6BD /* help.png in Resources */,
 				A3BD19041850ACF0004EB6BD /* backbutton.png in Resources */,
 				A3B48ED41884846100C09426 /* development.png in Resources */,
 				A335AA40184F7F44007096A4 /* switchon.png in Resources */,
+				A34354D518B3FB7900C0A34C /* chat_selected@2x.png in Resources */,
 				A335AA2C184F7263007096A4 /* apartment_light.png in Resources */,
 				A335AA30184F7442007096A4 /* rightnavorange.png in Resources */,
 				A3C3BF161827B06A007E8803 /* message.png in Resources */,
@@ -715,6 +722,7 @@
 				A335AA44184F849C007096A4 /* message_buttons_back.png in Resources */,
 				A335AA3B184F7B89007096A4 /* scopecell.png in Resources */,
 				A335AA3F184F7F44007096A4 /* switchoff.png in Resources */,
+				A34354D918B401AF00C0A34C /* notification_selected@2x.png in Resources */,
 				A335AA28184F7181007096A4 /* responses_light.png in Resources */,
 				A335AA4A184F85A3007096A4 /* textback.png in Resources */,
 				A3F88DFE1833E05A00E3BFB0 /* Roomcast.sqlite in Resources */,
