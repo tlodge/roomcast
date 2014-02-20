@@ -205,12 +205,14 @@ static NSDictionary *scopelabels;
 // In a story board-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    NSIndexPath *ip = [self.tableView indexPathForCell: (UITableViewCell *) sender];
-    self.selectedConversation = [conversations objectAtIndex: [conversations count] - ip.row - 1];
+    if ([[segue identifier] isEqualToString:@"conversationDetailSegue"]){
+        NSIndexPath *ip = [self.tableView indexPathForCell: (UITableViewCell *) sender];
+        self.selectedConversation = [conversations objectAtIndex: [conversations count] - ip.row - 1];
     
-    ChatViewController* cvc = (ChatViewController *) [segue destinationViewController];
-    cvc.delegate = self;
-    cvc.conversationId = self.selectedConversation.conversationId;
+        ChatViewController* cvc = (ChatViewController *) [segue destinationViewController];
+        cvc.delegate = self;
+        cvc.conversationId = self.selectedConversation.conversationId;
+    }
 }
 
  
