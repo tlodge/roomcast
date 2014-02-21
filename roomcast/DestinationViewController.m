@@ -87,7 +87,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return [self.scopeTypes count] + 1;
+    return [self.scopeTypes count];
 }
 
 
@@ -98,28 +98,23 @@
         [self setDeselected:cell];
     }
     
-    if (indexPath.row > 0){
-        ScopeCell* cell = (ScopeCell*)[tableView cellForRowAtIndexPath:indexPath];
-        [self setSelected:cell];
-    }
+    ScopeCell* cell = (ScopeCell*)[tableView cellForRowAtIndexPath:indexPath];
+    [self setSelected:cell];
+    
     
     lastIndex = indexPath;
     
-    if (indexPath.row > 0){
-        if (![self.currentScope isEqualToString:[self.scopeTypes objectAtIndex:indexPath.row-1]]){
-            self.currentScope = [self.scopeTypes objectAtIndex:indexPath.row-1];
-            [self.scopedelegate didSelectScope:self.currentScope withValues:[scope objectForKey:self.currentScope]];
-        }
-       
+    if (![self.currentScope isEqualToString:[self.scopeTypes objectAtIndex:indexPath.row]]){
+        self.currentScope = [self.scopeTypes objectAtIndex:indexPath.row];
+        [self.scopedelegate didSelectScope:self.currentScope withValues:[scope objectForKey:self.currentScope]];
     }
-    
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.row == 0){
-        return[tableView dequeueReusableCellWithIdentifier:@"InfoCell" forIndexPath:indexPath];
-    }
+    //if (indexPath.row == 0){
+    //    return[tableView dequeueReusableCellWithIdentifier:@"InfoCell" forIndexPath:indexPath];
+    //}
     
     ScopeCell* cell =  (ScopeCell*)[tableView dequeueReusableCellWithIdentifier:@"ScopeCell" forIndexPath:indexPath];
     
@@ -131,24 +126,24 @@
         lastIndex = indexPath;
     }
     
-    if (indexPath.row == 1){
+    if (indexPath.row == 0){
         cell.title.text = [NSString stringWithFormat:@"within %@",self.developmentName];
-        cell.info.text = [self _text_for_scope:[self.scopeTypes objectAtIndex:indexPath.row-1]];
-        cell.total.text = [self _total_for_scope:[self.scopeTypes objectAtIndex:indexPath.row-1]];
+        cell.info.text = [self _text_for_scope:[self.scopeTypes objectAtIndex:indexPath.row]];
+        cell.total.text = [self _total_for_scope:[self.scopeTypes objectAtIndex:indexPath.row]];
         cell.moreButton.tag = indexPath.row;
-    }else if (indexPath.row == 2){
+    }else if (indexPath.row == 1){
         cell.title.text = @"specific apartment(s)";
         [cell.info setFont:[UIFont fontWithName:@"Verdana" size:24]];
-        cell.info.text = [self _text_for_scope:[self.scopeTypes objectAtIndex:indexPath.row-1]];
-        cell.total.text = [self _total_for_scope:[self.scopeTypes objectAtIndex:indexPath.row-1]];
+        cell.info.text = [self _text_for_scope:[self.scopeTypes objectAtIndex:indexPath.row]];
+        cell.total.text = [self _total_for_scope:[self.scopeTypes objectAtIndex:indexPath.row]];
         cell.moreButton.tag = indexPath.row;
-    }else if (indexPath.row ==3){
+    }else if (indexPath.row ==2){
         cell.title.text = @"across developments";
-        cell.info.text = [self _text_for_scope:[self.scopeTypes objectAtIndex:indexPath.row-1]];
-        cell.total.text =[self _total_for_scope:[self.scopeTypes objectAtIndex:indexPath.row-1]];
+        cell.info.text = [self _text_for_scope:[self.scopeTypes objectAtIndex:indexPath.row]];
+        cell.total.text =[self _total_for_scope:[self.scopeTypes objectAtIndex:indexPath.row]];
         cell.moreButton.tag = indexPath.row;
 
-    }else if (indexPath.row == 4){
+    }else if (indexPath.row == 3){
         cell.title.text = @"across region";
         cell.info.text = @"within 5 miles of Burrells Wharf";
         cell.total.text = @"563";
@@ -186,12 +181,12 @@
     
     NSString *segue = @"withinDevelopmentSegue";
     
-    if (clicked.tag == 2){
+    if (clicked.tag == 1){
        segue = @"apartmentSegue";
     }
-    else if (clicked.tag == 3){
+    else if (clicked.tag == 2){
        segue = @"acrossDevelopmentsSegue";
-    }else if (clicked.tag == 4){
+    }else if (clicked.tag == 3){
        segue = @"withinRegionSegue";
     }
     

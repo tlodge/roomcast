@@ -20,13 +20,8 @@
 @synthesize managedObjectContext;
 @synthesize selectedConversation;
 @synthesize composing;
-@synthesize messageView;
-@synthesize scope;
-@synthesize currentScope;
-@synthesize totals;
-
-static NSArray* TYPES;
-static NSDictionary *scopelabels;
+@synthesize scopelabels;
+@synthesize development;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -41,10 +36,7 @@ static NSDictionary *scopelabels;
 {
     [super viewDidLoad];
   
-    
     self.development  = [[DataManager sharedManager] development];
-    
-    scopelabels = [NSDictionary dictionaryWithObjects:[NSArray arrayWithObjects:@"between apartments", [NSString stringWithFormat:@"within %@", self.development.name], @"across developments", @"across region",nil] forKeys:[NSArray arrayWithObjects:@"apartment", @"development", @"developments", @"region", nil]];
     
     [[NSNotificationCenter defaultCenter] addObserverForName:@"conversationUpdate" object:nil queue:nil usingBlock:^(NSNotification *note) {
         self.conversations = [[DataManager sharedManager] conversationsForUser];
@@ -57,53 +49,11 @@ static NSDictionary *scopelabels;
         [self.tableView reloadData];
         
     }];
-    
-    [[NSNotificationCenter defaultCenter] addObserverForName:@"developmentsUpdate" object:nil queue:nil usingBlock:^(NSNotification *note) {
-        NSLog(@"seen a developments update from network, so refetching from core data for development %@", self.development);
-        self.developments = [[DataManager sharedManager] neighboursForDevelopment:self.development.objectId];
-        
-    }];
-    
-    self.developments = [[DataManager sharedManager] neighboursForDevelopment:self.development.objectId];
-    
-    TYPES = [NSArray arrayWithObjects:@"development", @"apartment", @"developments", @"region",  nil];
-    
-    self.composing = YES;
-    
-    self.scope =  [NSMutableDictionary dictionary];
-    self.totals = [NSMutableDictionary dictionary];
-    
-    NSArray *nibContents = [[NSBundle mainBundle] loadNibNamed:@"MessageView"
-                                                         owner:self
-                                                       options:nil];
-    messageView = [nibContents objectAtIndex:0];
-    
-    [messageView addTarget:self action:@selector(closeKeyboard:) forControlEvents:UIControlEventAllTouchEvents];
-    
-    [messageView.backButton addTarget:self action:@selector(toggleMessage:)
-                     forControlEvents:UIControlEventTouchUpInside];
-    
-    [messageView.sendButton addTarget:self action:@selector(sendMessage:) forControlEvents:UIControlEventTouchUpInside];
-    
-    [messageView.whotoButton addTarget:self action:@selector(pushDestination:) forControlEvents:UIControlEventTouchUpInside];
 
-    
-    for (NSString *type in TYPES){
-        NSMutableDictionary *entities = [NSMutableDictionary dictionary];
-        //set the default scope to whole development i.e. all blocks selected
-        int total = 0;
-        if ([type isEqualToString:@"development"]){
-            for (Block* block in self.development.blocks){
-                [entities setObject:block forKey:block.objectId];
-                total += [block.residents intValue];
-            }
-            [self.totals setValue:[NSNumber numberWithInt:total] forKey:@"development"];
-            [self.messageView.numberButton setTitle:[NSString stringWithFormat:@"%d", total] forState:UIControlStateNormal];
-        }
-        [self.scope setObject:entities forKey:type];
-    }
-    
-    
+    self.scopelabels = [NSDictionary dictionaryWithObjects:[NSArray arrayWithObjects:@"between apartments", [NSString stringWithFormat:@"within %@", self.development.name], @"across developments", @"across region",nil] forKeys:[NSArray arrayWithObjects:@"apartment", @"development", @"developments", @"region", nil]];
+
+    self.composing = YES;
+
     id maindelegate = [[UIApplication sharedApplication] delegate];
     
     self.managedObjectContext = [maindelegate managedObjectContext];
@@ -213,18 +163,46 @@ static NSDictionary *scopelabels;
         cvc.delegate = self;
         cvc.conversationId = self.selectedConversation.conversationId;
     }
+    
+    else if([[segue identifier] isEqualToString:@"sendSegue"]){
+       
+        SendRootViewController* srvc = (SendRootViewController *) [segue destinationViewController];
+        
+        NSArray* TYPES = @[@"development", @"apartment", @"developments", @"region"];
+        
+        srvc.TYPES = TYPES;
+        srvc.scope =  [NSMutableDictionary dictionary];
+        srvc.totals = [NSMutableDictionary dictionary];
+        
+        for (NSString *type in TYPES){
+            NSMutableDictionary *entities = [NSMutableDictionary dictionary];
+            //set the default scope to whole development i.e. all blocks selected
+            int total = 0;
+            if ([type isEqualToString:@"development"]){
+                for (Block* block in development.blocks){
+                    [entities setObject:block forKey:block.objectId];
+                    total += [block.residents intValue];
+                }
+                [srvc.totals setValue:[NSNumber numberWithInt:total] forKey:@"development"];
+    
+            }
+            [srvc.scope setObject:entities forKey:type];
+        }
+        srvc.development  = self.development;
+        srvc.developments = [[DataManager sharedManager] neighboursForDevelopment:self.development.objectId];
+    }
 }
 
- 
+/*
 - (IBAction)toggleMessage:(id)sender {
     [self toggleComposer];
-}
+}*/
 
 -(void) closeKeyboard:(UIControl *) sender{
     [sender endEditing:YES];
 }
 
--(void) pushDestination:(UIButton *) sender{
+/*-(void) pushDestination:(UIButton *) sender{
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     
     DestinationViewController *destination = (DestinationViewController*)[storyboard instantiateViewControllerWithIdentifier:@"sendto"];
@@ -243,8 +221,8 @@ static NSDictionary *scopelabels;
     destination.blocks = [[[self.development blocks] allObjects] sortedArrayUsingDescriptors:sortDescriptors];
    
     [self.navigationController pushViewController:destination animated:YES];
-}
-
+}*/
+/*
 -(void) sendMessage:(UIButton *)sender{    
     
     if ([messageView.messageView.text length] == 0)
@@ -303,7 +281,7 @@ static NSDictionary *scopelabels;
         
     }
     self.composing = !self.composing;
-}
+}*/
 
 #pragma delegate methods
 
@@ -311,6 +289,7 @@ static NSDictionary *scopelabels;
     
 }
 
+/*
 -(void) didSelectScope:(NSString*) scopeName withValues:(NSDictionary*) scopeValues{
     
     self.currentScope = scopeName;
@@ -345,7 +324,7 @@ static NSDictionary *scopelabels;
         
         [self.messageView.numberButton setTitle:[NSString stringWithFormat:@"%d", [[self.totals objectForKey:@"development"] intValue]] forState:UIControlStateNormal];
     }
-}
+}*/
 
 
 @end

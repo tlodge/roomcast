@@ -16,19 +16,14 @@
 #import "DataManager.h"
 #import "Apartment.h"
 #import "ConversationCell.h"
+#import "SendRootViewController.h"
 
-@interface MessageViewController : UITableViewController <UITextViewDelegate, RespondDelegate, MessageScopeDelegate>
+@interface MessageViewController : UITableViewController <UITextViewDelegate, RespondDelegate>
 
-@property (weak, nonatomic) IBOutlet UIButton *composeButton;
 @property (nonatomic, strong) NSManagedObjectContext* managedObjectContext;
-@property (nonatomic, strong) NSMutableDictionary *scope;
-@property (nonatomic, strong) NSString *currentScope;
-@property (nonatomic, strong) NSMutableDictionary* totals;
 @property (nonatomic, strong) NSArray *conversations;
 @property (strong, nonatomic) Conversation* selectedConversation;
 @property (nonatomic, assign) BOOL composing;
-@property (strong, nonatomic) MessageView* messageView;
-@property (strong, nonatomic) Development* development;
-@property (strong, nonatomic) NSArray* developments;   
-- (IBAction)toggleMessage:(id)sender;
+@property (nonatomic, strong) NSDictionary *scopelabels;
+@property (nonatomic, strong) Development *development;
 @end
