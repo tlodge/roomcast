@@ -13,6 +13,7 @@
 -(NSString *) _total_for_scope:(NSString *) scopename;
 -(void) setSelected:(ScopeCell*) cell;
 -(void) setDeselected:(ScopeCell*) cell;
+-(void) triggerSegue:(NSIndexPath *)currentIndex;
 @end
 
 //should be dynamic, so could potentially add new scopes!
@@ -55,10 +56,6 @@
     return self;
 }
 
--(void) viewWillAppear:(BOOL)animated{
-    
-    [self.tableView reloadData];
-}
 
 - (void)viewDidLoad
 {
@@ -108,6 +105,8 @@
         self.currentScope = [self.scopeTypes objectAtIndex:indexPath.row];
         [self.scopedelegate didSelectScope:self.currentScope withValues:[scope objectForKey:self.currentScope]];
     }
+    
+    [self triggerSegue:indexPath];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -165,32 +164,31 @@
     return @"0";
 }
 
--(void)  triggerSegue:(id)sender{
-    UIButton *clicked = (UIButton *) sender;
+-(void) triggerSegue:(NSIndexPath *)currentIndex{
+    //UIButton *clicked = (UIButton *) sender;
     
     if (lastIndex != nil){
         ScopeCell* cell = (ScopeCell*)[self.tableView cellForRowAtIndexPath:lastIndex];
         [self setDeselected:cell];
     }
     
-    NSIndexPath* currentIndex = [NSIndexPath indexPathForRow:clicked.tag inSection:0];
+    //NSIndexPath* currentIndex = [NSIndexPath indexPathForRow:clicked.tag inSection:0];
     ScopeCell* cell = (ScopeCell*)[self.tableView cellForRowAtIndexPath:currentIndex];
     [self setSelected:cell];
    
     lastIndex = currentIndex;
+    int tag = currentIndex.row;
     
     NSString *segue = @"withinDevelopmentSegue";
     
-    if (clicked.tag == 1){
+    if (tag == 1){
        segue = @"apartmentSegue";
     }
-    else if (clicked.tag == 2){
+    else if (tag == 2){
        segue = @"acrossDevelopmentsSegue";
-    }else if (clicked.tag == 3){
+    }else if (tag == 3){
        segue = @"withinRegionSegue";
     }
-    
-    
     
     [self performSegueWithIdentifier:segue sender:self];
 }
@@ -209,11 +207,8 @@
     cell.info.alpha = 0.0;
 }
 
-- (CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    if (indexPath.row == 0)
-        return 70.0;
-    return 75.0;
-}
+
+
 /*
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath

@@ -166,30 +166,8 @@
     
     else if([[segue identifier] isEqualToString:@"sendSegue"]){
        
-        SendRootViewController* srvc = (SendRootViewController *) [segue destinationViewController];
+        //SendRootViewController* srvc = (SendRootViewController *) [segue destinationViewController];
         
-        NSArray* TYPES = @[@"development", @"apartment", @"developments", @"region"];
-        
-        srvc.TYPES = TYPES;
-        srvc.scope =  [NSMutableDictionary dictionary];
-        srvc.totals = [NSMutableDictionary dictionary];
-        
-        for (NSString *type in TYPES){
-            NSMutableDictionary *entities = [NSMutableDictionary dictionary];
-            //set the default scope to whole development i.e. all blocks selected
-            int total = 0;
-            if ([type isEqualToString:@"development"]){
-                for (Block* block in development.blocks){
-                    [entities setObject:block forKey:block.objectId];
-                    total += [block.residents intValue];
-                }
-                [srvc.totals setValue:[NSNumber numberWithInt:total] forKey:@"development"];
-    
-            }
-            [srvc.scope setObject:entities forKey:type];
-        }
-        srvc.development  = self.development;
-        srvc.developments = [[DataManager sharedManager] neighboursForDevelopment:self.development.objectId];
     }
 }
 

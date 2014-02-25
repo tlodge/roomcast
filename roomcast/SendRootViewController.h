@@ -7,18 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "DestinationViewController.h"
 
-@interface SendRootViewController : UIViewController <MessageScopeDelegate, UITextViewDelegate>
+
+@interface SendRootViewController : UIViewController <UITextViewDelegate>
 @property (weak, nonatomic) IBOutlet UITextView *sendText;
 @property (weak, nonatomic) IBOutlet UILabel *audienceCount;
 - (IBAction)sendPressed:(id)sender;
 @property (weak, nonatomic) IBOutlet UIButton *cancelPressed;
-
-@property (strong,nonatomic) NSMutableDictionary *scope;
-@property (strong,nonatomic) NSMutableDictionary* totals;
-@property (strong,nonatomic) Development* development;
-@property (strong,nonatomic) NSArray* developments;
-@property (strong,nonatomic) NSString *currentScope;
-@property (strong,nonatomic) NSArray* TYPES;
 @end

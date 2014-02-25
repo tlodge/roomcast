@@ -71,6 +71,7 @@
 		A37C6EF2181971D90042489D /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A37C6EF1181971D90042489D /* MapKit.framework */; };
 		A37C6EF4181971ED0042489D /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A37C6EF3181971ED0042489D /* CoreLocation.framework */; };
 		A37C6F0F181ACCBA0042489D /* RangeView.m in Sources */ = {isa = PBXBuildFile; fileRef = A37C6F0E181ACCBA0042489D /* RangeView.m */; };
+		A38F717118BCE777009B7CD5 /* RootAudienceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A38F717018BCE777009B7CD5 /* RootAudienceViewController.m */; };
 		A39E8BBD185F5ACA00600856 /* background_splash.png in Resources */ = {isa = PBXBuildFile; fileRef = A39E8BBC185F5ACA00600856 /* background_splash.png */; };
 		A39E8BC1185F5C6C00600856 /* background_frame.png in Resources */ = {isa = PBXBuildFile; fileRef = A39E8BC0185F5C6C00600856 /* background_frame.png */; };
 		A39E8BCA1860AE9400600856 /* DevelopmentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A39E8BC91860AE9400600856 /* DevelopmentViewController.m */; };
@@ -221,6 +222,8 @@
 		A37C6EF3181971ED0042489D /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		A37C6F0D181ACCBA0042489D /* RangeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RangeView.h; sourceTree = "<group>"; };
 		A37C6F0E181ACCBA0042489D /* RangeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RangeView.m; sourceTree = "<group>"; };
+		A38F716F18BCE777009B7CD5 /* RootAudienceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootAudienceViewController.h; sourceTree = "<group>"; };
+		A38F717018BCE777009B7CD5 /* RootAudienceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootAudienceViewController.m; sourceTree = "<group>"; };
 		A39E8BBC185F5ACA00600856 /* background_splash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = background_splash.png; path = ../background_splash.png; sourceTree = "<group>"; };
 		A39E8BC0185F5C6C00600856 /* background_frame.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = background_frame.png; path = ../background_frame.png; sourceTree = "<group>"; };
 		A39E8BC81860AE9400600856 /* DevelopmentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DevelopmentViewController.h; sourceTree = "<group>"; };
@@ -346,6 +349,8 @@
 				A3334D6E18452F2400ECA8D5 /* ApartmentViewController.m */,
 				A3334D5E1845077500ECA8D5 /* BlockViewController.h */,
 				A3334D5F1845077500ECA8D5 /* BlockViewController.m */,
+				A38F716F18BCE777009B7CD5 /* RootAudienceViewController.h */,
+				A38F717018BCE777009B7CD5 /* RootAudienceViewController.m */,
 				A3B6DAEB183E60C500A860CA /* DestinationViewController.h */,
 				A3B6DAEC183E60C500A860CA /* DestinationViewController.m */,
 				A39E8BC81860AE9400600856 /* DevelopmentViewController.h */,
@@ -782,6 +787,7 @@
 				A317AC30182A7AD600BE7E46 /* InitViewController.m in Sources */,
 				A3334D6F18452F2400ECA8D5 /* ApartmentViewController.m in Sources */,
 				A37C6EF0181971020042489D /* AuthViewController.m in Sources */,
+				A38F717118BCE777009B7CD5 /* RootAudienceViewController.m in Sources */,
 				A3CA7F3D185788130079FBB5 /* RegistrationBlockViewController.m in Sources */,
 				A35E3B15187DBCD400C8FBF1 /* DevelopmentsViewController.m in Sources */,
 				A37C6EBF181952040042489D /* ViewController.m in Sources */,
