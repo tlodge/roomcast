@@ -31,7 +31,7 @@
     return self;
 }
 
-
+/*
 -(void) viewWillAppear:(BOOL)animated{
     
     [self.tableView reloadData];
@@ -42,11 +42,11 @@
 -(void) viewDidDisappear:(BOOL)animated{
     [self.navigationController setNavigationBarHidden:NO animated:animated];
     [super viewWillAppear:animated];
-}
+}*/
 
 
 - (CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 120.0;
+    return 64.0;
 }
 
 - (void)viewDidLoad
