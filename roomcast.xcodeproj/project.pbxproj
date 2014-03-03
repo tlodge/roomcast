@@ -110,6 +110,7 @@
 		A3CA7F401857B75F0079FBB5 /* RegistrationFloorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3CA7F3F1857B75E0079FBB5 /* RegistrationFloorViewController.m */; };
 		A3CA7F421858CA3F0079FBB5 /* RespondView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A3CA7F411858CA3F0079FBB5 /* RespondView.xib */; };
 		A3CA7F451858CD650079FBB5 /* RespondView.m in Sources */ = {isa = PBXBuildFile; fileRef = A3CA7F441858CD650079FBB5 /* RespondView.m */; };
+		A3E7BF3E18C4E48700D37894 /* divider.png in Resources */ = {isa = PBXBuildFile; fileRef = A3E7BF3D18C4E48700D37894 /* divider.png */; };
 		A3F88D15182D445D00E3BFB0 /* ChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F88D14182D445D00E3BFB0 /* ChatViewController.m */; };
 		A3F88D17182D4F4A00E3BFB0 /* continue.png in Resources */ = {isa = PBXBuildFile; fileRef = A3F88D16182D4F4A00E3BFB0 /* continue.png */; };
 		A3F88D19182ED87A00E3BFB0 /* howmanybutton.png in Resources */ = {isa = PBXBuildFile; fileRef = A3F88D18182ED87A00E3BFB0 /* howmanybutton.png */; };
@@ -275,6 +276,7 @@
 		A3CA7F411858CA3F0079FBB5 /* RespondView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RespondView.xib; sourceTree = "<group>"; };
 		A3CA7F431858CD650079FBB5 /* RespondView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RespondView.h; sourceTree = "<group>"; };
 		A3CA7F441858CD650079FBB5 /* RespondView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RespondView.m; sourceTree = "<group>"; };
+		A3E7BF3D18C4E48700D37894 /* divider.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = divider.png; sourceTree = "<group>"; };
 		A3F88D13182D445D00E3BFB0 /* ChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatViewController.h; sourceTree = "<group>"; };
 		A3F88D14182D445D00E3BFB0 /* ChatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatViewController.m; sourceTree = "<group>"; };
 		A3F88D16182D4F4A00E3BFB0 /* continue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = continue.png; path = ../continue.png; sourceTree = "<group>"; };
@@ -559,6 +561,7 @@
 		A37C6EDD181954090042489D /* images */ = {
 			isa = PBXGroup;
 			children = (
+				A3E7BF3D18C4E48700D37894 /* divider.png */,
 				A3C1056318BE892A00E524A5 /* filter.png */,
 				A3C1056118BE885D00E524A5 /* audience.png */,
 				A3B48ED71884881E00C09426 /* messageback.png */,
@@ -733,6 +736,7 @@
 				A3F88D17182D4F4A00E3BFB0 /* continue.png in Resources */,
 				A3BD18F5184FD933004EB6BD /* bubble.png in Resources */,
 				A3BD18DD184F95F1004EB6BD /* authback.png in Resources */,
+				A3E7BF3E18C4E48700D37894 /* divider.png in Resources */,
 				A3CA7EAE185626CF0079FBB5 /* development_text.png in Resources */,
 				A3B48ED61884849B00C09426 /* developments.png in Resources */,
 				A335AA2B184F7263007096A4 /* apartment_dark.png in Resources */,
