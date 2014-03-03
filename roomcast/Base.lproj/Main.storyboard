@@ -753,19 +753,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="03f-GA-kpA">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="84"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="84" id="QF7-cw-Ou9"/>
-                                </constraints>
-                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
                             <containerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qgV-lE-77X">
-                                <rect key="frame" x="0.0" y="85" width="320" height="123"/>
+                                <rect key="frame" x="0.0" y="83" width="320" height="123"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <constraints>
@@ -776,6 +765,32 @@
                                     <segue destination="oYH-qC-xmi" kind="embed" id="lFQ-J0-MdE"/>
                                 </connections>
                             </containerView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DnN-xg-0Ha">
+                                <rect key="frame" x="0.0" y="2" width="320" height="84"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="03f-GA-kpA">
+                                        <rect key="frame" x="0.0" y="-1" width="320" height="84"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="say something..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rex-9a-on1">
+                                        <rect key="frame" x="73" y="30" width="175" height="29"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="320" id="DTc-5X-cUg"/>
+                                    <constraint firstAttribute="height" constant="84" id="Ula-Dg-wBs"/>
+                                </constraints>
+                            </view>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E0P-EO-cvo">
                                 <rect key="frame" x="0.0" y="524" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
@@ -833,30 +848,42 @@
                                     <constraint firstAttribute="centerY" secondItem="tg5-xY-wAi" secondAttribute="centerY" id="z4T-xv-PTY"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="all owners in burrells wharf and langbourne place and discovery docs" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="135" translatesAutoresizingMaskIntoConstraints="NO" id="9zq-OD-xEz">
-                                <rect key="frame" x="8" y="218" width="135" height="104"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bgg-60-feR">
+                                <rect key="frame" x="0.0" y="208" width="145" height="316"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="14"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                                <subviews>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="all owners in burrells wharf, langbourne place and discovery dock" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="130" translatesAutoresizingMaskIntoConstraints="NO" id="Rxo-nk-OZp">
+                                        <rect key="frame" x="7" y="100" width="130" height="104"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="15"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.48627450979999998" green="0.58823529409999997" blue="0.36862745099999999" alpha="1" colorSpace="deviceRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="centerX" secondItem="Rxo-nk-OZp" secondAttribute="centerX" constant="0.5" id="1UK-Ly-qVR"/>
+                                    <constraint firstAttribute="width" constant="145" id="cvg-kN-dde"/>
+                                    <constraint firstAttribute="centerY" secondItem="Rxo-nk-OZp" secondAttribute="centerY" constant="6" id="dbF-aY-zxs"/>
+                                </constraints>
+                            </view>
                         </subviews>
-                        <color key="backgroundColor" red="0.48627450980392156" green="0.58823529411764708" blue="0.37254901960784315" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="DnN-xg-0Ha" secondAttribute="trailing" id="5LU-tp-Bjg"/>
                             <constraint firstAttribute="trailing" secondItem="E0P-EO-cvo" secondAttribute="trailing" id="897-wT-Eql"/>
+                            <constraint firstItem="DnN-xg-0Ha" firstAttribute="top" secondItem="Phu-0P-cvj" secondAttribute="top" constant="2" id="Aks-Oj-rSF"/>
                             <constraint firstItem="L3l-lV-nbb" firstAttribute="top" secondItem="Phu-0P-cvj" secondAttribute="top" constant="208" id="Ata-9R-FPT"/>
-                            <constraint firstAttribute="trailing" secondItem="03f-GA-kpA" secondAttribute="trailing" id="GjP-Iv-6iw"/>
+                            <constraint firstItem="DnN-xg-0Ha" firstAttribute="leading" secondItem="Phu-0P-cvj" secondAttribute="leading" id="HUi-tI-1O5"/>
                             <constraint firstItem="qgV-lE-77X" firstAttribute="leading" secondItem="Phu-0P-cvj" secondAttribute="leading" id="IAR-c6-gN3"/>
+                            <constraint firstAttribute="bottom" secondItem="bgg-60-feR" secondAttribute="bottom" constant="44" id="M9x-Oh-AMJ"/>
                             <constraint firstItem="L3l-lV-nbb" firstAttribute="leading" secondItem="Phu-0P-cvj" secondAttribute="leading" constant="151" id="OWo-Yd-QoK"/>
-                            <constraint firstItem="03f-GA-kpA" firstAttribute="top" secondItem="Phu-0P-cvj" secondAttribute="top" id="ZTy-RW-4wJ"/>
-                            <constraint firstItem="qgV-lE-77X" firstAttribute="top" secondItem="Phu-0P-cvj" secondAttribute="top" constant="85" id="bwT-l8-2z7"/>
+                            <constraint firstItem="bgg-60-feR" firstAttribute="top" secondItem="qgV-lE-77X" secondAttribute="bottom" constant="2" id="P3H-ZC-N8k"/>
+                            <constraint firstItem="qgV-lE-77X" firstAttribute="top" secondItem="Phu-0P-cvj" secondAttribute="top" constant="83" id="bwT-l8-2z7"/>
                             <constraint firstAttribute="trailing" secondItem="L3l-lV-nbb" secondAttribute="trailing" id="bwt-Jb-waw"/>
-                            <constraint firstAttribute="trailing" secondItem="9zq-OD-xEz" secondAttribute="trailing" constant="177" id="fu8-k2-pKK"/>
-                            <constraint firstItem="9zq-OD-xEz" firstAttribute="leading" secondItem="Phu-0P-cvj" secondAttribute="leading" constant="8" id="i1d-LZ-Hud"/>
+                            <constraint firstAttribute="centerX" secondItem="bgg-60-feR" secondAttribute="centerX" constant="87.5" id="mBP-6h-Tgy"/>
                             <constraint firstAttribute="bottom" secondItem="E0P-EO-cvo" secondAttribute="bottom" id="mkM-QW-7NG"/>
                             <constraint firstAttribute="bottom" secondItem="L3l-lV-nbb" secondAttribute="bottom" constant="44" id="oaA-6N-12F"/>
-                            <constraint firstItem="03f-GA-kpA" firstAttribute="leading" secondItem="Phu-0P-cvj" secondAttribute="leading" id="rzC-Sd-ELU"/>
-                            <constraint firstItem="9zq-OD-xEz" firstAttribute="top" secondItem="qgV-lE-77X" secondAttribute="bottom" constant="10" id="v2W-6e-a70"/>
                         </constraints>
                     </view>
                     <connections>
