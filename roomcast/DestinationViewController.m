@@ -14,6 +14,8 @@
 -(void) setSelected:(ScopeCell*) cell;
 -(void) setDeselected:(ScopeCell*) cell;
 -(void) triggerSegue:(NSIndexPath *)currentIndex;
+@property(nonatomic,retain) NSArray* scopeimages;
+@property(nonatomic,retain) NSArray* scopetext;
 @end
 
 //should be dynamic, so could potentially add new scopes!
@@ -60,12 +62,16 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.title = @"choose scope";
     self.filter = [NSMutableDictionary dictionary];
-    //self.apartmenttotals = [NSMutableDictionary dictionary];
+    
+    self.scopeimages = @[@"within_scope.png", @"apartment_scope.png", @"development_scope.png",@"region_scope.png"];
+    
+    self.scopetext = @[@"within development", @"specific apartments", @"across developments", @"across region"];
     
     self.currentScope = [self.scopeTypes objectAtIndex:0];
-     lastIndex = [NSIndexPath indexPathForItem:1 inSection:1];
-     self.clearsSelectionOnViewWillAppear = NO;
+    lastIndex = [NSIndexPath indexPathForItem:1 inSection:1];
+    self.clearsSelectionOnViewWillAppear = NO;
 }
 
 - (void)didReceiveMemoryWarning
@@ -111,13 +117,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    //if (indexPath.row == 0){
-    //    return[tableView dequeueReusableCellWithIdentifier:@"InfoCell" forIndexPath:indexPath];
-    //}
-    
     ScopeCell* cell =  (ScopeCell*)[tableView dequeueReusableCellWithIdentifier:@"ScopeCell" forIndexPath:indexPath];
-    
-    [cell.moreButton addTarget:self action:@selector(triggerSegue:) forControlEvents:UIControlEventTouchUpInside];
     
     if (lastIndex.row == indexPath.row){
         [tableView selectRowAtIndexPath:indexPath animated:NO scrollPosition: UITableViewScrollPositionNone];
@@ -125,37 +125,17 @@
         lastIndex = indexPath;
     }
     
-    if (indexPath.row == 0){
-        cell.title.text = [NSString stringWithFormat:@"within %@",self.developmentName];
-        cell.info.text = [self _text_for_scope:[self.scopeTypes objectAtIndex:indexPath.row]];
-        cell.total.text = [self _total_for_scope:[self.scopeTypes objectAtIndex:indexPath.row]];
-        cell.moreButton.tag = indexPath.row;
-    }else if (indexPath.row == 1){
-        cell.title.text = @"specific apartment(s)";
-        [cell.info setFont:[UIFont fontWithName:@"Verdana" size:24]];
-        cell.info.text = [self _text_for_scope:[self.scopeTypes objectAtIndex:indexPath.row]];
-        cell.total.text = [self _total_for_scope:[self.scopeTypes objectAtIndex:indexPath.row]];
-        cell.moreButton.tag = indexPath.row;
-    }else if (indexPath.row ==2){
-        cell.title.text = @"across developments";
-        cell.info.text = [self _text_for_scope:[self.scopeTypes objectAtIndex:indexPath.row]];
-        cell.total.text =[self _total_for_scope:[self.scopeTypes objectAtIndex:indexPath.row]];
-        cell.moreButton.tag = indexPath.row;
-
-    }else if (indexPath.row == 3){
-        cell.title.text = @"across region";
-        cell.info.text = @"within 5 miles of Burrells Wharf";
-        cell.total.text = @"563";
-        cell.moreButton.tag = indexPath.row;
-
-    }
+    cell.title.text = self.scopetext[indexPath.row];
+    cell.info.text = [self _text_for_scope:[self.scopeTypes objectAtIndex:indexPath.row]];
+    cell.scopeImage.image = [UIImage imageNamed:[NSString stringWithFormat:@"%@.png", self.scopeimages[indexPath.row]]];
+    cell.selectedView.alpha = 0;
     
     return cell;
 }
 
 -(NSString*) _text_for_scope:(NSString *) scopename{
     NSArray *entities = [[self.scope objectForKey:scopename] allValues];
-    return [[entities valueForKey:@"name"]componentsJoinedByString:@","];
+    return [[entities valueForKey:@"name"]componentsJoinedByString:@", "];
 }
 
 -(NSString *) _total_for_scope:(NSString *) scopename{
@@ -165,14 +145,12 @@
 }
 
 -(void) triggerSegue:(NSIndexPath *)currentIndex{
-    //UIButton *clicked = (UIButton *) sender;
     
     if (lastIndex != nil){
         ScopeCell* cell = (ScopeCell*)[self.tableView cellForRowAtIndexPath:lastIndex];
         [self setDeselected:cell];
     }
     
-    //NSIndexPath* currentIndex = [NSIndexPath indexPathForRow:clicked.tag inSection:0];
     ScopeCell* cell = (ScopeCell*)[self.tableView cellForRowAtIndexPath:currentIndex];
     [self setSelected:cell];
    
@@ -194,15 +172,11 @@
 }
 
 -(void) setSelected:(ScopeCell*) cell{
-    cell.background.image = [UIImage imageNamed:@"scopecellselected.png"];
-    cell.total.alpha = 1.0;
     cell.contentView.alpha = 1.0;
     cell.info.alpha = 1.0;
 }
 
 -(void) setDeselected:(ScopeCell*) cell{
-    cell.background.image = [UIImage imageNamed:@"scopecell.png"];
-    cell.total.alpha = 0.0;
     cell.contentView.alpha = 0.5;
     cell.info.alpha = 0.0;
 }
@@ -248,6 +222,10 @@
 }
 */
 
+- (CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 64.0;
+}
+
 
 #pragma mark - Navigation
 
@@ -257,7 +235,7 @@
    
     if ([[segue identifier] isEqualToString:@"apartmentSegue"]){
         BlockViewController* bvc = (BlockViewController *) [segue destinationViewController];
-        bvc.apartmentdelegate = self;
+       // bvc.apartmentdelegate = self;
         bvc.selections = [self.scope objectForKey:@"apartment"];
         bvc.blocks = self.blocks;
        // bvc.apartmenttotals = self.apartmenttotals;

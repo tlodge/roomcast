@@ -33,7 +33,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+    self.title = @"select a block";
     self.totalSelected = 0;
     
     for (int i = 0; i < [self.blocks count]; i++){
@@ -79,7 +79,7 @@
         cell.blockNameLabel.text = [NSString stringWithFormat:@"All of %@", self.developmentName];
 
         if ([self.selections count] == [self.blocks count]){
-            cell.totalSelectedLabel.text = [NSString stringWithFormat:@"%d",self.totalSelected];
+            cell.totalSelectedLabel.text = [NSString stringWithFormat:@"%d apartments",self.totalSelected];
             [cell.selectedSwitch setOn:YES];
         }
         else{
@@ -92,7 +92,7 @@
         
         if ([self.selections objectForKey:b.objectId] != nil){
              [cell.selectedSwitch setOn:YES];
-            cell.totalSelectedLabel.text = [NSString stringWithFormat:@"%d", [b.residents intValue]];
+            cell.totalSelectedLabel.text = [NSString stringWithFormat:@"%d apartments", [b.residents intValue]];
 
         }else{
             [cell.selectedSwitch setOn:NO];

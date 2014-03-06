@@ -19,7 +19,7 @@
 @synthesize blocks;
 @synthesize selectedBlock;
 @synthesize selections;
-@synthesize apartmentdelegate;
+//@synthesize apartmentdelegate;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -70,7 +70,7 @@
     
     NSLog(@"setting totals for %@", b.objectId);
     
-    cell.chosen.text = [NSString stringWithFormat:@"%d", [self _totalForBlock:b.objectId]];
+    cell.chosen.text = [NSString stringWithFormat:@"%d apartments", [self _totalForBlock:b.objectId]];
     
     cell.moreButton.tag = indexPath.row;
     [cell.moreButton addTarget:self action:@selector(triggerSegue:) forControlEvents:UIControlEventTouchUpInside];
@@ -96,14 +96,14 @@
 // In a story board-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    ApartmentViewController* avc = (ApartmentViewController*) [segue destinationViewController];
+    RootApartmentViewController* avc = (RootApartmentViewController*) [segue destinationViewController];
  
     NSArray* blockapartments = [[DataManager sharedManager] apartmentsForBlock:selectedBlock.objectId];
     
-    avc.delegate   = self;
-    avc.apartments = blockapartments;
-    avc.objectId    = selectedBlock.objectId;
-    avc.selections = self.selections;
+    //avc.delegate   = self;
+    //avc.apartments = blockapartments;
+    //avc.objectId    = selectedBlock.objectId;
+    //avc.selections = self.selections;
 }
 
 #pragma apartment selected delegate
@@ -124,7 +124,7 @@
         [self.selections removeObjectForKey:apartment.objectId];
     }
     //pass event up the chain (if there has been a genuine change
-    [self.apartmentdelegate didSelectApartment:apartment withValue:value];
+   // [self.apartmentdelegate didSelectApartment:apartment withValue:value];
     [self.tableView reloadData];
 
 }

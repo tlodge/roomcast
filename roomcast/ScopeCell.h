@@ -10,9 +10,7 @@
 
 @interface ScopeCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UILabel *title;
-@property (weak, nonatomic) IBOutlet UILabel *total;
-@property (weak, nonatomic) IBOutlet UIImageView *background;
-@property (weak, nonatomic) IBOutlet UIButton *moreButton;
-
+@property (weak, nonatomic) IBOutlet UIImageView *scopeImage;
+@property (weak, nonatomic) IBOutlet UIView *selectedView;
 @property (weak, nonatomic) IBOutlet UILabel *info;
 @end
