@@ -500,15 +500,15 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.87350039"
-     inkscape:cx="733.89352"
-     inkscape:cy="1495.6898"
+     inkscape:cx="1041.9093"
+     inkscape:cy="1954.0297"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
      inkscape:window-width="1280"
      inkscape:window-height="756"
-     inkscape:window-x="178"
-     inkscape:window-y="23"
+     inkscape:window-x="134"
+     inkscape:window-y="38"
      inkscape:window-maximized="0"
      showguides="true"
      inkscape:guide-bbox="true" />
@@ -529,6 +529,16 @@
      inkscape:groupmode="layer"
      id="layer1"
      transform="translate(0,1052.3622)">
+    <rect
+       style="fill:none;stroke:none"
+       id="rect4503"
+       width="35"
+       height="35"
+       x="830.99402"
+       y="-1113.1462"
+       inkscape:export-filename="/Users/tlodge/iphone/roomcast/roomcast/roomcast/within_scope.png"
+       inkscape:export-xdpi="180.25121"
+       inkscape:export-ydpi="180.25121" />
     <rect
        y="-412.81061"
        x="464.41547"
@@ -1530,7 +1540,7 @@
     <g
        style="display:inline"
        id="g14863"
-       transform="matrix(0.45445081,0,0,0.49295775,-1231.5192,-2374.3748)">
+       transform="matrix(0.56166261,0,0,0.49295775,-1706.6517,-2374.3748)">
       <rect
          style="fill:none;stroke:none"
          id="rect14818"
@@ -8124,8 +8134,8 @@
        inkscape:export-xdpi="180"
        inkscape:export-ydpi="180" />
     <g
-       style="display:inline;fill:#5c7046;fill-opacity:1"
-       transform="matrix(0.72916667,0,0,-0.72916667,798.23825,-727.9388)"
+       style="fill:#5c7046;fill-opacity:1;display:inline"
+       transform="matrix(0.625,0,0,-0.72916667,795.32158,-727.9388)"
        id="g21518-4">
       <path
          id="path21520"
@@ -9640,5 +9650,316 @@
        d="m 630.52626,-401.55943 c -8.97438,0 -16.25001,-1.6794 -16.25001,-3.75 0,-2.07065 7.27563,-3.75 16.25001,-3.75 8.97438,0 16.25,1.67935 16.25,3.75 0,2.0706 -7.27562,3.75 -16.25,3.75 m 1.25,13.12499 0,11.87501 -2.5,0 0,-11.87501 c 0,0 -10.90813,-9.09248 -14.11688,-14.48189 2.96937,1.55315 8.73687,2.6069 15.36688,2.6069 6.63,0 12.3975,-1.05375 15.36688,-2.6069 -3.20875,5.38941 -14.11688,14.48189 -14.11688,14.48189 m -1.25,-21.87499 c -9.66501,0 -17.50001,2.23875 -17.50001,5 0,5 15.00001,17.49999 15.00001,17.49999 l 0,11.25001 c 0,0.69 0.56,1.25 1.25,1.25 l 2.5,0 c 0.69,0 1.25,-0.56 1.25,-1.25 l 0,-11.25001 c 0,0 15.00001,-12.49999 15.00001,-17.49999 0,-2.76125 -7.83501,-5 -17.50001,-5"
        style="fill:#5c7046;fill-opacity:1;fill-rule:nonzero;stroke:none;display:inline"
        id="path5254" />
+    <g
+       transform="matrix(0.56166261,0,0,0.49295775,-1853.1885,-2573.5734)"
+       id="g4419"
+       style="display:inline"
+       inkscape:export-filename="/Users/tlodge/iphone/roomcast/roomcast/roomcast/apartment_scope.png"
+       inkscape:export-xdpi="180.25121"
+       inkscape:export-ydpi="180.25121">
+      <rect
+         inkscape:export-ydpi="180"
+         inkscape:export-xdpi="180"
+         inkscape:export-filename="/Users/tlodge/iphone/roomcast/roomcast/roomcast/apartment.png"
+         y="2962.321"
+         x="4431.9087"
+         height="71"
+         width="62.125"
+         id="rect4421"
+         style="fill:none;stroke:none" />
+      <rect
+         inkscape:export-ydpi="180"
+         inkscape:export-xdpi="180"
+         inkscape:export-filename="/Users/tlodge/iphone/roomcast/roomcast/roomcast/apartment.png"
+         style="fill:none;stroke:#5c7046;stroke-width:2.20085168;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+         id="rect4423"
+         width="59.357338"
+         height="65.249146"
+         x="4433.1914"
+         y="2965.6157"
+         rx="5.3872676" />
+      <rect
+         inkscape:export-ydpi="180"
+         inkscape:export-xdpi="180"
+         inkscape:export-filename="/Users/tlodge/iphone/roomcast/roomcast/roomcast/apartment.png"
+         style="fill:#5c7046;fill-opacity:1;stroke:#5c7046;stroke-width:1.26767898;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+         id="rect4425"
+         width="34.594624"
+         height="11.456661"
+         x="3219.2708"
+         y="3010.1345"
+         rx="3.2514799"
+         clip-path="url(#clipPath29314)"
+         transform="matrix(1.7047062,0,0,1.768127,-1053.1528,-2355.4668)" />
+      <path
+         inkscape:export-ydpi="180"
+         inkscape:export-xdpi="180"
+         inkscape:export-filename="/Users/tlodge/iphone/roomcast/roomcast/roomcast/apartment.png"
+         style="fill:none;stroke:#5c7046;stroke-width:2.20085168;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+         d="m 4432.8648,2978.1544 59.924,6.0852"
+         id="path4427"
+         inkscape:connector-curvature="0" />
+      <path
+         inkscape:export-ydpi="180"
+         inkscape:export-xdpi="180"
+         inkscape:export-filename="/Users/tlodge/iphone/roomcast/roomcast/roomcast/apartment.png"
+         style="fill:none;stroke:#5c7046;stroke-width:2.20085168;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+         d="m 4433.0506,3004.8807 59.1798,0.5515"
+         id="path4429"
+         inkscape:connector-curvature="0" />
+      <path
+         inkscape:export-ydpi="180"
+         inkscape:export-xdpi="180"
+         inkscape:export-filename="/Users/tlodge/iphone/roomcast/roomcast/roomcast/apartment.png"
+         sodipodi:type="arc"
+         style="fill:none;stroke:#5c7046;stroke-width:1.69280457;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+         id="path4431"
+         sodipodi:cx="3127.1631"
+         sodipodi:cy="3650.0234"
+         sodipodi:rx="1.8532834"
+         sodipodi:ry="1.7409632"
+         d="m 3129.0164,3650.0234 c 0,0.9615 -0.8298,1.741 -1.8533,1.741 -1.0236,0 -1.8533,-0.7795 -1.8533,-1.741 0,-0.9615 0.8297,-1.7409 1.8533,-1.7409 1.0235,0 1.8533,0.7794 1.8533,1.7409 z"
+         transform="matrix(1.3079549,0,0,1.292335,389.40044,-1719.8572)" />
+      <path
+         inkscape:export-ydpi="180"
+         inkscape:export-xdpi="180"
+         inkscape:export-filename="/Users/tlodge/iphone/roomcast/roomcast/roomcast/apartment.png"
+         style="fill:none;stroke:#5c7046;stroke-width:2.20085168;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+         d="m 4479.5613,2994.2959 -0.372,-14.3426"
+         id="path4433"
+         inkscape:connector-curvature="0" />
+      <path
+         inkscape:export-ydpi="180"
+         inkscape:export-xdpi="180"
+         inkscape:export-filename="/Users/tlodge/iphone/roomcast/roomcast/roomcast/apartment.png"
+         style="fill:none;stroke:#5c7046;stroke-width:2.20085168;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+         d="m 4462.3615,2982.8033 0.395,46.2148"
+         id="path4435"
+         inkscape:connector-curvature="0" />
+    </g>
+    <g
+       id="g4437"
+       transform="matrix(0.78439721,0,0,0.85086147,-1834.018,-2635.2466)"
+       style="stroke:#5c7046;stroke-width:1.33077288;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;display:inline"
+       inkscape:export-filename="/Users/tlodge/iphone/roomcast/roomcast/roomcast/within_scope.png"
+       inkscape:export-xdpi="180.25121"
+       inkscape:export-ydpi="180.25121">
+      <rect
+         style="fill:none;stroke:#5c7046;stroke-width:1.33077288;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+         id="rect4439"
+         width="20.123898"
+         height="39.85704"
+         x="3410.8218"
+         y="1789.4941"
+         rx="1.8264437" />
+      <rect
+         style="fill:none;stroke:#5c7046;stroke-width:1.33077288;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+         id="rect4441"
+         width="5.4705739"
+         height="5.4705739"
+         x="3413.5356"
+         y="1793.6404" />
+      <path
+         style="fill:none;stroke:#5c7046;stroke-width:1.33077288;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+         d="m 3420.1203,1819.9402 c -1.0118,0 -1.8125,0.8007 -1.8125,1.8126 l 0,7.3124 c 0,0.085 0.02,0.1686 0.031,0.25 l 5.5624,0 c 0.011,-0.081 0.031,-0.1653 0.031,-0.25 l 0,-7.3124 c 0,-1.0119 -0.8319,-1.8126 -1.8437,-1.8126 l -1.9688,0 z"
+         id="path4443"
+         inkscape:connector-curvature="0" />
+      <rect
+         y="1793.6404"
+         x="3422.5212"
+         height="5.4705739"
+         width="5.4705739"
+         id="rect4445"
+         style="fill:none;stroke:#5c7046;stroke-width:1.33077288;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0" />
+      <rect
+         y="1801.9521"
+         x="3413.5356"
+         height="5.4705739"
+         width="5.4705739"
+         id="rect4447"
+         style="fill:none;stroke:#5c7046;stroke-width:1.33077288;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0" />
+      <rect
+         style="fill:none;stroke:#5c7046;stroke-width:1.33077288;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+         id="rect4449"
+         width="5.4705739"
+         height="5.4705739"
+         x="3422.5212"
+         y="1801.9521" />
+      <rect
+         style="fill:none;stroke:#5c7046;stroke-width:1.33077288;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+         id="rect4451"
+         width="5.4705739"
+         height="5.4705739"
+         x="3413.5356"
+         y="1810.0393" />
+      <rect
+         y="1810.0393"
+         x="3422.5212"
+         height="5.4705739"
+         width="5.4705739"
+         id="rect4453"
+         style="fill:none;stroke:#5c7046;stroke-width:1.33077288;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0" />
+    </g>
+    <g
+       id="g4455"
+       transform="matrix(0.67163938,0,0,0.60850338,-1403.3618,-2770.4931)"
+       style="fill:none;stroke:#5c7046;stroke-width:1.92533064;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;display:inline"
+       inkscape:export-filename="/Users/tlodge/iphone/roomcast/roomcast/roomcast/development_scope.png"
+       inkscape:export-xdpi="180.25121"
+       inkscape:export-ydpi="180.25121">
+      <g
+         style="fill:none;stroke:#5c7046;stroke-width:1.92533064;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+         transform="translate(12.70758,944.17323)"
+         id="g4457">
+        <rect
+           rx="1.8264437"
+           y="1789.4941"
+           x="3410.8218"
+           height="39.85704"
+           width="20.123898"
+           id="rect4459"
+           style="fill:none;stroke:#5c7046;stroke-width:1.92533064;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0" />
+        <rect
+           y="1793.6404"
+           x="3413.5356"
+           height="5.4705739"
+           width="5.4705739"
+           id="rect4461"
+           style="fill:none;stroke:#5c7046;stroke-width:1.92533064;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0" />
+        <path
+           inkscape:connector-curvature="0"
+           id="path4463"
+           d="m 3420.1203,1819.9402 c -1.0118,0 -1.8125,0.8007 -1.8125,1.8126 l 0,7.3124 c 0,0.085 0.02,0.1686 0.031,0.25 l 5.5624,0 c 0.011,-0.081 0.031,-0.1653 0.031,-0.25 l 0,-7.3124 c 0,-1.0119 -0.8319,-1.8126 -1.8437,-1.8126 l -1.9688,0 z"
+           style="fill:none;stroke:#5c7046;stroke-width:1.92533064;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0" />
+        <rect
+           style="fill:none;stroke:#5c7046;stroke-width:1.92533064;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+           id="rect4465"
+           width="5.4705739"
+           height="5.4705739"
+           x="3422.5212"
+           y="1793.6404" />
+        <rect
+           style="fill:none;stroke:#5c7046;stroke-width:1.92533064;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+           id="rect4467"
+           width="5.4705739"
+           height="5.4705739"
+           x="3413.5356"
+           y="1801.9521" />
+        <rect
+           y="1801.9521"
+           x="3422.5212"
+           height="5.4705739"
+           width="5.4705739"
+           id="rect4469"
+           style="fill:none;stroke:#5c7046;stroke-width:1.92533064;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0" />
+        <rect
+           y="1810.0393"
+           x="3413.5356"
+           height="5.4705739"
+           width="5.4705739"
+           id="rect4471"
+           style="fill:none;stroke:#5c7046;stroke-width:1.92533064;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0" />
+        <rect
+           style="fill:none;stroke:#5c7046;stroke-width:1.92533064;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+           id="rect4473"
+           width="5.4705739"
+           height="5.4705739"
+           x="3422.5212"
+           y="1810.0393" />
+      </g>
+      <g
+         id="g4475"
+         transform="translate(-14.152346,-0.44928082)"
+         style="fill:none;stroke:#5c7046;stroke-width:1.92533064;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none">
+        <rect
+           style="fill:none;stroke:#5c7046;stroke-width:1.92533064;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+           id="rect4477"
+           width="11.95643"
+           height="55.270924"
+           x="3461.425"
+           y="2718.4783"
+           rx="1.0851649" />
+        <path
+           style="fill:none;stroke:#5c7046;stroke-width:1.92533064;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+           d="m 3466.524,2764.3381 c -1.0118,0 -1.8125,0.8007 -1.8125,1.8126 l 0,7.3124 c 0,0.085 0.02,0.1686 0.031,0.25 l 5.5624,0 c 0.011,-0.081 0.031,-0.1653 0.031,-0.25 l 0,-7.3124 c 0,-1.0119 -0.8319,-1.8126 -1.8437,-1.8126 l -1.9688,0 z"
+           id="path4479"
+           inkscape:connector-curvature="0" />
+        <rect
+           y="2738.0383"
+           x="3464.6567"
+           height="5.4705739"
+           width="5.4705739"
+           id="rect4481"
+           style="fill:none;stroke:#5c7046;stroke-width:1.92533064;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0" />
+        <rect
+           style="fill:none;stroke:#5c7046;stroke-width:1.92533064;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+           id="rect4483"
+           width="5.4705739"
+           height="5.4705739"
+           x="3464.6567"
+           y="2746.3501" />
+        <rect
+           y="2754.4373"
+           x="3464.6567"
+           height="5.4705739"
+           width="5.4705739"
+           id="rect4485"
+           style="fill:none;stroke:#5c7046;stroke-width:1.92533064;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0" />
+        <rect
+           y="2721.8643"
+           x="3464.6567"
+           height="5.4705739"
+           width="5.4705739"
+           id="rect4487"
+           style="fill:none;stroke:#5c7046;stroke-width:1.92533064;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0" />
+        <rect
+           style="fill:none;stroke:#5c7046;stroke-width:1.92533064;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+           id="rect4489"
+           width="5.4705739"
+           height="5.4705739"
+           x="3464.6567"
+           y="2729.9514" />
+      </g>
+      <rect
+         style="fill:none;stroke:#5c7046;stroke-width:1.92533064;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+         id="rect4491"
+         width="11.640569"
+         height="31.249092"
+         x="3408.9504"
+         y="2742.051"
+         rx="1.0564973" />
+      <path
+         style="fill:none;stroke:#5c7046;stroke-width:1.92533064;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+         d="m 3413.7335,2763.8888 c -1.0118,0 -1.8125,0.8007 -1.8125,1.8126 l 0,7.3124 c 0,0.085 0.02,0.1686 0.031,0.25 l 5.5624,0 c 0.011,-0.081 0.031,-0.1653 0.031,-0.25 l 0,-7.3124 c 0,-1.0119 -0.8319,-1.8126 -1.8437,-1.8126 l -1.9688,0 z"
+         id="path4493"
+         inkscape:connector-curvature="0" />
+      <rect
+         style="fill:none;stroke:#5c7046;stroke-width:1.92533064;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+         id="rect4495"
+         width="5.4705739"
+         height="5.4705739"
+         x="3411.8662"
+         y="2745.9009" />
+      <rect
+         y="2753.988"
+         x="3411.8662"
+         height="5.4705739"
+         width="5.4705739"
+         id="rect4497"
+         style="fill:none;stroke:#5c7046;stroke-width:1.92533064;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0" />
+    </g>
+    <g
+       id="g4499"
+       transform="matrix(0.625,0,0,-0.72916667,960.17554,-1113.7429)"
+       style="fill:#5c7046;fill-opacity:1;display:inline"
+       inkscape:export-filename="/Users/tlodge/iphone/roomcast/roomcast/roomcast/region_scope.png"
+       inkscape:export-xdpi="180.25121"
+       inkscape:export-ydpi="180.25121">
+      <path
+         inkscape:connector-curvature="0"
+         d="m 0,0 c 7.732,0 14,-6.268 14,-14 0,-8 -14,-23 -14,-23 0,0 -14,15 -14,23 0,7.732 6.268,14 14,14 M 16,-14 C 16,-5.163 8.837,2 0,2 c -8.837,0 -16,-7.163 -16,-16 0,-10 16,-26 16,-26 0,0 16,16 16,26 m -22,0 c 0,3.313 2.687,6 6,6 3.313,0 6,-2.687 6,-6 0,-3.313 -2.687,-6 -6,-6 -3.313,0 -6,2.687 -6,6 m 14,0 c 0,4.418 -3.582,8 -8,8 -4.418,0 -8,-3.582 -8,-8 0,-4.419 3.582,-8 8,-8 4.418,0 8,3.581 8,8 m 19.861,-30.521 0.013,0.006 -10,18 -0.013,-0.006 C 17.69,-26.216 17.375,-26 17,-26 l -2,0 c -0.553,0 -1,-0.448 -1,-1 0,-0.553 0.447,-1 1,-1 l 1.412,0 8.889,-16 -50.602,0 8.89,16 1.411,0 c 0.553,0 1,0.447 1,1 0,0.552 -0.447,1 -1,1 l -2,0 c -0.375,0 -0.69,-0.216 -0.861,-0.521 l -0.013,0.006 -10,-18 0.013,-0.006 C -27.941,-44.666 -28,-44.823 -28,-45 c 0,-0.553 0.447,-1 1,-1 l 54,0 c 0.553,0 1,0.447 1,1 0,0.177 -0.059,0.334 -0.139,0.479"
+         style="fill:#5c7046;fill-opacity:1;fill-rule:nonzero;stroke:none"
+         id="path4501" />
+    </g>
   </g>
 </svg>

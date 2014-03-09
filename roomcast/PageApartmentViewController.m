@@ -39,7 +39,6 @@
 #pragma mark - UICollectionView Datasource
 
 - (NSInteger)collectionView:(UICollectionView *)view numberOfItemsInSection:(NSInteger)section {
-    NSLog(@"ok returning the number as %d", [self.buttons count]);
     return [self.buttons[_pageIndex] count];
 }
 
@@ -48,7 +47,6 @@
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)cv cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    
     ApartmentSelectCell *cell;
      cell = [cv dequeueReusableCellWithReuseIdentifier:@"ApartmentSelectCell" forIndexPath:indexPath];
    
