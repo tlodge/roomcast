@@ -68,7 +68,7 @@
 
 // 1
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-    return CGSizeMake(120, 120);
+    return CGSizeMake(50, 70);
 }
 
 // 3
@@ -76,7 +76,7 @@
 (UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
     //frame is 320 (10px in middle)
     //20--115--20--115--20
-    UIEdgeInsets insets = {.left=26, .right=26, .bottom=0, .top=10};
+    UIEdgeInsets insets = {.left=10, .right=10, .bottom=0, .top=10};
     return insets;
 }
 

@@ -118,6 +118,7 @@
 		A3E7BF5218C8E5A300D37894 /* RootApartmentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3E7BF5118C8E5A300D37894 /* RootApartmentViewController.m */; };
 		A3E7BF5518C8E5C700D37894 /* PageApartmentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3E7BF5418C8E5C700D37894 /* PageApartmentViewController.m */; };
 		A3E7BF5918C8E7C000D37894 /* ApartmentSelectCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A3E7BF5818C8E7C000D37894 /* ApartmentSelectCell.m */; };
+		A3E7BF6418CE56B300D37894 /* ApartmentToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = A3E7BF6318CE56B300D37894 /* ApartmentToolbar.m */; };
 		A3F88D15182D445D00E3BFB0 /* ChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3F88D14182D445D00E3BFB0 /* ChatViewController.m */; };
 		A3F88D17182D4F4A00E3BFB0 /* continue.png in Resources */ = {isa = PBXBuildFile; fileRef = A3F88D16182D4F4A00E3BFB0 /* continue.png */; };
 		A3F88D19182ED87A00E3BFB0 /* howmanybutton.png in Resources */ = {isa = PBXBuildFile; fileRef = A3F88D18182ED87A00E3BFB0 /* howmanybutton.png */; };
@@ -294,6 +295,8 @@
 		A3E7BF5418C8E5C700D37894 /* PageApartmentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PageApartmentViewController.m; sourceTree = "<group>"; };
 		A3E7BF5718C8E7C000D37894 /* ApartmentSelectCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApartmentSelectCell.h; sourceTree = "<group>"; };
 		A3E7BF5818C8E7C000D37894 /* ApartmentSelectCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ApartmentSelectCell.m; sourceTree = "<group>"; };
+		A3E7BF6218CE56B300D37894 /* ApartmentToolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApartmentToolbar.h; sourceTree = "<group>"; };
+		A3E7BF6318CE56B300D37894 /* ApartmentToolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ApartmentToolbar.m; sourceTree = "<group>"; };
 		A3F88D13182D445D00E3BFB0 /* ChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatViewController.h; sourceTree = "<group>"; };
 		A3F88D14182D445D00E3BFB0 /* ChatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatViewController.m; sourceTree = "<group>"; };
 		A3F88D16182D4F4A00E3BFB0 /* continue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = continue.png; path = ../continue.png; sourceTree = "<group>"; };
@@ -387,6 +390,8 @@
 				A3E7BF5118C8E5A300D37894 /* RootApartmentViewController.m */,
 				A3E7BF5318C8E5C700D37894 /* PageApartmentViewController.h */,
 				A3E7BF5418C8E5C700D37894 /* PageApartmentViewController.m */,
+				A3E7BF6218CE56B300D37894 /* ApartmentToolbar.h */,
+				A3E7BF6318CE56B300D37894 /* ApartmentToolbar.m */,
 			);
 			name = Send;
 			sourceTree = "<group>";
@@ -846,6 +851,7 @@
 				A3E7BF5218C8E5A300D37894 /* RootApartmentViewController.m in Sources */,
 				A3E7BF5918C8E7C000D37894 /* ApartmentSelectCell.m in Sources */,
 				A317AC41182BD95C00BE7E46 /* MessageViewController.m in Sources */,
+				A3E7BF6418CE56B300D37894 /* ApartmentToolbar.m in Sources */,
 				A3334D7A1846582800ECA8D5 /* ApartmentCell.m in Sources */,
 				A34354C818AD5F7400C0A34C /* RootPageViewController.m in Sources */,
 				A3F88DEE18329C9700E3BFB0 /* Roomcast.xcdatamodeld in Sources */,
