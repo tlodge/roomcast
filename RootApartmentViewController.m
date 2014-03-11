@@ -14,6 +14,10 @@
 
 @implementation RootApartmentViewController
 
+@synthesize selections;
+@synthesize apartments;
+@synthesize objectId;
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -26,8 +30,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    _pageTitles = @[@"title one", @"title two", @"title three"];
-    _pageImages = @[@"page1", @"page2", @"page3"];
+    //_blocks = @[@"title one", @"title two", @"title three"];
+    //_pageImages = @[@"page1", @"page2", @"page3"];
     
     self.pageViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"PageViewController"];
     self.pageViewController.dataSource = self;
@@ -64,7 +68,7 @@
         return nil;
     }
     index++;
-    if (index == [self.pageTitles count]){
+    if (index == [self.blocks count]){
         return nil;
     }
     return [self viewControllerAtIndex:index];
@@ -72,19 +76,18 @@
 
 -(PageApartmentViewController*) viewControllerAtIndex:(NSUInteger) index
 {
-    
-    
-    if ( ([self.pageTitles count] == 0) || (index >= [self.pageTitles count])){
+    if ( ([self.blocks count] == 0) || (index >= [self.blocks count])){
         return nil;
     }
     PageApartmentViewController *pageContentViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"PageApartmentViewController"];
-    pageContentViewController.titleText = self.pageTitles[index];
+    Block* b = [self.blocks objectAtIndex:index];
+    pageContentViewController.titleText = b.name;
     pageContentViewController.pageIndex = index;
     return pageContentViewController;
 }
 
 -(NSInteger) presentationCountForPageViewController:(UIPageViewController *)pageViewController{
-    return [self.pageTitles count];
+    return [self.blocks count];
 }
 
 -(NSInteger) presentationIndexForPageViewController:(UIPageViewController *)pageViewController{

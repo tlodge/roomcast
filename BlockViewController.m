@@ -100,10 +100,11 @@
  
     NSArray* blockapartments = [[DataManager sharedManager] apartmentsForBlock:selectedBlock.objectId];
     
-    //avc.delegate   = self;
-    //avc.apartments = blockapartments;
-    //avc.objectId    = selectedBlock.objectId;
-    //avc.selections = self.selections;
+    avc.delegate   = self;
+    avc.blocks     = self.blocks;
+    avc.apartments = blockapartments;
+    avc.objectId    = selectedBlock.objectId;
+    avc.selections = self.selections;
 }
 
 #pragma apartment selected delegate

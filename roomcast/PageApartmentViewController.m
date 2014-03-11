@@ -39,7 +39,7 @@
 #pragma mark - UICollectionView Datasource
 
 - (NSInteger)collectionView:(UICollectionView *)view numberOfItemsInSection:(NSInteger)section {
-    return [self.buttons[_pageIndex] count];
+    return 30;//[self.buttons[_pageIndex] count];
 }
 
 - (NSInteger)numberOfSectionsInCollectionView: (UICollectionView *)collectionView {
@@ -66,16 +66,14 @@
 
 #pragma mark – UICollectionViewDelegateFlowLayout
 
-// 1
+
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     return CGSizeMake(50, 70);
 }
 
-// 3
+
 - (UIEdgeInsets)collectionView:
 (UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
-    //frame is 320 (10px in middle)
-    //20--115--20--115--20
     UIEdgeInsets insets = {.left=10, .right=10, .bottom=0, .top=10};
     return insets;
 }
