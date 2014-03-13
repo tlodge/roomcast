@@ -499,16 +499,16 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.87350039"
-     inkscape:cx="1041.9093"
-     inkscape:cy="1954.0297"
+     inkscape:zoom="0.61765805"
+     inkscape:cx="908.50123"
+     inkscape:cy="1777.5914"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
      inkscape:window-width="1280"
      inkscape:window-height="756"
-     inkscape:window-x="134"
-     inkscape:window-y="38"
+     inkscape:window-x="-1"
+     inkscape:window-y="7"
      inkscape:window-maximized="0"
      showguides="true"
      inkscape:guide-bbox="true" />
@@ -9961,5 +9961,84 @@
          style="fill:#5c7046;fill-opacity:1;fill-rule:nonzero;stroke:none"
          id="path4501" />
     </g>
+    <rect
+       inkscape:export-ydpi="180"
+       inkscape:export-xdpi="180"
+       inkscape:export-filename="/Users/tlodge/iphone/roomcast/roomcast/roomcast/apartment_scope_selected.png"
+       y="-1114.4191"
+       x="567.35968"
+       height="35"
+       width="34.893291"
+       id="rect4464"
+       style="fill:none;stroke:none" />
+    <rect
+       inkscape:export-ydpi="180"
+       inkscape:export-xdpi="180"
+       inkscape:export-filename="/Users/tlodge/iphone/roomcast/roomcast/roomcast/apartment_scope_selected.png"
+       style="fill:#ffff00;stroke:#5c7046;stroke-width:1.15806615000000002;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+       id="rect4466"
+       width="33.338799"
+       height="32.165073"
+       x="568.08014"
+       y="-1112.7949"
+       rx="3.0258267" />
+    <rect
+       inkscape:export-ydpi="180"
+       inkscape:export-xdpi="180"
+       inkscape:export-filename="/Users/tlodge/iphone/roomcast/roomcast/roomcast/apartment_scope_selected.png"
+       style="fill:#5c7046;fill-opacity:1;stroke:#5c7046;stroke-width:1.26767898;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+       id="rect4468"
+       width="34.594624"
+       height="11.456661"
+       x="3219.2708"
+       y="3010.1345"
+       rx="3.2514799"
+       clip-path="url(#clipPath29314)"
+       transform="matrix(0.95746973,0,0,0.87161191,-2513.3943,-3735.8638)" />
+    <path
+       inkscape:export-ydpi="180"
+       inkscape:export-xdpi="180"
+       inkscape:export-filename="/Users/tlodge/iphone/roomcast/roomcast/roomcast/apartment_scope_selected.png"
+       style="fill:none;stroke:#5c7046;stroke-width:1.15806615;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       d="m 567.89671,-1106.6139 33.65707,2.9997"
+       id="path4470"
+       inkscape:connector-curvature="0" />
+    <path
+       inkscape:export-ydpi="180"
+       inkscape:export-xdpi="180"
+       inkscape:export-filename="/Users/tlodge/iphone/roomcast/roomcast/roomcast/apartment_scope_selected.png"
+       style="fill:none;stroke:#5c7046;stroke-width:1.15806615;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       d="m 568.00107,-1093.439 33.23908,0.2719"
+       id="path4472"
+       inkscape:connector-curvature="0" />
+    <path
+       inkscape:export-ydpi="180"
+       inkscape:export-xdpi="180"
+       inkscape:export-filename="/Users/tlodge/iphone/roomcast/roomcast/roomcast/apartment_scope_selected.png"
+       sodipodi:type="arc"
+       style="fill:none;stroke:#5c7046;stroke-width:1.69280457;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
+       id="path4474"
+       sodipodi:cx="3127.1631"
+       sodipodi:cy="3650.0234"
+       sodipodi:rx="1.8532834"
+       sodipodi:ry="1.7409632"
+       d="m 3129.0164,3650.0234 a 1.8532834,1.7409632 0 1 1 -3.7066,0 1.8532834,1.7409632 0 1 1 3.7066,0 z"
+       transform="matrix(0.73462936,0,0,0.63706655,-1703.166,-3422.5351)" />
+    <path
+       inkscape:export-ydpi="180"
+       inkscape:export-xdpi="180"
+       inkscape:export-filename="/Users/tlodge/iphone/roomcast/roomcast/roomcast/apartment_scope_selected.png"
+       style="fill:none;stroke:#5c7046;stroke-width:1.15806615;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       d="m 594.12439,-1098.6568 -0.20894,-7.0703"
+       id="path4476"
+       inkscape:connector-curvature="0" />
+    <path
+       inkscape:export-ydpi="180"
+       inkscape:export-xdpi="180"
+       inkscape:export-filename="/Users/tlodge/iphone/roomcast/roomcast/roomcast/apartment_scope_selected.png"
+       style="fill:none;stroke:#5c7046;stroke-width:1.15806615;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       d="m 584.46391,-1104.3222 0.22185,22.7819"
+       id="path4478"
+       inkscape:connector-curvature="0" />
   </g>
 </svg>

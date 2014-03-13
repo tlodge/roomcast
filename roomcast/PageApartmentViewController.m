@@ -9,10 +9,12 @@
 #import "PageApartmentViewController.h"
 
 @interface PageApartmentViewController ()
-
+@property (nonatomic, strong) NSMutableArray *selectedIndexPaths;
 @end
 
 @implementation PageApartmentViewController
+
+@synthesize apartments;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -26,12 +28,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.selectedIndexPaths = [NSMutableArray array];
     self.titleLabel.text = self.titleText;
-    self.buttons = @[@[@"button1",@"button2",@"button3",@"button4",@"button5",@"button6", @"button7", @"button8"],
-                     @[@"abcdefg", @"hijklmnop",@"qrstuvw"],
-                     @[@"cdefg", @"dksldlks", @"dlksdlk", @"sdkjsdj"]
-                     ];
-
 	// Do any additional setup after loading the view.
 }
 
@@ -39,7 +37,7 @@
 #pragma mark - UICollectionView Datasource
 
 - (NSInteger)collectionView:(UICollectionView *)view numberOfItemsInSection:(NSInteger)section {
-    return 30;//[self.buttons[_pageIndex] count];
+    return [self.apartments count];
 }
 
 - (NSInteger)numberOfSectionsInCollectionView: (UICollectionView *)collectionView {
@@ -49,20 +47,32 @@
 - (UICollectionViewCell *)collectionView:(UICollectionView *)cv cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     ApartmentSelectCell *cell;
      cell = [cv dequeueReusableCellWithReuseIdentifier:@"ApartmentSelectCell" forIndexPath:indexPath];
-   
+    
+    Apartment *a = self.apartments[indexPath.row];
+    cell.name.text = a.name;
+    if ([self.selections containsObject:a]){
+        cell.image.image = [UIImage imageNamed:@"apartment_scope_selected.png"];
+    }
+    else{
+       cell.image.image = [UIImage imageNamed:@"apartment_scope.png"];
+    }
+   // cell.selectedBackgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"apartment_scope_selected.png"]];
     return cell;
 }
 
 
 #pragma mark - UICollectionViewDelegate
-- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+
+- (void)collectionView:(UICollectionView *)cv didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    // TODO: Select Item
-    NSLog(@"selected!!! great!!");
+    Apartment* a  = [self.apartments objectAtIndex:indexPath.row];
+    [self.delegate didSelectApartment:a];
+    //this text needs to be passed in by root controller!
+    self.selectedLabel.text = [[self.selections valueForKeyPath:@"name"] componentsJoinedByString:@","];
+     
+    [cv reloadData];
 }
-- (void)collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath {
-    // TODO: Deselect item
-}
+
 
 #pragma mark – UICollectionViewDelegateFlowLayout
 

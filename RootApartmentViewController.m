@@ -15,7 +15,6 @@
 @implementation RootApartmentViewController
 
 @synthesize selections;
-@synthesize apartments;
 @synthesize objectId;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -30,10 +29,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    //_blocks = @[@"title one", @"title two", @"title three"];
-    //_pageImages = @[@"page1", @"page2", @"page3"];
-    
+  
     self.pageViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"PageViewController"];
+  
     self.pageViewController.dataSource = self;
     
     PageApartmentViewController *startingViewController = [self viewControllerAtIndex:0];
@@ -80,9 +78,14 @@
         return nil;
     }
     PageApartmentViewController *pageContentViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"PageApartmentViewController"];
+    
     Block* b = [self.blocks objectAtIndex:index];
+    NSArray* apartments = [[DataManager sharedManager] apartmentsForBlock:b.objectId];
     pageContentViewController.titleText = b.name;
     pageContentViewController.pageIndex = index;
+    pageContentViewController.apartments = apartments;
+    pageContentViewController.selections = selections;
+    pageContentViewController.delegate   = self;
     return pageContentViewController;
 }
 
@@ -100,5 +103,19 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+#pragma apartmentAddDelegate protocol method
 
+-(void) didSelectApartment:(Apartment*) apartment{
+    NSLog(@"ROOT APARTMENT VC GOT APARTMENT %@", [apartment objectId]);
+    
+    if ([self.selections containsObject:apartment]){
+        NSLog(@"my selections contain this object, so removing!");
+        [self.selections removeObject:apartment];
+    }else{
+        NSLog(@"my selections DONT contain this object, so ADDING!");
+        [self.selections addObject:apartment];
+    }
+    NSLog(@"%@", self.selections);
+    //and then call the super delegate with this method too!
+}
 @end

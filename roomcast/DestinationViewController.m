@@ -236,7 +236,8 @@
     if ([[segue identifier] isEqualToString:@"apartmentSegue"]){
         BlockViewController* bvc = (BlockViewController *) [segue destinationViewController];
        // bvc.apartmentdelegate = self;
-        bvc.selections = [self.scope objectForKey:@"apartment"];
+        NSLog(@"ok seen a apartment segue!! - sending with new array!");
+        bvc.selections = [NSMutableArray array];//[self.scope objectForKey:@"apartment"];
         bvc.blocks = self.blocks;
        // bvc.apartmenttotals = self.apartmenttotals;
     }

@@ -9,5 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface ApartmentSelectCell : UICollectionViewCell
-
+@property (weak, nonatomic) IBOutlet UILabel *name;
+@property (weak, nonatomic) IBOutlet UIImageView *image;
+-(void) changeState;
 @end

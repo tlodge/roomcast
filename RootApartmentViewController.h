@@ -10,21 +10,17 @@
 #import "PageApartmentViewController.h"
 #import "Apartment.h"
 #import "Block.h"
-@protocol ApartmentAddDelegate;
+#import "DataManager.h"
+#import "ApartmentAddProtocol.h"
 
-@interface RootApartmentViewController : UIViewController <UIPageViewControllerDataSource>
+@interface RootApartmentViewController : UIViewController <UIPageViewControllerDataSource, ApartmentAddDelegate>
+
 @property (strong,nonatomic) UIPageViewController *pageViewController;
 
 @property (strong, nonatomic) NSArray* blocks;
-@property (retain, nonatomic) NSArray* apartments;
-
-@property (retain, nonatomic) NSDictionary* selections;
+@property (weak, nonatomic) NSMutableArray* selections;
 @property (retain, nonatomic) NSString* objectId;
 @property(nonatomic, assign) id <ApartmentAddDelegate> delegate;
 @end
 
-@protocol ApartmentAddDelegate <NSObject>
 
--(void) didSelectApartment:(Apartment*) apartment withValue:(BOOL)value;
-
-@end

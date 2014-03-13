@@ -102,14 +102,15 @@
     
     avc.delegate   = self;
     avc.blocks     = self.blocks;
-    avc.apartments = blockapartments;
+    //avc.apartments = blockapartments;
     avc.objectId    = selectedBlock.objectId;
+    
     avc.selections = self.selections;
 }
 
 #pragma apartment selected delegate
--(void) didSelectApartment:(Apartment*)apartment withValue:(BOOL)value{
-    if (value){
+-(void) didSelectApartment:(Apartment*)apartment{
+    /*if (value){
         //if already selected, do nothing
         if ([self.selections objectForKey:apartment.objectId] != nil)
             return;
@@ -126,7 +127,7 @@
     }
     //pass event up the chain (if there has been a genuine change
    // [self.apartmentdelegate didSelectApartment:apartment withValue:value];
-    [self.tableView reloadData];
+    [self.tableView reloadData];*/
 
 }
 
@@ -134,12 +135,12 @@
     NSArray* blockapartments = [[DataManager sharedManager] apartmentsForBlock:objectId];
     int total = 0;
     
-    for (int i = 0; i < [blockapartments count]; i++){
+    /*for (int i = 0; i < [blockapartments count]; i++){
         Apartment *a = [blockapartments objectAtIndex:i];
         if ([self.selections objectForKey:a.objectId] != nil){
             total += 1;
         }
-    }
+    }*/
     return total;
 }
 
