@@ -15,6 +15,7 @@
 @implementation PageApartmentViewController
 
 @synthesize apartments;
+@synthesize selectedLabelText;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -30,10 +31,13 @@
     [super viewDidLoad];
     self.selectedIndexPaths = [NSMutableArray array];
     self.titleLabel.text = self.titleText;
+   
 	// Do any additional setup after loading the view.
 }
 
-
+-(void) viewWillAppear:(BOOL)animated{
+     self.selectedLabel.text = [[self.selections valueForKeyPath:@"name"] componentsJoinedByString:@","];
+}
 #pragma mark - UICollectionView Datasource
 
 - (NSInteger)collectionView:(UICollectionView *)view numberOfItemsInSection:(NSInteger)section {
@@ -56,7 +60,7 @@
     else{
        cell.image.image = [UIImage imageNamed:@"apartment_scope.png"];
     }
-   // cell.selectedBackgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"apartment_scope_selected.png"]];
+   
     return cell;
 }
 
@@ -66,10 +70,11 @@
 - (void)collectionView:(UICollectionView *)cv didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
     Apartment* a  = [self.apartments objectAtIndex:indexPath.row];
-    [self.delegate didSelectApartment:a];
+    [self.delegate didSelectApartment:a forBlockId:self.blockId];
     //this text needs to be passed in by root controller!
     self.selectedLabel.text = [[self.selections valueForKeyPath:@"name"] componentsJoinedByString:@","];
-     
+    
+    NSLog(@"RELOADING DATA!!");
     [cv reloadData];
 }
 

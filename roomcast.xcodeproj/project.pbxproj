@@ -16,7 +16,6 @@
 		A3334D451843B41800ECA8D5 /* ScopeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A3334D441843B41800ECA8D5 /* ScopeCell.m */; };
 		A3334D601845077500ECA8D5 /* BlockViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3334D5F1845077500ECA8D5 /* BlockViewController.m */; };
 		A3334D6C1845159500ECA8D5 /* BlockCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A3334D6B1845159500ECA8D5 /* BlockCell.m */; };
-		A3334D6F18452F2400ECA8D5 /* ApartmentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3334D6E18452F2400ECA8D5 /* ApartmentViewController.m */; };
 		A3334D7A1846582800ECA8D5 /* ApartmentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A3334D791846582700ECA8D5 /* ApartmentCell.m */; };
 		A3334D7D18468FFB00ECA8D5 /* RootTabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3334D7C18468FFB00ECA8D5 /* RootTabViewController.m */; };
 		A335AA201847AC07007096A4 /* DataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A335AA1F1847AC07007096A4 /* DataManager.m */; };
@@ -158,8 +157,6 @@
 		A3334D5F1845077500ECA8D5 /* BlockViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BlockViewController.m; path = ../BlockViewController.m; sourceTree = "<group>"; };
 		A3334D6A1845159500ECA8D5 /* BlockCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlockCell.h; sourceTree = "<group>"; };
 		A3334D6B1845159500ECA8D5 /* BlockCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlockCell.m; sourceTree = "<group>"; };
-		A3334D6D18452F2400ECA8D5 /* ApartmentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ApartmentViewController.h; path = ../ApartmentViewController.h; sourceTree = "<group>"; };
-		A3334D6E18452F2400ECA8D5 /* ApartmentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ApartmentViewController.m; path = ../ApartmentViewController.m; sourceTree = "<group>"; };
 		A3334D781846582700ECA8D5 /* ApartmentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApartmentCell.h; sourceTree = "<group>"; };
 		A3334D791846582700ECA8D5 /* ApartmentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ApartmentCell.m; sourceTree = "<group>"; };
 		A3334D7B18468FFB00ECA8D5 /* RootTabViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootTabViewController.h; sourceTree = "<group>"; };
@@ -376,8 +373,6 @@
 				A39E6DEC18D21C8C000D4C3E /* ApartmentAddProtocol.h */,
 				A3E7BF5618C8E78400D37894 /* CollectionCells */,
 				A3334D5D184506B000ECA8D5 /* TableCells */,
-				A3334D6D18452F2400ECA8D5 /* ApartmentViewController.h */,
-				A3334D6E18452F2400ECA8D5 /* ApartmentViewController.m */,
 				A3334D5E1845077500ECA8D5 /* BlockViewController.h */,
 				A3334D5F1845077500ECA8D5 /* BlockViewController.m */,
 				A38F716F18BCE777009B7CD5 /* RootAudienceViewController.h */,
@@ -847,7 +842,6 @@
 				A34354CE18AD600200C0A34C /* PageButtonViewController.m in Sources */,
 				A3B6DAE7183BD22F00A860CA /* StartViewController.m in Sources */,
 				A317AC30182A7AD600BE7E46 /* InitViewController.m in Sources */,
-				A3334D6F18452F2400ECA8D5 /* ApartmentViewController.m in Sources */,
 				A37C6EF0181971020042489D /* AuthViewController.m in Sources */,
 				A38F717118BCE777009B7CD5 /* RootAudienceViewController.m in Sources */,
 				A3CA7F3D185788130079FBB5 /* RegistrationBlockViewController.m in Sources */,

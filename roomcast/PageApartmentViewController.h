@@ -22,4 +22,6 @@
 @property NSUInteger pageIndex;
 @property NSString *titleText;
 @property NSString *imageFile;
+@property NSString *blockId;
+@property NSString *selectedLabelText;
 @end

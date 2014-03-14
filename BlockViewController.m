@@ -9,9 +9,9 @@
 #import "BlockViewController.h"
 
 @interface BlockViewController ()
-/*-(void) _incrementTotalForBlock:(NSString*) objectId;
--(void) _decrementTotalForBlock:(NSString*) objectId;*/
+-(NSString *) _selectionString: (NSString *) objectId;
 -(int) _totalForBlock:(NSString *) objectId;
+@property int selectedIndex;
 @end
 
 @implementation BlockViewController
@@ -19,6 +19,8 @@
 @synthesize blocks;
 @synthesize selectedBlock;
 @synthesize selections;
+@synthesize selectedIndex;
+
 //@synthesize apartmentdelegate;
 
 - (id)initWithStyle:(UITableViewStyle)style
@@ -30,13 +32,10 @@
     return self;
 }
 
--(void) viewWillAppear:(BOOL)animated{
-   // [self.tableView reloadData];
-}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.selectedIndex = 0;
     self.clearsSelectionOnViewWillAppear = NO;
 }
 
@@ -70,25 +69,28 @@
     
     NSLog(@"setting totals for %@", b.objectId);
     
-    cell.chosen.text = [NSString stringWithFormat:@"%d apartments", [self _totalForBlock:b.objectId]];
+    cell.chosen.text = [NSString stringWithFormat:@"%@", [self _selectionString:b.objectId]];
     
-    cell.moreButton.tag = indexPath.row;
-    [cell.moreButton addTarget:self action:@selector(triggerSegue:) forControlEvents:UIControlEventTouchUpInside];
+   /* cell.moreButton.tag = indexPath.row;
+    [cell.moreButton addTarget:self action:@selector(triggerSegue:) forControlEvents:UIControlEventTouchUpInside];*/
     cell.name.text = b.name;
     
     return cell;
 }
 
--(void)  triggerSegue:(id)sender{
+/*-(void)  triggerSegue:(id)sender{
 
     UIButton *clicked = (UIButton *) sender;
     self.selectedBlock = [self.blocks objectAtIndex:clicked.tag];
+    NSLog(@"clicked tag is %d", clicked.tag);
+    self.selectedIndex = clicked.tag;
     [self performSegueWithIdentifier:@"selectApartments" sender:self];
-}
+}*/
 
--(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    self.selectedBlock = [self.blocks objectAtIndex:indexPath.row];
-}
+/*-(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+   
+}*/
 
 
 #pragma mark - Navigation
@@ -96,52 +98,53 @@
 // In a story board-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
+    NSIndexPath *path = [self.tableView indexPathForSelectedRow];
+    self.selectedBlock = [self.blocks objectAtIndex:path.row];
+    self.selectedIndex = path.row;
     RootApartmentViewController* avc = (RootApartmentViewController*) [segue destinationViewController];
  
-    NSArray* blockapartments = [[DataManager sharedManager] apartmentsForBlock:selectedBlock.objectId];
-    
     avc.delegate   = self;
     avc.blocks     = self.blocks;
-    //avc.apartments = blockapartments;
-    avc.objectId    = selectedBlock.objectId;
-    
+    avc.objectId   = selectedBlock.objectId;
     avc.selections = self.selections;
+    avc.startIndex = self.selectedIndex;
 }
 
 #pragma apartment selected delegate
--(void) didSelectApartment:(Apartment*)apartment{
-    /*if (value){
-        //if already selected, do nothing
-        if ([self.selections objectForKey:apartment.objectId] != nil)
-            return;
-        
-        //[self _incrementTotalForBlock:selectedBlock.objectId];
-        
-        [self.selections setObject:[NSNumber numberWithBool:value] forKey:apartment.objectId];
-    }else{
-        //if already not selected, do nothing
-        if ([self.selections objectForKey:apartment.objectId] == nil)
-            return;
-        //[self _decrementTotalForBlock:selectedBlock.objectId];
-        [self.selections removeObjectForKey:apartment.objectId];
+-(void) didSelectApartment:(Apartment*)apartment forBlockId:(NSString *)blockId{
+   
+    /*NSMutableArray *apartments = [self.selections objectForKey:blockId];
+    
+    if (apartments == nil){
+        apartments = [NSMutableArray array];
     }
-    //pass event up the chain (if there has been a genuine change
-   // [self.apartmentdelegate didSelectApartment:apartment withValue:value];
-    [self.tableView reloadData];*/
+    
+    if ([apartments containsObject:apartment]){
+        [apartments removeObject:apartment];
+    }else{
+        [apartments addObject:apartment];
+    }
+    
+    [self.selections setObject:apartments forKey:blockId];*/
+
+    [self.apartmentdelegate didSelectApartment:apartment forBlockId:blockId];
+    [self.tableView reloadData];
 
 }
 
+-(NSString *) _selectionString: (NSString *) objectId{
+     NSArray *apartments = [self.selections objectForKey:objectId];
+    if (!apartments){
+        return @"none selected";
+    }
+    return [[apartments valueForKeyPath:@"name"] componentsJoinedByString:@","];
+}
+
 -(int) _totalForBlock:(NSString *) objectId{
-    NSArray* blockapartments = [[DataManager sharedManager] apartmentsForBlock:objectId];
-    int total = 0;
-    
-    /*for (int i = 0; i < [blockapartments count]; i++){
-        Apartment *a = [blockapartments objectAtIndex:i];
-        if ([self.selections objectForKey:a.objectId] != nil){
-            total += 1;
-        }
-    }*/
-    return total;
+    NSArray *apartments = [self.selections objectForKey:objectId];
+    if (!apartments)
+        return 0;
+    return [apartments count];
 }
 
 @end

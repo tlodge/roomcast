@@ -62,7 +62,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.title = @"choose scope";
+    self.title = @"scope";
     self.filter = [NSMutableDictionary dictionary];
     
     self.scopeimages = @[@"within_scope.png", @"apartment_scope.png", @"development_scope.png",@"region_scope.png"];
@@ -134,7 +134,17 @@
 }
 
 -(NSString*) _text_for_scope:(NSString *) scopename{
+    
     NSArray *entities = [[self.scope objectForKey:scopename] allValues];
+    
+    if ([scopename isEqualToString:@"apartment"]){
+        int total = 0;
+        for (int i = 0; i < [entities count]; i++){
+            total += [entities[i] count];
+        }
+        return [NSString stringWithFormat:@"%d apartments", total];
+    }
+    
     return [[entities valueForKey:@"name"]componentsJoinedByString:@", "];
 }
 
@@ -143,6 +153,7 @@
         return [NSString stringWithFormat:@"%@",[self.totals objectForKey:scopename]];
     return @"0";
 }
+
 
 -(void) triggerSegue:(NSIndexPath *)currentIndex{
     
@@ -235,9 +246,9 @@
    
     if ([[segue identifier] isEqualToString:@"apartmentSegue"]){
         BlockViewController* bvc = (BlockViewController *) [segue destinationViewController];
-       // bvc.apartmentdelegate = self;
+        bvc.apartmentdelegate = self;
         NSLog(@"ok seen a apartment segue!! - sending with new array!");
-        bvc.selections = [NSMutableArray array];//[self.scope objectForKey:@"apartment"];
+        bvc.selections = [self.scope objectForKey:@"apartment"];
         bvc.blocks = self.blocks;
        // bvc.apartmenttotals = self.apartmenttotals;
     }
@@ -286,6 +297,7 @@
     }
 }
 
+/*
 -(void) didSelectApartment:(Apartment*)apartment withValue:(BOOL)value{
     if (value){
        [[self.scope objectForKey:@"apartment" ] setObject:apartment forKey:apartment.objectId];
@@ -294,7 +306,30 @@
     }
     
     [self.totals setObject:[NSNumber numberWithInt:[[[self.scope objectForKey:@"apartment"] allValues] count]] forKey:@"apartment"];
+}*/
+
+
+-(void) didSelectApartment:(Apartment*)apartment forBlockId:(NSString *)blockId{
+    
+    NSMutableDictionary* selectedApartmentsForBlocks = [self.scope objectForKey:@"apartment"];
+    
+    NSMutableArray *apartments = [selectedApartmentsForBlocks objectForKey:blockId];
+    
+    if (apartments == nil){
+        apartments = [NSMutableArray array];
+        [selectedApartmentsForBlocks setValue:apartments forKey:blockId];
+    }
+    
+    if ([apartments containsObject:apartment]){
+        [apartments removeObject:apartment];
+    }else{
+        [apartments addObject:apartment];
+    }
+    
+    [self.tableView reloadData];
+    
 }
+
 
 -(void) didSelectBlock:(Block*) block withValue: (BOOL) value{
     

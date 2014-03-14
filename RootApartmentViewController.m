@@ -16,7 +16,7 @@
 
 @synthesize selections;
 @synthesize objectId;
-
+@synthesize startIndex;
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -24,6 +24,11 @@
         // Custom initialization
     }
     return self;
+}
+
+- (void)viewWillAppear:(BOOL)animated{
+    UIBarButtonItem *selectButton = [[UIBarButtonItem alloc] initWithTitle:@"SELECT ALL" style:UIBarButtonItemStylePlain target:nil action:nil];
+    self.navigationItem.rightBarButtonItem = selectButton;
 }
 
 - (void)viewDidLoad
@@ -34,7 +39,7 @@
   
     self.pageViewController.dataSource = self;
     
-    PageApartmentViewController *startingViewController = [self viewControllerAtIndex:0];
+    PageApartmentViewController *startingViewController = [self viewControllerAtIndex:self.startIndex];
     NSArray *viewControllers = @[startingViewController];
     [self.pageViewController setViewControllers:viewControllers direction:UIPageViewControllerNavigationDirectionForward animated:NO completion:nil];
     // Do any additional setup after loading the view, typically from a nib.
@@ -51,24 +56,21 @@
 -(UIViewController *) pageViewController:(UIPageViewController *)pageViewController viewControllerBeforeViewController:(UIViewController *)viewController{
     
     NSUInteger index = ((PageApartmentViewController*) viewController).pageIndex;
-    
-    if ((index == 0) || (index == NSNotFound)){
+    if (index == NSNotFound){
         return nil;
     }
-    index--;
+    
+    index = (--index) % [self.blocks count];
     return [self viewControllerAtIndex: index];
 }
 
 -(UIViewController *) pageViewController:(UIPageViewController *)pageViewController viewControllerAfterViewController:(UIViewController *)viewController{
     NSUInteger index = ((PageApartmentViewController*) viewController).pageIndex;
-    
     if (index == NSNotFound){
         return nil;
     }
-    index++;
-    if (index == [self.blocks count]){
-        return nil;
-    }
+ 
+    index = (++index) % [self.blocks count];
     return [self viewControllerAtIndex:index];
 }
 
@@ -80,12 +82,25 @@
     PageApartmentViewController *pageContentViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"PageApartmentViewController"];
     
     Block* b = [self.blocks objectAtIndex:index];
+    
+    NSMutableArray* blockselections = [selections objectForKey:b.objectId];
+    
+    if (blockselections == nil){
+        blockselections = [NSMutableArray array];
+        [self.selections setObject:blockselections forKey:b.objectId];
+    }
+    
     NSArray* apartments = [[DataManager sharedManager] apartmentsForBlock:b.objectId];
-    pageContentViewController.titleText = b.name;
-    pageContentViewController.pageIndex = index;
-    pageContentViewController.apartments = apartments;
-    pageContentViewController.selections = selections;
-    pageContentViewController.delegate   = self;
+    
+    pageContentViewController.titleText         = b.name;
+    pageContentViewController.pageIndex         = index;
+    pageContentViewController.apartments        = apartments;
+    pageContentViewController.blockId           = b.objectId;
+    pageContentViewController.selections        = blockselections;
+    
+    pageContentViewController.selectedLabelText = [[blockselections valueForKeyPath:@"name"] componentsJoinedByString:@","];
+
+    pageContentViewController.delegate      = self;
     return pageContentViewController;
 }
 
@@ -94,7 +109,7 @@
 }
 
 -(NSInteger) presentationIndexForPageViewController:(UIPageViewController *)pageViewController{
-    return 0;
+    return self.startIndex;
 }
 
 
@@ -105,17 +120,9 @@
 }
 #pragma apartmentAddDelegate protocol method
 
--(void) didSelectApartment:(Apartment*) apartment{
-    NSLog(@"ROOT APARTMENT VC GOT APARTMENT %@", [apartment objectId]);
-    
-    if ([self.selections containsObject:apartment]){
-        NSLog(@"my selections contain this object, so removing!");
-        [self.selections removeObject:apartment];
-    }else{
-        NSLog(@"my selections DONT contain this object, so ADDING!");
-        [self.selections addObject:apartment];
-    }
-    NSLog(@"%@", self.selections);
-    //and then call the super delegate with this method too!
+-(void) didSelectApartment:(Apartment*) apartment forBlockId:(NSString *)blockId{
+        //and then call the super delegate with this method too!
+    // NSLog(@"%@", self.selections);
+    [self.delegate didSelectApartment:apartment forBlockId:blockId];
 }
 @end

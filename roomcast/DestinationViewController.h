@@ -9,7 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "ScopeCell.h"
 #import "BlockViewController.h"
-#import "ApartmentViewController.h"
 #import "DevelopmentViewController.h"
 #import "DevelopmentsViewController.h"
 
@@ -18,9 +17,9 @@
 @interface DestinationViewController : UITableViewController <ApartmentAddDelegate, DevelopmentAddDelegate, DevelopmentsAddDelegate>
 
 
-@property(retain, nonatomic) NSMutableDictionary *scope;
-@property(retain, nonatomic) NSMutableDictionary *filter;
-@property(retain, nonatomic) NSString *currentScope;
+@property(strong, nonatomic) NSMutableDictionary *scope;
+@property(strong, nonatomic) NSMutableDictionary *filter;
+@property(strong, nonatomic) NSString *currentScope;
 @property(weak, nonatomic)  NSArray *scopeTypes;
 @property(weak, nonatomic) NSMutableDictionary *totals;
 @property(strong, nonatomic) NSIndexPath *lastIndex;
