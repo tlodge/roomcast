@@ -81,6 +81,8 @@
         if ([self.selections count] == [self.blocks count]){
             cell.totalSelectedLabel.text = [NSString stringWithFormat:@"%d apartments",self.totalSelected];
             [cell.selectedSwitch setOn:YES];
+        }else if ([self.selections count] <= 0){
+            [cell.selectedSwitch setOn:NO];
         }
         else{
              cell.totalSelectedLabel.text = @"";
@@ -177,6 +179,7 @@
         [self.developmentdelegate didSelectAllBlocks:sender.on];
     }else{
         Block* b = [blocks objectAtIndex:sender.tag-1];
+        
         if (sender.on){
             [self.selections setObject:[NSNumber numberWithBool:YES] forKey:b.objectId];
             [self.developmentdelegate didSelectBlock:b withValue:sender.on];

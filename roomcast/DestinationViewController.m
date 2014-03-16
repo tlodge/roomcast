@@ -37,7 +37,7 @@
 
 @implementation DestinationViewController
 
-@synthesize lastIndex;
+@synthesize segueIndex;
 @synthesize scopedelegate;
 @synthesize currentScope;
 @synthesize scopeTypes;
@@ -61,8 +61,9 @@
 
 - (void)viewDidLoad
 {
+    NSLog(@"=================== D V C view did load =================");
     [super viewDidLoad];
-    self.title = @"scope";
+    //self.clearsSelectionOnViewWillAppear = NO;
     self.filter = [NSMutableDictionary dictionary];
     
     self.scopeimages = @[@"within_scope.png", @"apartment_scope.png", @"development_scope.png",@"region_scope.png"];
@@ -70,8 +71,6 @@
     self.scopetext = @[@"within development", @"specific apartments", @"across developments", @"across region"];
     
     self.currentScope = [self.scopeTypes objectAtIndex:0];
-    lastIndex = [NSIndexPath indexPathForItem:1 inSection:1];
-    self.clearsSelectionOnViewWillAppear = NO;
 }
 
 - (void)didReceiveMemoryWarning
@@ -96,17 +95,6 @@
 
 -(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    if (lastIndex){
-        ScopeCell* cell = (ScopeCell*)[tableView cellForRowAtIndexPath:lastIndex];
-        [self setDeselected:cell];
-    }
-    
-    ScopeCell* cell = (ScopeCell*)[tableView cellForRowAtIndexPath:indexPath];
-    [self setSelected:cell];
-    
-    
-    lastIndex = indexPath;
-    
     if (![self.currentScope isEqualToString:[self.scopeTypes objectAtIndex:indexPath.row]]){
         self.currentScope = [self.scopeTypes objectAtIndex:indexPath.row];
         [self.scopedelegate didSelectScope:self.currentScope withValues:[scope objectForKey:self.currentScope]];
@@ -117,12 +105,21 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    NSIndexPath *path;
+    
+    if (segueIndex){
+        path = segueIndex;
+    }else{
+        path = [self.tableView indexPathForSelectedRow];
+    }
+    
     ScopeCell* cell =  (ScopeCell*)[tableView dequeueReusableCellWithIdentifier:@"ScopeCell" forIndexPath:indexPath];
     
-    if (lastIndex.row == indexPath.row){
-        [tableView selectRowAtIndexPath:indexPath animated:NO scrollPosition: UITableViewScrollPositionNone];
+   
+    if (indexPath.row == path.row){
         [self setSelected:cell];
-        lastIndex = indexPath;
+    }else{
+        [self setDeselected:cell];
     }
     
     cell.title.text = self.scopetext[indexPath.row];
@@ -157,15 +154,29 @@
 
 -(void) triggerSegue:(NSIndexPath *)currentIndex{
     
-    if (lastIndex != nil){
-        ScopeCell* cell = (ScopeCell*)[self.tableView cellForRowAtIndexPath:lastIndex];
-        [self setDeselected:cell];
+   segueIndex = [self.tableView indexPathForSelectedRow];
+    
+   //have to explicitly select/deselect cells as didDeselectRowAtIndex path not always called!
+    ;
+    
+    for (int i =0; i < [self.scopeTypes count]; i++){
+        if (i != currentIndex.row){
+            NSIndexPath *p = [NSIndexPath indexPathForRow:i inSection:0];
+            ScopeCell* cell = (ScopeCell*)[self.tableView cellForRowAtIndexPath:p];
+            [self setDeselected:cell];
+        }
     }
+
+    
+    //if (lastIndex != nil){
+     //   ScopeCell* cell = (ScopeCell*)[self.tableView cellForRowAtIndexPath:lastIndex];
+      //  [self setDeselected:cell];
+    //}
     
     ScopeCell* cell = (ScopeCell*)[self.tableView cellForRowAtIndexPath:currentIndex];
     [self setSelected:cell];
    
-    lastIndex = currentIndex;
+    //lastIndex = currentIndex;
     int tag = currentIndex.row;
     
     NSString *segue = @"withinDevelopmentSegue";
@@ -279,34 +290,33 @@
 
 -(void) didSelectDevelopment:(Development*)development withValue:(BOOL)value{
     
+    NSLog(@"destingation viewc ----> delegate delagate!");
     int total = 0;
     
     NSNumber* residents = [self.totals objectForKey:@"developments"];
+    
+    NSLog(@"-->residents is %d", [residents intValue]);
     
     if (!residents)
         residents = [NSNumber numberWithInt:0];
 
     if (value){
+        NSLog(@"value is set ---> %@", development.name);
+        
         [[self.scope objectForKey:@"developments" ] setObject:development forKey:development.objectId];
+        
+         NSLog(@"Ok now we have %@", [self.scope objectForKey:@"developments"]);
+        
          total = [residents intValue] + [development.residents intValue];
         [self.totals setObject:[NSNumber numberWithInt:total] forKey:@"developments"];
     }else{
+         NSLog(@"value is NOT set ---> %@", development.name);
         [[self.scope objectForKey:@"developments" ] removeObjectForKey:development.objectId];
         total = [residents intValue] - [development.residents intValue];
         [self.totals setObject:[NSNumber numberWithInt:total] forKey:@"developments"];
     }
+    [self.tableView reloadData];
 }
-
-/*
--(void) didSelectApartment:(Apartment*)apartment withValue:(BOOL)value{
-    if (value){
-       [[self.scope objectForKey:@"apartment" ] setObject:apartment forKey:apartment.objectId];
-    }else{
-        [[self.scope objectForKey:@"apartment" ] removeObjectForKey:apartment.objectId];
-    }
-    
-    [self.totals setObject:[NSNumber numberWithInt:[[[self.scope objectForKey:@"apartment"] allValues] count]] forKey:@"apartment"];
-}*/
 
 
 -(void) didSelectApartment:(Apartment*)apartment forBlockId:(NSString *)blockId{
@@ -349,6 +359,10 @@
         total = [residents intValue] - [block.residents intValue];
         [self.totals setObject:[NSNumber numberWithInt:total] forKey:@"development"];
     }
+    NSLog(@"----");
+    NSLog(@"%@",[self.scope objectForKey:@"development"]);
+    NSLog(@"----");
+    [self.tableView reloadData];
    
 }
 
@@ -367,6 +381,7 @@
     }
     
     [self.totals setObject:[NSNumber numberWithInt:total] forKey:@"development"];
+     [self.tableView reloadData];
     
 }
 

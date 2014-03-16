@@ -885,15 +885,27 @@
                                 </constraints>
                             </view>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E0P-EO-cvo">
-                                <rect key="frame" x="0.0" y="323" width="320" height="44"/>
+                                <rect key="frame" x="-7" y="323" width="159" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <color key="backgroundColor" red="0.92156862750000001" green="0.61176470589999998" blue="0.28627450980000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="320" id="9D2-Dx-hPc"/>
+                                    <constraint firstAttribute="width" constant="159" id="9D2-Dx-hPc"/>
                                     <constraint firstAttribute="height" constant="44" id="y3c-sy-fqJ"/>
                                 </constraints>
                                 <items>
-                                    <barButtonItem title="send" width="306" id="rcH-Z3-vPF"/>
+                                    <barButtonItem title="send" width="140" id="JLw-Op-C3f"/>
+                                </items>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </toolbar>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Fp-58-oUC">
+                                <rect key="frame" x="152" y="323" width="168" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <color key="backgroundColor" red="0.62745098039215685" green="0.17254901960784313" blue="0.17254901960784313" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="rQz-Ir-vcJ"/>
+                                </constraints>
+                                <items>
+                                    <barButtonItem title="send anonymously" id="bai-u2-R02"/>
                                 </items>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </toolbar>
@@ -964,7 +976,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="DnN-xg-0Ha" secondAttribute="trailing" id="5LU-tp-Bjg"/>
-                            <constraint firstAttribute="trailing" secondItem="E0P-EO-cvo" secondAttribute="trailing" id="897-wT-Eql"/>
+                            <constraint firstAttribute="trailing" secondItem="E0P-EO-cvo" secondAttribute="trailing" constant="168" id="897-wT-Eql"/>
                             <constraint firstItem="DnN-xg-0Ha" firstAttribute="top" secondItem="Phu-0P-cvj" secondAttribute="top" constant="2" id="Aks-Oj-rSF"/>
                             <constraint firstItem="L3l-lV-nbb" firstAttribute="top" secondItem="Phu-0P-cvj" secondAttribute="top" constant="208" id="Ata-9R-FPT"/>
                             <constraint firstItem="DnN-xg-0Ha" firstAttribute="leading" secondItem="Phu-0P-cvj" secondAttribute="leading" id="HUi-tI-1O5"/>
@@ -972,8 +984,12 @@
                             <constraint firstAttribute="bottom" secondItem="bgg-60-feR" secondAttribute="bottom" constant="44" id="M9x-Oh-AMJ"/>
                             <constraint firstItem="L3l-lV-nbb" firstAttribute="leading" secondItem="Phu-0P-cvj" secondAttribute="leading" constant="151" id="OWo-Yd-QoK"/>
                             <constraint firstItem="bgg-60-feR" firstAttribute="top" secondItem="qgV-lE-77X" secondAttribute="bottom" constant="2" id="P3H-ZC-N8k"/>
+                            <constraint firstItem="0Fp-58-oUC" firstAttribute="leading" secondItem="E0P-EO-cvo" secondAttribute="trailing" id="V4A-hz-VZO"/>
+                            <constraint firstAttribute="bottom" secondItem="0Fp-58-oUC" secondAttribute="bottom" id="bS0-eg-312"/>
                             <constraint firstItem="qgV-lE-77X" firstAttribute="top" secondItem="Phu-0P-cvj" secondAttribute="top" constant="83" id="bwT-l8-2z7"/>
                             <constraint firstAttribute="trailing" secondItem="L3l-lV-nbb" secondAttribute="trailing" id="bwt-Jb-waw"/>
+                            <constraint firstAttribute="trailing" secondItem="0Fp-58-oUC" secondAttribute="trailing" id="cQK-WP-Frd"/>
+                            <constraint firstItem="0Fp-58-oUC" firstAttribute="top" secondItem="L3l-lV-nbb" secondAttribute="bottom" id="m9t-ac-JgE"/>
                             <constraint firstAttribute="centerX" secondItem="bgg-60-feR" secondAttribute="centerX" constant="87.5" id="mBP-6h-Tgy"/>
                             <constraint firstAttribute="bottom" secondItem="E0P-EO-cvo" secondAttribute="bottom" id="mkM-QW-7NG"/>
                             <constraint firstAttribute="bottom" secondItem="L3l-lV-nbb" secondAttribute="bottom" constant="44" id="oaA-6N-12F"/>

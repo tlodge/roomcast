@@ -82,6 +82,7 @@
 
 -(void) toggleSelect:(UISwitch*)sender{
     Development* d = [developments objectAtIndex:sender.tag];
+    NSLog(@"development = toggling select!!!!!!");
     [self.developmentsdelegate didSelectDevelopment:d withValue:sender.on];
 }
 
