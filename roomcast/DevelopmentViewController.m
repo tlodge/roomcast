@@ -81,10 +81,9 @@
         if ([self.selections count] == [self.blocks count]){
             cell.totalSelectedLabel.text = [NSString stringWithFormat:@"%d apartments",self.totalSelected];
             [cell.selectedSwitch setOn:YES];
-        }else if ([self.selections count] <= 0){
-            [cell.selectedSwitch setOn:NO];
         }
         else{
+             [cell.selectedSwitch setOn:NO];
              cell.totalSelectedLabel.text = @"";
         }
     }
