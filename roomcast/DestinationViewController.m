@@ -61,7 +61,6 @@
 
 - (void)viewDidLoad
 {
-    NSLog(@"=================== D V C view did load =================");
     [super viewDidLoad];
     //self.clearsSelectionOnViewWillAppear = NO;
     self.filter = [NSMutableDictionary dictionary];
@@ -97,7 +96,8 @@
     
     if (![self.currentScope isEqualToString:[self.scopeTypes objectAtIndex:indexPath.row]]){
         self.currentScope = [self.scopeTypes objectAtIndex:indexPath.row];
-        [self.scopedelegate didSelectScope:self.currentScope withValues:[scope objectForKey:self.currentScope]];
+        
+        /*[self.scopedelegate didSelectScope:self.currentScope withValues:[scope objectForKey:self.currentScope]];*/
     }
     
     [self triggerSegue:indexPath];
@@ -168,15 +168,9 @@
     }
 
     
-    //if (lastIndex != nil){
-     //   ScopeCell* cell = (ScopeCell*)[self.tableView cellForRowAtIndexPath:lastIndex];
-      //  [self setDeselected:cell];
-    //}
-    
     ScopeCell* cell = (ScopeCell*)[self.tableView cellForRowAtIndexPath:currentIndex];
     [self setSelected:cell];
-   
-    //lastIndex = currentIndex;
+  
     int tag = currentIndex.row;
     
     NSString *segue = @"withinDevelopmentSegue";
@@ -258,7 +252,7 @@
     if ([[segue identifier] isEqualToString:@"apartmentSegue"]){
         BlockViewController* bvc = (BlockViewController *) [segue destinationViewController];
         bvc.apartmentdelegate = self;
-        NSLog(@"ok seen a apartment segue!! - sending with new array!");
+
         bvc.selections = [self.scope objectForKey:@"apartment"];
         bvc.blocks = self.blocks;
        // bvc.apartmenttotals = self.apartmenttotals;
@@ -279,8 +273,10 @@
 }
 
 
+
 -(void) viewWillDisappear:(BOOL)animated{
     if ([self isMovingFromParentViewController]){
+        NSLog(@"TIME TO PASS UP SCOPE!!!! - %@", self.currentScope);
         [self.scopedelegate didSelectScope:self.currentScope withValues:[scope objectForKey:self.currentScope]];
        
     }
@@ -290,32 +286,26 @@
 
 -(void) didSelectDevelopment:(Development*)development withValue:(BOOL)value{
     
-    NSLog(@"destingation viewc ----> delegate delagate!");
     int total = 0;
     
     NSNumber* residents = [self.totals objectForKey:@"developments"];
-    
-    NSLog(@"-->residents is %d", [residents intValue]);
     
     if (!residents)
         residents = [NSNumber numberWithInt:0];
 
     if (value){
-        NSLog(@"value is set ---> %@", development.name);
-        
+       
         [[self.scope objectForKey:@"developments" ] setObject:development forKey:development.objectId];
-        
-         NSLog(@"Ok now we have %@", [self.scope objectForKey:@"developments"]);
         
          total = [residents intValue] + [development.residents intValue];
         [self.totals setObject:[NSNumber numberWithInt:total] forKey:@"developments"];
     }else{
-         NSLog(@"value is NOT set ---> %@", development.name);
         [[self.scope objectForKey:@"developments" ] removeObjectForKey:development.objectId];
         total = [residents intValue] - [development.residents intValue];
         [self.totals setObject:[NSNumber numberWithInt:total] forKey:@"developments"];
     }
     [self.tableView reloadData];
+   
 }
 
 
@@ -337,7 +327,7 @@
     }
     
     [self.tableView reloadData];
-    
+
 }
 
 
@@ -359,11 +349,9 @@
         total = [residents intValue] - [block.residents intValue];
         [self.totals setObject:[NSNumber numberWithInt:total] forKey:@"development"];
     }
-    NSLog(@"----");
-    NSLog(@"%@",[self.scope objectForKey:@"development"]);
-    NSLog(@"----");
-    [self.tableView reloadData];
    
+    [self.tableView reloadData];
+
 }
 
 -(void) didSelectAllBlocks: (BOOL)selected{
@@ -381,7 +369,9 @@
     }
     
     [self.totals setObject:[NSNumber numberWithInt:total] forKey:@"development"];
-     [self.tableView reloadData];
+   
+
+    [self.tableView reloadData];
     
 }
 

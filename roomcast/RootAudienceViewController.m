@@ -215,10 +215,13 @@
 
 -(void) didSelectScope:(NSString*) scopeName withValues:(NSDictionary*) scopeValues{
     
+    NSLog(@"IN DID SELECT SCOPE %@", scopeName);
+    
     self.currentScope = scopeName;
     
    [self.scope setObject:scopeValues forKey: scopeName];
     
+    NSLog(@"%@", [self.scope objectForKey:scopeName]);
     //self.audienceCount.text = [NSString stringWithFormat:@"%d", [[self.totals objectForKey:scopeName] intValue]];
 }
 
