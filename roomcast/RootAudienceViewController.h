@@ -17,5 +17,6 @@
 @property (strong,nonatomic) NSArray* developments;
 @property (strong,nonatomic) NSString *currentScope;
 @property (strong,nonatomic) NSArray* TYPES;
+@property (weak, nonatomic) IBOutlet UILabel *whoToSummaryLabel;
 
 @end

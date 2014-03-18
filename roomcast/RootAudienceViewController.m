@@ -213,15 +213,17 @@
 
 #pragma mark - Delegate methods
 
--(void) didSelectScope:(NSString*) scopeName withValues:(NSDictionary*) scopeValues{
+-(void) didSelectScope:(NSString*) scopeName withValues:(NSDictionary*) scopeValues withSummary:(NSString*)summary{
     
     NSLog(@"IN DID SELECT SCOPE %@", scopeName);
     
     self.currentScope = scopeName;
     
-   [self.scope setObject:scopeValues forKey: scopeName];
+    [self.scope setObject:scopeValues forKey: scopeName];
     
     NSLog(@"%@", [self.scope objectForKey:scopeName]);
+    
+    self.whoToSummaryLabel.text = summary;
     //self.audienceCount.text = [NSString stringWithFormat:@"%d", [[self.totals objectForKey:scopeName] intValue]];
 }
 

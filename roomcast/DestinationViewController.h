@@ -31,5 +31,5 @@
 @end
 
 @protocol MessageScopeDelegate <NSObject>
--(void) didSelectScope:(NSString*) scopeName withValues:(NSDictionary*) scopeValues;
+-(void) didSelectScope:(NSString*) scopeName withValues:(NSDictionary*) scopeValues withSummary:(NSString*) summary;
 @end

@@ -14,8 +14,9 @@
 -(void) setSelected:(ScopeCell*) cell;
 -(void) setDeselected:(ScopeCell*) cell;
 -(void) triggerSegue:(NSIndexPath *)currentIndex;
-@property(nonatomic,retain) NSArray* scopeimages;
-@property(nonatomic,retain) NSArray* scopetext;
+@property(nonatomic,strong) NSArray* scopeimages;
+@property(nonatomic,strong) NSArray* scopetext;
+@property(nonatomic,strong) NSString* summarytext;
 @end
 
 //should be dynamic, so could potentially add new scopes!
@@ -275,9 +276,16 @@
 
 
 -(void) viewWillDisappear:(BOOL)animated{
+    
+    NSMutableDictionary* myscope = [self.scope objectForKey:self.currentScope];
+    
+    NSLog(@"%@",myscope);
+    
+    self.summarytext = [[[myscope allValues] valueForKeyPath:@"name"] componentsJoinedByString:@","];
+    
     if ([self isMovingFromParentViewController]){
         NSLog(@"TIME TO PASS UP SCOPE!!!! - %@", self.currentScope);
-        [self.scopedelegate didSelectScope:self.currentScope withValues:[scope objectForKey:self.currentScope]];
+        [self.scopedelegate didSelectScope:self.currentScope withValues:[scope objectForKey:self.currentScope] withSummary:self.summarytext];
        
     }
 }
@@ -290,20 +298,31 @@
     
     NSNumber* residents = [self.totals objectForKey:@"developments"];
     
+    NSMutableDictionary* myscope = [self.scope objectForKey:@"developments"];
+    
+   
+    
     if (!residents)
         residents = [NSNumber numberWithInt:0];
 
     if (value){
-       
-        [[self.scope objectForKey:@"developments" ] setObject:development forKey:development.objectId];
+    
+        [myscope setObject:development forKey:development.objectId];
         
-         total = [residents intValue] + [development.residents intValue];
+        total = [residents intValue] + [development.residents intValue];
         [self.totals setObject:[NSNumber numberWithInt:total] forKey:@"developments"];
     }else{
-        [[self.scope objectForKey:@"developments" ] removeObjectForKey:development.objectId];
+        [myscope removeObjectForKey:development.objectId];
         total = [residents intValue] - [development.residents intValue];
         [self.totals setObject:[NSNumber numberWithInt:total] forKey:@"developments"];
     }
+    
+    NSLog(@"did selelect development!");
+    NSLog(@"%@", myscope);
+    
+    /*self.summarytext = [[[myscope allValues] valueForKeyPath:@"name"] componentsJoinedByString:@","];*/
+    
+    NSLog(@"set summary text to %@", self.summarytext);
     [self.tableView reloadData];
    
 }
@@ -326,6 +345,8 @@
         [apartments addObject:apartment];
     }
     
+    /*self.summarytext = [[apartments valueForKeyPath:@"name"] componentsJoinedByString:@","];*/
+    
     [self.tableView reloadData];
 
 }
@@ -336,20 +357,26 @@
     int total = 0;
     NSNumber* residents = [self.totals objectForKey:@"development"];
     
+    
+    NSMutableDictionary* myscope = [self.scope objectForKey:@"development"];
+    
     if (!residents)
         residents = [NSNumber numberWithInt:0];
     
     if (value){
-        [[self.scope objectForKey:@"development" ] setObject:block forKey:block.objectId];
+        [myscope setObject:block forKey:block.objectId];
         total = [residents intValue] + [block.residents intValue];
         [self.totals setObject:[NSNumber numberWithInt:total] forKey:@"development"];
         
     }else{
-        [[self.scope objectForKey:@"development" ] removeObjectForKey:block.objectId];
+        [myscope removeObjectForKey:block.objectId];
         total = [residents intValue] - [block.residents intValue];
         [self.totals setObject:[NSNumber numberWithInt:total] forKey:@"development"];
     }
    
+    /*self.summarytext = [[[myscope allValues] valueForKeyPath:@"name"] componentsJoinedByString:@","];*/
+    
+
     [self.tableView reloadData];
 
 }
@@ -357,11 +384,12 @@
 -(void) didSelectAllBlocks: (BOOL)selected{
    
     int total = 0;
+    NSMutableDictionary* myscope = [self.scope objectForKey:@"development"];
     
     if (selected){
         for (int i=0; i < [self.blocks count]; i++){
             Block *b = [self.blocks objectAtIndex:i];
-            [[self.scope objectForKey:@"development" ] setObject:b forKey:b.objectId];
+            [myscope setObject:b forKey:b.objectId];
             total += [b.residents intValue];
         }
     }else{
@@ -369,7 +397,8 @@
     }
     
     [self.totals setObject:[NSNumber numberWithInt:total] forKey:@"development"];
-   
+    
+    /*self.summarytext = [[[myscope allValues] valueForKeyPath:@"name"] componentsJoinedByString:@","];*/
 
     [self.tableView reloadData];
     
