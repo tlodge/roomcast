@@ -40,19 +40,9 @@
         Block* b = [self.blocks objectAtIndex:i];
         self.totalSelected += [b.residents intValue];
     }
-    /*for (int i = 0; i < [self.blocks count]; i++){
-        Block* b = [self.blocks objectAtIndex:i];
-        if ([self.selections objectForKey:b.objectId] != nil){
-            self.totalSelected += [b.residents intValue];
-        }
-    }*/
-    
     
     // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    self.clearsSelectionOnViewWillAppear = NO;
 }
 
 - (void)didReceiveMemoryWarning

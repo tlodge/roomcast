@@ -95,13 +95,6 @@
     
     Block* b = [self.blocks objectAtIndex:index];
    
-    //NSMutableArray* blockselections = [self.selections objectForKey:b.objectId];
-    
-    //if (blockselections == nil){
-    //    blockselections = [NSMutableArray array];
-    //    [self.selections setObject:blockselections forKey:b.objectId];
-    //}
-    
     NSArray* apartments = [[DataManager sharedManager] apartmentsForBlock:b.objectId];
     
     pageContentViewController.titleText         = b.name;
@@ -110,8 +103,6 @@
     pageContentViewController.blockId           = b.objectId;
     pageContentViewController.selections        = [self.selectionsByBlock objectForKey:b.objectId];
     
-    /*pageContentViewController.selectedLabelText = [[[self.selectionsByBlock objectForKey:b.objectId]  valueForKeyPath:@"name"] componentsJoinedByString:@","];*/
-
     pageContentViewController.delegate      = self;
     return pageContentViewController;
 }
@@ -133,16 +124,15 @@
 #pragma apartmentAddDelegate protocol method
 
 -(void) didSelectApartment:(Apartment*) apartment forBlockId:(NSString *)blockId{
-        //and then call the super delegate with this method too!
-    // NSLog(@"%@", self.selections);
-    [self.delegate didSelectApartment:apartment forBlockId:blockId];
     
     NSMutableArray* selected = [self.selectionsByBlock objectForKey:blockId];
-    [selected addObject:apartment];
     
-    NSLog(@"selected is %@", selected);
-    //[self.selectionsByBlock setObject:apartment forKey:blockId];
+    if ([selected containsObject:apartment]){
+        [selected removeObject:apartment];
+    }else{
+        [selected addObject:apartment];
+    }
     
-    NSLog(@"RAVC selected %d apartments", [self.selections count]);
+    [self.delegate didSelectApartment:apartment forBlockId:blockId];
 }
 @end
