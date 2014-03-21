@@ -16,7 +16,7 @@
 
 @property(weak, nonatomic) NSArray* developments;
 @property(nonatomic, assign) id <DevelopmentsAddDelegate> developmentsdelegate;
-@property(nonatomic,strong) NSMutableDictionary *selections;
+@property(nonatomic,strong) NSMutableArray *selections; //shoudl be weak!!??
 
 @end
 

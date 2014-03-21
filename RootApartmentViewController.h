@@ -18,7 +18,8 @@
 @property (strong,nonatomic) UIPageViewController *pageViewController;
 
 @property (strong, nonatomic) NSArray* blocks;
-@property (weak, nonatomic) NSMutableDictionary* selections;
+@property (weak, nonatomic)   NSMutableArray* selections;
+@property (strong, nonatomic) NSMutableDictionary* selectionsByBlock;
 @property (retain, nonatomic) NSString* objectId;
 @property(nonatomic, assign) id <ApartmentAddDelegate> delegate;
 @property int startIndex;

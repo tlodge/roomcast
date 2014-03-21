@@ -15,6 +15,6 @@
 
 @property (weak,nonatomic) NSArray *blocks;
 @property (weak, nonatomic) Block* selectedBlock;
-@property (weak, nonatomic) NSMutableDictionary *selections;
+@property (weak, nonatomic) NSMutableArray *selections;
 @property(nonatomic, assign) id <ApartmentAddDelegate> apartmentdelegate;
 @end

@@ -66,12 +66,12 @@
     self.totals = [NSMutableDictionary dictionary];
     
     for (NSString *type in TYPES){
-        NSMutableDictionary *entities = [NSMutableDictionary dictionary];
+        NSMutableArray *entities = [NSMutableArray array];
         //set the default scope to whole development i.e. all blocks selected
         int total = 0;
         if ([type isEqualToString:@"development"]){
             for (Block* block in development.blocks){
-                [entities setObject:block forKey:block.objectId];
+                [entities addObject:block];
                 total += [block.residents intValue];
             }
             [self.totals setValue:[NSNumber numberWithInt:total] forKey:@"development"];
@@ -213,7 +213,7 @@
 
 #pragma mark - Delegate methods
 
--(void) didSelectScope:(NSString*) scopeName withValues:(NSDictionary*) scopeValues withSummary:(NSString*)summary{
+-(void) didSelectScope:(NSString*) scopeName withValues:(NSMutableArray*) scopeValues withSummary:(NSString*)summary{
     
     NSLog(@"IN DID SELECT SCOPE %@", scopeName);
     

@@ -25,8 +25,7 @@
 
 //[scope] :: NSMutableDict [type, entity]
 //type    :: "apartment", "development", "developments", "region"
-//entity  :: NSMutableDict [key, object]
-//key     :: objectId
+//entity  :: NSMutableArray [object]
 //object  :: Apartment || Block || Development
 
 
@@ -133,15 +132,15 @@
 
 -(NSString*) _text_for_scope:(NSString *) scopename{
     
-    NSArray *entities = [[self.scope objectForKey:scopename] allValues];
+    NSMutableArray *entities = [self.scope objectForKey:scopename];
     
-    if ([scopename isEqualToString:@"apartment"]){
+    /*if ([scopename isEqualToString:@"apartment"]){
         int total = 0;
         for (int i = 0; i < [entities count]; i++){
             total += [entities[i] count];
         }
         return [NSString stringWithFormat:@"%d apartments", total];
-    }
+    }*/
     
     return [[entities valueForKey:@"name"]componentsJoinedByString:@", "];
 }
@@ -277,11 +276,11 @@
 
 -(void) viewWillDisappear:(BOOL)animated{
     
-    NSMutableDictionary* myscope = [self.scope objectForKey:self.currentScope];
+    NSMutableArray* myscope = [self.scope objectForKey:self.currentScope];
     
     NSLog(@"%@",myscope);
     
-    self.summarytext = [[[myscope allValues] valueForKeyPath:@"name"] componentsJoinedByString:@","];
+    self.summarytext = [[myscope valueForKeyPath:@"name"] componentsJoinedByString:@","];
     
     if ([self isMovingFromParentViewController]){
         NSLog(@"TIME TO PASS UP SCOPE!!!! - %@", self.currentScope);
@@ -298,7 +297,7 @@
     
     NSNumber* residents = [self.totals objectForKey:@"developments"];
     
-    NSMutableDictionary* myscope = [self.scope objectForKey:@"developments"];
+    NSMutableArray* localscope = [self.scope objectForKey:@"developments"];
     
    
     
@@ -306,19 +305,17 @@
         residents = [NSNumber numberWithInt:0];
 
     if (value){
-    
-        [myscope setObject:development forKey:development.objectId];
-        
+        [localscope addObject:development];
         total = [residents intValue] + [development.residents intValue];
         [self.totals setObject:[NSNumber numberWithInt:total] forKey:@"developments"];
     }else{
-        [myscope removeObjectForKey:development.objectId];
+        [localscope removeObject:development];
         total = [residents intValue] - [development.residents intValue];
         [self.totals setObject:[NSNumber numberWithInt:total] forKey:@"developments"];
     }
     
     NSLog(@"did selelect development!");
-    NSLog(@"%@", myscope);
+    NSLog(@"%@", localscope);
     
     /*self.summarytext = [[[myscope allValues] valueForKeyPath:@"name"] componentsJoinedByString:@","];*/
     
@@ -330,14 +327,12 @@
 
 -(void) didSelectApartment:(Apartment*)apartment forBlockId:(NSString *)blockId{
     
-    NSMutableDictionary* selectedApartmentsForBlocks = [self.scope objectForKey:@"apartment"];
+    NSMutableArray* apartments = [self.scope objectForKey:@"apartment"];
     
-    NSMutableArray *apartments = [selectedApartmentsForBlocks objectForKey:blockId];
-    
-    if (apartments == nil){
-        apartments = [NSMutableArray array];
-        [selectedApartmentsForBlocks setValue:apartments forKey:blockId];
-    }
+    //if (apartments == nil){
+        //apartments = [NSMutableArray array];
+        //[apartments addObject:apartment];
+    //}
     
     if ([apartments containsObject:apartment]){
         [apartments removeObject:apartment];
@@ -345,10 +340,8 @@
         [apartments addObject:apartment];
     }
     
-    /*self.summarytext = [[apartments valueForKeyPath:@"name"] componentsJoinedByString:@","];*/
-    
+    NSLog(@"selected %d apartments", [apartments count]);
     [self.tableView reloadData];
-
 }
 
 
@@ -358,24 +351,24 @@
     NSNumber* residents = [self.totals objectForKey:@"development"];
     
     
-    NSMutableDictionary* myscope = [self.scope objectForKey:@"development"];
+    NSMutableArray* localscope = [self.scope objectForKey:@"development"];
     
     if (!residents)
         residents = [NSNumber numberWithInt:0];
     
     if (value){
-        [myscope setObject:block forKey:block.objectId];
-        total = [residents intValue] + [block.residents intValue];
-        [self.totals setObject:[NSNumber numberWithInt:total] forKey:@"development"];
-        
+        if (![localscope containsObject:block]){
+            [localscope addObject:block];
+            total = [residents intValue] + [block.residents intValue];
+            [self.totals setObject:[NSNumber numberWithInt:total] forKey:@"development"];
+        }
     }else{
-        [myscope removeObjectForKey:block.objectId];
-        total = [residents intValue] - [block.residents intValue];
-        [self.totals setObject:[NSNumber numberWithInt:total] forKey:@"development"];
+        if ([localscope containsObject:block]){
+            [localscope removeObject:block];
+            total = [residents intValue] - [block.residents intValue];
+            [self.totals setObject:[NSNumber numberWithInt:total] forKey:@"development"];
+        }
     }
-   
-    /*self.summarytext = [[[myscope allValues] valueForKeyPath:@"name"] componentsJoinedByString:@","];*/
-    
 
     [self.tableView reloadData];
 
@@ -384,16 +377,18 @@
 -(void) didSelectAllBlocks: (BOOL)selected{
    
     int total = 0;
-    NSMutableDictionary* myscope = [self.scope objectForKey:@"development"];
+    NSMutableArray* localscope = [self.scope objectForKey:@"development"];
     
     if (selected){
         for (int i=0; i < [self.blocks count]; i++){
             Block *b = [self.blocks objectAtIndex:i];
-            [myscope setObject:b forKey:b.objectId];
-            total += [b.residents intValue];
+            if (![localscope containsObject:b]){
+                [localscope addObject:b];
+                total += [b.residents intValue];
+            }
         }
     }else{
-        [[self.scope objectForKey:@"development"] removeAllObjects];
+        [localscope removeAllObjects];
     }
     
     [self.totals setObject:[NSNumber numberWithInt:total] forKey:@"development"];

@@ -66,7 +66,7 @@
     cell.name.text = d.name;
     cell.total.text = [NSString stringWithFormat:@"%d", [d.residents integerValue]];
    
-    if ([self.selections objectForKey:d.objectId] != nil){
+    if ([self.selections containsObject:d]){
         [cell.selectSwitch setOn:YES];
     }else{
         [cell.selectSwitch setOn:NO];

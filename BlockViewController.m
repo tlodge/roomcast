@@ -128,23 +128,29 @@
     [self.selections setObject:apartments forKey:blockId];*/
 
     [self.apartmentdelegate didSelectApartment:apartment forBlockId:blockId];
+    NSLog(@"BVC selected %d apartments", [self.selections count]);
     [self.tableView reloadData];
 
 }
 
--(NSString *) _selectionString: (NSString *) objectId{
-     NSArray *apartments = [self.selections objectForKey:objectId];
-    if (!apartments){
-        return @"none selected";
+-(NSString *) _selectionString: (NSString *) blockId{
+    if (self.selections && [self.selections count] > 0){
+        
+        NSMutableArray *selected = [NSMutableArray array];
+        
+        for (Apartment* a in self.selections){
+            if (a.block.objectId == blockId){
+                [selected addObject:a.name];
+            }
+        }
+        if ([selected count] > 0)
+            return [selected componentsJoinedByString:@","];
     }
-    return [[apartments valueForKeyPath:@"name"] componentsJoinedByString:@","];
+    return @"none selected";
 }
 
 -(int) _totalForBlock:(NSString *) objectId{
-    NSArray *apartments = [self.selections objectForKey:objectId];
-    if (!apartments)
-        return 0;
-    return [apartments count];
+    return [self.selections count];
 }
 
 @end

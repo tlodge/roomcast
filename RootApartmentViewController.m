@@ -35,6 +35,18 @@
 {
     [super viewDidLoad];
   
+    self.selectionsByBlock = [NSMutableDictionary dictionary];
+    
+    for (Block *b in self.blocks){
+        [self.selectionsByBlock setObject:[NSMutableArray array] forKey:b.objectId];
+    }
+    
+    for (Apartment *a in self.selections){
+    
+        NSMutableArray* blockselections = [self.selectionsByBlock objectForKey:a.block.objectId];
+        [blockselections addObject:a];
+    }
+    
     self.pageViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"PageViewController"];
   
     self.pageViewController.dataSource = self;
@@ -82,13 +94,13 @@
     PageApartmentViewController *pageContentViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"PageApartmentViewController"];
     
     Block* b = [self.blocks objectAtIndex:index];
+   
+    //NSMutableArray* blockselections = [self.selections objectForKey:b.objectId];
     
-    NSMutableArray* blockselections = [selections objectForKey:b.objectId];
-    
-    if (blockselections == nil){
-        blockselections = [NSMutableArray array];
-        [self.selections setObject:blockselections forKey:b.objectId];
-    }
+    //if (blockselections == nil){
+    //    blockselections = [NSMutableArray array];
+    //    [self.selections setObject:blockselections forKey:b.objectId];
+    //}
     
     NSArray* apartments = [[DataManager sharedManager] apartmentsForBlock:b.objectId];
     
@@ -96,9 +108,9 @@
     pageContentViewController.pageIndex         = index;
     pageContentViewController.apartments        = apartments;
     pageContentViewController.blockId           = b.objectId;
-    pageContentViewController.selections        = blockselections;
+    pageContentViewController.selections        = [self.selectionsByBlock objectForKey:b.objectId];
     
-    pageContentViewController.selectedLabelText = [[blockselections valueForKeyPath:@"name"] componentsJoinedByString:@","];
+    /*pageContentViewController.selectedLabelText = [[[self.selectionsByBlock objectForKey:b.objectId]  valueForKeyPath:@"name"] componentsJoinedByString:@","];*/
 
     pageContentViewController.delegate      = self;
     return pageContentViewController;
@@ -124,5 +136,13 @@
         //and then call the super delegate with this method too!
     // NSLog(@"%@", self.selections);
     [self.delegate didSelectApartment:apartment forBlockId:blockId];
+    
+    NSMutableArray* selected = [self.selectionsByBlock objectForKey:blockId];
+    [selected addObject:apartment];
+    
+    NSLog(@"selected is %@", selected);
+    //[self.selectionsByBlock setObject:apartment forKey:blockId];
+    
+    NSLog(@"RAVC selected %d apartments", [self.selections count]);
 }
 @end

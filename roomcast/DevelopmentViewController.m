@@ -36,12 +36,16 @@
     self.title = @"select a block";
     self.totalSelected = 0;
     
-    for (int i = 0; i < [self.blocks count]; i++){
+    for (int i = 0; i < [self.selections count]; i++){
+        Block* b = [self.blocks objectAtIndex:i];
+        self.totalSelected += [b.residents intValue];
+    }
+    /*for (int i = 0; i < [self.blocks count]; i++){
         Block* b = [self.blocks objectAtIndex:i];
         if ([self.selections objectForKey:b.objectId] != nil){
             self.totalSelected += [b.residents intValue];
         }
-    }
+    }*/
     
     
     // Uncomment the following line to preserve selection between presentations.
@@ -91,7 +95,7 @@
         Block *b = [self.blocks objectAtIndex:indexPath.row - 1];
         cell.blockNameLabel.text = b.name;
         
-        if ([self.selections objectForKey:b.objectId] != nil){
+        if ([self.selections containsObject:b]){
              [cell.selectedSwitch setOn:YES];
             cell.totalSelectedLabel.text = [NSString stringWithFormat:@"%d apartments", [b.residents intValue]];
 
@@ -161,33 +165,11 @@
  */
 
 - (IBAction)selectionChanged:(UISwitch*)sender {
-  
     if (sender.tag == 0){
-        totalSelected = 0;
-        if (sender.on){
-            
-            for (int i = 0; i < [self.blocks count]; i++){
-                Block *b = [self.blocks objectAtIndex:i];
-                [self.selections setObject:[NSNumber numberWithBool:YES] forKey:b.objectId];
-                totalSelected += [b.residents intValue];
-            }
-        }else{
-            [self.selections removeAllObjects];
-        }
-        
         [self.developmentdelegate didSelectAllBlocks:sender.on];
     }else{
         Block* b = [blocks objectAtIndex:sender.tag-1];
-        
-        if (sender.on){
-            [self.selections setObject:[NSNumber numberWithBool:YES] forKey:b.objectId];
-            [self.developmentdelegate didSelectBlock:b withValue:sender.on];
-            self.totalSelected += [b.residents intValue];
-        }else{
-            [self.selections removeObjectForKey:b.objectId];
-            [self.developmentdelegate didSelectBlock:b withValue:sender.on];
-            self.totalSelected -= [b.residents intValue];
-        }
+        [self.developmentdelegate didSelectBlock:b withValue:sender.on];
     }
     [self.tableView reloadData];
 }
