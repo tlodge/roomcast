@@ -37,8 +37,8 @@
         <attribute name="from" attributeType="String" syncable="YES"/>
         <attribute name="message" attributeType="String" syncable="YES"/>
         <attribute name="objectId" attributeType="String" indexed="YES" syncable="YES"/>
+        <attribute name="priority" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="ttl" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
-        <attribute name="type" attributeType="String" syncable="YES"/>
     </entity>
     <entity name="Space" representedClassName="Space" syncable="YES">
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>

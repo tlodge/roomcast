@@ -14,6 +14,7 @@
 @dynamic from;
 @dynamic message;
 @dynamic ttl;
-@dynamic type;
+@dynamic priority;
+@dynamic objectId;
 
 @end

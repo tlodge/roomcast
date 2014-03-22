@@ -15,6 +15,7 @@
 @property (nonatomic, retain) NSString * from;
 @property (nonatomic, retain) NSString * message;
 @property (nonatomic, retain) NSNumber * ttl;
-@property (nonatomic, retain) NSString * type;
+@property (nonatomic, retain) NSNumber * priority;
+@property (nonatomic, retain) NSString * objectId;
 
 @end
