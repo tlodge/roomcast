@@ -20,7 +20,8 @@
 @synthesize developments;
 @synthesize totals;
 @synthesize currentScope;
-
+@synthesize filters;
+@synthesize selectedFilters;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -64,6 +65,8 @@
     self.TYPES = @[@"development", @"apartment", @"developments", @"region"];
     self.scope =  [NSMutableDictionary dictionary];
     self.totals = [NSMutableDictionary dictionary];
+    
+    self.filters = @[@"resident owners", @"landlords", @"tenants"];
     
     for (NSString *type in TYPES){
         NSMutableArray *entities = [NSMutableArray array];
@@ -181,13 +184,6 @@
      NSString *segueName = segue.identifier;
  
      if ([segueName isEqualToString: @"destinationSegue"]){
-     
-         NSLog(@"ok am in here!!");
-         
-         //UINavigationController *nc =  (UINavigationController *)[segue destinationViewController];
-         
-         //DestinationViewController* destination =(DestinationViewController*) [nc.viewControllers objectAtIndex:0];
-         
          DestinationViewController* destination = (DestinationViewController*) [segue destinationViewController];
          
          destination.scopedelegate       = self;
@@ -208,6 +204,10 @@
          
          destination.blocks = [[[self.development blocks] allObjects] sortedArrayUsingDescriptors:sortDescriptors];
      
+     }else if ([segueName isEqualToString:@"filterSegue"]){
+         NSLog(@"great - filter segue!!");
+         FilterViewController* fvc = (FilterViewController*) [segue destinationViewController];
+         fvc.filters = self.filters;
      }
 }
 

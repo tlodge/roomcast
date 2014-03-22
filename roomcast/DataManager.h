@@ -13,6 +13,8 @@
 #import "Apartment.h"
 #import "Conversation.h"
 #import "Message.h"
+#import "Notification.h"
+
 #import <Parse/Parse.h>
 
 @interface DataManager : NSObject
@@ -23,6 +25,7 @@
 -(Message *) fetchMessageWithObjectId:(NSString *) objectId;
 -(Conversation *) fetchConversationWithObjectId:(NSString *) objectId;
 -(NSArray *)  fetchNeighboursForDevelopment:(NSString *) objectId;
+-(NSArray *) fetchNotifications;
 
 -(BOOL) syncWithDevelopment:(NSString*) objectId;
 

@@ -13,6 +13,8 @@
 -(void) syncWithConversations;
 -(void) syncWithDevelopments: (NSString*)objectId;
 -(void) syncWithBlock:(Block *)block;
+-(void) createSomeNotifications;
+
 //-(BOOL) addMessageToCoreData:(PFObject*) message;
 //-(BOOL) addMessageToCoreData:(PFObject*) message forConversation:(Conversation*) conversation;
 //-(BOOL) addConversationToCoreData:(PFObject*) conversation withMessage:(PFObject*)message;
@@ -39,7 +41,58 @@ NSManagedObjectContext *context;
     self = [super init];
     id delegate = [[UIApplication sharedApplication] delegate];
     context = [delegate managedObjectContext];
+    [self createSomeNotifications];
+    //add some notifications if don't exist
     return self;
+}
+
+-(void) createSomeNotifications{
+    
+    
+    NSArray* notifications = [self fetchNotifications];
+    
+    if ([notifications count] > 0){
+        return;
+    }
+    
+    NSArray *messages = @[@"We've had reports of muggings along the riverside path.  Please be on your guard.  If you would like us to escort you, press the 'escort me' button.", @"Please ensure that you move everything off your balcony tonight as the forecast is for high southerly winds.", @"The lifts in Block B are due a maintenance check on Saturday, so will be out of order for a couple of hours at lunch."];
+    
+    NSArray *froms = @[@"security", @"concierge", @"maintenance"];
+    NSArray *types = @[@"alert", @"normal", @"normal"];
+
+    for (int i = 0; i < [messages count]; i++){
+    
+        Notification *n = [NSEntityDescription insertNewObjectForEntityForName:@"Notification" inManagedObjectContext:context];
+        
+        [n setValue:froms[i] forKey:@"from"];
+        [n setValue:messages[i] forKey:@"message"];
+        [n setValue:[NSNumber numberWithInt:360] forKey:@"ttl"];
+        [n setValue:types[i] forKey:@"type"];
+        [n setValue:@"anobjectId" forKey:@"objectId"];
+        NSError *error;
+        
+        [context save:&error];
+        
+        if (error){
+            NSLog(@"failed to save with error %@", error);
+        }
+    }
+}
+
+-(NSArray*) fetchNotifications{
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Notification"  inManagedObjectContext:context];
+    
+    [fetchRequest setEntity:entity];
+    NSError *error;
+    
+    NSArray* notifications = [context executeFetchRequest:fetchRequest error:&error];
+    
+    if (!error){
+        return notifications;
+    }
+    return [[NSArray alloc] init];
 }
 
 -(Development *) development{
@@ -74,7 +127,7 @@ NSManagedObjectContext *context;
     if (!error){
         return developments;
     }
-    return [[NSArray alloc] init];
+    return [NSArray array];
 }
 
 -(Apartment *) fetchApartmentWithObjectId:(NSString *) objectId{

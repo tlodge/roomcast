@@ -33,6 +33,13 @@
         <attribute name="sent" optional="YES" attributeType="Date" syncable="YES"/>
         <relationship name="conversation" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Conversation" inverseName="messages" inverseEntity="Conversation" syncable="YES"/>
     </entity>
+    <entity name="Notification" representedClassName="Notification" syncable="YES">
+        <attribute name="from" attributeType="String" syncable="YES"/>
+        <attribute name="message" attributeType="String" syncable="YES"/>
+        <attribute name="objectId" attributeType="String" indexed="YES" syncable="YES"/>
+        <attribute name="ttl" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="type" attributeType="String" syncable="YES"/>
+    </entity>
     <entity name="Space" representedClassName="Space" syncable="YES">
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="objectId" optional="YES" attributeType="String" indexed="YES" syncable="YES"/>
@@ -42,7 +49,8 @@
         <element name="Block" positionX="-1197" positionY="-684" width="128" height="103"/>
         <element name="Conversation" positionX="-1397" positionY="-522" width="128" height="163"/>
         <element name="Development" positionX="-1406" positionY="-682" width="128" height="103"/>
-        <element name="Message" positionX="-1197" positionY="-496" width="128" height="118"/>
+        <element name="Message" positionX="-1197" positionY="-496" width="128" height="133"/>
         <element name="Space" positionX="-1199" positionY="-799" width="128" height="73"/>
+        <element name="Notification" positionX="-990" positionY="-576" width="128" height="118"/>
     </elements>
 </model>

@@ -71,6 +71,14 @@
 		A37C6EF4181971ED0042489D /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A37C6EF3181971ED0042489D /* CoreLocation.framework */; };
 		A37C6F0F181ACCBA0042489D /* RangeView.m in Sources */ = {isa = PBXBuildFile; fileRef = A37C6F0E181ACCBA0042489D /* RangeView.m */; };
 		A38F717118BCE777009B7CD5 /* RootAudienceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A38F717018BCE777009B7CD5 /* RootAudienceViewController.m */; };
+		A395192A18DDD8B100109107 /* Notification.m in Sources */ = {isa = PBXBuildFile; fileRef = A395192918DDD8B100109107 /* Notification.m */; };
+		A395192D18DDDA3900109107 /* FilterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A395192C18DDDA3900109107 /* FilterViewController.m */; };
+		A395193018DDDA9E00109107 /* FilterCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A395192F18DDDA9E00109107 /* FilterCell.m */; };
+		A395193418DDDCE300109107 /* filter_landlord.png in Resources */ = {isa = PBXBuildFile; fileRef = A395193118DDDCE300109107 /* filter_landlord.png */; };
+		A395193518DDDCE300109107 /* filter_resident_owners.png in Resources */ = {isa = PBXBuildFile; fileRef = A395193218DDDCE300109107 /* filter_resident_owners.png */; };
+		A395193618DDDCE300109107 /* filter_tenant.png in Resources */ = {isa = PBXBuildFile; fileRef = A395193318DDDCE300109107 /* filter_tenant.png */; };
+		A395193D18DDE6AE00109107 /* NotificationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A395193C18DDE6AE00109107 /* NotificationViewController.m */; };
+		A395194118DDEA6100109107 /* NotificationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A395194018DDEA6100109107 /* NotificationCell.m */; };
 		A39E6DEB18D0FEE7000D4C3E /* apartment_scope_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = A39E6DEA18D0FEE7000D4C3E /* apartment_scope_selected.png */; };
 		A39E8BBD185F5ACA00600856 /* background_splash.png in Resources */ = {isa = PBXBuildFile; fileRef = A39E8BBC185F5ACA00600856 /* background_splash.png */; };
 		A39E8BC1185F5C6C00600856 /* background_frame.png in Resources */ = {isa = PBXBuildFile; fileRef = A39E8BC0185F5C6C00600856 /* background_frame.png */; };
@@ -233,6 +241,19 @@
 		A37C6F0E181ACCBA0042489D /* RangeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RangeView.m; sourceTree = "<group>"; };
 		A38F716F18BCE777009B7CD5 /* RootAudienceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootAudienceViewController.h; sourceTree = "<group>"; };
 		A38F717018BCE777009B7CD5 /* RootAudienceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootAudienceViewController.m; sourceTree = "<group>"; };
+		A395192818DDD8B100109107 /* Notification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Notification.h; sourceTree = "<group>"; };
+		A395192918DDD8B100109107 /* Notification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Notification.m; sourceTree = "<group>"; };
+		A395192B18DDDA3900109107 /* FilterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FilterViewController.h; sourceTree = "<group>"; };
+		A395192C18DDDA3900109107 /* FilterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FilterViewController.m; sourceTree = "<group>"; };
+		A395192E18DDDA9E00109107 /* FilterCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FilterCell.h; sourceTree = "<group>"; };
+		A395192F18DDDA9E00109107 /* FilterCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FilterCell.m; sourceTree = "<group>"; };
+		A395193118DDDCE300109107 /* filter_landlord.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = filter_landlord.png; sourceTree = "<group>"; };
+		A395193218DDDCE300109107 /* filter_resident_owners.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = filter_resident_owners.png; sourceTree = "<group>"; };
+		A395193318DDDCE300109107 /* filter_tenant.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = filter_tenant.png; sourceTree = "<group>"; };
+		A395193B18DDE6AE00109107 /* NotificationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotificationViewController.h; sourceTree = "<group>"; };
+		A395193C18DDE6AE00109107 /* NotificationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotificationViewController.m; sourceTree = "<group>"; };
+		A395193F18DDEA6100109107 /* NotificationCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotificationCell.h; sourceTree = "<group>"; };
+		A395194018DDEA6100109107 /* NotificationCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotificationCell.m; sourceTree = "<group>"; };
 		A39E6DEA18D0FEE7000D4C3E /* apartment_scope_selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = apartment_scope_selected.png; sourceTree = "<group>"; };
 		A39E6DEC18D21C8C000D4C3E /* ApartmentAddProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApartmentAddProtocol.h; sourceTree = "<group>"; };
 		A39E8BBC185F5ACA00600856 /* background_splash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = background_splash.png; path = ../background_splash.png; sourceTree = "<group>"; };
@@ -391,6 +412,8 @@
 				A3E7BF5418C8E5C700D37894 /* PageApartmentViewController.m */,
 				A3E7BF6218CE56B300D37894 /* ApartmentToolbar.h */,
 				A3E7BF6318CE56B300D37894 /* ApartmentToolbar.m */,
+				A395192B18DDDA3900109107 /* FilterViewController.h */,
+				A395192C18DDDA3900109107 /* FilterViewController.m */,
 			);
 			name = Send;
 			sourceTree = "<group>";
@@ -453,6 +476,8 @@
 				A39E8BCC1860B3BB00600856 /* DevelopmentBlockCell.m */,
 				A35E3B16187DBEAB00C8FBF1 /* DevelopmentCell.h */,
 				A35E3B17187DBEAB00C8FBF1 /* DevelopmentCell.m */,
+				A395192E18DDDA9E00109107 /* FilterCell.h */,
+				A395192F18DDDA9E00109107 /* FilterCell.m */,
 			);
 			name = TableCells;
 			sourceTree = "<group>";
@@ -545,6 +570,7 @@
 				A3334D7E1846901F00ECA8D5 /* Root */,
 				A3334D5A1845064000ECA8D5 /* Preferences */,
 				A3334D591845055E00ECA8D5 /* Chat */,
+				A395193718DDE62000109107 /* Notifications */,
 				A3334D58184504E400ECA8D5 /* Send */,
 				A3334D57184504C500ECA8D5 /* Registration */,
 				A37C6EAF181952040042489D /* Supporting Files */,
@@ -587,6 +613,9 @@
 		A37C6EDD181954090042489D /* images */ = {
 			isa = PBXGroup;
 			children = (
+				A395193118DDDCE300109107 /* filter_landlord.png */,
+				A395193218DDDCE300109107 /* filter_resident_owners.png */,
+				A395193318DDDCE300109107 /* filter_tenant.png */,
 				A39E6DEA18D0FEE7000D4C3E /* apartment_scope_selected.png */,
 				A3E7BF4218C8C47400D37894 /* apartment_scope.png */,
 				A3E7BF4318C8C47400D37894 /* development_scope.png */,
@@ -644,6 +673,25 @@
 			name = images;
 			sourceTree = "<group>";
 		};
+		A395193718DDE62000109107 /* Notifications */ = {
+			isa = PBXGroup;
+			children = (
+				A395193E18DDEA4600109107 /* TableCells */,
+				A395193B18DDE6AE00109107 /* NotificationViewController.h */,
+				A395193C18DDE6AE00109107 /* NotificationViewController.m */,
+			);
+			name = Notifications;
+			sourceTree = "<group>";
+		};
+		A395193E18DDEA4600109107 /* TableCells */ = {
+			isa = PBXGroup;
+			children = (
+				A395193F18DDEA6100109107 /* NotificationCell.h */,
+				A395194018DDEA6100109107 /* NotificationCell.m */,
+			);
+			name = TableCells;
+			sourceTree = "<group>";
+		};
 		A3E7BF5618C8E78400D37894 /* CollectionCells */ = {
 			isa = PBXGroup;
 			children = (
@@ -668,6 +716,8 @@
 				A3BD18E4184FA17C004EB6BD /* Message.m */,
 				A3B48EDC1885D3EC00C09426 /* Conversation.h */,
 				A3B48EDD1885D3EC00C09426 /* Conversation.m */,
+				A395192818DDD8B100109107 /* Notification.h */,
+				A395192918DDD8B100109107 /* Notification.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -764,6 +814,7 @@
 				A37C6EC1181952040042489D /* Images.xcassets in Resources */,
 				A335AA27184F7181007096A4 /* responses_dark.png in Resources */,
 				A3E7BF4618C8C47400D37894 /* apartment_scope.png in Resources */,
+				A395193618DDDCE300109107 /* filter_tenant.png in Resources */,
 				A3BD193B1850BD8C004EB6BD /* settings_selected@2x.png in Resources */,
 				A39E8BC1185F5C6C00600856 /* background_frame.png in Resources */,
 				A3BD18FD1850A936004EB6BD /* help.png in Resources */,
@@ -790,6 +841,7 @@
 				A335AA28184F7181007096A4 /* responses_light.png in Resources */,
 				A335AA4A184F85A3007096A4 /* textback.png in Resources */,
 				A3F88DFE1833E05A00E3BFB0 /* Roomcast.sqlite in Resources */,
+				A395193418DDDCE300109107 /* filter_landlord.png in Resources */,
 				A300E0B01827B71200783E91 /* registerbutton.png in Resources */,
 				A335AA2E184F73B6007096A4 /* blockcell.png in Resources */,
 				A335AA55184F8AC5007096A4 /* registerheader.png in Resources */,
@@ -797,6 +849,7 @@
 				A3CA7F421858CA3F0079FBB5 /* RespondView.xib in Resources */,
 				A335AA48184F84F8007096A4 /* whotobutton.png in Resources */,
 				A39E8BBD185F5ACA00600856 /* background_splash.png in Resources */,
+				A395193518DDDCE300109107 /* filter_resident_owners.png in Resources */,
 				A335AA38184F77A3007096A4 /* rightnav.png in Resources */,
 				A3F88D19182ED87A00E3BFB0 /* howmanybutton.png in Resources */,
 				A335AA46184F849C007096A4 /* message_recipient_back.png in Resources */,
@@ -832,9 +885,13 @@
 				A3CA7F401857B75F0079FBB5 /* RegistrationFloorViewController.m in Sources */,
 				A35E3B2A187F4DE100C8FBF1 /* Development.m in Sources */,
 				A34354DC18B7AF0C00C0A34C /* SendRootViewController.m in Sources */,
+				A395194118DDEA6100109107 /* NotificationCell.m in Sources */,
+				A395192A18DDD8B100109107 /* Notification.m in Sources */,
+				A395193018DDDA9E00109107 /* FilterCell.m in Sources */,
 				A317AC38182AE99700BE7E46 /* MessageView.m in Sources */,
 				A39E8BCA1860AE9400600856 /* DevelopmentViewController.m in Sources */,
 				A34354D118AE6F8A00C0A34C /* ButtonCell.m in Sources */,
+				A395193D18DDE6AE00109107 /* NotificationViewController.m in Sources */,
 				A35E3B18187DBEAB00C8FBF1 /* DevelopmentCell.m in Sources */,
 				A3CA7F451858CD650079FBB5 /* RespondView.m in Sources */,
 				A3B48EDB188489F700C09426 /* ConversationCell.m in Sources */,
@@ -864,6 +921,7 @@
 				A3B6DAEA183BE0FA00A860CA /* RegistrationViewController.m in Sources */,
 				A3BD18E5184FA17C004EB6BD /* Message.m in Sources */,
 				A3F88D15182D445D00E3BFB0 /* ChatViewController.m in Sources */,
+				A395192D18DDDA3900109107 /* FilterViewController.m in Sources */,
 				A3334D451843B41800ECA8D5 /* ScopeCell.m in Sources */,
 				A39E8BCD1860B3BB00600856 /* DevelopmentBlockCell.m in Sources */,
 				A3334D601845077500ECA8D5 /* BlockViewController.m in Sources */,
