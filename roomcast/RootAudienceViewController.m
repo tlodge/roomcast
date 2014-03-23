@@ -227,5 +227,8 @@
     //self.audienceCount.text = [NSString stringWithFormat:@"%d", [[self.totals objectForKey:scopeName] intValue]];
 }
 
+-(void) closeKeyboard:(UIControl *) sender{
+    [sender endEditing:YES];
+}
 
 @end

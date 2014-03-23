@@ -10,7 +10,7 @@
 #import "DestinationViewController.h"
 #import "FilterViewController.h"
 
-@interface RootAudienceViewController : UITableViewController <MessageScopeDelegate>
+@interface RootAudienceViewController : UITableViewController <MessageScopeDelegate, UITextViewDelegate>
 
 @property (strong,nonatomic) NSMutableDictionary *scope;
 @property (strong,nonatomic) NSMutableDictionary* totals;

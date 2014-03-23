@@ -79,6 +79,8 @@
 		A395193D18DDE6AE00109107 /* NotificationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A395193C18DDE6AE00109107 /* NotificationViewController.m */; };
 		A395194118DDEA6100109107 /* NotificationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A395194018DDEA6100109107 /* NotificationCell.m */; };
 		A395194418DDFAB100109107 /* Notification.m in Sources */ = {isa = PBXBuildFile; fileRef = A395194318DDFAB100109107 /* Notification.m */; };
+		A395194B18DF780F00109107 /* RootButtonOptionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A395194A18DF780F00109107 /* RootButtonOptionsViewController.m */; };
+		A395194E18DF786D00109107 /* ButtonOptionsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A395194D18DF786D00109107 /* ButtonOptionsTableViewController.m */; };
 		A39E6DEB18D0FEE7000D4C3E /* apartment_scope_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = A39E6DEA18D0FEE7000D4C3E /* apartment_scope_selected.png */; };
 		A39E8BBD185F5ACA00600856 /* background_splash.png in Resources */ = {isa = PBXBuildFile; fileRef = A39E8BBC185F5ACA00600856 /* background_splash.png */; };
 		A39E8BC1185F5C6C00600856 /* background_frame.png in Resources */ = {isa = PBXBuildFile; fileRef = A39E8BC0185F5C6C00600856 /* background_frame.png */; };
@@ -254,6 +256,10 @@
 		A395194018DDEA6100109107 /* NotificationCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotificationCell.m; sourceTree = "<group>"; };
 		A395194218DDFAB100109107 /* Notification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Notification.h; path = ../Notification.h; sourceTree = "<group>"; };
 		A395194318DDFAB100109107 /* Notification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Notification.m; path = ../Notification.m; sourceTree = "<group>"; };
+		A395194918DF780F00109107 /* RootButtonOptionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootButtonOptionsViewController.h; sourceTree = "<group>"; };
+		A395194A18DF780F00109107 /* RootButtonOptionsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootButtonOptionsViewController.m; sourceTree = "<group>"; };
+		A395194C18DF786D00109107 /* ButtonOptionsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ButtonOptionsTableViewController.h; sourceTree = "<group>"; };
+		A395194D18DF786D00109107 /* ButtonOptionsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ButtonOptionsTableViewController.m; sourceTree = "<group>"; };
 		A39E6DEA18D0FEE7000D4C3E /* apartment_scope_selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = apartment_scope_selected.png; sourceTree = "<group>"; };
 		A39E6DEC18D21C8C000D4C3E /* ApartmentAddProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApartmentAddProtocol.h; sourceTree = "<group>"; };
 		A39E8BBC185F5ACA00600856 /* background_splash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = background_splash.png; path = ../background_splash.png; sourceTree = "<group>"; };
@@ -558,15 +564,10 @@
 				A3F88D911832706400E3BFB0 /* Model */,
 				A3605819182000EF0026615B /* iPad */,
 				A37C6EBA181952040042489D /* Main.storyboard */,
-				A34354C618AD5F7400C0A34C /* RootPageViewController.h */,
-				A34354C718AD5F7400C0A34C /* RootPageViewController.m */,
-				A34354CC18AD600200C0A34C /* PageButtonViewController.h */,
-				A34354CD18AD600200C0A34C /* PageButtonViewController.m */,
-				A34354CF18AE6F8A00C0A34C /* ButtonCell.h */,
-				A34354D018AE6F8A00C0A34C /* ButtonCell.m */,
 				A3CA7F411858CA3F0079FBB5 /* RespondView.xib */,
 				A3F88DEC18329C9700E3BFB0 /* Roomcast.xcdatamodeld */,
 				A317AC34182AE82B00BE7E46 /* MessageView.xib */,
+				A395194518DF77AB00109107 /* Buttons */,
 				A3334D7E1846901F00ECA8D5 /* Root */,
 				A3334D5A1845064000ECA8D5 /* Preferences */,
 				A3334D591845055E00ECA8D5 /* Chat */,
@@ -690,6 +691,23 @@
 				A395194018DDEA6100109107 /* NotificationCell.m */,
 			);
 			name = TableCells;
+			sourceTree = "<group>";
+		};
+		A395194518DF77AB00109107 /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				A34354C618AD5F7400C0A34C /* RootPageViewController.h */,
+				A34354C718AD5F7400C0A34C /* RootPageViewController.m */,
+				A34354CC18AD600200C0A34C /* PageButtonViewController.h */,
+				A34354CD18AD600200C0A34C /* PageButtonViewController.m */,
+				A34354CF18AE6F8A00C0A34C /* ButtonCell.h */,
+				A34354D018AE6F8A00C0A34C /* ButtonCell.m */,
+				A395194918DF780F00109107 /* RootButtonOptionsViewController.h */,
+				A395194A18DF780F00109107 /* RootButtonOptionsViewController.m */,
+				A395194C18DF786D00109107 /* ButtonOptionsTableViewController.h */,
+				A395194D18DF786D00109107 /* ButtonOptionsTableViewController.m */,
+			);
+			name = Buttons;
 			sourceTree = "<group>";
 		};
 		A3E7BF5618C8E78400D37894 /* CollectionCells */ = {
@@ -925,7 +943,9 @@
 				A3334D451843B41800ECA8D5 /* ScopeCell.m in Sources */,
 				A39E8BCD1860B3BB00600856 /* DevelopmentBlockCell.m in Sources */,
 				A3334D601845077500ECA8D5 /* BlockViewController.m in Sources */,
+				A395194B18DF780F00109107 /* RootButtonOptionsViewController.m in Sources */,
 				A35E3B27187F4D8900C8FBF1 /* Space.m in Sources */,
+				A395194E18DF786D00109107 /* ButtonOptionsTableViewController.m in Sources */,
 				A3F88D36183019C000E3BFB0 /* MessageCell.m in Sources */,
 				A3334D6C1845159500ECA8D5 /* BlockCell.m in Sources */,
 				A3B6DAED183E60C500A860CA /* DestinationViewController.m in Sources */,

@@ -1,20 +1,18 @@
 //
-//  NotificationViewController.m
+//  ButtonOptionsTableViewController.m
 //  roomcast
 //
-//  Created by Tom Lodge on 22/03/2014.
+//  Created by Tom Lodge on 23/03/2014.
 //  Copyright (c) 2014 Tom Lodge. All rights reserved.
 //
 
-#import "NotificationViewController.h"
+#import "ButtonOptionsTableViewController.h"
 
-@interface NotificationViewController ()
+@interface ButtonOptionsTableViewController ()
 
 @end
 
-@implementation NotificationViewController
-
-@synthesize notifications;
+@implementation ButtonOptionsTableViewController
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -29,8 +27,6 @@
 {
     [super viewDidLoad];
 
-    self.notifications = [[DataManager sharedManager] fetchNotifications];
-    
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
@@ -53,31 +49,18 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [self.notifications count];
+    return 1;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"NotificationCell";
+    static NSString *CellIdentifier = @"ButtonOptionCell";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
-    NotificationCell *cell =  (NotificationCell*) [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-    
-    Notification *n = [notifications objectAtIndex:indexPath.row];
-    if (indexPath.row == 0){
-        cell.backgroundColor = UIColorFromRGB(0xa02c2c);
-        cell.fromLabel.textColor = [UIColor whiteColor];
-        cell.messageLabel.textColor = [UIColor whiteColor];
-        cell.dateLabel.textColor = [UIColor whiteColor];
-    }
-    cell.fromLabel.text = n.from;
-    cell.messageLabel.text = n.message;
-    cell.dateLabel.text = @"15 May 2014";
+    // Configure the cell...
     return cell;
 }
 
-- (CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 74.0;
-}
 /*
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
