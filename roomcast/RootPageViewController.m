@@ -25,7 +25,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    _pageTitles = @[@"title one", @"title two", @"title three"];
+    _pageTitles = @[@"concierge", @"security", @"maintenance"];
     _pageImages = @[@"page1", @"page2", @"page3"];
     
     self.pageViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"PageViewController"];

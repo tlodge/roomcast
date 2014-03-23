@@ -66,7 +66,7 @@ NSManagedObjectContext *context;
         [n setValue:froms[i] forKey:@"from"];
         [n setValue:messages[i] forKey:@"message"];
         [n setValue:[NSNumber numberWithInt:360] forKey:@"ttl"];
-        [n setValue:[NSNumber numberWithInt:1] forKey:@"priorty"];
+        [n setValue:[NSNumber numberWithInt:1] forKey:@"priority"];
         [n setValue:@"anobjectId" forKey:@"objectId"];
         NSError *error;
         
@@ -321,7 +321,7 @@ NSManagedObjectContext *context;
 }
 
 -(void) syncWithConversations{
-    
+    NSLog(@"syncing with conversations!");
     PFUser *currentUser = [PFUser currentUser];
     
     NSDictionary* parameters= [[NSDictionary alloc] initWithObjects:[[NSArray alloc] initWithObjects:[currentUser objectId], nil] forKeys:[[NSArray alloc] initWithObjects:@"userId", nil]];
@@ -336,7 +336,10 @@ NSManagedObjectContext *context;
                     Conversation  *c = [self fetchConversationWithObjectId:[conversation objectId]];
                     
                     if (c == nil){
+                        
+                        
                         update = TRUE;
+                        
                         c = [NSEntityDescription insertNewObjectForEntityForName:@"Conversation" inManagedObjectContext:context];
                         
                         [c setValue:[conversation objectId] forKey:@"conversationId"];
@@ -349,9 +352,9 @@ NSManagedObjectContext *context;
                     [c setValue:[conversation updatedAt] forKey:@"lastUpdate"];
                    
                     NSError *cderror;
-                        
-                    update = update || (update && [context save:&cderror]);
-                    
+                    BOOL saved = [context save:&cderror];
+                    update = update || (update && saved);
+                   
                 }
                 if (update){
                     [[NSNotificationCenter defaultCenter] postNotificationName:@"conversationsUpdate" object:nil];
@@ -504,7 +507,7 @@ NSManagedObjectContext *context;
                         
                         update = update || [context save:&cderror];
                     }
-                    if (update){
+                    if (update){ //susceptible to infinite loops as this method is recalled on notifcation sent.
                         NSMutableDictionary* userInfo = [NSMutableDictionary dictionary];
                         [userInfo setObject:block.objectId forKey:@"objectId"];
                         [[NSNotificationCenter defaultCenter] postNotificationName:@"blockUpdate" object:nil userInfo:userInfo];

@@ -29,9 +29,9 @@
     [super viewDidLoad];
     //[self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"ButtonCell"];
     self.titleLabel.text = self.titleText;
-    self.buttons = @[@[@"button1",@"button2",@"button3",@"button4",@"button5",@"button6", @"button7", @"button8"],
-          @[@"abcdefg", @"hijklmnop",@"qrstuvw"],
-          @[@"cdefg", @"dksldlks", @"dlksdlk", @"sdkjsdj"]
+    self.buttons = @[@[@"gym",@"mail",@"parking",@"key release", @"issue"],
+          @[@"help", @"escort", @"suspicious"],
+          @[@"lift", @"heating",@"gates", @"leak"]
         ];
 	// Do any additional setup after loading the view.
 }

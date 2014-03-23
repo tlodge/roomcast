@@ -10,6 +10,7 @@
 #import "ApartmentSelectCell.h"
 #import "Apartment.h"
 #import "ApartmentAddProtocol.h"
+#import "DataManager.h"
 
 @interface PageApartmentViewController :  UIViewController <UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 
@@ -18,6 +19,7 @@
 @property(nonatomic, strong) NSArray *apartments;
 @property(nonatomic, weak) NSMutableArray *selections;
 @property(nonatomic, assign) id <ApartmentAddDelegate> delegate;
+@property (weak, nonatomic) IBOutlet UICollectionView *cv;
 
 @property NSUInteger pageIndex;
 @property NSString *titleText;

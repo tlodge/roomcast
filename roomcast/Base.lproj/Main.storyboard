@@ -632,6 +632,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="cv" destination="gf5-ka-UGE" id="pSn-KB-jQQ"/>
                         <outlet property="selectedLabel" destination="Y64-qs-F9I" id="adV-Pq-rjR"/>
                         <outlet property="titleLabel" destination="5Qo-yu-EvT" id="Obf-oY-hTZ"/>
                     </connections>

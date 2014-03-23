@@ -252,8 +252,8 @@
 		A395193C18DDE6AE00109107 /* NotificationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotificationViewController.m; sourceTree = "<group>"; };
 		A395193F18DDEA6100109107 /* NotificationCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotificationCell.h; sourceTree = "<group>"; };
 		A395194018DDEA6100109107 /* NotificationCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotificationCell.m; sourceTree = "<group>"; };
-		A395194218DDFAB100109107 /* Notification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Notification.h; sourceTree = "<group>"; };
-		A395194318DDFAB100109107 /* Notification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Notification.m; sourceTree = "<group>"; };
+		A395194218DDFAB100109107 /* Notification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Notification.h; path = ../Notification.h; sourceTree = "<group>"; };
+		A395194318DDFAB100109107 /* Notification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Notification.m; path = ../Notification.m; sourceTree = "<group>"; };
 		A39E6DEA18D0FEE7000D4C3E /* apartment_scope_selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = apartment_scope_selected.png; sourceTree = "<group>"; };
 		A39E6DEC18D21C8C000D4C3E /* ApartmentAddProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApartmentAddProtocol.h; sourceTree = "<group>"; };
 		A39E8BBC185F5ACA00600856 /* background_splash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = background_splash.png; path = ../background_splash.png; sourceTree = "<group>"; };
@@ -512,8 +512,6 @@
 		A37C6E9C181952040042489D = {
 			isa = PBXGroup;
 			children = (
-				A395194218DDFAB100109107 /* Notification.h */,
-				A395194318DDFAB100109107 /* Notification.m */,
 				A37C6EAE181952040042489D /* roomcast */,
 				A37C6ECD181952040042489D /* roomcastTests */,
 				A37C6EA7181952040042489D /* Frameworks */,
@@ -716,6 +714,8 @@
 				A35E3B29187F4DE100C8FBF1 /* Development.m */,
 				A3BD18E3184FA17C004EB6BD /* Message.h */,
 				A3BD18E4184FA17C004EB6BD /* Message.m */,
+				A395194218DDFAB100109107 /* Notification.h */,
+				A395194318DDFAB100109107 /* Notification.m */,
 				A3B48EDC1885D3EC00C09426 /* Conversation.h */,
 				A3B48EDD1885D3EC00C09426 /* Conversation.m */,
 			);

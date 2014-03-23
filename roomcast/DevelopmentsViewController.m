@@ -28,7 +28,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
+    
+    
+    [[NSNotificationCenter defaultCenter] addObserverForName:@"developmentsUpdate" object:nil queue:nil usingBlock:^(NSNotification *note) {
+        [self.tableView reloadData];
+    }];
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  

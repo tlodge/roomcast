@@ -42,7 +42,6 @@
     }
     
     for (Apartment *a in self.selections){
-    
         NSMutableArray* blockselections = [self.selectionsByBlock objectForKey:a.block.objectId];
         [blockselections addObject:a];
     }
@@ -94,12 +93,10 @@
     PageApartmentViewController *pageContentViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"PageApartmentViewController"];
     
     Block* b = [self.blocks objectAtIndex:index];
-   
-    NSArray* apartments = [[DataManager sharedManager] apartmentsForBlock:b.objectId];
     
     pageContentViewController.titleText         = b.name;
     pageContentViewController.pageIndex         = index;
-    pageContentViewController.apartments        = apartments;
+    //pageContentViewController.apartments        = apartments;
     pageContentViewController.blockId           = b.objectId;
     pageContentViewController.selections        = [self.selectionsByBlock objectForKey:b.objectId];
     

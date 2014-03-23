@@ -39,13 +39,13 @@
   
     self.development  = [[DataManager sharedManager] development];
     
-    [[NSNotificationCenter defaultCenter] addObserverForName:@"conversationUpdate" object:nil queue:nil usingBlock:^(NSNotification *note) {
+    [[NSNotificationCenter defaultCenter] addObserverForName:@"conversationsUpdate" object:nil queue:nil usingBlock:^(NSNotification *note) {
         self.conversations = [[DataManager sharedManager] conversationsForUser];
         [self.tableView reloadData];
         
     }];
     
-    [[NSNotificationCenter defaultCenter] addObserverForName:@"conversationsUpdate" object:nil queue:nil usingBlock:^(NSNotification *note) {
+    [[NSNotificationCenter defaultCenter] addObserverForName:@"conversationUpdate" object:nil queue:nil usingBlock:^(NSNotification *note) {
         self.conversations = [[DataManager sharedManager] conversationsForUser];
         [self.tableView reloadData];
         
@@ -58,8 +58,9 @@
     id maindelegate = [[UIApplication sharedApplication] delegate];
     
     self.managedObjectContext = [maindelegate managedObjectContext];
-    
+    NSLog(@"pulling in new conversations!");
     self.conversations = [[DataManager sharedManager] conversationsForUser];
+    NSLog(@"done..");
     [self.tableView reloadData];
 }
 

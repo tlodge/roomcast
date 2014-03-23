@@ -31,8 +31,18 @@
     [super viewDidLoad];
     self.selectedIndexPaths = [NSMutableArray array];
     self.titleLabel.text = self.titleText;
-   
+    self.apartments = [[DataManager sharedManager] apartmentsForBlock:self.blockId];
 	// Do any additional setup after loading the view.
+    [[NSNotificationCenter defaultCenter] addObserverForName:@"blockUpdate" object:nil queue:nil usingBlock:^(NSNotification *note) {
+        NSLog(@"seen apartment update!!");
+        NSDictionary *dict = [note userInfo];
+        if ([[dict objectForKey:@"objectId"] isEqualToString:self.blockId]){
+            self.apartments = [[DataManager sharedManager] apartmentsForBlock:self.blockId];
+            NSLog(@"ok will reloda data!");
+            [self.cv reloadData];
+        }
+    }];
+
 }
 
 -(void) viewWillAppear:(BOOL)animated{
