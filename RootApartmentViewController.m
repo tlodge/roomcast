@@ -124,12 +124,14 @@
     
     NSMutableArray* selected = [self.selectionsByBlock objectForKey:blockId];
     
+    NSLog(@"ok selectd apartment %@", apartment);
+    
     if ([selected containsObject:apartment]){
         [selected removeObject:apartment];
     }else{
         [selected addObject:apartment];
     }
-    
+    NSLog(@"in RAPVC - passing up the stack...");
     [self.delegate didSelectApartment:apartment forBlockId:blockId];
 }
 @end

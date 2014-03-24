@@ -260,6 +260,8 @@
 		A395194A18DF780F00109107 /* RootButtonOptionsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootButtonOptionsViewController.m; sourceTree = "<group>"; };
 		A395194C18DF786D00109107 /* ButtonOptionsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ButtonOptionsTableViewController.h; sourceTree = "<group>"; };
 		A395194D18DF786D00109107 /* ButtonOptionsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ButtonOptionsTableViewController.m; sourceTree = "<group>"; };
+		A395194F18E0860E00109107 /* MessageScopeProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageScopeProtocol.h; sourceTree = "<group>"; };
+		A395195218E088DC00109107 /* MessageFilterProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageFilterProtocol.h; sourceTree = "<group>"; };
 		A39E6DEA18D0FEE7000D4C3E /* apartment_scope_selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = apartment_scope_selected.png; sourceTree = "<group>"; };
 		A39E6DEC18D21C8C000D4C3E /* ApartmentAddProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApartmentAddProtocol.h; sourceTree = "<group>"; };
 		A39E8BBC185F5ACA00600856 /* background_splash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = background_splash.png; path = ../background_splash.png; sourceTree = "<group>"; };
@@ -398,6 +400,8 @@
 			isa = PBXGroup;
 			children = (
 				A39E6DEC18D21C8C000D4C3E /* ApartmentAddProtocol.h */,
+				A395194F18E0860E00109107 /* MessageScopeProtocol.h */,
+				A395195218E088DC00109107 /* MessageFilterProtocol.h */,
 				A3E7BF5618C8E78400D37894 /* CollectionCells */,
 				A3334D5D184506B000ECA8D5 /* TableCells */,
 				A3334D5E1845077500ECA8D5 /* BlockViewController.h */,

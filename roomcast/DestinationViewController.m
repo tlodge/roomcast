@@ -42,7 +42,6 @@
 @synthesize currentScope;
 @synthesize scopeTypes;
 @synthesize scope;
-@synthesize filter;
 @synthesize blocks;
 @synthesize developments;
 @synthesize developmentName;
@@ -63,7 +62,7 @@
 {
     [super viewDidLoad];
     //self.clearsSelectionOnViewWillAppear = NO;
-    self.filter = [NSMutableDictionary dictionary];
+    //self.filter = [NSMutableDictionary dictionary];
     
     self.scopeimages = @[@"within_scope.png", @"apartment_scope.png", @"development_scope.png",@"region_scope.png"];
     
@@ -252,7 +251,8 @@
     if ([[segue identifier] isEqualToString:@"apartmentSegue"]){
         BlockViewController* bvc = (BlockViewController *) [segue destinationViewController];
         bvc.apartmentdelegate = self;
-
+        
+        
         bvc.selections = [self.scope objectForKey:@"apartment"];
         bvc.blocks = self.blocks;
        // bvc.apartmenttotals = self.apartmenttotals;
@@ -284,6 +284,7 @@
     
     if ([self isMovingFromParentViewController]){
         NSLog(@"TIME TO PASS UP SCOPE!!!! - %@", self.currentScope);
+        //the following passes up a NULL withValues....
         [self.scopedelegate didSelectScope:self.currentScope withValues:[scope objectForKey:self.currentScope] withSummary:self.summarytext];
        
     }
@@ -299,7 +300,6 @@
     
     NSMutableArray* localscope = [self.scope objectForKey:@"developments"];
     
-   
     
     if (!residents)
         residents = [NSNumber numberWithInt:0];
@@ -315,7 +315,7 @@
     }
     
     NSLog(@"did selelect development!");
-    NSLog(@"%@", localscope);
+    NSLog(@"local scope is %@", localscope);
     
     /*self.summarytext = [[[myscope allValues] valueForKeyPath:@"name"] componentsJoinedByString:@","];*/
     
@@ -327,18 +327,19 @@
 
 -(void) didSelectApartment:(Apartment*)apartment forBlockId:(NSString *)blockId{
     
+    
     NSMutableArray* apartments = [self.scope objectForKey:@"apartment"];
     
-    //if (apartments == nil){
-        //apartments = [NSMutableArray array];
-        //[apartments addObject:apartment];
-    //}
+    NSLog(@"********************* DID SELCT APARTMENT %@", apartments);
+    
     
     if ([apartments containsObject:apartment]){
         [apartments removeObject:apartment];
     }else{
         [apartments addObject:apartment];
     }
+    
+    NSLog(@"destination view controller - calling up stack did select apartment %@", apartment.name);
     
     NSLog(@"selected %d apartments", [apartments count]);
     [self.tableView reloadData];

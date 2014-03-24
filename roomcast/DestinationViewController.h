@@ -11,25 +11,21 @@
 #import "BlockViewController.h"
 #import "DevelopmentViewController.h"
 #import "DevelopmentsViewController.h"
-
-@protocol MessageScopeDelegate;
+#import "MessageScopeProtocol.h"
 
 @interface DestinationViewController : UITableViewController <ApartmentAddDelegate, DevelopmentAddDelegate, DevelopmentsAddDelegate>
 
 
-@property(strong, nonatomic) NSMutableDictionary *scope;
-@property(strong, nonatomic) NSMutableDictionary *filter;
-@property(strong, nonatomic) NSString *currentScope;
+@property(weak, nonatomic)   NSMutableDictionary *scope;
+@property(weak, nonatomic) NSString *currentScope;
 @property(weak, nonatomic)  NSArray *scopeTypes;
 @property(weak, nonatomic) NSMutableDictionary *totals;
+
 @property(strong, nonatomic) NSIndexPath *segueIndex;
+
 @property(strong, nonatomic) NSArray *blocks;
-@property(strong, nonatomic) NSArray *developments;
-@property(strong, nonatomic)  NSString *developmentName;
+@property(weak, nonatomic) NSArray *developments;
+@property(weak, nonatomic)  NSString *developmentName;
 
 @property(assign, nonatomic) id <MessageScopeDelegate> scopedelegate;
-@end
-
-@protocol MessageScopeDelegate <NSObject>
--(void) didSelectScope:(NSString*) scopeName withValues:(NSDictionary*) scopeValues withSummary:(NSString*) summary;
 @end

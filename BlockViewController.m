@@ -54,6 +54,8 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
+    NSLog(@"blocks size is %d", [self.blocks count]);
+    NSLog(@"%@",self.blocks);
     return [self.blocks count];
 }
 
@@ -125,8 +127,10 @@
         [apartments addObject:apartment];
     }
     
-    [self.selections setObject:apartments forKey:blockId];*/
-
+    [self.selections setObject:apartments forKey:blockId];
+     */
+    NSLog(@"in block view controller - calling up stack did select apartment %@", apartment.name);
+    
     [self.apartmentdelegate didSelectApartment:apartment forBlockId:blockId];
     NSLog(@"BVC selected %d apartments", [self.selections count]);
     [self.tableView reloadData];

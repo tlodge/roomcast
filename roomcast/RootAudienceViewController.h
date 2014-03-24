@@ -10,16 +10,25 @@
 #import "DestinationViewController.h"
 #import "FilterViewController.h"
 
-@interface RootAudienceViewController : UITableViewController <MessageScopeDelegate, UITextViewDelegate>
+@interface RootAudienceViewController : UITableViewController <MessageScopeDelegate, MessageFilterDelegate, UITextViewDelegate>
 
-@property (strong,nonatomic) NSMutableDictionary *scope;
-@property (strong,nonatomic) NSMutableDictionary* totals;
-@property (strong,nonatomic) Development* development;
-@property (strong,nonatomic) NSArray* developments;
-@property (strong,nonatomic) NSString *currentScope;
-@property (strong,nonatomic) NSArray* TYPES;
-@property (strong,nonatomic) NSArray* filters;
-@property (strong,nonatomic) NSArray* selectedFilters;
+/*
+ * Following three passed in from sendrootviewcontroller;
+ */
+@property (weak,nonatomic) NSMutableDictionary *scope;
+@property (weak, nonatomic) NSArray *scopeTypes;
+
+@property (weak,nonatomic) NSString *currentScope;
+@property (weak,nonatomic) NSArray* filters;
+
+@property (weak,nonatomic) NSMutableDictionary* totals;
+@property (weak,nonatomic) Development* development;
+@property (weak,nonatomic) NSArray* developments;
+
+@property (weak,nonatomic) NSArray* selectedFilters;
+
+@property (assign, nonatomic) id <MessageScopeDelegate> scopedelegate;
+@property (assign, nonatomic) id <MessageFilterDelegate> filterdelegate;
 @property (weak, nonatomic) IBOutlet UILabel *whoToSummaryLabel;
 
 @end

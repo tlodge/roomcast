@@ -14,7 +14,6 @@
 
 @implementation RootAudienceViewController
 
-@synthesize TYPES;
 @synthesize scope;
 @synthesize development;
 @synthesize developments;
@@ -53,45 +52,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    self.development  = [[DataManager sharedManager] development];
-    
-    [[NSNotificationCenter defaultCenter] addObserverForName:@"developmentsUpdate" object:nil queue:nil usingBlock:^(NSNotification *note) {
-        NSLog(@"seen a developments update from network, so refetching from core data for development %@", self.development);
-        self.developments = [[DataManager sharedManager] neighboursForDevelopment:self.development.objectId];
-        
-    }];
-    
-    self.TYPES = @[@"development", @"apartment", @"developments", @"region"];
-    self.scope =  [NSMutableDictionary dictionary];
-    self.totals = [NSMutableDictionary dictionary];
-    
-    self.filters = @[@"resident owners", @"landlords", @"tenants"];
-    
-    for (NSString *type in TYPES){
-        NSMutableArray *entities = [NSMutableArray array];
-        //set the default scope to whole development i.e. all blocks selected
-        int total = 0;
-        if ([type isEqualToString:@"development"]){
-            for (Block* block in development.blocks){
-                [entities addObject:block];
-                total += [block.residents intValue];
-            }
-            [self.totals setValue:[NSNumber numberWithInt:total] forKey:@"development"];
-            
-        }
-        [self.scope setObject:entities forKey:type];
-    }
-    self.development  = self.development;
-    self.developments = [[DataManager sharedManager] neighboursForDevelopment:self.development.objectId];
-
-    
-    
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
 - (void)didReceiveMemoryWarning
@@ -184,29 +144,33 @@
      NSString *segueName = segue.identifier;
  
      if ([segueName isEqualToString: @"destinationSegue"]){
-         DestinationViewController* destination = (DestinationViewController*) [segue destinationViewController];
+         DestinationViewController* dvc = (DestinationViewController*) [segue destinationViewController];
          
-         destination.scopedelegate       = self;
-         destination.scope               = self.scope;
-         destination.totals              = self.totals;
-         destination.scopeTypes          = self.TYPES;
-         NSLog(@"destaination scope types = %@", self.TYPES);
+         dvc.scopedelegate       = self;
          
-         destination.developmentName     = self.development.name;
-         NSLog(@"development name is %@", self.development.name);
+         dvc.scope               = self.scope;
          
-         destination.developments        = self.developments;
-         NSLog(@"developments are %@", destination.developments);
+         NSLog(@"on way down setting scope to %@", self.scope);
+         
+         dvc.totals              = self.totals;
+         dvc.scopeTypes          = self.scopeTypes;
+         
+         dvc.developmentName     = self.development.name;
+         
+         dvc.developments        = self.developments;
          
          NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES];
          
          NSArray* sortDescriptors = [NSArray arrayWithObject:sortDescriptor];
          
-         destination.blocks = [[[self.development blocks] allObjects] sortedArrayUsingDescriptors:sortDescriptors];
-     
+         dvc.blocks = [[[self.development blocks] allObjects] sortedArrayUsingDescriptors:sortDescriptors];
+        
+         NSLog(@"dvc blocks for %@ is %@", self.development, dvc.blocks);
+         
      }else if ([segueName isEqualToString:@"filterSegue"]){
          NSLog(@"great - filter segue!!");
          FilterViewController* fvc = (FilterViewController*) [segue destinationViewController];
+         fvc.filterdelegate = self;
          fvc.filters = self.filters;
      }
 }
@@ -215,16 +179,18 @@
 
 -(void) didSelectScope:(NSString*) scopeName withValues:(NSMutableArray*) scopeValues withSummary:(NSString*)summary{
     
-    NSLog(@"IN DID SELECT SCOPE %@", scopeName);
-    
-    self.currentScope = scopeName;
-    
-    [self.scope setObject:scopeValues forKey: scopeName];
-    
-    NSLog(@"%@", [self.scope objectForKey:scopeName]);
+       
+    NSLog(@"seen passed up scope %@", [self.scope objectForKey:scopeName]);
     
     self.whoToSummaryLabel.text = summary;
+    
+    [self.scopedelegate didSelectScope:scopeName withValues:scopeValues withSummary:summary];
+    
     //self.audienceCount.text = [NSString stringWithFormat:@"%d", [[self.totals objectForKey:scopeName] intValue]];
+}
+
+-(void) didSelectFilter:(NSString *)filterName{
+    [self.filterdelegate didSelectFilter:filterName];
 }
 
 -(void) closeKeyboard:(UIControl *) sender{

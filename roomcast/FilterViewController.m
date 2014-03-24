@@ -64,9 +64,17 @@
     cell.filterImage.image = [UIImage imageNamed:[self.images objectAtIndex:indexPath.row]];
     
     cell.filterTitle.text = self.filters[indexPath.row];
+    
+    cell.filterSwitch.tag = indexPath.row;
+    
+    [cell.filterSwitch addTarget:self action:@selector(toggleSelect:)forControlEvents:UIControlEventValueChanged];
     // Configure the cell...
     
     return cell;
+}
+
+-(void) toggleSelect:(UISwitch*)sender{
+    [self.filterdelegate didSelectFilter:self.filters[sender.tag]];
 }
 
 - (CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{

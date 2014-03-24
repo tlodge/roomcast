@@ -8,7 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "FilterCell.h"
+#import "MessageFilterProtocol.h"
 
 @interface FilterViewController : UITableViewController
 @property(nonatomic, weak) NSArray *filters;
+@property(nonatomic, assign) id <MessageFilterDelegate> filterdelegate;
 @end
