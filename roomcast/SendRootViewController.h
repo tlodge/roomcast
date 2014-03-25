@@ -27,6 +27,8 @@
 @property (strong,nonatomic) NSString *currentScope;
 
 @property (strong, nonatomic) NSArray *filters;
+@property (strong, nonatomic) NSArray *filterDescriptions;
+
 @property (strong,nonatomic) NSMutableArray* selectedFilters;
 
 - (IBAction)sendAnonPressed:(id)sender;

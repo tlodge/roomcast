@@ -172,6 +172,8 @@
          FilterViewController* fvc = (FilterViewController*) [segue destinationViewController];
          fvc.filterdelegate = self;
          fvc.filters = self.filters;
+         fvc.selectedFilters = self.selectedFilters;
+         fvc.filterDescriptions = self.filterDescriptions;
      }
 }
 
@@ -190,7 +192,10 @@
 }
 
 -(void) didSelectFilter:(NSString *)filterName{
+    NSLog(@"view c in did select filter");
     [self.filterdelegate didSelectFilter:filterName];
+    NSLog(@"%@", self.selectedFilters);
+    self.filterSummaryLabel.text = [self.selectedFilters componentsJoinedByString:@","];
 }
 
 -(void) closeKeyboard:(UIControl *) sender{

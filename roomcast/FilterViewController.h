@@ -12,5 +12,8 @@
 
 @interface FilterViewController : UITableViewController
 @property(nonatomic, weak) NSArray *filters;
+@property(nonatomic, weak) NSArray *filterDescriptions;
+
+@property(nonatomic, weak) NSMutableArray *selectedFilters;
 @property(nonatomic, assign) id <MessageFilterDelegate> filterdelegate;
 @end

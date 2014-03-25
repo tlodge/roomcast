@@ -11,7 +11,7 @@
 //THINK THIS CAN BE DELETED!
 
 @interface SendRootViewController ()
-
+-(void) setText;
 @end
 
 @implementation SendRootViewController
@@ -59,6 +59,10 @@
     NSLog(@"EMBEDDED ROOT VC BEING SEGUED!! - pass in everthing..");
     
     self.filters    = @[@"resident owners", @"landlords", @"tenants"];
+    self.filterDescriptions = @[@"owners living in development", @"owners living elsewhere", @"non-owners living in development"];
+    
+    self.selectedFilters = [NSMutableArray array];
+    
     self.scopeTypes = @[@"development", @"apartment", @"developments", @"region"];
     self.scope =  [NSMutableDictionary dictionary];
     self.totals = [NSMutableDictionary dictionary];
@@ -101,7 +105,8 @@
     
     ravc.selectedFilters    = self.selectedFilters;
     ravc.filters            = self.filters;
-    
+    ravc.filterDescriptions = self.filterDescriptions;
+
     ravc.scope              = self.scope;
     ravc.scopeTypes         = self.scopeTypes;
     ravc.currentScope       = self.currentScope;
@@ -115,18 +120,28 @@
 
     self.currentScope = scopeName;
     
-
-    NSLog(@"ok nice - got to did select scope... in send root vc!");
-    
-    NSLog(@"scope name is %@", scopeName);
-    
-    NSLog(@"scope values are @", scopeValues);
-    
     [self.scope setObject:scopeValues forKey: scopeName];
+    [self setText];
 }
 
 -(void) didSelectFilter:(NSString*) filterName{
     NSLog(@"very nice - got to did select filter!!");
+    if ([self.selectedFilters containsObject:filterName]){
+        [self.selectedFilters removeObject:filterName];
+    }else{
+        [self.selectedFilters addObject:filterName];
+    }
+    [self setText];
+}
+
+-(void) setText{
+    NSMutableArray* scopeValues = [self.scope objectForKey:self.currentScope];
+    NSString* filterText = @"everyone";
+    
+    if ([self.selectedFilters count] > 0){
+        filterText = [self.selectedFilters componentsJoinedByString:@" and "];
+    }
+    self.whoToLabel.text = [NSString stringWithFormat:@"%@ in %@", filterText,  [[scopeValues valueForKeyPath:@"name"] componentsJoinedByString:@","]];
 }
 
 #pragma -- delegate methods

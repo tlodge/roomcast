@@ -29,6 +29,8 @@
 {
     [super viewDidLoad];
     self.images = @[@"filter_resident_owners.png", @"filter_landlord.png", @"filter_tenant.png"];
+    
+    
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
@@ -63,11 +65,24 @@
     
     cell.filterImage.image = [UIImage imageNamed:[self.images objectAtIndex:indexPath.row]];
     
-    cell.filterTitle.text = self.filters[indexPath.row];
-    
     cell.filterSwitch.tag = indexPath.row;
     
     [cell.filterSwitch addTarget:self action:@selector(toggleSelect:)forControlEvents:UIControlEventValueChanged];
+    
+    NSLog(@"checking if %@ contains %@", self.selectedFilters, self.filters[indexPath.row]);
+    if ([self.selectedFilters containsObject:self.filters[indexPath.row]]){
+        NSLog(@"yes!");
+        [cell.filterSwitch setOn:YES];
+    }else{
+        NSLog(@"No");
+        [cell.filterSwitch setOn:NO];
+    }
+    
+    NSLog(@"filter descriptions are %@", self.filterDescriptions);
+    cell.filterTitle.text = self.filters[indexPath.row];
+    cell.filterDescription.text = self.filterDescriptions[indexPath.row];
+    
+    
     // Configure the cell...
     
     return cell;
