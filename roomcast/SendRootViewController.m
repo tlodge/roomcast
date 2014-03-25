@@ -34,7 +34,10 @@
     [super viewDidLoad];
     self.title = @"send a message";
     [self.sendText setDelegate:self];
-
+    [[NSNotificationCenter defaultCenter] addObserverForName:@"developmentsUpdate" object:nil queue:nil usingBlock:^(NSNotification *note) {
+        self.developments = [[DataManager sharedManager] neighboursForDevelopment:self.development.objectId];
+    }];
+    
 	// Do any additional setup after loading the view.
 }
 
@@ -56,7 +59,6 @@
  */
 
 -(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
-    NSLog(@"EMBEDDED ROOT VC BEING SEGUED!! - pass in everthing..");
     
     self.filters    = @[@"resident owners", @"landlords", @"tenants"];
     self.filterDescriptions = @[@"owners living in development", @"owners living elsewhere", @"non-owners living in development"];
@@ -83,15 +85,6 @@
     }
 
     self.development  = [[DataManager sharedManager] development];
-    
-    [[NSNotificationCenter defaultCenter] addObserverForName:@"developmentsUpdate" object:nil queue:nil usingBlock:^(NSNotification *note) {
-        NSLog(@"seen a developments update from network, so refetching from core data for development %@", self.development);
-        self.developments = [[DataManager sharedManager] neighboursForDevelopment:self.development.objectId];
-        
-    }];
-    
-  
-    
     self.development  = self.development;
     self.developments = [[DataManager sharedManager] neighboursForDevelopment:self.development.objectId];
     

@@ -54,8 +54,6 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    NSLog(@"blocks size is %d", [self.blocks count]);
-    NSLog(@"%@",self.blocks);
     return [self.blocks count];
 }
 
