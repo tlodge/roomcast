@@ -34,10 +34,6 @@
     [super viewDidLoad];
     self.title = @"send a message";
     [self.sendText setDelegate:self];
-    [[NSNotificationCenter defaultCenter] addObserverForName:@"developmentsUpdate" object:nil queue:nil usingBlock:^(NSNotification *note) {
-        self.developments = [[DataManager sharedManager] neighboursForDevelopment:self.development.objectId];
-    }];
-    
 	// Do any additional setup after loading the view.
 }
 
@@ -60,6 +56,15 @@
 
 -(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     
+    self.development  = [[DataManager sharedManager] development];
+    
+    [[NSNotificationCenter defaultCenter] addObserverForName:@"developmentsUpdate" object:nil queue:nil usingBlock:^(NSNotification *note) {
+        self.developments = [[DataManager sharedManager] neighboursForDevelopment:self.development.objectId];
+        NSLog(@"SEEN THE DEVELOPMENTS UPDATE!! %@", self.development.objectId);
+        NSLog(@"the developments are %@", self.developments);
+       
+    }];
+
     self.filters    = @[@"resident owners", @"landlords", @"tenants"];
     self.filterDescriptions = @[@"owners living in development", @"owners living elsewhere", @"non-owners living in development"];
     
@@ -84,8 +89,6 @@
         [self.scope setObject:entities forKey:type];
     }
 
-    self.development  = [[DataManager sharedManager] development];
-    self.development  = self.development;
     self.developments = [[DataManager sharedManager] neighboursForDevelopment:self.development.objectId];
     
     RootAudienceViewController *ravc = (RootAudienceViewController*) [segue destinationViewController];
