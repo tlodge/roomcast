@@ -147,16 +147,10 @@
          DestinationViewController* dvc = (DestinationViewController*) [segue destinationViewController];
          
          dvc.scopedelegate       = self;
-         
          dvc.scope               = self.scope;
-         
-         NSLog(@"on way down setting scope to %@", self.scope);
-         
          dvc.totals              = self.totals;
          dvc.scopeTypes          = self.scopeTypes;
-         
          dvc.developmentName     = self.development.name;
-         
          dvc.developments        = self.developments;
          
          NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES];
@@ -164,11 +158,8 @@
          NSArray* sortDescriptors = [NSArray arrayWithObject:sortDescriptor];
          
          dvc.blocks = [[[self.development blocks] allObjects] sortedArrayUsingDescriptors:sortDescriptors];
-        
-         NSLog(@"dvc blocks for %@ is %@", self.development, dvc.blocks);
          
      }else if ([segueName isEqualToString:@"filterSegue"]){
-         NSLog(@"great - filter segue!!");
          FilterViewController* fvc = (FilterViewController*) [segue destinationViewController];
          fvc.filterdelegate = self;
          fvc.filters = self.filters;
@@ -181,20 +172,13 @@
 
 -(void) didSelectScope:(NSString*) scopeName withValues:(NSMutableArray*) scopeValues withSummary:(NSString*)summary{
     
-       
-    NSLog(@"seen passed up scope %@", [self.scope objectForKey:scopeName]);
-    
     self.whoToSummaryLabel.text = summary;
     
     [self.scopedelegate didSelectScope:scopeName withValues:scopeValues withSummary:summary];
-    
-    //self.audienceCount.text = [NSString stringWithFormat:@"%d", [[self.totals objectForKey:scopeName] intValue]];
 }
 
 -(void) didSelectFilter:(NSString *)filterName{
-    NSLog(@"view c in did select filter");
     [self.filterdelegate didSelectFilter:filterName];
-    NSLog(@"%@", self.selectedFilters);
     self.filterSummaryLabel.text = [self.selectedFilters componentsJoinedByString:@","];
 }
 

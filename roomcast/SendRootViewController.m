@@ -119,7 +119,6 @@
 -(void) didSelectScope:(NSString*) scopeName withValues:(NSDictionary*) scopeValues withSummary:(NSString*) summary{
 
     self.currentScope = scopeName;
-    
     [self.scope setObject:scopeValues forKey: scopeName];
     [self setText];
 }
@@ -142,6 +141,8 @@
         filterText = [self.selectedFilters componentsJoinedByString:@" and "];
     }
     self.whoToLabel.text = [NSString stringWithFormat:@"%@ in %@", filterText,  [[scopeValues valueForKeyPath:@"name"] componentsJoinedByString:@","]];
+    
+    self.audienceCount.text = [NSString stringWithFormat:@"%d", [[self.totals objectForKey:self.currentScope] intValue]];
 }
 
 #pragma -- delegate methods

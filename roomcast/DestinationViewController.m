@@ -61,9 +61,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    //self.clearsSelectionOnViewWillAppear = NO;
-    //self.filter = [NSMutableDictionary dictionary];
-    
+
     self.scopeimages = @[@"within_scope.png", @"apartment_scope.png", @"development_scope.png",@"region_scope.png"];
     
     self.scopetext = @[@"within development", @"specific apartments", @"across developments", @"across region"];
@@ -130,17 +128,7 @@
 }
 
 -(NSString*) _text_for_scope:(NSString *) scopename{
-    
     NSMutableArray *entities = [self.scope objectForKey:scopename];
-    
-    /*if ([scopename isEqualToString:@"apartment"]){
-        int total = 0;
-        for (int i = 0; i < [entities count]; i++){
-            total += [entities[i] count];
-        }
-        return [NSString stringWithFormat:@"%d apartments", total];
-    }*/
-    
     return [[entities valueForKey:@"name"]componentsJoinedByString:@", "];
 }
 
@@ -153,10 +141,10 @@
 
 -(void) triggerSegue:(NSIndexPath *)currentIndex{
     
-   segueIndex = [self.tableView indexPathForSelectedRow];
+    segueIndex = [self.tableView indexPathForSelectedRow];
     
-   //have to explicitly select/deselect cells as didDeselectRowAtIndex path not always called!
-    ;
+    //have to explicitly select/deselect cells as didDeselectRowAtIndex path not always called!
+    
     
     for (int i =0; i < [self.scopeTypes count]; i++){
         if (i != currentIndex.row){
@@ -170,7 +158,7 @@
     ScopeCell* cell = (ScopeCell*)[self.tableView cellForRowAtIndexPath:currentIndex];
     [self setSelected:cell];
   
-    int tag = currentIndex.row;
+    int tag = (int) currentIndex.row;
     
     NSString *segue = @"withinDevelopmentSegue";
     
@@ -251,11 +239,8 @@
     if ([[segue identifier] isEqualToString:@"apartmentSegue"]){
         BlockViewController* bvc = (BlockViewController *) [segue destinationViewController];
         bvc.apartmentdelegate = self;
-        
-        
         bvc.selections = [self.scope objectForKey:@"apartment"];
         bvc.blocks = self.blocks;
-       // bvc.apartmenttotals = self.apartmenttotals;
     }
     else if ([[segue identifier] isEqualToString:@"withinDevelopmentSegue"]){
         DevelopmentViewController* dvc = (DevelopmentViewController *) [segue destinationViewController];
@@ -277,13 +262,9 @@
 -(void) viewWillDisappear:(BOOL)animated{
     
     NSMutableArray* myscope = [self.scope objectForKey:self.currentScope];
-    
-    NSLog(@"%@",myscope);
-    
     self.summarytext = [[myscope valueForKeyPath:@"name"] componentsJoinedByString:@","];
     
     if ([self isMovingFromParentViewController]){
-        NSLog(@"TIME TO PASS UP SCOPE!!!! - %@", self.currentScope);
         //the following passes up a NULL withValues....
         [self.scopedelegate didSelectScope:self.currentScope withValues:[scope objectForKey:self.currentScope] withSummary:self.summarytext];
        
@@ -295,11 +276,8 @@
 -(void) didSelectDevelopment:(Development*)development withValue:(BOOL)value{
     
     int total = 0;
-    
     NSNumber* residents = [self.totals objectForKey:@"developments"];
-    
     NSMutableArray* localscope = [self.scope objectForKey:@"developments"];
-    
     
     if (!residents)
         residents = [NSNumber numberWithInt:0];
@@ -313,15 +291,7 @@
         total = [residents intValue] - [development.residents intValue];
         [self.totals setObject:[NSNumber numberWithInt:total] forKey:@"developments"];
     }
-    
-    NSLog(@"did selelect development!");
-    NSLog(@"local scope is %@", localscope);
-    
-    /*self.summarytext = [[[myscope allValues] valueForKeyPath:@"name"] componentsJoinedByString:@","];*/
-    
-    NSLog(@"set summary text to %@", self.summarytext);
     [self.tableView reloadData];
-   
 }
 
 
@@ -330,8 +300,6 @@
     
     NSMutableArray* apartments = [self.scope objectForKey:@"apartment"];
     
-    NSLog(@"********************* DID SELCT APARTMENT %@", apartments);
-    
     
     if ([apartments containsObject:apartment]){
         [apartments removeObject:apartment];
@@ -339,9 +307,8 @@
         [apartments addObject:apartment];
     }
     
-    NSLog(@"destination view controller - calling up stack did select apartment %@", apartment.name);
+    [self.totals setObject:[NSNumber numberWithInt:(int)[apartments count]] forKey:@"apartment"];
     
-    NSLog(@"selected %d apartments", [apartments count]);
     [self.tableView reloadData];
 }
 
@@ -393,9 +360,6 @@
     }
     
     [self.totals setObject:[NSNumber numberWithInt:total] forKey:@"development"];
-    
-    /*self.summarytext = [[[myscope allValues] valueForKeyPath:@"name"] componentsJoinedByString:@","];*/
-
     [self.tableView reloadData];
     
 }
