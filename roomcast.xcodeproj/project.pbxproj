@@ -81,6 +81,7 @@
 		A395194418DDFAB100109107 /* Notification.m in Sources */ = {isa = PBXBuildFile; fileRef = A395194318DDFAB100109107 /* Notification.m */; };
 		A395194B18DF780F00109107 /* RootButtonOptionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A395194A18DF780F00109107 /* RootButtonOptionsViewController.m */; };
 		A395194E18DF786D00109107 /* ButtonOptionsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A395194D18DF786D00109107 /* ButtonOptionsTableViewController.m */; };
+		A395195D18E5E51200109107 /* ButtonOptionsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A395195C18E5E51200109107 /* ButtonOptionsCell.m */; };
 		A39E6DEB18D0FEE7000D4C3E /* apartment_scope_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = A39E6DEA18D0FEE7000D4C3E /* apartment_scope_selected.png */; };
 		A39E8BBD185F5ACA00600856 /* background_splash.png in Resources */ = {isa = PBXBuildFile; fileRef = A39E8BBC185F5ACA00600856 /* background_splash.png */; };
 		A39E8BC1185F5C6C00600856 /* background_frame.png in Resources */ = {isa = PBXBuildFile; fileRef = A39E8BC0185F5C6C00600856 /* background_frame.png */; };
@@ -262,6 +263,8 @@
 		A395194D18DF786D00109107 /* ButtonOptionsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ButtonOptionsTableViewController.m; sourceTree = "<group>"; };
 		A395194F18E0860E00109107 /* MessageScopeProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageScopeProtocol.h; sourceTree = "<group>"; };
 		A395195218E088DC00109107 /* MessageFilterProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageFilterProtocol.h; sourceTree = "<group>"; };
+		A395195B18E5E51200109107 /* ButtonOptionsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ButtonOptionsCell.h; sourceTree = "<group>"; };
+		A395195C18E5E51200109107 /* ButtonOptionsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ButtonOptionsCell.m; sourceTree = "<group>"; };
 		A39E6DEA18D0FEE7000D4C3E /* apartment_scope_selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = apartment_scope_selected.png; sourceTree = "<group>"; };
 		A39E6DEC18D21C8C000D4C3E /* ApartmentAddProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApartmentAddProtocol.h; sourceTree = "<group>"; };
 		A39E8BBC185F5ACA00600856 /* background_splash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = background_splash.png; path = ../background_splash.png; sourceTree = "<group>"; };
@@ -710,6 +713,8 @@
 				A395194A18DF780F00109107 /* RootButtonOptionsViewController.m */,
 				A395194C18DF786D00109107 /* ButtonOptionsTableViewController.h */,
 				A395194D18DF786D00109107 /* ButtonOptionsTableViewController.m */,
+				A395195B18E5E51200109107 /* ButtonOptionsCell.h */,
+				A395195C18E5E51200109107 /* ButtonOptionsCell.m */,
 			);
 			name = Buttons;
 			sourceTree = "<group>";
@@ -953,6 +958,7 @@
 				A3F88D36183019C000E3BFB0 /* MessageCell.m in Sources */,
 				A3334D6C1845159500ECA8D5 /* BlockCell.m in Sources */,
 				A3B6DAED183E60C500A860CA /* DestinationViewController.m in Sources */,
+				A395195D18E5E51200109107 /* ButtonOptionsCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

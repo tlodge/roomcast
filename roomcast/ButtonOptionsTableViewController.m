@@ -14,6 +14,8 @@
 
 @implementation ButtonOptionsTableViewController
 
+@synthesize options;
+
 - (id)initWithStyle:(UITableViewStyle)style
 {
     self = [super initWithStyle:style];
@@ -49,13 +51,15 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 1;
+    return [self.options count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"ButtonOptionCell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    static NSString *CellIdentifier = @"ButtonOptionsCell";
+    ButtonOptionsCell *cell =  (ButtonOptionsCell*)[tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    
+    cell.buttonOptionsLabel.text = [options objectAtIndex:indexPath.row];
     
     // Configure the cell...
     return cell;

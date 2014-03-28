@@ -33,6 +33,20 @@
           @[@"help", @"escort", @"suspicious"],
           @[@"lift", @"heating",@"gates", @"leak"]
         ];
+    
+    self.options = @{@"gym":@[@"please come to the gym", @"foreign item in pool"],
+                     @"parking":@[@"please come to car park", @"my spot has been taken"],
+                     @"key release":@[@"confirm release to above"],
+                     @"issue":@[@"urgent", @"important"],
+                     @"help":@[@"come to my apartment", @"come to my location!"],
+                     @"escort":@[@"from tube", @"from bus stop"],
+                     @"suspicious":@[@"still on site"],
+                     @"lift":@[@"block1", @"block2", @"block3"],
+                     @"heating":@[@"in apartment", @"in corridor"],
+                     @"gates":@[@"access code failed", @"not locking"],
+                     @"leak":@[@"urgent, high flow", @"important, medium flow", @"in apartment"]
+                     };
+    
 	// Do any additional setup after loading the view.
 }
 
@@ -60,7 +74,7 @@
     UIColor* fillcolor;
     
     NSLog(@"%d", (indexPath.row/2) % 2);
-    
+  
     if (((indexPath.row / 2) % 2)  == 0){
         if (indexPath.row % 2 == 0){
             cell = [cv dequeueReusableCellWithReuseIdentifier:@"ButtonCell" forIndexPath:indexPath];
@@ -85,8 +99,18 @@
     return cell;
 }
 
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    RootButtonOptionsViewController* rbovc = (RootButtonOptionsViewController*) [segue destinationViewController];
+    
+    NSIndexPath *selected = [[self.collectionView indexPathsForSelectedItems] objectAtIndex:0];
+    NSLog(@"have selected index %d", selected.row);
+    rbovc.options = [self.options objectForKey:self.buttons[_pageIndex][selected.row]];
+    
+}
 
 #pragma mark - UICollectionViewDelegate
+
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
     // TODO: Select Item

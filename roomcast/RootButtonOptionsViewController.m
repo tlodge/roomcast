@@ -64,6 +64,13 @@
     return TRUE;
 }
 
+-(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    
+    ButtonOptionsTableViewController* botvc = (ButtonOptionsTableViewController*) [segue destinationViewController];
+    
+    botvc.options = self.options;
+    
+}
 
 
 
