@@ -58,7 +58,7 @@
     Development* d = [developments objectAtIndex:indexPath.row];
     
     cell.name.text = d.name;
-    cell.total.text = [NSString stringWithFormat:@"%d", [d.residents integerValue]];
+    cell.total.text = [NSString stringWithFormat:@"%d apartments", [d.residents integerValue]];
    
     if ([self.selections containsObject:d]){
         [cell.selectSwitch setOn:YES];
@@ -80,6 +80,9 @@
     [self.developmentsdelegate didSelectDevelopment:d withValue:sender.on];
 }
 
+- (CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 60.0;
+}
 /*
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath

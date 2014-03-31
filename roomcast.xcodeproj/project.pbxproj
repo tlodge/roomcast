@@ -70,6 +70,7 @@
 		A37C6EF2181971D90042489D /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A37C6EF1181971D90042489D /* MapKit.framework */; };
 		A37C6EF4181971ED0042489D /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A37C6EF3181971ED0042489D /* CoreLocation.framework */; };
 		A37C6F0F181ACCBA0042489D /* RangeView.m in Sources */ = {isa = PBXBuildFile; fileRef = A37C6F0E181ACCBA0042489D /* RangeView.m */; };
+		A384811D18EA086A00C125A2 /* cursor.png in Resources */ = {isa = PBXBuildFile; fileRef = A384811C18EA086A00C125A2 /* cursor.png */; };
 		A38F717118BCE777009B7CD5 /* RootAudienceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A38F717018BCE777009B7CD5 /* RootAudienceViewController.m */; };
 		A395192D18DDDA3900109107 /* FilterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A395192C18DDDA3900109107 /* FilterViewController.m */; };
 		A395193018DDDA9E00109107 /* FilterCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A395192F18DDDA9E00109107 /* FilterCell.m */; };
@@ -242,6 +243,7 @@
 		A37C6EF3181971ED0042489D /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		A37C6F0D181ACCBA0042489D /* RangeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RangeView.h; sourceTree = "<group>"; };
 		A37C6F0E181ACCBA0042489D /* RangeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RangeView.m; sourceTree = "<group>"; };
+		A384811C18EA086A00C125A2 /* cursor.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cursor.png; sourceTree = "<group>"; };
 		A38F716F18BCE777009B7CD5 /* RootAudienceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootAudienceViewController.h; sourceTree = "<group>"; };
 		A38F717018BCE777009B7CD5 /* RootAudienceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootAudienceViewController.m; sourceTree = "<group>"; };
 		A395192B18DDDA3900109107 /* FilterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FilterViewController.h; sourceTree = "<group>"; };
@@ -621,6 +623,7 @@
 		A37C6EDD181954090042489D /* images */ = {
 			isa = PBXGroup;
 			children = (
+				A384811C18EA086A00C125A2 /* cursor.png */,
 				A395193118DDDCE300109107 /* filter_landlord.png */,
 				A395193218DDDCE300109107 /* filter_resident_owners.png */,
 				A395193318DDDCE300109107 /* filter_tenant.png */,
@@ -850,6 +853,7 @@
 				A335AA40184F7F44007096A4 /* switchon.png in Resources */,
 				A34354D518B3FB7900C0A34C /* chat_selected@2x.png in Resources */,
 				A335AA2C184F7263007096A4 /* apartment_light.png in Resources */,
+				A384811D18EA086A00C125A2 /* cursor.png in Resources */,
 				A335AA30184F7442007096A4 /* rightnavorange.png in Resources */,
 				A3C3BF161827B06A007E8803 /* message.png in Resources */,
 				A3F88D17182D4F4A00E3BFB0 /* continue.png in Resources */,
@@ -1088,8 +1092,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Tom Lodge (C4DACQ32K3)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Tom Lodge (C4DACQ32K3)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Tom Lodge (CPG4ZCFAH9)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Tom Lodge (CPG4ZCFAH9)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/tlodge/iphone/roomcast/roomcast,
@@ -1101,7 +1105,7 @@
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "806D38F5-146A-4CDF-865F-903EC934473F";
+				PROVISIONING_PROFILE = "59E51A64-73EC-437E-977F-797F9C8FDE0F";
 				SDKROOT = iphoneos7.0;
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
@@ -1113,8 +1117,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Tom Lodge (C4DACQ32K3)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Tom Lodge (C4DACQ32K3)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Tom Lodge (CPG4ZCFAH9)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Tom Lodge (CPG4ZCFAH9)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/tlodge/iphone/roomcast/roomcast,
@@ -1126,7 +1130,7 @@
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "806D38F5-146A-4CDF-865F-903EC934473F";
+				PROVISIONING_PROFILE = "59E51A64-73EC-437E-977F-797F9C8FDE0F";
 				SDKROOT = iphoneos7.0;
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
