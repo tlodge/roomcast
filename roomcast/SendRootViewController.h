@@ -20,7 +20,7 @@
 
 @property (strong,nonatomic) NSMutableDictionary* totals;
 @property (strong,nonatomic) Development* development;
-@property (strong,nonatomic) NSArray* developments;
+@property (strong,nonatomic) NSMutableArray* developments;
 
 @property (strong,nonatomic) NSMutableDictionary *scope;
 @property (strong, nonatomic) NSArray* scopeTypes;

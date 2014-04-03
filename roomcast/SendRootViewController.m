@@ -8,7 +8,6 @@
 
 #import "SendRootViewController.h"
 
-//THINK THIS CAN BE DELETED!
 
 @interface SendRootViewController ()
 -(void) setText;
@@ -28,12 +27,36 @@
     return self;
 }
 
+-(void)viewWillAppear:(BOOL)animated {
+    
+    // Set title
+    self.navigationItem.backBarButtonItem =
+    [[[UIBarButtonItem alloc] initWithTitle:@"Send"
+                                      style:UIBarButtonItemStyleBordered
+                                     target:nil
+                                     action:nil]init];
+}
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     self.title = @"send a message";
+  
     [self.sendText setDelegate:self];
+    [[NSNotificationCenter defaultCenter] addObserverForName:@"developmentsUpdate" object:nil queue:nil usingBlock:^(NSNotification *note) {
+        
+                
+        NSArray* newdevs = [[DataManager sharedManager] neighboursForDevelopment:self.development.objectId];
+    
+        for (int i = 0; i < [newdevs count]; i++){
+            if ([self.developments containsObject:[newdevs objectAtIndex:i]]==NO){
+                [self.developments addObject:[newdevs objectAtIndex:i]];
+            }
+        }
+        NSLog(@"SEEN THE DEVELOPMENTS UPDATE!! %@", self.development.objectId);
+        NSLog(@"the developments are %@", self.developments);
+        
+    }];
 	// Do any additional setup after loading the view.
 }
 
@@ -57,14 +80,6 @@
 -(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     
     self.development  = [[DataManager sharedManager] development];
-    
-    [[NSNotificationCenter defaultCenter] addObserverForName:@"developmentsUpdate" object:nil queue:nil usingBlock:^(NSNotification *note) {
-        self.developments = [[DataManager sharedManager] neighboursForDevelopment:self.development.objectId];
-        NSLog(@"SEEN THE DEVELOPMENTS UPDATE!! %@", self.development.objectId);
-        NSLog(@"the developments are %@", self.developments);
-       
-    }];
-
     self.filters    = @[@"resident owners", @"landlords", @"tenants"];
     self.filterDescriptions = @[@"owners living in development", @"owners living elsewhere", @"non-owners living in development"];
     
@@ -88,8 +103,8 @@
         }
         [self.scope setObject:entities forKey:type];
     }
-
-    self.developments = [[DataManager sharedManager] neighboursForDevelopment:self.development.objectId];
+  
+    self.developments = [[[DataManager sharedManager] neighboursForDevelopment:self.development.objectId] mutableCopy];
     
     RootAudienceViewController *ravc = (RootAudienceViewController*) [segue destinationViewController];
     

@@ -330,6 +330,9 @@ NSManagedObjectContext *context;
         if(!error){
             if (conversations){
                 
+                NSLog(@"got conversations from parse!");
+                NSLog(@"%@", conversations);
+                
                 BOOL update = FALSE;
                 
                 for (PFObject *conversation in conversations){
@@ -357,6 +360,7 @@ NSManagedObjectContext *context;
                    
                 }
                 if (update){
+                    NSLog(@"POSTING CONVERSATIONS UPDATE!");
                     [[NSNotificationCenter defaultCenter] postNotificationName:@"conversationsUpdate" object:nil];
                 }
             }
@@ -674,7 +678,7 @@ NSManagedObjectContext *context;
         }
     }
     //return empty array if nothing found in core data!
-    return [[NSArray alloc]init];
+    return [NSArray array];
 }
 
 -(NSArray*) apartmentsForBlock:(NSString *)objectId{

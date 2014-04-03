@@ -14,14 +14,14 @@
 
 @interface DevelopmentsViewController : UITableViewController
 
-@property(weak, nonatomic) NSArray* developments;
+@property(weak, nonatomic) NSMutableArray* developments;
 @property(nonatomic, assign) id <DevelopmentsAddDelegate> developmentsdelegate;
 @property(nonatomic,strong) NSMutableArray *selections; //shoudl be weak!!??
 
 @end
 
 @protocol DevelopmentsAddDelegate <NSObject>
-// recipe == nil on cancel
+
 -(void) didSelectDevelopment:(Development*) development withValue:(BOOL)value;
 
 @end

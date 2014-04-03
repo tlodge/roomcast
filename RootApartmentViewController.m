@@ -26,9 +26,12 @@
     return self;
 }
 
+
 - (void)viewWillAppear:(BOOL)animated{
+      
     UIBarButtonItem *selectButton = [[UIBarButtonItem alloc] initWithTitle:@"SELECT ALL" style:UIBarButtonItemStylePlain target:nil action:nil];
     self.navigationItem.rightBarButtonItem = selectButton;
+
 }
 
 - (void)viewDidLoad
@@ -60,6 +63,7 @@
     [self.view addSubview:_pageViewController.view];
     [self.pageViewController didMoveToParentViewController:self];
 	// Do any additional setup after loading the view.
+    
 }
 
 #pragma mark - Page View Controller Data Source

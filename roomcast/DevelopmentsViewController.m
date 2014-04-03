@@ -28,6 +28,13 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [[NSNotificationCenter defaultCenter] addObserverForName:@"developmentsUpdate" object:nil queue:nil usingBlock:^(NSNotification *note) {
+       
+        NSLog(@"the developments are NOW %@", self.developments);
+        [self.tableView reloadData];
+    }];
+    
+
 }
 
 - (void)didReceiveMemoryWarning

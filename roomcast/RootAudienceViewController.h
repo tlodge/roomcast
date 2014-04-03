@@ -25,7 +25,7 @@
 
 @property (weak,nonatomic) NSMutableDictionary* totals;
 @property (weak,nonatomic) Development* development;
-@property (weak,nonatomic) NSArray* developments;
+@property (weak,nonatomic) NSMutableArray* developments;
 
 @property (assign, nonatomic) id <MessageScopeDelegate> scopedelegate;
 @property (assign, nonatomic) id <MessageFilterDelegate> filterdelegate;

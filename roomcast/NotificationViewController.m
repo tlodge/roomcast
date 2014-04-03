@@ -28,7 +28,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
+    [self setupRefreshControl];
     self.notifications = [[DataManager sharedManager] fetchNotifications];
     
     // Uncomment the following line to preserve selection between presentations.
@@ -36,6 +36,20 @@
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+}
+
+-(void) setupRefreshControl{
+    self.refreshControl = [[UIRefreshControl alloc] init];
+    [self.refreshControl addTarget:self action:@selector(refreshControlRequest) forControlEvents:UIControlEventValueChanged];
+    
+    self.refreshControl.attributedTitle = [[NSAttributedString alloc] initWithString:@"Updating..." attributes:nil];
+     
+    [self setRefreshControl:self.refreshControl];
+}
+
+-(void) refreshControlRequest{
+    NSLog(@"refresh request!!");
+    [self.refreshControl endRefreshing];
 }
 
 - (void)didReceiveMemoryWarning

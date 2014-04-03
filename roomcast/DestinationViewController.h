@@ -24,7 +24,7 @@
 @property(strong, nonatomic) NSIndexPath *segueIndex;
 
 @property(strong, nonatomic) NSArray *blocks;
-@property(weak, nonatomic) NSArray *developments;
+@property(weak, nonatomic) NSMutableArray *developments;
 @property(weak, nonatomic)  NSString *developmentName;
 
 @property(assign, nonatomic) id <MessageScopeDelegate> scopedelegate;

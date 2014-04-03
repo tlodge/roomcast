@@ -58,6 +58,14 @@
 }
 
 
+-(void)viewWillAppear:(BOOL)animated{
+    self.navigationItem.backBarButtonItem =
+    [[[UIBarButtonItem alloc] initWithTitle:@"Send"
+                                      style:UIBarButtonItemStyleBordered
+                                     target:nil
+                                     action:nil]init];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
