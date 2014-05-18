@@ -13,6 +13,8 @@
 #import "Apartment.h"
 #import "Conversation.h"
 #import "Message.h"
+#import "Button.h"
+
 #import "Notification.h"
 
 #import <Parse/Parse.h>
@@ -35,6 +37,7 @@
 
 -(NSArray *) neighboursForDevelopment:(NSString*)objectId;
 -(NSArray *) conversationsForUser;
+-(NSArray *) buttonsForUser;
 -(NSArray *) messagesForConversation:(NSString*) conversationId;
 -(NSArray *) apartmentsForBlock:(NSString *) objectId;
 

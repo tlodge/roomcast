@@ -29,10 +29,10 @@
     [super viewDidLoad];
     //[self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"ButtonCell"];
     self.titleLabel.text = self.titleText;
-    self.buttons = @[@[@"gym",@"mail",@"parking",@"key release", @"issue"],
-          @[@"help", @"escort", @"suspicious"],
-          @[@"lift", @"heating",@"gates", @"leak"]
-        ];
+    //self.buttons = @[@[@"gym",@"mail",@"parking",@"key release", @"issue"],
+      //    @[@"help", @"escort", @"suspicious"],
+        //  @[@"lift", @"heating",@"gates", @"leak"]
+        //];
     
     self.options = @{@"gym":@[@"please come to the gym", @"foreign item in pool"],
                      @"parking":@[@"please come to car park", @"my spot has been taken"],
@@ -60,7 +60,10 @@
 #pragma mark - UICollectionView Datasource
 
 - (NSInteger)collectionView:(UICollectionView *)view numberOfItemsInSection:(NSInteger)section {
-    NSLog(@"ok returning the number as %d", [self.buttons count]);
+    NSLog(@" - in cv load - returning the number as %d", [self.buttons count]);
+    if ([self.buttons count] <= 0){
+        return 0;
+    }
     return [self.buttons[_pageIndex] count];
 }
 
@@ -106,6 +109,7 @@
     NSIndexPath *selected = [[self.collectionView indexPathsForSelectedItems] objectAtIndex:0];
     NSLog(@"have selected index %d", selected.row);
     rbovc.options = [self.options objectForKey:self.buttons[_pageIndex][selected.row]];
+   
     
 }
 
@@ -134,6 +138,11 @@
     //20--115--20--115--20
     UIEdgeInsets insets = {.left=26, .right=26, .bottom=0, .top=10};
     return insets;
+}
+
+-(void) reload{
+    [self.collectionView reloadData];
+    [self.collectionView layoutIfNeeded];
 }
 
 @end

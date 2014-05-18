@@ -58,9 +58,9 @@
     id maindelegate = [[UIApplication sharedApplication] delegate];
     
     self.managedObjectContext = [maindelegate managedObjectContext];
-    NSLog(@"pulling in new conversations!");
+   
     self.conversations = [[DataManager sharedManager] conversationsForUser];
-    NSLog(@"done..");
+   
     [self.tableView reloadData];
 }
 

@@ -12,11 +12,11 @@
 
 @interface PageButtonViewController : UIViewController  <UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
-
-@property(nonatomic, strong) NSArray *buttons;
+@property(nonatomic, weak) NSArray *buttons;
 @property(nonatomic, strong) NSDictionary *options;
 @property NSUInteger pageIndex;
 @property NSString *titleText;
 @property NSString *imageFile;
 
+-(void) reload;
 @end

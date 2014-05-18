@@ -11,6 +11,7 @@
 @interface DataManager ()
 -(void) syncWithConversation:(Conversation*) conversation;
 -(void) syncWithConversations;
+-(void) syncWithButtons;
 -(void) syncWithDevelopments: (NSString*)objectId;
 -(void) syncWithBlock:(Block *)block;
 -(void) createSomeNotifications;
@@ -232,11 +233,12 @@ NSManagedObjectContext *context;
     if ([fetchedBlock count] > 0){
         return [fetchedBlock objectAtIndex:0];
     }
-    
     return nil;
-    
 }
 
+-(NSArray*) fetchAllButtons{
+    return [NSArray array];
+}
 
 -(NSArray*) fetchAllConversations{
     NSError* error;
@@ -273,7 +275,6 @@ NSManagedObjectContext *context;
     
     return nil;
 }
-
 
 #pragma sync methods
 -(void) syncWithDevelopments:(NSString*) objectId{
@@ -320,6 +321,48 @@ NSManagedObjectContext *context;
 
 }
 
+-(void) syncWithButtons{
+    NSLog(@"syncing with buttons!");
+    
+    //check that we need to explicitly send user details...
+    
+    PFUser *currentUser = [PFUser currentUser];
+    
+    NSDictionary* parameters= [[NSDictionary alloc] initWithObjects:[[NSArray alloc] initWithObjects:[currentUser objectId], nil] forKeys:[[NSArray alloc] initWithObjects:@"userId", nil]];
+    
+    [PFCloud callFunctionInBackground:@"buttonsForUser" withParameters:parameters block:^(NSArray* buttons, NSError *error){
+        if(!error){
+            if (buttons){
+                NSLog(@"got buttons from parse!");
+                NSLog(@"%@", buttons);
+                
+                NSMutableDictionary* userInfo = [NSMutableDictionary dictionary];
+                
+                NSMutableDictionary *groups = [NSMutableDictionary dictionary];
+                
+                for (PFObject *button in buttons){
+                    
+                    NSMutableArray *bg = [groups objectForKey:[button objectForKey:@"group"]];
+                    
+                    if (bg == nil){
+                        bg = [NSMutableArray array];
+                    }
+                    Button* b   = [[Button alloc] init];
+                    b.name      = [button objectForKey:@"name"];
+                    b.questions = [button objectForKey:@"questions"];
+                    [bg addObject:b];
+                    
+                    [groups setObject:bg forKey:[button objectForKey:@"group"]];
+                }
+                
+                [userInfo setObject:groups forKey:@"buttongroups"];
+                
+                [[NSNotificationCenter defaultCenter] postNotificationName:@"buttonsUpdate" object:nil userInfo:userInfo];
+            }
+        }
+    }];
+}
+
 -(void) syncWithConversations{
     NSLog(@"syncing with conversations!");
     PFUser *currentUser = [PFUser currentUser];
@@ -360,7 +403,6 @@ NSManagedObjectContext *context;
                    
                 }
                 if (update){
-                    NSLog(@"POSTING CONVERSATIONS UPDATE!");
                     [[NSNotificationCenter defaultCenter] postNotificationName:@"conversationsUpdate" object:nil];
                 }
             }
@@ -694,6 +736,11 @@ NSManagedObjectContext *context;
     }
     //return empty array if nothing found in core data!
     return [[NSArray alloc]init];
+}
+
+-(NSArray*) buttonsForUser{
+    [self syncWithButtons];
+    return [self fetchAllButtons];
 }
 
 -(NSArray *) conversationsForUser{

@@ -34,7 +34,7 @@
 {
    
     PFUser *currentUser = [PFUser currentUser];
-   // NSLog(@"and go current user as %@",currentUser);
+    NSLog(@"and go current user as %@",currentUser);
     
     if (currentUser != nil) { //NO
         
