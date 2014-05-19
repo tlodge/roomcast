@@ -22,6 +22,7 @@
 
 -(void) setFillColor:(UIColor*) fillColor{
     _fillColor = fillColor;
+    
 }
 
 // Only override drawRect: if you perform custom drawing.
@@ -32,7 +33,8 @@
     CGContextRef ctx = UIGraphicsGetCurrentContext();
     CGContextSetLineWidth(ctx, lineWidth);
     CGContextSetFillColor(ctx, CGColorGetComponents([_fillColor CGColor]));
-    CGContextSetRGBStrokeColor(ctx, 255, 255, 255, 1.0);
+  
+    CGContextSetStrokeColorWithColor(ctx, [UIColorFromRGB(0x008080) CGColor]);
     CGRect borderRect = CGRectInset(rect, lineWidth*0.5, lineWidth*0.5);
     CGContextFillEllipseInRect(ctx, rect);
     CGContextStrokeEllipseInRect(ctx, borderRect);

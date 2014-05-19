@@ -9,8 +9,11 @@
 #import <UIKit/UIKit.h>
 #import "ButtonCell.h"
 #import "RootButtonOptionsViewController.h"
+#import "ButtonPressProtocol.h"
+#import "Button.h"
 
-@interface PageButtonViewController : UIViewController  <UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
+@interface PageButtonViewController : UIViewController  <UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, ButtonPressDelegate>
+
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property(nonatomic, weak) NSArray *buttons;
 @property(nonatomic, strong) NSDictionary *options;

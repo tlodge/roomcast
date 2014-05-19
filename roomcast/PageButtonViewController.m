@@ -81,24 +81,31 @@
     if (((indexPath.row / 2) % 2)  == 0){
         if (indexPath.row % 2 == 0){
             cell = [cv dequeueReusableCellWithReuseIdentifier:@"ButtonCell" forIndexPath:indexPath];
-             fillcolor = UIColorFromRGB(0x7c965e);
+             //fillcolor = UIColorFromRGB(0x7c965e);
+            fillcolor = UIColorFromRGB(0xffffff);
         }else{
             cell = [cv dequeueReusableCellWithReuseIdentifier:@"DarkButtonCell" forIndexPath:indexPath];
-            fillcolor = UIColorFromRGB(0x5c7046);
+            fillcolor = UIColorFromRGB(0xffffff);
+            //fillcolor = UIColorFromRGB(0x5c7046);
         }
     }else{
         if (indexPath.row % 2 == 0){
             cell = [cv dequeueReusableCellWithReuseIdentifier:@"DarkButtonCell" forIndexPath:indexPath];
-            fillcolor = UIColorFromRGB(0x5c7046);
+            fillcolor = UIColorFromRGB(0xffffff);
+            //fillcolor = UIColorFromRGB(0x5c7046);
         }else{
             cell = [cv dequeueReusableCellWithReuseIdentifier:@"ButtonCell" forIndexPath:indexPath];
-            fillcolor = UIColorFromRGB(0x7c965e);
+            fillcolor = UIColorFromRGB(0xffffff);
+            //fillcolor = UIColorFromRGB(0x7c965e);
 
         }
     }
     
     [cell setFillColor:fillcolor];
-    cell.buttonText.text = self.buttons[_pageIndex][indexPath.row];
+    Button *b = self.buttons[_pageIndex][indexPath.row];
+    
+    cell.buttonText.text = b.name;
+    //self.buttons[_pageIndex][indexPath.row];
     return cell;
 }
 
@@ -108,7 +115,11 @@
     
     NSIndexPath *selected = [[self.collectionView indexPathsForSelectedItems] objectAtIndex:0];
     NSLog(@"have selected index %d", selected.row);
-    rbovc.options = [self.options objectForKey:self.buttons[_pageIndex][selected.row]];
+    Button *b = self.buttons[_pageIndex][selected.row];
+    
+    rbovc.button = b;
+    rbovc.delegate = self;
+    //rbovc.options = [self.options objectForKey:b.name];
    
     
 }
@@ -140,9 +151,14 @@
     return insets;
 }
 
+-(void) didPressButton:(Button*) button{
+    NSLog(@"nice button has been pressed!!!");
+    NSLog(@"%@", button);
+}
+
 -(void) reload{
     [self.collectionView reloadData];
-    [self.collectionView layoutIfNeeded];
+    [self.collectionView layoutIfNeeded];    
 }
 
 @end

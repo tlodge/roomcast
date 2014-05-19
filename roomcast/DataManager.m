@@ -348,11 +348,15 @@ NSManagedObjectContext *context;
                         bg = [NSMutableArray array];
                     }
                     Button* b   = [[Button alloc] init];
+                    b.objectId  = [button objectId];
                     b.name      = [button objectForKey:@"name"];
                     b.questions = [button objectForKey:@"questions"];
                     [bg addObject:b];
                     
-                    [groups setObject:bg forKey:[button objectForKey:@"group"]];
+                    NSArray *keys = [button objectForKey:@"group"];
+                    for (NSString *key in keys){
+                        [groups setObject:bg forKey:key];
+                    }
                 }
                 
                 [userInfo setObject:groups forKey:@"buttongroups"];

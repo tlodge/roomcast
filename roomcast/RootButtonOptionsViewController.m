@@ -39,6 +39,7 @@
 
 
 - (IBAction)sendClicked:(id)sender {
+   [self.delegate didPressButton:self.button];
    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
@@ -68,7 +69,7 @@
     
     ButtonOptionsTableViewController* botvc = (ButtonOptionsTableViewController*) [segue destinationViewController];
     
-    botvc.options = self.options;
+    botvc.button = self.button;
     
 }
 

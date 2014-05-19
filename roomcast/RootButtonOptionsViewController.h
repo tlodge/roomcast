@@ -8,11 +8,13 @@
 
 #import <UIKit/UIKit.h>
 #import "ButtonOptionsTableViewController.h"
+#import "Button.h"
+#import "ButtonPressProtocol.h"
 
 @interface RootButtonOptionsViewController : UIViewController <UITextViewDelegate>
 - (IBAction)sendClicked:(id)sender;
 - (IBAction)cancelClicked:(id)sender;
 @property (weak, nonatomic) IBOutlet UITextView *toAdd;
-@property(nonatomic, weak) NSArray* options;
-
+@property(nonatomic, weak) Button* button;
+@property(nonatomic, assign) id <ButtonPressDelegate> delegate;
 @end

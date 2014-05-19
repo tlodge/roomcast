@@ -12,8 +12,7 @@
 
 @interface RootPageViewController : UIViewController <UIPageViewControllerDataSource>
 @property (strong,nonatomic) UIPageViewController *pageViewController;
-@property (strong, nonatomic) NSArray *pageTitles;
-@property (strong, nonatomic) NSArray *pageImages;
+@property (strong, nonatomic) NSMutableArray *pageTitles;
 @property (strong, nonatomic) NSMutableArray *buttons;
 @property (strong, nonatomic) NSMutableDictionary *groups;
 @property (strong, nonatomic) NSMutableArray *pbvcs;

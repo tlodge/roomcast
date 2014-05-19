@@ -11,4 +11,5 @@
 @implementation Button
 @synthesize name;
 @synthesize questions;
+@synthesize objectId;
 @end

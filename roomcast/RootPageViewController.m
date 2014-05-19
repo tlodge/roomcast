@@ -34,25 +34,29 @@
     [[NSNotificationCenter defaultCenter] addObserverForName:@"buttonsUpdate" object:nil queue:nil usingBlock:^(NSNotification *note) {
         NSDictionary* userInfo = note.userInfo;
         NSDictionary* ng  = [userInfo objectForKey:@"buttongroups"];
+        [_pageTitles removeAllObjects];
+        
+        
+        [self.buttons removeAllObjects];
+        
         for (NSString* key in [ng allKeys]){
             [self.groups setObject:[ng objectForKey:key] forKey:key];
+            [_pageTitles addObject:key];
+            [self.buttons addObject:[ng objectForKey:key]];
+            //NSArray *pbuttons = [ng objectForKey:key];
+            //NSArray *buttonnames = [pbuttons valueForKey:@"name"];
+            //[self.buttons addObject:buttonnames];
         }
-        [self.buttons addObject:@[@"gym",@"mail",@"parking",@"key release", @"issue"]];
-        [self.buttons addObject:@[@"help", @"escort", @"suspicious"]];
-        [self.buttons addObject:@[@"lift", @"heating",@"gates", @"leak"]];
-        
-        
          for (int i = 0; i <[self.pageTitles count]; i++){
             PageButtonViewController *pbvc = [self viewControllerAtIndex: i];
-             pbvc.buttons = self.buttons;
-            
-             [pbvc reload];
-            //reload
+            pbvc.buttons = self.buttons;
+            [pbvc reload];
         }
+        
+        [self.pageViewController setViewControllers:[NSArray arrayWithObject:[self viewControllerAtIndex:0]] direction:UIPageViewControllerNavigationDirectionForward animated:NO completion:nil];
     }];
-    
-    _pageTitles = @[@"concierge", @"security", @"maintenance"];
-    _pageImages = @[@"page1", @"page2", @"page3"];
+    _pageTitles = [NSMutableArray array];
+    [_pageTitles addObject:@""];
     
     self.pageViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"PageViewController"];
     
@@ -81,7 +85,6 @@
 #pragma mark - Page View Controller Data Source
 
 -(UIViewController *) pageViewController:(UIPageViewController *)pageViewController viewControllerBeforeViewController:(UIViewController *)viewController{
-    
     NSUInteger index = ((PageButtonViewController*) viewController).pageIndex;
   
     if ((index == 0) || (index == NSNotFound)){
@@ -93,7 +96,7 @@
 
 -(UIViewController *) pageViewController:(UIPageViewController *)pageViewController viewControllerAfterViewController:(UIViewController *)viewController{
     NSUInteger index = ((PageButtonViewController*) viewController).pageIndex;
-  
+
     if (index == NSNotFound){
         return nil;
     }
@@ -101,6 +104,7 @@
     if (index == [self.pageTitles count]){
         return nil;
     }
+    [self viewControllerAtIndex:index];
     return [self viewControllerAtIndex:index];
 }
 
@@ -120,8 +124,9 @@
         [_pbvcs addObject:pageContentViewController];
         return pageContentViewController;
     }else{
-        NSLog(@"getting old pbvc!");
-        return [_pbvcs objectAtIndex: index];
+        PageButtonViewController *pageContentViewController = [_pbvcs objectAtIndex: index];
+        pageContentViewController.titleLabel.text = self.pageTitles[index];
+        return pageContentViewController;
     }
     
 }

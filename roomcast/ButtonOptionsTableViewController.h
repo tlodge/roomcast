@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "ButtonOptionsCell.h"
+#import "Button.h"
+
 @interface ButtonOptionsTableViewController : UITableViewController
-    @property(nonatomic, weak) NSArray* options;
+    @property(nonatomic, weak) Button* button;
 @end
