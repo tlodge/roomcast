@@ -29,8 +29,15 @@
 {
     [super viewDidLoad];
     [self setupRefreshControl];
-    self.notifications = [[DataManager sharedManager] fetchNotifications];
     
+    NSLog(@"retreiving notifications...");
+    self.notifications = [[DataManager sharedManager] notificationsForUser];
+    NSLog(@"done - got... %@", self.notifications);
+    
+    
+    [[NSNotificationCenter defaultCenter] addObserverForName:@"notificationsUpdate" object:nil queue:nil usingBlock:^(NSNotification *note) {
+        NSLog(@"seen a notifications update!!!!");
+    }];
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
@@ -49,6 +56,10 @@
 
 -(void) refreshControlRequest{
     NSLog(@"refresh request!!");
+    self.notifications = [[DataManager sharedManager] notificationsForUser];
+    
+    
+    
     [self.refreshControl endRefreshing];
 }
 

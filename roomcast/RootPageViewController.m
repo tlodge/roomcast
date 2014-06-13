@@ -43,11 +43,9 @@
             [self.groups setObject:[ng objectForKey:key] forKey:key];
             [_pageTitles addObject:key];
             [self.buttons addObject:[ng objectForKey:key]];
-            //NSArray *pbuttons = [ng objectForKey:key];
-            //NSArray *buttonnames = [pbuttons valueForKey:@"name"];
-            //[self.buttons addObject:buttonnames];
         }
-         for (int i = 0; i <[self.pageTitles count]; i++){
+        
+        for (int i = 0; i <[_pageTitles count]; i++){
             PageButtonViewController *pbvc = [self viewControllerAtIndex: i];
             pbvc.buttons = self.buttons;
             [pbvc reload];
@@ -81,6 +79,11 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - Data refresh delegate
+
+-(void) didRefreshData{
+    [[DataManager sharedManager] buttonsForUser];
+}
 
 #pragma mark - Page View Controller Data Source
 
@@ -121,11 +124,13 @@
         pageContentViewController.titleText = self.pageTitles[index];
         pageContentViewController.buttons = self.buttons;
         pageContentViewController.pageIndex = index;
+        pageContentViewController.delegate = self;
+        
         [_pbvcs addObject:pageContentViewController];
         return pageContentViewController;
     }else{
         PageButtonViewController *pageContentViewController = [_pbvcs objectAtIndex: index];
-        pageContentViewController.titleLabel.text = self.pageTitles[index];
+        pageContentViewController.titleLabel.text = [_pageTitles objectAtIndex:index];
         return pageContentViewController;
     }
     

@@ -27,6 +27,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    self.refreshControl = [[UIRefreshControl alloc] init];
+    [self.collectionView addSubview:self.refreshControl];
+    [self.refreshControl addTarget:self action:@selector(refreshControlRequest) forControlEvents:UIControlEventValueChanged];
+    self.collectionView.alwaysBounceVertical = YES;
     //[self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"ButtonCell"];
     self.titleLabel.text = self.titleText;
     //self.buttons = @[@[@"gym",@"mail",@"parking",@"key release", @"issue"],
@@ -50,6 +55,11 @@
 	// Do any additional setup after loading the view.
 }
 
+-(void) refreshControlRequest{
+    [self.delegate didRefreshData];
+    [self.refreshControl endRefreshing];
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -60,10 +70,12 @@
 #pragma mark - UICollectionView Datasource
 
 - (NSInteger)collectionView:(UICollectionView *)view numberOfItemsInSection:(NSInteger)section {
-    NSLog(@" - in cv load - returning the number as %d", [self.buttons count]);
+    
     if ([self.buttons count] <= 0){
         return 0;
     }
+    NSLog(@"page index is %d", _pageIndex);
+    NSLog(@"count for page index is %d", [self.buttons[_pageIndex] count]);
     return [self.buttons[_pageIndex] count];
 }
 
@@ -72,7 +84,7 @@
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)cv cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    
+    NSLog(@"here i am");
     ButtonCell *cell;
     UIColor* fillcolor;
     
@@ -101,7 +113,11 @@
         }
     }
     
+    NSLog(@"in collection view and about to get button");
+    NSLog(@"%@", self.buttons);
+    
     [cell setFillColor:fillcolor];
+    NSLog(@"getting button at row %d, column %d", _pageIndex, indexPath.row);
     Button *b = self.buttons[_pageIndex][indexPath.row];
     
     cell.buttonText.text = b.name;
@@ -111,6 +127,7 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
+    NSLog(@"in prepare fro segue");
     RootButtonOptionsViewController* rbovc = (RootButtonOptionsViewController*) [segue destinationViewController];
     
     NSIndexPath *selected = [[self.collectionView indexPathsForSelectedItems] objectAtIndex:0];
@@ -119,9 +136,7 @@
     
     rbovc.button = b;
     rbovc.delegate = self;
-    //rbovc.options = [self.options objectForKey:b.name];
-   
-    
+    //rbovc.options = [self.options objectForKey:b.name];    
 }
 
 #pragma mark - UICollectionViewDelegate
@@ -154,6 +169,7 @@
 -(void) didPressButton:(Button*) button{
     NSLog(@"nice button has been pressed!!!");
     NSLog(@"%@", button);
+    [[DataManager sharedManager] buttonPressed:button.objectId];
 }
 
 -(void) reload{

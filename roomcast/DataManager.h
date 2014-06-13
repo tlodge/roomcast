@@ -22,12 +22,15 @@
 @interface DataManager : NSObject
 +(DataManager *) sharedManager;
 
--(Development *) fetchDevelopmentWithObjectId:(NSString *) objectId;
--(Apartment *) fetchApartmentWithObjectId:(NSString *) objectId;
--(Message *) fetchMessageWithObjectId:(NSString *) objectId;
--(Conversation *) fetchConversationWithObjectId:(NSString *) objectId;
--(NSArray *)  fetchNeighboursForDevelopment:(NSString *) objectId;
--(NSArray *) fetchNotifications;
+//should any of the following be public??
+
+-(Development *)    fetchDevelopmentWithObjectId:(NSString *) objectId;
+-(Apartment *)      fetchApartmentWithObjectId:(NSString *) objectId;
+-(Message *)        fetchMessageWithObjectId:(NSString *) objectId;
+-(Conversation *)   fetchConversationWithObjectId:(NSString *) objectId;
+-(NSArray *)        fetchNeighboursForDevelopment:(NSString *) objectId;
+
+//check each above!
 
 -(BOOL) syncWithDevelopment:(NSString*) objectId;
 
@@ -40,7 +43,10 @@
 -(NSArray *) buttonsForUser;
 -(NSArray *) messagesForConversation:(NSString*) conversationId;
 -(NSArray *) apartmentsForBlock:(NSString *) objectId;
+-(NSArray *) notificationsForUser;
 
+-(void) buttonPressed:(NSString*) buttonId;
+    
 @property(strong, nonatomic) Development* development;
 
 @end

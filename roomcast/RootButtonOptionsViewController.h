@@ -16,5 +16,6 @@
 - (IBAction)cancelClicked:(id)sender;
 @property (weak, nonatomic) IBOutlet UITextView *toAdd;
 @property(nonatomic, weak) Button* button;
+@property (weak, nonatomic) IBOutlet UILabel *descriptionLabel;
 @property(nonatomic, assign) id <ButtonPressDelegate> delegate;
 @end

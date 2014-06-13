@@ -165,6 +165,7 @@
 		A317AC3F182BD95C00BE7E46 /* MessageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageViewController.h; sourceTree = "<group>"; };
 		A317AC40182BD95C00BE7E46 /* MessageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageViewController.m; sourceTree = "<group>"; };
 		A33333AE192A71740024EFA4 /* ButtonPressProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ButtonPressProtocol.h; sourceTree = "<group>"; };
+		A33333B1192CD5870024EFA4 /* DataRefreshProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataRefreshProtocol.h; sourceTree = "<group>"; };
 		A3334D431843B41800ECA8D5 /* ScopeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScopeCell.h; sourceTree = "<group>"; };
 		A3334D441843B41800ECA8D5 /* ScopeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScopeCell.m; sourceTree = "<group>"; };
 		A3334D5E1845077500ECA8D5 /* BlockViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BlockViewController.h; path = ../BlockViewController.h; sourceTree = "<group>"; };
@@ -711,6 +712,7 @@
 			isa = PBXGroup;
 			children = (
 				A33333AE192A71740024EFA4 /* ButtonPressProtocol.h */,
+				A33333B1192CD5870024EFA4 /* DataRefreshProtocol.h */,
 				A34354C618AD5F7400C0A34C /* RootPageViewController.h */,
 				A34354C718AD5F7400C0A34C /* RootPageViewController.m */,
 				A34354CC18AD600200C0A34C /* PageButtonViewController.h */,

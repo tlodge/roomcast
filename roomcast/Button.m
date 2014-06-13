@@ -12,4 +12,5 @@
 @synthesize name;
 @synthesize questions;
 @synthesize objectId;
+@synthesize usage;
 @end

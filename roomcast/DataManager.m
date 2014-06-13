@@ -47,6 +47,8 @@ NSManagedObjectContext *context;
     return self;
 }
 
+
+/*
 -(void) createSomeNotifications{
     
     
@@ -78,6 +80,7 @@ NSManagedObjectContext *context;
         }
     }
 }
+*/
 
 -(NSArray*) fetchNotifications{
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
@@ -92,7 +95,7 @@ NSManagedObjectContext *context;
     if (!error){
         return notifications;
     }
-    return [[NSArray alloc] init];
+    return [NSArray array];
 }
 
 -(Development *) development{
@@ -236,21 +239,6 @@ NSManagedObjectContext *context;
     return nil;
 }
 
--(NSArray*) fetchAllButtons{
-    return [NSArray array];
-}
-
--(NSArray*) fetchAllConversations{
-    NSError* error;
-    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Conversation"  inManagedObjectContext:context];
-    [fetchRequest setEntity:entity];
-    
-    NSArray* conversations = [context executeFetchRequest:fetchRequest error:&error];
-   
-    return [conversations sortedArrayUsingDescriptors:[NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"lastUpdate" ascending:YES]]];
-}
-
 -(Conversation *) fetchConversationWithObjectId:(NSString *) objectId{
     
     if (objectId == nil)
@@ -276,7 +264,93 @@ NSManagedObjectContext *context;
     return nil;
 }
 
-#pragma sync methods
+//move all of the methods above to this single generic one!
+
+-(NSManagedObject *) fetchCoreDataWithObjectId: (NSString *) objectId andType: (NSString*) type{
+    
+    if (objectId == nil || type == nil)
+        return nil;
+    
+    NSError *error;
+    
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    
+    NSEntityDescription *entity = [NSEntityDescription entityForName:type  inManagedObjectContext:context];
+    
+    //[fetchRequest setReturnsObjectsAsFaults:NO];
+    
+    [fetchRequest setEntity:entity];
+    
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"objectId == %@", objectId];
+    [fetchRequest setPredicate:predicate];
+    
+    NSArray* fetchedItem = [context executeFetchRequest:fetchRequest error:&error];
+    
+    if ([fetchedItem count] > 0){
+        return [fetchedItem objectAtIndex:0];
+    }
+    return nil;
+}
+
+-(NSArray*) fetchAllButtons{
+    return [NSArray array];
+}
+
+-(NSArray*) fetchAllConversations{
+    NSError* error;
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Conversation"  inManagedObjectContext:context];
+    [fetchRequest setEntity:entity];
+    
+    NSArray* conversations = [context executeFetchRequest:fetchRequest error:&error];
+   
+    return [conversations sortedArrayUsingDescriptors:[NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"lastUpdate" ascending:YES]]];
+}
+
+
+
+#pragma sync methods - call out to parse!
+
+-(void) syncWithNotifications{
+    
+    [PFCloud callFunctionInBackground:@"notificationsForUser" withParameters:[NSDictionary dictionary] block:^(NSArray* notifications, NSError *error){
+       
+        if(!error){
+            if (notifications){
+                
+                BOOL update = FALSE;
+                
+                for (PFObject *notification in notifications){
+                    NSLog(@"notfication from parse is %@", notification);
+                    
+                    Notification *n = (Notification *)[self fetchCoreDataWithObjectId:[notification objectId] andType:@"Notification"];
+                    
+                    if (n == nil){
+                        
+                        
+                        n = [NSEntityDescription insertNewObjectForEntityForName:@"Notification" inManagedObjectContext:context];
+                        
+                        [n setValue:[notification objectId] forKey:@"objectId"];
+                       
+                        [n setValue:[[notification objectForKey:@"from"] objectForKey:@"name"] forKey:@"from"];
+                        
+                        [n setValue:[notification objectForKey:@"ttl"] forKey:@"ttl"];
+                        [n setValue:[notification objectForKey:@"priority"] forKey:@"priority"];
+                        [n setValue:[notification objectForKey:@"message"] forKey:@"message"];
+                        
+                        NSError *derror;
+                        update = update || [context save:&derror];
+                        if (derror){
+                            NSLog(@"failed to save with error %@", derror);
+                        }
+                    }
+                }
+            }
+        }
+    }];
+}
+
+
 -(void) syncWithDevelopments:(NSString*) objectId{
     
     NSLog(@"syncing with developments for %@", objectId);
@@ -287,8 +361,7 @@ NSManagedObjectContext *context;
         if(!error){
             if (developments){
                 BOOL update = FALSE;
-                NSLog(@"got following from parse");
-                NSLog(@"%@",developments);
+               
                 for (PFObject *development in developments){
                     
                     Development  *d = [self fetchDevelopmentWithObjectId:[development objectId]];
@@ -341,24 +414,29 @@ NSManagedObjectContext *context;
                 NSMutableDictionary *groups = [NSMutableDictionary dictionary];
                 
                 for (PFObject *button in buttons){
+                    NSArray *groupnames =[button objectForKey:@"group"];
                     
-                    NSMutableArray *bg = [groups objectForKey:[button objectForKey:@"group"]];
+                    for (int i = 0; i < [groupnames count]; i++){
+                        NSString *groupname = groupnames[i];
+                        NSLog(@"group name is %@", groupname);
                     
-                    if (bg == nil){
-                        bg = [NSMutableArray array];
-                    }
-                    Button* b   = [[Button alloc] init];
-                    b.objectId  = [button objectId];
-                    b.name      = [button objectForKey:@"name"];
-                    b.questions = [button objectForKey:@"questions"];
-                    [bg addObject:b];
+                        NSMutableArray *bg = [groups objectForKey:groupname];
                     
-                    NSArray *keys = [button objectForKey:@"group"];
-                    for (NSString *key in keys){
-                        [groups setObject:bg forKey:key];
+                        if (bg == nil){
+                            bg = [NSMutableArray array];
+                        }
+                        Button* b   = [[Button alloc] init];
+                        b.objectId  = [button objectId];
+                        b.name      = [button objectForKey:@"name"];
+                        b.questions = [button objectForKey:@"questions"];
+                        b.usage     = [button objectForKey:@"usage"];
+                        
+                        NSLog(@"set button usage to %@", b.usage);
+                        
+                        [bg addObject:b];
+                        [groups setObject:bg forKey:groupname];
                     }
                 }
-                
                 [userInfo setObject:groups forKey:@"buttongroups"];
                 
                 [[NSNotificationCenter defaultCenter] postNotificationName:@"buttonsUpdate" object:nil userInfo:userInfo];
@@ -709,6 +787,21 @@ NSManagedObjectContext *context;
 
 #pragma getter public methods
 
+
+-(NSArray*) notificationsForUser{
+    
+    NSArray* notifications = [self fetchNotifications];
+    
+    if (notifications){
+        [self syncWithNotifications];
+        
+        if ([notifications count] > 0){
+            return notifications;
+        }
+    }
+    return [NSArray array];
+}
+
 -(NSArray*) neighboursForDevelopment: (NSString*)objectId{
     
     NSArray* developments = [self fetchNeighboursForDevelopment:objectId];
@@ -776,6 +869,22 @@ NSManagedObjectContext *context;
     //return empty array if nothing found in core data!
    
     return [[NSArray alloc]init];
+}
+
+#pragma buttons
+
+-(void) buttonPressed:(NSString*) buttonId{
+    NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
+    [parameters setObject:buttonId forKey:@"buttonId"];
+    
+    //[parameters addEntriesFromDictionary:params];
+    
+    [PFCloud callFunctionInBackground:@"buttonPressed" withParameters:parameters block:^(PFObject* message, NSError *error){
+            NSLog(@"am done!!");
+        
+        }
+    ];
+
 }
 
 @end

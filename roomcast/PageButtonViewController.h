@@ -11,12 +11,16 @@
 #import "RootButtonOptionsViewController.h"
 #import "ButtonPressProtocol.h"
 #import "Button.h"
+#import "DataManager.h"
+#import "DataRefreshProtocol.h"
 
 @interface PageButtonViewController : UIViewController  <UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, ButtonPressDelegate>
 
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property(nonatomic, weak) NSArray *buttons;
 @property(nonatomic, strong) NSDictionary *options;
+@property(nonatomic, strong) UIRefreshControl *refreshControl;
+@property(nonatomic, assign) id <DataRefreshDelegate> delegate;
 @property NSUInteger pageIndex;
 @property NSString *titleText;
 @property NSString *imageFile;

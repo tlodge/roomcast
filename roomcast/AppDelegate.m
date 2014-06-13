@@ -43,8 +43,19 @@
 }
 
 -(void) application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo{
+    NSLog(@"seen a remote notification!");
+    
+    NSLog(@"%@", userInfo);
+    
+    NSString *type = [userInfo objectForKey:@"type"];
+    
     [PFPush handlePush:userInfo];
-     [[NSNotificationCenter defaultCenter] postNotificationName:@"conversationsUpdate" object:nil];
+    
+    if ([type isEqualToString:@"conversation"]){
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"conversationsUpdate" object:nil];
+    }else if([type isEqualToString:@"notification"]){
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"notificationsUpdate" object:nil];
+    }
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application

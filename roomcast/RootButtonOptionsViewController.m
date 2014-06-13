@@ -27,6 +27,9 @@
 {
     [super viewDidLoad];
     self.toAdd.returnKeyType = UIReturnKeyDone;
+    NSLog(@"button usage text is %@", self.button.usage);
+    
+    self.descriptionLabel.text = self.button.usage;
     [self.toAdd setDelegate:self];
 	// Do any additional setup after loading the view.
 }

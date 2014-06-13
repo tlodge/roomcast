@@ -9,8 +9,10 @@
 #import <UIKit/UIKit.h>
 #import "PageButtonViewController.h"
 #import "DataManager.h"
+#import "DataRefreshProtocol.h"
 
-@interface RootPageViewController : UIViewController <UIPageViewControllerDataSource>
+@interface RootPageViewController : UIViewController <UIPageViewControllerDataSource, DataRefreshDelegate>
+
 @property (strong,nonatomic) UIPageViewController *pageViewController;
 @property (strong, nonatomic) NSMutableArray *pageTitles;
 @property (strong, nonatomic) NSMutableArray *buttons;
