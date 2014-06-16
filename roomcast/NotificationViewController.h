@@ -14,4 +14,5 @@
 @interface NotificationViewController : UITableViewController
 @property(nonatomic, strong) NSArray* notifications;
 @property(nonatomic, strong) UIRefreshControl* refreshControl;
+@property(nonatomic, strong) NSDateFormatter* formatter;
 @end

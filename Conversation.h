@@ -2,7 +2,7 @@
 //  Conversation.h
 //  roomcast
 //
-//  Created by Tom Lodge on 14/01/2014.
+//  Created by Tom Lodge on 16/06/2014.
 //  Copyright (c) 2014 Tom Lodge. All rights reserved.
 //
 
@@ -13,13 +13,13 @@
 
 @interface Conversation : NSManagedObject
 
-@property (nonatomic, retain) NSString * conversationId;
+@property (nonatomic, retain) NSString * objectId;
 @property (nonatomic, retain) NSString * initiator;
 @property (nonatomic, retain) NSDate * lastUpdate;
 @property (nonatomic, retain) NSNumber * responses;
+@property (nonatomic, retain) NSString * scope;
 @property (nonatomic, retain) NSDate * started;
 @property (nonatomic, retain) NSString * teaser;
-@property (nonatomic, retain) NSString * scope;
 @property (nonatomic, retain) NSSet *messages;
 @end
 

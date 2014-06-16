@@ -163,7 +163,7 @@
     
         ChatViewController* cvc = (ChatViewController *) [segue destinationViewController];
         cvc.delegate = self;
-        cvc.conversationId = self.selectedConversation.conversationId;
+        cvc.conversationId = self.selectedConversation.objectId;
     }
     
     else if([[segue identifier] isEqualToString:@"sendSegue"]){

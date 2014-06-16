@@ -2,8 +2,8 @@
 //  Message.m
 //  roomcast
 //
-//  Created by Tom Lodge on 04/12/2013.
-//  Copyright (c) 2013 Tom Lodge. All rights reserved.
+//  Created by Tom Lodge on 16/06/2014.
+//  Copyright (c) 2014 Tom Lodge. All rights reserved.
 //
 
 #import "Message.h"
@@ -14,7 +14,7 @@
 
 @dynamic body;
 @dynamic from;
-@dynamic messageId;
+@dynamic objectId;
 @dynamic sent;
 @dynamic conversation;
 

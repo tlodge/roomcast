@@ -24,10 +24,10 @@
 
 //should any of the following be public??
 
--(Development *)    fetchDevelopmentWithObjectId:(NSString *) objectId;
--(Apartment *)      fetchApartmentWithObjectId:(NSString *) objectId;
--(Message *)        fetchMessageWithObjectId:(NSString *) objectId;
--(Conversation *)   fetchConversationWithObjectId:(NSString *) objectId;
+//-(Development *)    fetchDevelopmentWithObjectId:(NSString *) objectId;
+//-(Apartment *)      fetchApartmentWithObjectId:(NSString *) objectId;
+//-(Message *)        fetchMessageWithObjectId:(NSString *) objectId;
+//-(Conversation *)   fetchConversationWithObjectId:(NSString *) objectId;
 -(NSArray *)        fetchNeighboursForDevelopment:(NSString *) objectId;
 
 //check each above!

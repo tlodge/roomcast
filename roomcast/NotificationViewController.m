@@ -28,21 +28,21 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.formatter = [[NSDateFormatter alloc] init];
+    [self.formatter setDateFormat:@"dd MMM HH:mm"];
     [self setupRefreshControl];
     
-    NSLog(@"retreiving notifications...");
+  
     self.notifications = [[DataManager sharedManager] notificationsForUser];
-    NSLog(@"done - got... %@", self.notifications);
-    
+   
     
     [[NSNotificationCenter defaultCenter] addObserverForName:@"notificationsUpdate" object:nil queue:nil usingBlock:^(NSNotification *note) {
-        NSLog(@"seen a notifications update!!!!");
+        self.notifications = [[DataManager sharedManager] notificationsForUser];
+        
+        
+        [self.tableView reloadData];
+        
     }];
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
 -(void) setupRefreshControl{
@@ -55,12 +55,9 @@
 }
 
 -(void) refreshControlRequest{
-    NSLog(@"refresh request!!");
     self.notifications = [[DataManager sharedManager] notificationsForUser];
-    
-    
-    
     [self.refreshControl endRefreshing];
+    [self.tableView reloadData];
 }
 
 - (void)didReceiveMemoryWarning
@@ -88,7 +85,8 @@
     NotificationCell *cell =  (NotificationCell*) [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
     Notification *n = [notifications objectAtIndex:indexPath.row];
-    if (indexPath.row == 0){
+    
+    if ([n.priority intValue] > 0){
         cell.backgroundColor = UIColorFromRGB(0xa02c2c);
         cell.fromLabel.textColor = [UIColor whiteColor];
         cell.messageLabel.textColor = [UIColor whiteColor];
@@ -96,7 +94,7 @@
     }
     cell.fromLabel.text = n.from;
     cell.messageLabel.text = n.message;
-    cell.dateLabel.text = @"15 May 2014";
+    cell.dateLabel.text = [self.formatter stringFromDate:n.lastUpdate];
     return cell;
 }
 
