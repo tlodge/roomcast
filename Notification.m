@@ -2,7 +2,7 @@
 //  Notification.m
 //  roomcast
 //
-//  Created by Tom Lodge on 16/06/2014.
+//  Created by Tom Lodge on 17/06/2014.
 //  Copyright (c) 2014 Tom Lodge. All rights reserved.
 //
 
@@ -17,5 +17,6 @@
 @dynamic priority;
 @dynamic ttl;
 @dynamic lastUpdate;
+@dynamic read;
 
 @end

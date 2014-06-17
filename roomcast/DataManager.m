@@ -96,137 +96,6 @@ NSManagedObjectContext *context;
     return [NSArray array];
 }
 
-/*-(Apartment *) fetchApartmentWithObjectId:(NSString *) objectId{
-    
-    if (objectId == nil)
-        return nil;
-
-    
-    NSError *error;
-    
-    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
-    
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Apartment"  inManagedObjectContext:context];
-    
-    [fetchRequest setEntity:entity];
-    
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"objectId == %@", objectId];
-    [fetchRequest setPredicate:predicate];
-    
-    NSArray* fetchedApartment = [context executeFetchRequest:fetchRequest error:&error];
-    
-    if ([fetchedApartment count] > 0){
-        return [fetchedApartment objectAtIndex:0];
-    }
-    
-    return nil;
-    
-}*/
-/*
-
--(Message *) fetchMessageWithObjectId:(NSString *) objectId{
-    
-    if (objectId == nil)
-        return nil;
-
-    NSError *error;
-    
-    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
-    
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Message"  inManagedObjectContext:context];
-    
-    [fetchRequest setEntity:entity];
-    
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"objectId == %@", objectId];
-    [fetchRequest setPredicate:predicate];
-    
-    NSArray* fetchedMessage = [context executeFetchRequest:fetchRequest error:&error];
-    
-    if ([fetchedMessage count] > 0){
-        return [fetchedMessage objectAtIndex:0];
-    }
-    return nil;
-}
-
--(Development *) fetchDevelopmentWithObjectId:(NSString *) objectId{
-    
-    if (objectId == nil)
-        return nil;
-    
-    NSError *error;
-    
-    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
-    
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Development"  inManagedObjectContext:context];
-    
-    //[fetchRequest setReturnsObjectsAsFaults:NO];
-    
-    [fetchRequest setEntity:entity];
-    
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"objectId == %@", objectId];
-    [fetchRequest setPredicate:predicate];
-    
-    NSArray* fetchedDevelopment = [context executeFetchRequest:fetchRequest error:&error];
-    
-    if ([fetchedDevelopment count] > 0){
-        return [fetchedDevelopment objectAtIndex:0];
-    }
-    NSLog(@"returning nil for fetch dev with object id %@", objectId);
-    return nil;
-}
-
-
--(Block *) fetchBlockWithObjectId:(NSString *) objectId{
-    
-    if (objectId == nil)
-        return nil;
-    
-    NSError *error;
-    
-    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
-    
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Block"  inManagedObjectContext:context];
-    
-    //[fetchRequest setReturnsObjectsAsFaults:NO];
-    
-    [fetchRequest setEntity:entity];
-    
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"objectId == %@", objectId];
-    [fetchRequest setPredicate:predicate];
-    
-    NSArray* fetchedBlock = [context executeFetchRequest:fetchRequest error:&error];
-    
-    if ([fetchedBlock count] > 0){
-        return [fetchedBlock objectAtIndex:0];
-    }
-    return nil;
-}
-
--(Conversation *) fetchConversationWithObjectId:(NSString *) objectId{
-    
-    if (objectId == nil)
-        return nil;
-    
-    NSError *error;
-    
-    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
-    
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Conversation"  inManagedObjectContext:context];
-    
-    [fetchRequest setEntity:entity];
-    
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"objectId == %@", objectId];
-    [fetchRequest setPredicate:predicate];
-    
-    NSArray* fetchedConversation = [context executeFetchRequest:fetchRequest error:&error];
-    
-    if ([fetchedConversation count] > 0){
-        return [fetchedConversation objectAtIndex:0];
-    }
-    
-    return nil;
-}*/
-
 //move all of the methods above to this single generic one!
 
 -(NSManagedObject *) fetchCoreDataWithObjectId: (NSString *) objectId andType: (NSString*) type{
@@ -710,30 +579,6 @@ NSManagedObjectContext *context;
     ];
 
 }
-/*
--(void) createConversationWithMessage:(NSString *) message parameters:(NSDictionary *) params{
-    
-     PFObject *co = [PFObject objectWithClassName:@"Conversation"];
-     [co setObject:@"normal" forKey:@"type"];
-     [co setObject:message forKey:@"teaser"];
-     
-     PFObject *msg = [PFObject objectWithClassName:@"Message"];
-     [msg setObject:message forKey:@"message"];
-     [msg setObject:[NSNumber numberWithBool:NO] forKey:@"anonymous"];
-     [msg setObject:co forKey:@"conversation"];
-     
-     [msg saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-         if (succeeded){
-             BOOL stored = [self addConversationToCoreData:co withMessage: msg];
-             if (stored){
-                 NSMutableDictionary* userInfo = [NSMutableDictionary dictionary];
-                 [userInfo setObject:[co objectId] forKey:@"objectId"];
-                 [[NSNotificationCenter defaultCenter] postNotificationName:@"conversationUpdate" object:nil userInfo:userInfo];
-             }
-         }
-     }];
-}
-*/
 
 -(void) addMessageToConversation:(NSString*) message forobjectId:(NSString*)objectId{
     
@@ -853,8 +698,7 @@ NSManagedObjectContext *context;
     //[parameters addEntriesFromDictionary:params];
     
     [PFCloud callFunctionInBackground:@"buttonPressed" withParameters:parameters block:^(PFObject* message, NSError *error){
-            NSLog(@"am done!!");
-        
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"notificationsUpdate" object:nil];
         }
     ];
 

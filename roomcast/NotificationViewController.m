@@ -9,12 +9,13 @@
 #import "NotificationViewController.h"
 
 @interface NotificationViewController ()
-
+-(void) recalculateBadge;
 @end
 
 @implementation NotificationViewController
 
 @synthesize notifications;
+NSManagedObjectContext *context;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -28,21 +29,41 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+   
     self.formatter = [[NSDateFormatter alloc] init];
     [self.formatter setDateFormat:@"dd MMM HH:mm"];
     [self setupRefreshControl];
     
-  
+    id delegate = [[UIApplication sharedApplication] delegate];
+    context = [delegate managedObjectContext];
+
     self.notifications = [[DataManager sharedManager] notificationsForUser];
-   
+    [self recalculateBadge];
     
     [[NSNotificationCenter defaultCenter] addObserverForName:@"notificationsUpdate" object:nil queue:nil usingBlock:^(NSNotification *note) {
         self.notifications = [[DataManager sharedManager] notificationsForUser];
         
-        
+        [self recalculateBadge];
         [self.tableView reloadData];
         
     }];
+}
+
+-(void) recalculateBadge{
+    int unread = 0;
+    
+    for (int i =0; i < [self.notifications count]; i++){
+        Notification *n = [notifications objectAtIndex:i];
+        if (n.read == nil){
+            unread +=1;
+        }
+    }
+    
+    if (unread > 0){
+        [[self navigationController] tabBarItem].badgeValue = [NSString stringWithFormat:@"%d",unread];
+    }else{
+          [[self navigationController] tabBarItem].badgeValue = nil;
+    }
 }
 
 -(void) setupRefreshControl{
@@ -57,6 +78,7 @@
 -(void) refreshControlRequest{
     self.notifications = [[DataManager sharedManager] notificationsForUser];
     [self.refreshControl endRefreshing];
+    [self recalculateBadge];
     [self.tableView reloadData];
 }
 
@@ -66,7 +88,30 @@
     // Dispose of any resources that can be recreated.
 }
 
+
 #pragma mark - Table view data source
+
+-(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    Notification *n = [notifications objectAtIndex:indexPath.row];
+    
+    if (n.read == nil){
+        n.read = [NSDate date];
+        NSError *derror;
+        [context save:&derror];
+        
+        NSLog(@"saving %@", n);
+        
+        if (derror){
+            NSLog(@"error updating notification %@", derror);
+        }else{
+            NSLog(@"successfully updated the notificatioN!");
+        }
+    }
+    [self recalculateBadge];
+    [self.tableView reloadData];
+    [self.tableView selectRowAtIndexPath:indexPath animated:NO scrollPosition:UITableViewScrollPositionNone];
+}
+
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -92,11 +137,20 @@
         cell.messageLabel.textColor = [UIColor whiteColor];
         cell.dateLabel.textColor = [UIColor whiteColor];
     }
+    if (n.read == nil){
+        cell.readLabel.text = @"new";
+    }else{
+         cell.readLabel.text = @"";
+    }
+    
     cell.fromLabel.text = n.from;
     cell.messageLabel.text = n.message;
     cell.dateLabel.text = [self.formatter stringFromDate:n.lastUpdate];
+    
     return cell;
 }
+
+
 
 - (CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return 74.0;

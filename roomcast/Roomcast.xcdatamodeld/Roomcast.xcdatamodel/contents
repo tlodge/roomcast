@@ -39,6 +39,7 @@
         <attribute name="message" attributeType="String" syncable="YES"/>
         <attribute name="objectId" attributeType="String" indexed="YES" syncable="YES"/>
         <attribute name="priority" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="read" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="ttl" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
     </entity>
     <entity name="Space" representedClassName="Space" syncable="YES">
@@ -50,8 +51,8 @@
         <element name="Block" positionX="-1197" positionY="-684" width="128" height="103"/>
         <element name="Conversation" positionX="-1397" positionY="-522" width="128" height="163"/>
         <element name="Development" positionX="-1406" positionY="-682" width="128" height="103"/>
-        <element name="Message" positionX="-1197" positionY="-496" width="128" height="118"/>
-        <element name="Notification" positionX="-990" positionY="-576" width="128" height="133"/>
+        <element name="Notification" positionX="-990" positionY="-576" width="128" height="148"/>
         <element name="Space" positionX="-1199" positionY="-799" width="128" height="73"/>
+        <element name="Message" positionX="-1143" positionY="-531" width="128" height="120"/>
     </elements>
 </model>

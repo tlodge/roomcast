@@ -120,9 +120,9 @@
 		A3CA7F401857B75F0079FBB5 /* RegistrationFloorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3CA7F3F1857B75E0079FBB5 /* RegistrationFloorViewController.m */; };
 		A3CA7F421858CA3F0079FBB5 /* RespondView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A3CA7F411858CA3F0079FBB5 /* RespondView.xib */; };
 		A3CA7F451858CD650079FBB5 /* RespondView.m in Sources */ = {isa = PBXBuildFile; fileRef = A3CA7F441858CD650079FBB5 /* RespondView.m */; };
-		A3DD1F76194F4B83008617CA /* Notification.m in Sources */ = {isa = PBXBuildFile; fileRef = A3DD1F75194F4B83008617CA /* Notification.m */; };
 		A3DD1F79194F5442008617CA /* Conversation.m in Sources */ = {isa = PBXBuildFile; fileRef = A3DD1F78194F5442008617CA /* Conversation.m */; };
 		A3DD1F7C194F547F008617CA /* Message.m in Sources */ = {isa = PBXBuildFile; fileRef = A3DD1F7B194F547F008617CA /* Message.m */; };
+		A3DD1F7F19508DCF008617CA /* Notification.m in Sources */ = {isa = PBXBuildFile; fileRef = A3DD1F7E19508DCF008617CA /* Notification.m */; };
 		A3E7BF3E18C4E48700D37894 /* divider.png in Resources */ = {isa = PBXBuildFile; fileRef = A3E7BF3D18C4E48700D37894 /* divider.png */; };
 		A3E7BF4618C8C47400D37894 /* apartment_scope.png in Resources */ = {isa = PBXBuildFile; fileRef = A3E7BF4218C8C47400D37894 /* apartment_scope.png */; };
 		A3E7BF4718C8C47400D37894 /* development_scope.png in Resources */ = {isa = PBXBuildFile; fileRef = A3E7BF4318C8C47400D37894 /* development_scope.png */; };
@@ -317,12 +317,12 @@
 		A3CA7F411858CA3F0079FBB5 /* RespondView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RespondView.xib; sourceTree = "<group>"; };
 		A3CA7F431858CD650079FBB5 /* RespondView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RespondView.h; sourceTree = "<group>"; };
 		A3CA7F441858CD650079FBB5 /* RespondView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RespondView.m; sourceTree = "<group>"; };
-		A3DD1F74194F4B83008617CA /* Notification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Notification.h; sourceTree = "<group>"; };
-		A3DD1F75194F4B83008617CA /* Notification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Notification.m; sourceTree = "<group>"; };
 		A3DD1F77194F5442008617CA /* Conversation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Conversation.h; path = ../Conversation.h; sourceTree = "<group>"; };
 		A3DD1F78194F5442008617CA /* Conversation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Conversation.m; path = ../Conversation.m; sourceTree = "<group>"; };
 		A3DD1F7A194F547F008617CA /* Message.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Message.h; sourceTree = "<group>"; };
 		A3DD1F7B194F547F008617CA /* Message.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Message.m; sourceTree = "<group>"; };
+		A3DD1F7D19508DCF008617CA /* Notification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Notification.h; path = ../Notification.h; sourceTree = "<group>"; };
+		A3DD1F7E19508DCF008617CA /* Notification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Notification.m; path = ../Notification.m; sourceTree = "<group>"; };
 		A3E7BF3D18C4E48700D37894 /* divider.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = divider.png; sourceTree = "<group>"; };
 		A3E7BF4218C8C47400D37894 /* apartment_scope.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = apartment_scope.png; sourceTree = "<group>"; };
 		A3E7BF4318C8C47400D37894 /* development_scope.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = development_scope.png; sourceTree = "<group>"; };
@@ -751,12 +751,12 @@
 				A35E3B2C187F4E1A00C8FBF1 /* Block.m */,
 				A35E3B28187F4DE000C8FBF1 /* Development.h */,
 				A35E3B29187F4DE100C8FBF1 /* Development.m */,
-				A3DD1F74194F4B83008617CA /* Notification.h */,
-				A3DD1F75194F4B83008617CA /* Notification.m */,
 				A3DD1F77194F5442008617CA /* Conversation.h */,
 				A3DD1F78194F5442008617CA /* Conversation.m */,
 				A3DD1F7A194F547F008617CA /* Message.h */,
 				A3DD1F7B194F547F008617CA /* Message.m */,
+				A3DD1F7D19508DCF008617CA /* Notification.h */,
+				A3DD1F7E19508DCF008617CA /* Notification.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -969,7 +969,7 @@
 				A35E3B27187F4D8900C8FBF1 /* Space.m in Sources */,
 				A395194E18DF786D00109107 /* ButtonOptionsTableViewController.m in Sources */,
 				A3F88D36183019C000E3BFB0 /* MessageCell.m in Sources */,
-				A3DD1F76194F4B83008617CA /* Notification.m in Sources */,
+				A3DD1F7F19508DCF008617CA /* Notification.m in Sources */,
 				A3334D6C1845159500ECA8D5 /* BlockCell.m in Sources */,
 				A3B6DAED183E60C500A860CA /* DestinationViewController.m in Sources */,
 				A395195D18E5E51200109107 /* ButtonOptionsCell.m in Sources */,
