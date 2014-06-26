@@ -125,12 +125,19 @@ NSManagedObjectContext *context;
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"NotificationCell";
-    
-    NotificationCell *cell =  (NotificationCell*) [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-    
     Notification *n = [notifications objectAtIndex:indexPath.row];
     
+    NotificationCell *cell = nil;
+    
+    NSLog(@"notification type is %@", n.type);
+    
+    if ([n.type isEqualToString:@"feedback"]){
+        cell = (FeedbackCell*) [tableView dequeueReusableCellWithIdentifier:@"FeedbackCell" forIndexPath:indexPath];
+    }else{
+        cell = (NotificationCell*) [tableView dequeueReusableCellWithIdentifier:@"NotificationCell" forIndexPath:indexPath];
+    }
+       
+        
     if ([n.priority intValue] > 0){
         cell.backgroundColor = UIColorFromRGB(0xa02c2c);
         cell.fromLabel.textColor = [UIColor whiteColor];

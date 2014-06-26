@@ -70,6 +70,24 @@
 }
 
 - (IBAction)sendPressed:(id)sender {
+    
+    if ([self.sendText.text length] == 0)
+            return;
+        
+    NSArray *spaces = [[[self.scope objectForKey:self.currentScope] allObjects] valueForKey:@"objectId"];
+        
+    for (int i = 0; i < [spaces count]; i++){
+        NSLog(@"%@", [spaces objectAtIndex:i]);
+    }
+        
+    NSDictionary *scopeparam = [[NSDictionary alloc] initWithObjectsAndKeys:self.currentScope,@"type", spaces,@"list", nil];
+        
+    NSDictionary *parameters = [[NSDictionary alloc] initWithObjectsAndKeys:scopeparam,@"scope", nil];
+    
+    NSLog(@"parameters are %@", parameters);
+    
+  [[DataManager sharedManager ]createConversationWithMessage:self.sendText.text parameters:parameters];
+
 }
 
 /*

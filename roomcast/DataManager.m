@@ -170,6 +170,8 @@ NSManagedObjectContext *context;
                         [n setValue:[notification objectForKey:@"priority"] forKey:@"priority"];
                         [n setValue:[notification objectForKey:@"message"] forKey:@"message"];
                         
+                        [n setValue:[notification objectForKey:@"type"] forKey:@"type"];
+                        
                         [n setValue:[notification updatedAt] forKey:@"lastUpdate"];
                        
                         NSError *derror;
@@ -248,7 +250,7 @@ NSManagedObjectContext *context;
     
     [PFCloud callFunctionInBackground:@"buttonsForUser" withParameters:parameters block:^(NSArray* buttons, NSError *error){
         if(!error){
-            if (buttons){
+            if (buttons && [buttons count] > 0){
                 NSLog(@"got buttons from parse!");
                 NSLog(@"%@", buttons);
                 

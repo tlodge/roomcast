@@ -36,7 +36,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-  
+    NSLog(@"I AM USING THIS!!");
+    
     self.development  = [[DataManager sharedManager] development];
     
     [[NSNotificationCenter defaultCenter] addObserverForName:@"conversationsUpdate" object:nil queue:nil usingBlock:^(NSNotification *note) {

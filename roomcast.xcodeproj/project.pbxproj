@@ -120,9 +120,16 @@
 		A3CA7F401857B75F0079FBB5 /* RegistrationFloorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3CA7F3F1857B75E0079FBB5 /* RegistrationFloorViewController.m */; };
 		A3CA7F421858CA3F0079FBB5 /* RespondView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A3CA7F411858CA3F0079FBB5 /* RespondView.xib */; };
 		A3CA7F451858CD650079FBB5 /* RespondView.m in Sources */ = {isa = PBXBuildFile; fileRef = A3CA7F441858CD650079FBB5 /* RespondView.m */; };
+		A3CFB34C195C149E005D1D14 /* FeedbackCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A3CFB34B195C149D005D1D14 /* FeedbackCell.m */; };
+		A3CFB34F195C2549005D1D14 /* FeedbackTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3CFB34E195C2549005D1D14 /* FeedbackTableViewController.m */; };
+		A3CFB352195C25D6005D1D14 /* FeedbackItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A3CFB351195C25D6005D1D14 /* FeedbackItemCell.m */; };
+		A3CFB354195C29AD005D1D14 /* feedback_veryhappy.png in Resources */ = {isa = PBXBuildFile; fileRef = A3CFB353195C29AD005D1D14 /* feedback_veryhappy.png */; };
+		A3CFB359195C2CDF005D1D14 /* feedback_unhappy.png in Resources */ = {isa = PBXBuildFile; fileRef = A3CFB356195C2CDF005D1D14 /* feedback_unhappy.png */; };
+		A3CFB35A195C2CDF005D1D14 /* feedback_happy.png in Resources */ = {isa = PBXBuildFile; fileRef = A3CFB357195C2CDF005D1D14 /* feedback_happy.png */; };
+		A3CFB35C195C3040005D1D14 /* feedback_veryunhappy.png in Resources */ = {isa = PBXBuildFile; fileRef = A3CFB35B195C3040005D1D14 /* feedback_veryunhappy.png */; };
+		A3CFB35F195C3164005D1D14 /* Notification.m in Sources */ = {isa = PBXBuildFile; fileRef = A3CFB35E195C3164005D1D14 /* Notification.m */; };
 		A3DD1F79194F5442008617CA /* Conversation.m in Sources */ = {isa = PBXBuildFile; fileRef = A3DD1F78194F5442008617CA /* Conversation.m */; };
 		A3DD1F7C194F547F008617CA /* Message.m in Sources */ = {isa = PBXBuildFile; fileRef = A3DD1F7B194F547F008617CA /* Message.m */; };
-		A3DD1F7F19508DCF008617CA /* Notification.m in Sources */ = {isa = PBXBuildFile; fileRef = A3DD1F7E19508DCF008617CA /* Notification.m */; };
 		A3E7BF3E18C4E48700D37894 /* divider.png in Resources */ = {isa = PBXBuildFile; fileRef = A3E7BF3D18C4E48700D37894 /* divider.png */; };
 		A3E7BF4618C8C47400D37894 /* apartment_scope.png in Resources */ = {isa = PBXBuildFile; fileRef = A3E7BF4218C8C47400D37894 /* apartment_scope.png */; };
 		A3E7BF4718C8C47400D37894 /* development_scope.png in Resources */ = {isa = PBXBuildFile; fileRef = A3E7BF4318C8C47400D37894 /* development_scope.png */; };
@@ -317,12 +324,22 @@
 		A3CA7F411858CA3F0079FBB5 /* RespondView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RespondView.xib; sourceTree = "<group>"; };
 		A3CA7F431858CD650079FBB5 /* RespondView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RespondView.h; sourceTree = "<group>"; };
 		A3CA7F441858CD650079FBB5 /* RespondView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RespondView.m; sourceTree = "<group>"; };
+		A3CFB34A195C149D005D1D14 /* FeedbackCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedbackCell.h; sourceTree = "<group>"; };
+		A3CFB34B195C149D005D1D14 /* FeedbackCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedbackCell.m; sourceTree = "<group>"; };
+		A3CFB34D195C2548005D1D14 /* FeedbackTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedbackTableViewController.h; sourceTree = "<group>"; };
+		A3CFB34E195C2549005D1D14 /* FeedbackTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedbackTableViewController.m; sourceTree = "<group>"; };
+		A3CFB350195C25D6005D1D14 /* FeedbackItemCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedbackItemCell.h; sourceTree = "<group>"; };
+		A3CFB351195C25D6005D1D14 /* FeedbackItemCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedbackItemCell.m; sourceTree = "<group>"; };
+		A3CFB353195C29AD005D1D14 /* feedback_veryhappy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = feedback_veryhappy.png; sourceTree = "<group>"; };
+		A3CFB356195C2CDF005D1D14 /* feedback_unhappy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = feedback_unhappy.png; sourceTree = "<group>"; };
+		A3CFB357195C2CDF005D1D14 /* feedback_happy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = feedback_happy.png; sourceTree = "<group>"; };
+		A3CFB35B195C3040005D1D14 /* feedback_veryunhappy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = feedback_veryunhappy.png; sourceTree = "<group>"; };
+		A3CFB35D195C3164005D1D14 /* Notification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Notification.h; sourceTree = "<group>"; };
+		A3CFB35E195C3164005D1D14 /* Notification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Notification.m; sourceTree = "<group>"; };
 		A3DD1F77194F5442008617CA /* Conversation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Conversation.h; path = ../Conversation.h; sourceTree = "<group>"; };
 		A3DD1F78194F5442008617CA /* Conversation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Conversation.m; path = ../Conversation.m; sourceTree = "<group>"; };
 		A3DD1F7A194F547F008617CA /* Message.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Message.h; sourceTree = "<group>"; };
 		A3DD1F7B194F547F008617CA /* Message.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Message.m; sourceTree = "<group>"; };
-		A3DD1F7D19508DCF008617CA /* Notification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Notification.h; path = ../Notification.h; sourceTree = "<group>"; };
-		A3DD1F7E19508DCF008617CA /* Notification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Notification.m; path = ../Notification.m; sourceTree = "<group>"; };
 		A3E7BF3D18C4E48700D37894 /* divider.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = divider.png; sourceTree = "<group>"; };
 		A3E7BF4218C8C47400D37894 /* apartment_scope.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = apartment_scope.png; sourceTree = "<group>"; };
 		A3E7BF4318C8C47400D37894 /* development_scope.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = development_scope.png; sourceTree = "<group>"; };
@@ -628,6 +645,10 @@
 		A37C6EDD181954090042489D /* images */ = {
 			isa = PBXGroup;
 			children = (
+				A3CFB35B195C3040005D1D14 /* feedback_veryunhappy.png */,
+				A3CFB356195C2CDF005D1D14 /* feedback_unhappy.png */,
+				A3CFB357195C2CDF005D1D14 /* feedback_happy.png */,
+				A3CFB353195C29AD005D1D14 /* feedback_veryhappy.png */,
 				A384811C18EA086A00C125A2 /* cursor.png */,
 				A395193118DDDCE300109107 /* filter_landlord.png */,
 				A395193218DDDCE300109107 /* filter_resident_owners.png */,
@@ -695,6 +716,8 @@
 				A395193E18DDEA4600109107 /* TableCells */,
 				A395193B18DDE6AE00109107 /* NotificationViewController.h */,
 				A395193C18DDE6AE00109107 /* NotificationViewController.m */,
+				A3CFB34D195C2548005D1D14 /* FeedbackTableViewController.h */,
+				A3CFB34E195C2549005D1D14 /* FeedbackTableViewController.m */,
 			);
 			name = Notifications;
 			sourceTree = "<group>";
@@ -704,6 +727,10 @@
 			children = (
 				A395193F18DDEA6100109107 /* NotificationCell.h */,
 				A395194018DDEA6100109107 /* NotificationCell.m */,
+				A3CFB34A195C149D005D1D14 /* FeedbackCell.h */,
+				A3CFB34B195C149D005D1D14 /* FeedbackCell.m */,
+				A3CFB350195C25D6005D1D14 /* FeedbackItemCell.h */,
+				A3CFB351195C25D6005D1D14 /* FeedbackItemCell.m */,
 			);
 			name = TableCells;
 			sourceTree = "<group>";
@@ -755,8 +782,8 @@
 				A3DD1F78194F5442008617CA /* Conversation.m */,
 				A3DD1F7A194F547F008617CA /* Message.h */,
 				A3DD1F7B194F547F008617CA /* Message.m */,
-				A3DD1F7D19508DCF008617CA /* Notification.h */,
-				A3DD1F7E19508DCF008617CA /* Notification.m */,
+				A3CFB35D195C3164005D1D14 /* Notification.h */,
+				A3CFB35E195C3164005D1D14 /* Notification.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -854,6 +881,7 @@
 				A335AA27184F7181007096A4 /* responses_dark.png in Resources */,
 				A3E7BF4618C8C47400D37894 /* apartment_scope.png in Resources */,
 				A395193618DDDCE300109107 /* filter_tenant.png in Resources */,
+				A3CFB35A195C2CDF005D1D14 /* feedback_happy.png in Resources */,
 				A3BD193B1850BD8C004EB6BD /* settings_selected@2x.png in Resources */,
 				A39E8BC1185F5C6C00600856 /* background_frame.png in Resources */,
 				A3BD18FD1850A936004EB6BD /* help.png in Resources */,
@@ -879,6 +907,7 @@
 				A335AA3F184F7F44007096A4 /* switchoff.png in Resources */,
 				A34354D918B401AF00C0A34C /* notification_selected@2x.png in Resources */,
 				A335AA28184F7181007096A4 /* responses_light.png in Resources */,
+				A3CFB359195C2CDF005D1D14 /* feedback_unhappy.png in Resources */,
 				A335AA4A184F85A3007096A4 /* textback.png in Resources */,
 				A3F88DFE1833E05A00E3BFB0 /* Roomcast.sqlite in Resources */,
 				A395193418DDDCE300109107 /* filter_landlord.png in Resources */,
@@ -893,6 +922,8 @@
 				A335AA38184F77A3007096A4 /* rightnav.png in Resources */,
 				A3F88D19182ED87A00E3BFB0 /* howmanybutton.png in Resources */,
 				A335AA46184F849C007096A4 /* message_recipient_back.png in Resources */,
+				A3CFB35C195C3040005D1D14 /* feedback_veryunhappy.png in Resources */,
+				A3CFB354195C29AD005D1D14 /* feedback_veryhappy.png in Resources */,
 				A3C1056418BE892A00E524A5 /* filter.png in Resources */,
 				A3CA7F3A18575F110079FBB5 /* mapframe.png in Resources */,
 				A317AC1918283BBB00BE7E46 /* accdetails.png in Resources */,
@@ -943,6 +974,7 @@
 				A37C6EF0181971020042489D /* AuthViewController.m in Sources */,
 				A38F717118BCE777009B7CD5 /* RootAudienceViewController.m in Sources */,
 				A3CA7F3D185788130079FBB5 /* RegistrationBlockViewController.m in Sources */,
+				A3CFB34C195C149E005D1D14 /* FeedbackCell.m in Sources */,
 				A35E3B15187DBCD400C8FBF1 /* DevelopmentsViewController.m in Sources */,
 				A37C6EBF181952040042489D /* ViewController.m in Sources */,
 				A335AA201847AC07007096A4 /* DataManager.m in Sources */,
@@ -957,9 +989,12 @@
 				A37C6EB9181952040042489D /* AppDelegate.m in Sources */,
 				A3334D7D18468FFB00ECA8D5 /* RootTabViewController.m in Sources */,
 				A37C6EB5181952040042489D /* main.m in Sources */,
+				A3CFB35F195C3164005D1D14 /* Notification.m in Sources */,
 				A35E3B2D187F4E1A00C8FBF1 /* Block.m in Sources */,
 				A3DD1F7C194F547F008617CA /* Message.m in Sources */,
+				A3CFB352195C25D6005D1D14 /* FeedbackItemCell.m in Sources */,
 				A3B6DAEA183BE0FA00A860CA /* RegistrationViewController.m in Sources */,
+				A3CFB34F195C2549005D1D14 /* FeedbackTableViewController.m in Sources */,
 				A3F88D15182D445D00E3BFB0 /* ChatViewController.m in Sources */,
 				A395192D18DDDA3900109107 /* FilterViewController.m in Sources */,
 				A3334D451843B41800ECA8D5 /* ScopeCell.m in Sources */,
@@ -969,7 +1004,6 @@
 				A35E3B27187F4D8900C8FBF1 /* Space.m in Sources */,
 				A395194E18DF786D00109107 /* ButtonOptionsTableViewController.m in Sources */,
 				A3F88D36183019C000E3BFB0 /* MessageCell.m in Sources */,
-				A3DD1F7F19508DCF008617CA /* Notification.m in Sources */,
 				A3334D6C1845159500ECA8D5 /* BlockCell.m in Sources */,
 				A3B6DAED183E60C500A860CA /* DestinationViewController.m in Sources */,
 				A395195D18E5E51200109107 /* ButtonOptionsCell.m in Sources */,
