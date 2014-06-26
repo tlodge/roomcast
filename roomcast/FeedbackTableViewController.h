@@ -8,8 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import "FeedbackItemCell.h"
+#import "FeedbackProtocol.h"
 
 @interface FeedbackTableViewController : UITableViewController
 @property(nonatomic, strong) NSArray* images;
 @property(nonatomic, strong) NSArray* labels;
+@property(nonatomic, assign) id <FeebackSelectedDelegate> delegate;
 @end

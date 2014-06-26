@@ -1184,10 +1184,10 @@
             </objects>
             <point key="canvasLocation" x="1174" y="-314"/>
         </scene>
-        <!--View Controller-->
+        <!--Root Feedback Controller-->
         <scene sceneID="W96-My-q9A">
             <objects>
-                <viewController id="Exn-Im-Ahv" sceneMemberID="viewController">
+                <viewController id="Exn-Im-Ahv" customClass="RootFeedbackController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="UkH-1H-s0z"/>
                         <viewControllerLayoutGuide type="bottom" id="vFg-gy-fT3"/>
@@ -1210,7 +1210,11 @@
                                 <color key="backgroundColor" red="0.92156862750000001" green="0.61176470589999998" blue="0.28627450980000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <items>
                                     <barButtonItem width="121" style="plain" systemItem="fixedSpace" id="Ntx-ck-7Ff"/>
-                                    <barButtonItem title="send" id="FIk-7k-yqW"/>
+                                    <barButtonItem title="send" id="FIk-7k-yqW">
+                                        <connections>
+                                            <action selector="sendPressed:" destination="Exn-Im-Ahv" id="ge0-jW-1pl"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </items>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </toolbar>

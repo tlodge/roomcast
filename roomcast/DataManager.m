@@ -607,6 +607,10 @@ NSManagedObjectContext *context;
     }];
 }
 
+-(void) setRatingFor:(NSString*)notificationId withValue:(int)rating{
+    NSLog(@"Would contact cloud code with %@ %d", notificationId, rating);
+}
+
 #pragma getter public methods
 
 

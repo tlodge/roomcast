@@ -201,16 +201,23 @@ NSManagedObjectContext *context;
 }
 */
 
-/*
+
 #pragma mark - Navigation
 
 // In a story board-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
+    NSIndexPath *path = [self.tableView indexPathForSelectedRow];
+    Notification *n = [notifications objectAtIndex:path.row];
+    
+    RootFeedbackController* fc = (RootFeedbackController*) [segue destinationViewController];
+    
+    fc.notificationId = n.objectId;
+    
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    
 }
 
- */
 
 @end

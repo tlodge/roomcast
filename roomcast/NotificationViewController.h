@@ -11,6 +11,7 @@
 #import "DataManager.h"
 #import "NotificationCell.h"
 #import "FeedbackCell.h"
+#import "RootFeedbackController.h"
 
 @interface NotificationViewController : UITableViewController
 @property(nonatomic, strong) NSArray* notifications;

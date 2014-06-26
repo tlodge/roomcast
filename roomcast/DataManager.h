@@ -36,8 +36,11 @@
 
 
 -(void) addMessageToConversation:(NSString*) message forConversationId:(NSString*)conversationId;
+
 -(void) createConversationWithMessage:(NSString *) message parameters:(NSDictionary *) params;
 
+-(void) setRatingFor:(NSString*)notificationId withValue:(int)rating;
+    
 -(NSArray *) neighboursForDevelopment:(NSString*)objectId;
 -(NSArray *) conversationsForUser;
 -(NSArray *) buttonsForUser;
