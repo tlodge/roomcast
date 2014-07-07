@@ -240,7 +240,6 @@
                     <tabBar key="tabBar" contentMode="scaleToFill" barStyle="black" translucent="NO" id="Kn0-t4-dmo">
                         <rect key="frame" x="129" y="330" width="163" height="49"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                        <color key="tintColor" red="0.92156862745098034" green="0.61176470588235299" blue="0.28627450980392155" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="barTintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
@@ -386,6 +385,8 @@
                     <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="arR-vy-EcN">
                         <rect key="frame" x="0.0" y="436" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" red="0.83137254901960778" green="0.50196078431372548" blue="0.21568627450980393" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="barTintColor" red="0.83137254900000002" green="0.50196078430000002" blue="0.2156862745" alpha="1" colorSpace="calibratedRGB"/>
                     </toolbar>
                     <connections>
                         <segue destination="O2u-eD-W25" kind="relationship" relationship="rootViewController" id="sbg-cb-Smg"/>
@@ -463,13 +464,17 @@
                             <collectionView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="r0i-ae-dJL">
                                 <rect key="frame" x="0.0" y="55" width="320" height="443"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.12549019607843137" green="0.12156862745098039" blue="0.12156862745098039" alpha="1" colorSpace="calibratedRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="iDS-o1-2Wo">
                                     <size key="itemSize" width="130" height="120"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
+                                <imageView key="backgroundView" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lillieback.png" id="JJ1-gs-ZOJ">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="443"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                </imageView>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ButtonCell" id="CFa-PY-DfD" customClass="ButtonCell">
                                         <rect key="frame" x="0.0" y="0.0" width="130" height="120"/>
@@ -481,8 +486,8 @@
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CTZ-FT-jGq">
                                                     <rect key="frame" x="-3" y="49" width="130" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="15"/>
-                                                    <color key="textColor" red="0.0" green="0.50196078430000002" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="13"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -503,8 +508,8 @@
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dYX-IO-ajs">
                                                     <rect key="frame" x="-3" y="49" width="130" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="15"/>
-                                                    <color key="textColor" red="0.0" green="0.50196078430000002" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="13"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -1972,6 +1977,7 @@
         <image name="feedback_veryhappy.png" width="100" height="98"/>
         <image name="filter.png" width="70" height="70"/>
         <image name="help.png" width="640" height="140"/>
+        <image name="lillieback.png" width="647" height="971"/>
         <image name="mapframe.png" width="600" height="860"/>
         <image name="messageback.png" width="640" height="150"/>
         <image name="notification_selected.png" width="25" height="25"/>
@@ -1980,6 +1986,7 @@
         <image name="settings_selected.png" width="25" height="25"/>
         <image name="within_scope.png" width="70" height="70"/>
     </resources>
+    <color key="tintColor" red="0.83137254900000002" green="0.50196078430000002" blue="0.2156862745" alpha="1" colorSpace="calibratedRGB"/>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

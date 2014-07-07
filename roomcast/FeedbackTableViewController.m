@@ -108,7 +108,7 @@
 */
 
 -(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    [self.delegate didSelectRating:indexPath.row+1];
+    [self.delegate didSelectRating: 4 - indexPath.row];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {

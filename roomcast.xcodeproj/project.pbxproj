@@ -129,6 +129,8 @@
 		A3CFB35C195C3040005D1D14 /* feedback_veryunhappy.png in Resources */ = {isa = PBXBuildFile; fileRef = A3CFB35B195C3040005D1D14 /* feedback_veryunhappy.png */; };
 		A3CFB35F195C3164005D1D14 /* Notification.m in Sources */ = {isa = PBXBuildFile; fileRef = A3CFB35E195C3164005D1D14 /* Notification.m */; };
 		A3CFB365195CAB8E005D1D14 /* RootFeedbackController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3CFB364195CAB8E005D1D14 /* RootFeedbackController.m */; };
+		A3CFB368196B275D005D1D14 /* lillieback@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A3CFB366196B275D005D1D14 /* lillieback@2x.png */; };
+		A3CFB369196B275D005D1D14 /* lillieback.png in Resources */ = {isa = PBXBuildFile; fileRef = A3CFB367196B275D005D1D14 /* lillieback.png */; };
 		A3DD1F79194F5442008617CA /* Conversation.m in Sources */ = {isa = PBXBuildFile; fileRef = A3DD1F78194F5442008617CA /* Conversation.m */; };
 		A3DD1F7C194F547F008617CA /* Message.m in Sources */ = {isa = PBXBuildFile; fileRef = A3DD1F7B194F547F008617CA /* Message.m */; };
 		A3E7BF3E18C4E48700D37894 /* divider.png in Resources */ = {isa = PBXBuildFile; fileRef = A3E7BF3D18C4E48700D37894 /* divider.png */; };
@@ -340,6 +342,8 @@
 		A3CFB360195CAAD8005D1D14 /* FeedbackProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedbackProtocol.h; sourceTree = "<group>"; };
 		A3CFB363195CAB8E005D1D14 /* RootFeedbackController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootFeedbackController.h; sourceTree = "<group>"; };
 		A3CFB364195CAB8E005D1D14 /* RootFeedbackController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootFeedbackController.m; sourceTree = "<group>"; };
+		A3CFB366196B275D005D1D14 /* lillieback@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "lillieback@2x.png"; sourceTree = "<group>"; };
+		A3CFB367196B275D005D1D14 /* lillieback.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lillieback.png; sourceTree = "<group>"; };
 		A3DD1F77194F5442008617CA /* Conversation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Conversation.h; path = ../Conversation.h; sourceTree = "<group>"; };
 		A3DD1F78194F5442008617CA /* Conversation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Conversation.m; path = ../Conversation.m; sourceTree = "<group>"; };
 		A3DD1F7A194F547F008617CA /* Message.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Message.h; sourceTree = "<group>"; };
@@ -649,6 +653,8 @@
 		A37C6EDD181954090042489D /* images */ = {
 			isa = PBXGroup;
 			children = (
+				A3CFB366196B275D005D1D14 /* lillieback@2x.png */,
+				A3CFB367196B275D005D1D14 /* lillieback.png */,
 				A3CFB35B195C3040005D1D14 /* feedback_veryunhappy.png */,
 				A3CFB356195C2CDF005D1D14 /* feedback_unhappy.png */,
 				A3CFB357195C2CDF005D1D14 /* feedback_happy.png */,
@@ -930,8 +936,10 @@
 				A3F88D19182ED87A00E3BFB0 /* howmanybutton.png in Resources */,
 				A335AA46184F849C007096A4 /* message_recipient_back.png in Resources */,
 				A3CFB35C195C3040005D1D14 /* feedback_veryunhappy.png in Resources */,
+				A3CFB369196B275D005D1D14 /* lillieback.png in Resources */,
 				A3CFB354195C29AD005D1D14 /* feedback_veryhappy.png in Resources */,
 				A3C1056418BE892A00E524A5 /* filter.png in Resources */,
+				A3CFB368196B275D005D1D14 /* lillieback@2x.png in Resources */,
 				A3CA7F3A18575F110079FBB5 /* mapframe.png in Resources */,
 				A317AC1918283BBB00BE7E46 /* accdetails.png in Resources */,
 				A37C6EB3181952040042489D /* InfoPlist.strings in Resources */,

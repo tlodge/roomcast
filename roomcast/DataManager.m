@@ -609,6 +609,15 @@ NSManagedObjectContext *context;
 
 -(void) setRatingFor:(NSString*)notificationId withValue:(int)rating{
     NSLog(@"Would contact cloud code with %@ %d", notificationId, rating);
+    NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
+    [parameters setObject:[NSNumber numberWithInt:rating] forKey:@"rating"];
+    [parameters setObject:notificationId forKey:@"notificationId"];
+    NSLog(@"params are %@", parameters);
+    
+    [PFCloud callFunctionInBackground:@"provideFeedback" withParameters:parameters block:^(NSString* message, NSError *error){
+            NSLog(@"got response %@",  message);
+        }
+     ];
 }
 
 #pragma getter public methods

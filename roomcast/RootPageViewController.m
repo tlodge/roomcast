@@ -52,7 +52,7 @@
         }
         
         [self.pageViewController setViewControllers:[NSArray arrayWithObject:[self viewControllerAtIndex:0]] direction:UIPageViewControllerNavigationDirectionForward animated:NO completion:nil];
-    }];
+        }];
     _pageTitles = [NSMutableArray array];
     [_pageTitles addObject:@""];
     

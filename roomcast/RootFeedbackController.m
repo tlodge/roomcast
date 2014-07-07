@@ -58,7 +58,8 @@
 
 
 - (IBAction)sendPressed:(id)sender {
-    NSLog(@"send pressed and rating is %d", self.rating);
+   
     [[DataManager sharedManager] setRatingFor:self.notificationId withValue:self.rating];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 @end

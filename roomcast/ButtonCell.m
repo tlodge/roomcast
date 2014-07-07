@@ -29,15 +29,29 @@
 // An empty implementation adversely affects performance during animation.
 - (void)drawRect:(CGRect)rect
 {
+    CGFloat padding = 5.0;
+    
+    CGRect buttonRect = CGRectMake(padding, padding, rect.size.width- (2*padding), rect.size.height-(2*padding));
+    
     CGFloat lineWidth = 3.0;
     CGContextRef ctx = UIGraphicsGetCurrentContext();
     CGContextSetLineWidth(ctx, lineWidth);
-    CGContextSetFillColor(ctx, CGColorGetComponents([_fillColor CGColor]));
-  
-    CGContextSetStrokeColorWithColor(ctx, [UIColorFromRGB(0x008080) CGColor]);
-    CGRect borderRect = CGRectInset(rect, lineWidth*0.5, lineWidth*0.5);
-    CGContextFillEllipseInRect(ctx, rect);
+    //CGContextSetFillColor(ctx, CGColorGetComponents([_fillColor CGColor]));
+    CGContextSetFillColorWithColor(ctx, [UIColorAlphaFromRGB(0x201f1f) CGColor]);
+    CGContextSetStrokeColorWithColor(ctx, [UIColorFromRGB(0xd48037) CGColor]);
+    CGRect borderRect = CGRectInset(buttonRect, lineWidth*0.5, lineWidth*0.5);
+    CGContextFillEllipseInRect(ctx, buttonRect);
     CGContextStrokeEllipseInRect(ctx, borderRect);
+    
+    CGRect labelRect = CGRectMake(0, rect.size.height / 2 - (30/2), rect.size.width, 30);
+    UIBezierPath *bezierPath = [UIBezierPath bezierPathWithRoundedRect:labelRect cornerRadius:6.0];
+    
+    CGContextSetStrokeColorWithColor(ctx, [UIColorFromRGB(0x201f1f) CGColor]);
+    
+    CGContextSetFillColorWithColor(ctx, [UIColorFromRGB(0xd48037) CGColor]);
+    [bezierPath fill];
+    bezierPath.lineWidth = 3.0;
+    [bezierPath stroke];
 }
 
 
