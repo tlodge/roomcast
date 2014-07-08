@@ -10,12 +10,14 @@
 
 @interface NotificationViewController ()
 -(void) recalculateBadge;
+-(unsigned long) colourForName:(NSString *) name;
 @end
 
 @implementation NotificationViewController
 
 @synthesize notifications;
 NSManagedObjectContext *context;
+//unsigned long colours[5] = {0x839973,0xaac390,0xd48037,0xbe885a,0x201f1f};
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -29,7 +31,10 @@ NSManagedObjectContext *context;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-   
+    
+
+    self.colours = [NSDictionary dictionaryWithObjects:@[[NSNumber numberWithLong:0x839973],[NSNumber numberWithLong:0xaac390],[NSNumber numberWithLong:0xd48037],[NSNumber numberWithLong:0xbe885a],[NSNumber numberWithLong:0x201f1f]] forKeys:@[@"security",@"maintenance",@"concierge",@"cleaner",@"feedback"]];
+    
     self.formatter = [[NSDateFormatter alloc] init];
     [self.formatter setDateFormat:@"dd MMM HH:mm"];
     [self setupRefreshControl];
@@ -129,12 +134,20 @@ NSManagedObjectContext *context;
     
     NotificationCell *cell = nil;
     
-    NSLog(@"notification type is %@", n.type);
-    
+
     if ([n.type isEqualToString:@"feedback"]){
         cell = (FeedbackCell*) [tableView dequeueReusableCellWithIdentifier:@"FeedbackCell" forIndexPath:indexPath];
+         cell.fromImage.image = [UIImage imageNamed:@"notification_feedback.png"];
+        unsigned long colour = [self colourForName:@"feedback"];
+        [cell.fromView setFillColor: UIColorFromRGB(colour)];
     }else{
         cell = (NotificationCell*) [tableView dequeueReusableCellWithIdentifier:@"NotificationCell" forIndexPath:indexPath];
+        
+        unsigned long colour = [self colourForName:n.from];
+        
+        cell.fromImage.image = [UIImage imageNamed:[NSString stringWithFormat:@"notification_%@.png", n.from]];
+        [cell.fromView setFillColor: UIColorFromRGB(colour)];
+        [cell.fromView setNeedsDisplay];
     }
        
         
@@ -157,6 +170,15 @@ NSManagedObjectContext *context;
     return cell;
 }
 
+-(unsigned long) colourForName:(NSString*)name{
+    
+    NSNumber* colour = [self.colours objectForKey:name];
+    if (colour){
+        return [colour longValue];
+    }else{
+        return 0x201f1f;
+    }
+}
 
 
 - (CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{

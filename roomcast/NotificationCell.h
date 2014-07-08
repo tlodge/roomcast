@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "FromView.h"
 
 @interface NotificationCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UILabel *messageLabel;
@@ -14,5 +15,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *dateLabel;
 
 @property (weak, nonatomic) IBOutlet UILabel *readLabel;
+@property (weak, nonatomic) IBOutlet FromView *fromView;
+@property (weak, nonatomic) IBOutlet UIImageView *fromImage;
 
 @end

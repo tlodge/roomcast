@@ -52,6 +52,13 @@
 		A35E3B2A187F4DE100C8FBF1 /* Development.m in Sources */ = {isa = PBXBuildFile; fileRef = A35E3B29187F4DE100C8FBF1 /* Development.m */; };
 		A35E3B2D187F4E1A00C8FBF1 /* Block.m in Sources */ = {isa = PBXBuildFile; fileRef = A35E3B2C187F4E1A00C8FBF1 /* Block.m */; };
 		A35E3B30187F4E5600C8FBF1 /* Apartment.m in Sources */ = {isa = PBXBuildFile; fileRef = A35E3B2F187F4E5600C8FBF1 /* Apartment.m */; };
+		A37612F2196C4C3C00CA168D /* FromView.m in Sources */ = {isa = PBXBuildFile; fileRef = A37612F1196C4C3C00CA168D /* FromView.m */; };
+		A37612F4196C50B500CA168D /* notficationback.png in Resources */ = {isa = PBXBuildFile; fileRef = A37612F3196C50B500CA168D /* notficationback.png */; };
+		A37612F6196C540B00CA168D /* notification_security.png in Resources */ = {isa = PBXBuildFile; fileRef = A37612F5196C540B00CA168D /* notification_security.png */; };
+		A37612F8196C553500CA168D /* notification_maintenance.png in Resources */ = {isa = PBXBuildFile; fileRef = A37612F7196C553500CA168D /* notification_maintenance.png */; };
+		A37612FC196C58F400CA168D /* notification_feedback.png in Resources */ = {isa = PBXBuildFile; fileRef = A37612F9196C58F400CA168D /* notification_feedback.png */; };
+		A37612FD196C58F400CA168D /* notification_concierge.png in Resources */ = {isa = PBXBuildFile; fileRef = A37612FA196C58F400CA168D /* notification_concierge.png */; };
+		A37612FE196C58F400CA168D /* notification_cleaner.png in Resources */ = {isa = PBXBuildFile; fileRef = A37612FB196C58F400CA168D /* notification_cleaner.png */; };
 		A37C6EA9181952040042489D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A37C6EA8181952040042489D /* Foundation.framework */; };
 		A37C6EAB181952040042489D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A37C6EAA181952040042489D /* CoreGraphics.framework */; };
 		A37C6EAD181952040042489D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A37C6EAC181952040042489D /* UIKit.framework */; };
@@ -231,6 +238,14 @@
 		A35E3B2C187F4E1A00C8FBF1 /* Block.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Block.m; sourceTree = "<group>"; };
 		A35E3B2E187F4E5600C8FBF1 /* Apartment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Apartment.h; sourceTree = "<group>"; };
 		A35E3B2F187F4E5600C8FBF1 /* Apartment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Apartment.m; sourceTree = "<group>"; };
+		A37612F0196C4C3C00CA168D /* FromView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FromView.h; sourceTree = "<group>"; };
+		A37612F1196C4C3C00CA168D /* FromView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FromView.m; sourceTree = "<group>"; };
+		A37612F3196C50B500CA168D /* notficationback.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = notficationback.png; sourceTree = "<group>"; };
+		A37612F5196C540B00CA168D /* notification_security.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = notification_security.png; sourceTree = "<group>"; };
+		A37612F7196C553500CA168D /* notification_maintenance.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = notification_maintenance.png; sourceTree = "<group>"; };
+		A37612F9196C58F400CA168D /* notification_feedback.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = notification_feedback.png; sourceTree = "<group>"; };
+		A37612FA196C58F400CA168D /* notification_concierge.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = notification_concierge.png; sourceTree = "<group>"; };
+		A37612FB196C58F400CA168D /* notification_cleaner.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = notification_cleaner.png; sourceTree = "<group>"; };
 		A37C6EA5181952040042489D /* roomcast.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = roomcast.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A37C6EA8181952040042489D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		A37C6EAA181952040042489D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -653,6 +668,12 @@
 		A37C6EDD181954090042489D /* images */ = {
 			isa = PBXGroup;
 			children = (
+				A37612F9196C58F400CA168D /* notification_feedback.png */,
+				A37612FA196C58F400CA168D /* notification_concierge.png */,
+				A37612FB196C58F400CA168D /* notification_cleaner.png */,
+				A37612F7196C553500CA168D /* notification_maintenance.png */,
+				A37612F5196C540B00CA168D /* notification_security.png */,
+				A37612F3196C50B500CA168D /* notficationback.png */,
 				A3CFB366196B275D005D1D14 /* lillieback@2x.png */,
 				A3CFB367196B275D005D1D14 /* lillieback.png */,
 				A3CFB35B195C3040005D1D14 /* feedback_veryunhappy.png */,
@@ -744,6 +765,8 @@
 				A3CFB34B195C149D005D1D14 /* FeedbackCell.m */,
 				A3CFB350195C25D6005D1D14 /* FeedbackItemCell.h */,
 				A3CFB351195C25D6005D1D14 /* FeedbackItemCell.m */,
+				A37612F0196C4C3C00CA168D /* FromView.h */,
+				A37612F1196C4C3C00CA168D /* FromView.m */,
 			);
 			name = TableCells;
 			sourceTree = "<group>";
@@ -911,6 +934,7 @@
 				A3BD18F5184FD933004EB6BD /* bubble.png in Resources */,
 				A3BD18DD184F95F1004EB6BD /* authback.png in Resources */,
 				A3E7BF3E18C4E48700D37894 /* divider.png in Resources */,
+				A37612FC196C58F400CA168D /* notification_feedback.png in Resources */,
 				A3CA7EAE185626CF0079FBB5 /* development_text.png in Resources */,
 				A3E7BF4718C8C47400D37894 /* development_scope.png in Resources */,
 				A3B48ED61884849B00C09426 /* developments.png in Resources */,
@@ -920,6 +944,7 @@
 				A335AA3F184F7F44007096A4 /* switchoff.png in Resources */,
 				A34354D918B401AF00C0A34C /* notification_selected@2x.png in Resources */,
 				A335AA28184F7181007096A4 /* responses_light.png in Resources */,
+				A37612FE196C58F400CA168D /* notification_cleaner.png in Resources */,
 				A3CFB359195C2CDF005D1D14 /* feedback_unhappy.png in Resources */,
 				A335AA4A184F85A3007096A4 /* textback.png in Resources */,
 				A3F88DFE1833E05A00E3BFB0 /* Roomcast.sqlite in Resources */,
@@ -928,7 +953,9 @@
 				A335AA2E184F73B6007096A4 /* blockcell.png in Resources */,
 				A335AA55184F8AC5007096A4 /* registerheader.png in Resources */,
 				A335AA3C184F7B89007096A4 /* scopecellselected.png in Resources */,
+				A37612F6196C540B00CA168D /* notification_security.png in Resources */,
 				A3CA7F421858CA3F0079FBB5 /* RespondView.xib in Resources */,
+				A37612F4196C50B500CA168D /* notficationback.png in Resources */,
 				A335AA48184F84F8007096A4 /* whotobutton.png in Resources */,
 				A39E8BBD185F5ACA00600856 /* background_splash.png in Resources */,
 				A395193518DDDCE300109107 /* filter_resident_owners.png in Resources */,
@@ -937,11 +964,13 @@
 				A335AA46184F849C007096A4 /* message_recipient_back.png in Resources */,
 				A3CFB35C195C3040005D1D14 /* feedback_veryunhappy.png in Resources */,
 				A3CFB369196B275D005D1D14 /* lillieback.png in Resources */,
+				A37612FD196C58F400CA168D /* notification_concierge.png in Resources */,
 				A3CFB354195C29AD005D1D14 /* feedback_veryhappy.png in Resources */,
 				A3C1056418BE892A00E524A5 /* filter.png in Resources */,
 				A3CFB368196B275D005D1D14 /* lillieback@2x.png in Resources */,
 				A3CA7F3A18575F110079FBB5 /* mapframe.png in Resources */,
 				A317AC1918283BBB00BE7E46 /* accdetails.png in Resources */,
+				A37612F8196C553500CA168D /* notification_maintenance.png in Resources */,
 				A37C6EB3181952040042489D /* InfoPlist.strings in Resources */,
 				A37C6EBC181952040042489D /* Main.storyboard in Resources */,
 				A39E6DEB18D0FEE7000D4C3E /* apartment_scope_selected.png in Resources */,
@@ -1000,6 +1029,7 @@
 				A3E7BF6418CE56B300D37894 /* ApartmentToolbar.m in Sources */,
 				A3334D7A1846582800ECA8D5 /* ApartmentCell.m in Sources */,
 				A34354C818AD5F7400C0A34C /* RootPageViewController.m in Sources */,
+				A37612F2196C4C3C00CA168D /* FromView.m in Sources */,
 				A3F88DEE18329C9700E3BFB0 /* Roomcast.xcdatamodeld in Sources */,
 				A3E7BF5518C8E5C700D37894 /* PageApartmentViewController.m in Sources */,
 				A37C6EB9181952040042489D /* AppDelegate.m in Sources */,

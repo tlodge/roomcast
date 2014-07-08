@@ -17,4 +17,5 @@
 @property(nonatomic, strong) NSArray* notifications;
 @property(nonatomic, strong) UIRefreshControl* refreshControl;
 @property(nonatomic, strong) NSDateFormatter* formatter;
+@property(nonatomic, strong) NSDictionary* colours;
 @end
