@@ -14,6 +14,8 @@
 
 @implementation FeedbackTableViewController
 
+unsigned long colours[4] = {0x839973,0xaac390,0xd48037,0xbe885a};
+
 - (id)initWithStyle:(UITableViewStyle)style
 {
     self = [super initWithStyle:style];
@@ -63,6 +65,7 @@
     
     cell.feedbackLabel.text = [self.labels objectAtIndex:indexPath.row];
     
+    [cell.fromView setFillColor: UIColorFromRGB(colours[indexPath.row])];
     // Configure the cell...
     
     return cell;
@@ -112,7 +115,7 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 74;
+    return 60;
 }
 /*
 #pragma mark - Navigation

@@ -1237,7 +1237,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <containerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sFA-N4-vNv">
-                                <rect key="frame" x="0.0" y="74" width="320" height="248"/>
+                                <rect key="frame" x="0.0" y="85" width="320" height="237"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <connections>
@@ -1258,15 +1258,15 @@
                                 </items>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </toolbar>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="As part of our continuous montoring we'd love to get your feedback how happy you are with how we handled your request" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="238" translatesAutoresizingMaskIntoConstraints="NO" id="Udw-Gt-SBu">
-                                <rect key="frame" x="76" y="-8" width="238" height="84"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="We'd love to get your feedback how happy you are with how we handled your request" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="238" translatesAutoresizingMaskIntoConstraints="NO" id="Udw-Gt-SBu">
+                                <rect key="frame" x="75" y="-3" width="238" height="84"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="12"/>
+                                <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="15"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="feedback.png" translatesAutoresizingMaskIntoConstraints="NO" id="0a6-Af-R7c">
-                                <rect key="frame" x="13" y="9" width="50" height="50"/>
+                                <rect key="frame" x="13" y="18" width="50" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>
@@ -1283,29 +1283,30 @@
             <objects>
                 <tableViewController id="W5d-kn-ITn" customClass="FeedbackTableViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="lUz-W0-6tk">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="248"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="237"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="separatorColor" red="0.12549019610000001" green="0.1215686275" blue="0.1215686275" alpha="1" colorSpace="calibratedRGB"/>
                         <inset key="separatorInset" minX="32" minY="0.0" maxX="0.0" maxY="0.0"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="FeedbackItemCell" rowHeight="74" id="7mY-1c-cNN" customClass="FeedbackItemCell">
-                                <rect key="frame" x="0.0" y="22" width="320" height="74"/>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="FeedbackItemCell" rowHeight="60" id="7mY-1c-cNN" customClass="FeedbackItemCell">
+                                <rect key="frame" x="0.0" y="22" width="320" height="60"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="7mY-1c-cNN" id="c1h-Ad-AQT">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="73"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="59"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ggv-xU-wiZ" customClass="FromView">
-                                            <rect key="frame" x="5" y="12" width="50" height="50"/>
+                                            <rect key="frame" x="9" y="7" width="45" height="45"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="notification_maintenance.png" translatesAutoresizingMaskIntoConstraints="NO" id="FHW-dp-D60">
-                                            <rect key="frame" x="5" y="12" width="50" height="50"/>
+                                            <rect key="frame" x="9" y="8" width="45" height="45"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </imageView>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="notficationback.png" translatesAutoresizingMaskIntoConstraints="NO" id="qUi-GY-cVu">
-                                            <rect key="frame" x="32" y="0.0" width="288" height="74"/>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="feedbackback.png" translatesAutoresizingMaskIntoConstraints="NO" id="qUi-GY-cVu">
+                                            <rect key="frame" x="32" y="0.0" width="288" height="60"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </imageView>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="very happy!" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Hh-hj-KKG">
@@ -1319,6 +1320,8 @@
                                     <color key="backgroundColor" red="0.12549019610000001" green="0.1215686275" blue="0.1215686275" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </tableViewCellContentView>
+                                <color key="backgroundColor" red="0.12549019610000001" green="0.1215686275" blue="0.1215686275" alpha="1" colorSpace="calibratedRGB"/>
+                                <inset key="separatorInset" minX="32" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <connections>
                                     <outlet property="feedbackImage" destination="FHW-dp-D60" id="iqA-6n-Cha"/>
                                     <outlet property="feedbackLabel" destination="5Hh-hj-KKG" id="YKq-z0-TO2"/>
@@ -2027,6 +2030,7 @@
         <image name="development_text.png" width="360" height="60"/>
         <image name="divider.png" width="24" height="29"/>
         <image name="feedback.png" width="200" height="200"/>
+        <image name="feedbackback.png" width="1150" height="240"/>
         <image name="filter.png" width="70" height="70"/>
         <image name="help.png" width="640" height="140"/>
         <image name="lillieback.png" width="647" height="971"/>
