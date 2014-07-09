@@ -32,7 +32,7 @@ NSManagedObjectContext *context;
 {
     [super viewDidLoad];
     
-
+    //need to pull this from server...
     self.colours = [NSDictionary dictionaryWithObjects:@[[NSNumber numberWithLong:0x839973],[NSNumber numberWithLong:0xaac390],[NSNumber numberWithLong:0xd48037],[NSNumber numberWithLong:0xbe885a],[NSNumber numberWithLong:0x201f1f]] forKeys:@[@"security",@"maintenance",@"concierge",@"cleaner",@"feedback"]];
     
     self.formatter = [[NSDateFormatter alloc] init];

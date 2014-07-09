@@ -7,9 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "FromView.h"
 
 @interface FeedbackItemCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UIImageView *feedbackImage;
 @property (weak, nonatomic) IBOutlet UILabel *feedbackLabel;
+@property (weak, nonatomic) IBOutlet FromView *fromView;
 
 @end
