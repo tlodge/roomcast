@@ -11,7 +11,7 @@
 #import "RootButtonOptionsViewController.h"
 #import "ButtonPressProtocol.h"
 #import "Button.h"
-#import "DataManager.h"
+#import "RPCManager.h"
 #import "DataRefreshProtocol.h"
 
 @interface PageButtonViewController : UIViewController  <UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, ButtonPressDelegate>

@@ -16,31 +16,14 @@
 #import "Button.h"
 
 #import "Notification.h"
-
-#import <Parse/Parse.h>
+#import "SyncManager.h"
 
 @interface DataManager : NSObject
 +(DataManager *) sharedManager;
 
 //should any of the following be public??
 
-//-(Development *)    fetchDevelopmentWithObjectId:(NSString *) objectId;
-//-(Apartment *)      fetchApartmentWithObjectId:(NSString *) objectId;
-//-(Message *)        fetchMessageWithObjectId:(NSString *) objectId;
-//-(Conversation *)   fetchConversationWithObjectId:(NSString *) objectId;
--(NSArray *)        fetchNeighboursForDevelopment:(NSString *) objectId;
-
-//check each above!
-
--(BOOL) syncWithDevelopment:(NSString*) objectId;
-
-
--(void) addMessageToConversation:(NSString*) message forConversationId:(NSString*)conversationId;
-
--(void) createConversationWithMessage:(NSString *) message parameters:(NSDictionary *) params;
-
--(void) setRatingFor:(NSString*)notificationId withValue:(int)rating;
-    
+-(BOOL) developmentForId:(NSString*) developmentId;
 -(NSArray *) neighboursForDevelopment:(NSString*)objectId;
 -(NSArray *) conversationsForUser;
 -(NSArray *) buttonsForUser;
@@ -48,7 +31,11 @@
 -(NSArray *) apartmentsForBlock:(NSString *) objectId;
 -(NSArray *) notificationsForUser;
 
--(void) buttonPressed:(NSString*) buttonId;
+-(BOOL) saveCoreObject:(NSDictionary *)cobject ofType:(NSString*) type;
+-(BOOL) saveMessage:(NSDictionary*) message forConversation:(Conversation*) conversation;
+-(BOOL) saveApartment: (NSDictionary*) apartment forBlock:(Block*) block;
+-(BOOL) saveDevelopment:(NSDictionary*) development withBlocks:(NSArray*)blocks;
+-(BOOL) saveConversation:(NSDictionary*) conversation withMessage:(NSDictionary *) message;
     
 @property(strong, nonatomic) Development* development;
 

@@ -65,6 +65,12 @@
 		A3761307196D996000CA168D /* feedback_unhappy.png in Resources */ = {isa = PBXBuildFile; fileRef = A3761303196D996000CA168D /* feedback_unhappy.png */; };
 		A3761308196D996000CA168D /* feedback_happy.png in Resources */ = {isa = PBXBuildFile; fileRef = A3761304196D996000CA168D /* feedback_happy.png */; };
 		A376130A196DC44400CA168D /* feedbackback.png in Resources */ = {isa = PBXBuildFile; fileRef = A3761309196DC44400CA168D /* feedbackback.png */; };
+		A376130C196DD76C00CA168D /* ufonts.com_gotham_light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A376130B196DD76C00CA168D /* ufonts.com_gotham_light.ttf */; };
+		A376130F197D0EBC00CA168D /* ParseSyncManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A376130E197D0EBC00CA168D /* ParseSyncManager.m */; };
+		A3761312197D4EC000CA168D /* ParseRPCManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A3761311197D4EC000CA168D /* ParseRPCManager.m */; };
+		A3761315197D52FE00CA168D /* RPCManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A3761314197D52FE00CA168D /* RPCManager.m */; };
+		A376131B197D562500CA168D /* SyncManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A376131A197D562500CA168D /* SyncManager.m */; };
+		A3761321197D754900CA168D /* Util.m in Sources */ = {isa = PBXBuildFile; fileRef = A3761320197D754900CA168D /* Util.m */; };
 		A37C6EA9181952040042489D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A37C6EA8181952040042489D /* Foundation.framework */; };
 		A37C6EAB181952040042489D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A37C6EAA181952040042489D /* CoreGraphics.framework */; };
 		A37C6EAD181952040042489D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A37C6EAC181952040042489D /* UIKit.framework */; };
@@ -254,6 +260,19 @@
 		A3761303196D996000CA168D /* feedback_unhappy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = feedback_unhappy.png; sourceTree = "<group>"; };
 		A3761304196D996000CA168D /* feedback_happy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = feedback_happy.png; sourceTree = "<group>"; };
 		A3761309196DC44400CA168D /* feedbackback.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = feedbackback.png; sourceTree = "<group>"; };
+		A376130B196DD76C00CA168D /* ufonts.com_gotham_light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = ufonts.com_gotham_light.ttf; sourceTree = "<group>"; };
+		A376130D197D0EBC00CA168D /* ParseSyncManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParseSyncManager.h; sourceTree = "<group>"; };
+		A376130E197D0EBC00CA168D /* ParseSyncManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParseSyncManager.m; sourceTree = "<group>"; };
+		A3761310197D4EC000CA168D /* ParseRPCManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParseRPCManager.h; sourceTree = "<group>"; };
+		A3761311197D4EC000CA168D /* ParseRPCManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParseRPCManager.m; sourceTree = "<group>"; };
+		A3761313197D52FE00CA168D /* RPCManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RPCManager.h; sourceTree = "<group>"; };
+		A3761314197D52FE00CA168D /* RPCManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RPCManager.m; sourceTree = "<group>"; };
+		A3761316197D555500CA168D /* RPCProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RPCProtocol.h; sourceTree = "<group>"; };
+		A3761319197D562500CA168D /* SyncManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SyncManager.h; sourceTree = "<group>"; };
+		A376131A197D562500CA168D /* SyncManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SyncManager.m; sourceTree = "<group>"; };
+		A376131C197D563600CA168D /* SyncProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SyncProtocol.h; sourceTree = "<group>"; };
+		A376131F197D754900CA168D /* Util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Util.h; sourceTree = "<group>"; };
+		A3761320197D754900CA168D /* Util.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Util.m; sourceTree = "<group>"; };
 		A37C6EA5181952040042489D /* roomcast.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = roomcast.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A37C6EA8181952040042489D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		A37C6EAA181952040042489D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -560,8 +579,20 @@
 		A335AA1D1847ABDE007096A4 /* Singletons */ = {
 			isa = PBXGroup;
 			children = (
+				A3761316197D555500CA168D /* RPCProtocol.h */,
+				A376131C197D563600CA168D /* SyncProtocol.h */,
 				A335AA1E1847AC06007096A4 /* DataManager.h */,
 				A335AA1F1847AC07007096A4 /* DataManager.m */,
+				A3761313197D52FE00CA168D /* RPCManager.h */,
+				A3761314197D52FE00CA168D /* RPCManager.m */,
+				A3761319197D562500CA168D /* SyncManager.h */,
+				A376131A197D562500CA168D /* SyncManager.m */,
+				A3761310197D4EC000CA168D /* ParseRPCManager.h */,
+				A3761311197D4EC000CA168D /* ParseRPCManager.m */,
+				A376130D197D0EBC00CA168D /* ParseSyncManager.h */,
+				A376130E197D0EBC00CA168D /* ParseSyncManager.m */,
+				A376131F197D754900CA168D /* Util.h */,
+				A3761320197D754900CA168D /* Util.m */,
 			);
 			name = Singletons;
 			sourceTree = "<group>";
@@ -641,6 +672,7 @@
 		A37C6EAF181952040042489D /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				A376130B196DD76C00CA168D /* ufonts.com_gotham_light.ttf */,
 				A37C6EB0181952040042489D /* roomcast-Info.plist */,
 				A37C6EB1181952040042489D /* InfoPlist.strings */,
 				A37C6EB4181952040042489D /* main.m */,
@@ -912,6 +944,7 @@
 				A3BD19391850BD8C004EB6BD /* home_selected@2x.png in Resources */,
 				A376130A196DC44400CA168D /* feedbackback.png in Resources */,
 				A3B48EE01885DBD500C09426 /* apartment.png in Resources */,
+				A376130C196DD76C00CA168D /* ufonts.com_gotham_light.ttf in Resources */,
 				A3B48ED81884881E00C09426 /* messageback.png in Resources */,
 				A3761308196D996000CA168D /* feedback_happy.png in Resources */,
 				A35E3B12187C9D3F00C8FBF1 /* messageback2.png in Resources */,
@@ -1026,6 +1059,7 @@
 				A317AC30182A7AD600BE7E46 /* InitViewController.m in Sources */,
 				A37C6EF0181971020042489D /* AuthViewController.m in Sources */,
 				A38F717118BCE777009B7CD5 /* RootAudienceViewController.m in Sources */,
+				A376131B197D562500CA168D /* SyncManager.m in Sources */,
 				A3CA7F3D185788130079FBB5 /* RegistrationBlockViewController.m in Sources */,
 				A3CFB34C195C149E005D1D14 /* FeedbackCell.m in Sources */,
 				A35E3B15187DBCD400C8FBF1 /* DevelopmentsViewController.m in Sources */,
@@ -1036,6 +1070,8 @@
 				A317AC41182BD95C00BE7E46 /* MessageViewController.m in Sources */,
 				A3E7BF6418CE56B300D37894 /* ApartmentToolbar.m in Sources */,
 				A3334D7A1846582800ECA8D5 /* ApartmentCell.m in Sources */,
+				A376130F197D0EBC00CA168D /* ParseSyncManager.m in Sources */,
+				A3761312197D4EC000CA168D /* ParseRPCManager.m in Sources */,
 				A34354C818AD5F7400C0A34C /* RootPageViewController.m in Sources */,
 				A37612F2196C4C3C00CA168D /* FromView.m in Sources */,
 				A3F88DEE18329C9700E3BFB0 /* Roomcast.xcdatamodeld in Sources */,
@@ -1046,6 +1082,7 @@
 				A3CFB35F195C3164005D1D14 /* Notification.m in Sources */,
 				A35E3B2D187F4E1A00C8FBF1 /* Block.m in Sources */,
 				A3DD1F7C194F547F008617CA /* Message.m in Sources */,
+				A3761321197D754900CA168D /* Util.m in Sources */,
 				A3CFB352195C25D6005D1D14 /* FeedbackItemCell.m in Sources */,
 				A3B6DAEA183BE0FA00A860CA /* RegistrationViewController.m in Sources */,
 				A3CFB34F195C2549005D1D14 /* FeedbackTableViewController.m in Sources */,
@@ -1053,6 +1090,7 @@
 				A395192D18DDDA3900109107 /* FilterViewController.m in Sources */,
 				A3334D451843B41800ECA8D5 /* ScopeCell.m in Sources */,
 				A39E8BCD1860B3BB00600856 /* DevelopmentBlockCell.m in Sources */,
+				A3761315197D52FE00CA168D /* RPCManager.m in Sources */,
 				A3334D601845077500ECA8D5 /* BlockViewController.m in Sources */,
 				A395194B18DF780F00109107 /* RootButtonOptionsViewController.m in Sources */,
 				A35E3B27187F4D8900C8FBF1 /* Space.m in Sources */,

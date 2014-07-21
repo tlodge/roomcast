@@ -31,7 +31,7 @@
     
     [[DataManager sharedManager] buttonsForUser];
     
-    [[NSNotificationCenter defaultCenter] addObserverForName:@"buttonsUpdate" object:nil queue:nil usingBlock:^(NSNotification *note) {
+    [[NSNotificationCenter defaultCenter] addObserverForName:@"buttonUpdate" object:nil queue:nil usingBlock:^(NSNotification *note) {
         NSDictionary* userInfo = note.userInfo;
         NSDictionary* ng  = [userInfo objectForKey:@"buttongroups"];
         [_pageTitles removeAllObjects];

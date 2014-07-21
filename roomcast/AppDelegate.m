@@ -18,7 +18,16 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    
     NSLog(@"I HAVE STARTED!!!");
+  /*  NSArray *fontFamilies = [UIFont familyNames];
+    for (int i = 0; i < [fontFamilies count]; i++)
+    {
+        NSString *fontFamily = [fontFamilies objectAtIndex:i];
+        NSArray *fontNames = [UIFont fontNamesForFamilyName:[fontFamilies objectAtIndex:i]];
+        NSLog (@"%@: %@", fontFamily, fontNames);
+    }*/
+    
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     [Parse setApplicationId:@"Qhp3eMa8aOQ2tVE1HqijHW7osJzV7QAdlcBVptIn" clientKey:@"SSF1WiUEzgk5pVN5wt9QEG9Xszjw09xkWvNv37NN"];
     
@@ -54,9 +63,10 @@
     
     if ([type isEqualToString:@"conversation"]){
         [PFPush handlePush:userInfo];
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"conversationsUpdate" object:nil];
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"ConversationUpdate" object:nil];
     }else if([type isEqualToString:@"notification"]){
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"notificationsUpdate" object:nil];
+        NSLog(@"seen a notification push...");
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"NotificationUpdate" object:nil];
     }
 }
 

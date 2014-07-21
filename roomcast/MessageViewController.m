@@ -40,17 +40,17 @@
     
     self.development  = [[DataManager sharedManager] development];
     
-    [[NSNotificationCenter defaultCenter] addObserverForName:@"conversationsUpdate" object:nil queue:nil usingBlock:^(NSNotification *note) {
+    [[NSNotificationCenter defaultCenter] addObserverForName:@"ConversationUpdate" object:nil queue:nil usingBlock:^(NSNotification *note) {
         self.conversations = [[DataManager sharedManager] conversationsForUser];
         [self.tableView reloadData];
         
     }];
     
-    [[NSNotificationCenter defaultCenter] addObserverForName:@"conversationUpdate" object:nil queue:nil usingBlock:^(NSNotification *note) {
+    /*[[NSNotificationCenter defaultCenter] addObserverForName:@"ConversationUpdate" object:nil queue:nil usingBlock:^(NSNotification *note) {
         self.conversations = [[DataManager sharedManager] conversationsForUser];
         [self.tableView reloadData];
         
-    }];
+    }];*/
 
     self.scopelabels = [NSDictionary dictionaryWithObjects:[NSArray arrayWithObjects:@"between apartments", [NSString stringWithFormat:@"within %@", self.development.name], @"across developments", @"across region",nil] forKeys:[NSArray arrayWithObjects:@"apartment", @"development", @"developments", @"region", nil]];
 

@@ -165,7 +165,7 @@
 -(void) sendMessage:(id) sender{
     
     NSLog(@"would send message to %@", conversationId);
-    [[DataManager sharedManager] addMessageToConversation:respondView.responseText.text forConversationId:conversationId];
+    [[RPCManager sharedManager] addMessageToConversation:respondView.responseText.text forConversationId:conversationId];
     
          
     //[delegate didRespondToConversation:conversationId withMessage:respondView.responseText.text];

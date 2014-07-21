@@ -86,7 +86,7 @@
     
     NSLog(@"parameters are %@", parameters);
     
-  [[DataManager sharedManager ]createConversationWithMessage:self.sendText.text parameters:parameters];
+  [[RPCManager sharedManager ]createConversationWithMessage:self.sendText.text parameters:parameters];
 
 }
 

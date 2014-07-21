@@ -169,7 +169,7 @@
 -(void) didPressButton:(Button*) button{
     NSLog(@"nice button has been pressed!!!");
     NSLog(@"%@", button);
-    [[DataManager sharedManager] buttonPressed:button.objectId];
+    [[RPCManager sharedManager] buttonPressed:button.objectId];
 }
 
 -(void) reload{

@@ -54,7 +54,9 @@ Development* development;
     
     dispatch_async(queue, ^{
         //this runs on background thread!!!
-        BOOL success = [[DataManager sharedManager] syncWithDevelopment:_developmentId.text];
+        //BOOL success = [[DataManager sharedManager] syncWithDevelopment:_developmentId.text];
+        BOOL success =  [[DataManager sharedManager] developmentForId: _developmentId.text];
+
         dispatch_async(dispatch_get_main_queue(), ^{
             if (success){
                 

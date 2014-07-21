@@ -2044,7 +2044,7 @@
         <image name="settings_selected.png" width="25" height="25"/>
         <image name="within_scope.png" width="70" height="70"/>
     </resources>
-    <color key="tintColor" red="0.83137254900000002" green="0.50196078430000002" blue="0.2156862745" alpha="1" colorSpace="calibratedRGB"/>
+    <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

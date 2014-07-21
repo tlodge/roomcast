@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "FeedbackProtocol.h"
 #import "FeedbackTableViewController.h"
-#import "DataManager.h"
+#import "RPCManager.h"
 
 @interface RootFeedbackController : UIViewController <FeebackSelectedDelegate>
 - (IBAction)sendPressed:(id)sender;

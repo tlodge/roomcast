@@ -13,6 +13,7 @@
 #import "RespondView.h"
 #import "Conversation.h"
 #import "DataManager.h"
+#import "RPCManager.h"
 
 @protocol RespondDelegate;
 

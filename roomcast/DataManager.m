@@ -9,18 +9,7 @@
 #import "DataManager.h"
 
 @interface DataManager ()
--(void) syncWithConversation:(Conversation*) conversation;
--(void) syncWithConversations;
--(void) syncWithButtons;
--(void) syncWithDevelopments: (NSString*)objectId;
--(void) syncWithBlock:(Block *)block;
-//-(void) createSomeNotifications;
-
-//-(BOOL) addMessageToCoreData:(PFObject*) message;
-//-(BOOL) addMessageToCoreData:(PFObject*) message forConversation:(Conversation*) conversation;
-//-(BOOL) addConversationToCoreData:(PFObject*) conversation withMessage:(PFObject*)message;
--(BOOL) addConversationToCoreData:(PFObject*) message;
-
+-(NSManagedObject *) fetchCoreDataWithObjectId: (NSString *) objectId andType: (NSString*) type;
 @end
 
 @implementation DataManager
@@ -28,6 +17,7 @@
 @synthesize development = _development;
 
 NSManagedObjectContext *context;
+SyncManager* syncManager;
 
 +(DataManager *) sharedManager{
     static DataManager* sharedManager = nil;
@@ -42,8 +32,10 @@ NSManagedObjectContext *context;
     self = [super init];
     id delegate = [[UIApplication sharedApplication] delegate];
     context = [delegate managedObjectContext];
+    syncManager = [SyncManager sharedManager];
     return self;
 }
+
 
 -(NSArray*) fetchNotifications{
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
@@ -140,487 +132,11 @@ NSManagedObjectContext *context;
 }
 
 
-
-#pragma sync methods - call out to parse!
-
--(void) syncWithNotifications{
-    
-    [PFCloud callFunctionInBackground:@"notificationsForUser" withParameters:[NSDictionary dictionary] block:^(NSArray* notifications, NSError *error){
-       
-        if(!error){
-            if (notifications){
-                
-                BOOL update = FALSE;
-                
-                for (PFObject *notification in notifications){
-                    NSLog(@"notfication from parse is %@", notification);
-                    
-                    Notification *n = (Notification *)[self fetchCoreDataWithObjectId:[notification objectId] andType:@"Notification"];
-                    
-                    if (n == nil){
-                        
-                        
-                        n = [NSEntityDescription insertNewObjectForEntityForName:@"Notification" inManagedObjectContext:context];
-                        
-                        [n setValue:[notification objectId] forKey:@"objectId"];
-                       
-                        [n setValue:[[notification objectForKey:@"from"] objectForKey:@"name"] forKey:@"from"];
-                        
-                        [n setValue:[notification objectForKey:@"ttl"] forKey:@"ttl"];
-                        [n setValue:[notification objectForKey:@"priority"] forKey:@"priority"];
-                        [n setValue:[notification objectForKey:@"message"] forKey:@"message"];
-                        
-                        [n setValue:[notification objectForKey:@"type"] forKey:@"type"];
-                        
-                        [n setValue:[notification updatedAt] forKey:@"lastUpdate"];
-                       
-                        NSError *derror;
-                        
-                        update = update || [context save:&derror];
-                        
-                        if (derror){
-                            NSLog(@"failed to save with error %@", derror);
-                        }
-                    }else{
-                        NSLog(@"this notification : %@ %@ already exists in core data",n.objectId,n.message);
-                        
-                        
-                    }
-                }
-                if (update){
-                    [[NSNotificationCenter defaultCenter] postNotificationName:@"notificationsUpdate" object:nil];
-                }
-            }
-        }
-    }];
-}
-
-
--(void) syncWithDevelopments:(NSString*) objectId{
-    
-    NSLog(@"syncing with developments for %@", objectId);
-    
-    NSDictionary* parameters= [[NSDictionary alloc] initWithObjects:[[NSArray alloc] initWithObjects:objectId, nil] forKeys:[[NSArray alloc] initWithObjects:@"objectId", nil]];
-    
-    [PFCloud callFunctionInBackground:@"neighboursForDevelopment" withParameters:parameters block:^(NSArray* developments, NSError *error){
-        if(!error){
-            if (developments){
-                BOOL update = FALSE;
-               
-                for (PFObject *development in developments){
-                    
-                    Development  *d = (Development *)[self fetchCoreDataWithObjectId:[development objectId] andType:@"Development"];
-                    
-                    if (d == nil){
-                        
-                        
-                        d = [NSEntityDescription insertNewObjectForEntityForName:@"Development" inManagedObjectContext:context];
-                        
-                        [d setValue:[development objectId] forKey:@"objectId"];
-                        PFGeoPoint* gp = [development objectForKey:@"location"];
-                        [d setValue:[development objectForKey:@"name"] forKey:@"name"];
-                        [d setValue:[NSNumber numberWithDouble: gp.latitude] forKey:@"latitude"];
-                        [d setValue:[NSNumber numberWithDouble: gp.longitude] forKey:@"longitude"];
-                        [d setValue:[development objectForKey:@"residents"] forKey:@"residents"];
-                       
-                        NSError *derror;
-                        update = update || [context save:&derror];
-                        if (derror){
-                            NSLog(@"failed to save with error %@", derror);
-                        }
-                    }
-                }
-                if (update){
-                    [[NSNotificationCenter defaultCenter] postNotificationName:@"developmentsUpdate" object:nil];
-                }
-            }
-        }
-    }];
-
-}
-
--(void) syncWithButtons{
-    NSLog(@"syncing with buttons!");
-    
-    //check that we need to explicitly send user details...
-    
-    PFUser *currentUser = [PFUser currentUser];
-    
-    NSDictionary* parameters= [[NSDictionary alloc] initWithObjects:[[NSArray alloc] initWithObjects:[currentUser objectId], nil] forKeys:[[NSArray alloc] initWithObjects:@"userId", nil]];
-    
-    [PFCloud callFunctionInBackground:@"buttonsForUser" withParameters:parameters block:^(NSArray* buttons, NSError *error){
-        if(!error){
-            if (buttons && [buttons count] > 0){
-                NSLog(@"got buttons from parse!");
-                NSLog(@"%@", buttons);
-                
-                NSMutableDictionary* userInfo = [NSMutableDictionary dictionary];
-                
-                NSMutableDictionary *groups = [NSMutableDictionary dictionary];
-                
-                for (PFObject *button in buttons){
-                    NSArray *groupnames =[button objectForKey:@"group"];
-                    
-                    for (int i = 0; i < [groupnames count]; i++){
-                        NSString *groupname = groupnames[i];
-                        NSLog(@"group name is %@", groupname);
-                    
-                        NSMutableArray *bg = [groups objectForKey:groupname];
-                    
-                        if (bg == nil){
-                            bg = [NSMutableArray array];
-                        }
-                        Button* b   = [[Button alloc] init];
-                        b.objectId  = [button objectId];
-                        b.name      = [button objectForKey:@"name"];
-                        b.questions = [button objectForKey:@"questions"];
-                        b.usage     = [button objectForKey:@"usage"];
-                        
-                        NSLog(@"set button usage to %@", b.usage);
-                        
-                        [bg addObject:b];
-                        [groups setObject:bg forKey:groupname];
-                    }
-                }
-                [userInfo setObject:groups forKey:@"buttongroups"];
-                
-                [[NSNotificationCenter defaultCenter] postNotificationName:@"buttonsUpdate" object:nil userInfo:userInfo];
-            }
-        }
-    }];
-}
-
--(void) syncWithConversations{
-    NSLog(@"syncing with conversations!");
-    PFUser *currentUser = [PFUser currentUser];
-    
-    NSDictionary* parameters= [[NSDictionary alloc] initWithObjects:[[NSArray alloc] initWithObjects:[currentUser objectId], nil] forKeys:[[NSArray alloc] initWithObjects:@"userId", nil]];
-    
-    [PFCloud callFunctionInBackground:@"conversationsForUser" withParameters:parameters block:^(NSArray* conversations, NSError *error){
-        if(!error){
-            if (conversations){
-                
-                NSLog(@"got conversations from parse!");
-                NSLog(@"%@", conversations);
-                
-                BOOL update = FALSE;
-                
-                for (PFObject *conversation in conversations){
-                    Conversation  *c = (Conversation *)[self fetchCoreDataWithObjectId:[conversation objectId] andType:@"Conversation"];
-                    
-                    if (c == nil){
-                        
-                        
-                        update = TRUE;
-                        
-                        c = [NSEntityDescription insertNewObjectForEntityForName:@"Conversation" inManagedObjectContext:context];
-                        
-                        [c setValue:[conversation objectId] forKey:@"objectId"];
-                        [c setValue:[conversation createdAt] forKey:@"started"];
-                        [c setValue:[conversation objectForKey:@"teaser"] forKey:@"teaser"];
-                         [c setValue:[conversation objectForKey:@"scope"] forKey:@"scope"];
-                        
-                    }
-                    [c setValue:[conversation objectForKey:@"messages"] forKey:@"responses"];
-                    [c setValue:[conversation updatedAt] forKey:@"lastUpdate"];
-                   
-                    NSError *cderror;
-                    BOOL saved = [context save:&cderror];
-                    update = update || (update && saved);
-                   
-                }
-                if (update){
-                    [[NSNotificationCenter defaultCenter] postNotificationName:@"conversationsUpdate" object:nil];
-                }
-            }
-        }
-    }];
-}
-
-//pull in all new messages associated with a conversation
-
--(void) syncWithConversation:(Conversation*) conversation{
-    
-    if (conversation == nil || conversation.objectId == nil)
-        return;
-    
-    PFQuery *innerquery = [PFQuery queryWithClassName:@"Conversation"];
-    [innerquery whereKey:@"objectId" equalTo:conversation.objectId];
-    
-    PFQuery *outerquery = [PFQuery queryWithClassName:@"Message"];
-    [outerquery whereKey:@"conversation" matchesKey:@"objectId" inQuery:innerquery];
-    
-    [outerquery findObjectsInBackgroundWithBlock:^(NSArray *messages, NSError *error) {
-        
-        if (!error){
-            
-            BOOL update = FALSE;
-            
-            if (messages != nil && [messages count] > 0){
-                
-                for (PFObject *message in messages){
-                    
-                    Message  *m = (Message *)[self fetchCoreDataWithObjectId:[message objectId] andType:@"Message"];
-                    
-                    if (m == nil){
-                        BOOL success = [self addMessageToCoreData:message forConversation: conversation];
-                        update = update || success;
-                    }
-                }
-                if (update){
-                    NSMutableDictionary* userInfo = [NSMutableDictionary dictionary];
-                    [userInfo setObject:conversation.objectId forKey:@"objectId"];
-                    [[NSNotificationCenter defaultCenter] postNotificationName:@"conversationUpdate" object:nil userInfo:userInfo];
-                }
-            }
-        }
-    }];
-}
-
--(BOOL) syncWithDevelopment:(NSString*) objectId{
-    
-    if (!objectId)
-        return NO;
-    
-    PFQuery *query = [PFQuery queryWithClassName:@"Development"];
-    
-    [query includeKey:@"blocks"];
-    
-    NSError *error;
-    
-    PFObject *pfdev = [query getObjectWithId:objectId error:&error];
-    
-    if (error){
-        NSLog(@"error!! %@ %@", error, [error userInfo]);
-        return NO;
-    }else{
-        
-        _development = (Development *)[self fetchCoreDataWithObjectId:[pfdev objectId] andType:@"Development"];
-        
-        id delegate = [[UIApplication sharedApplication] delegate];
-        NSManagedObjectContext *context = [delegate managedObjectContext];
-        
-        if (_development == nil){
-            _development = [NSEntityDescription insertNewObjectForEntityForName:@"Development" inManagedObjectContext:context];
-            [_development setValue:[pfdev objectId] forKey:@"objectId"];
-        }
-        
-        NSError *error;
-        
-        
-        PFGeoPoint* gp = [pfdev objectForKey:@"location"];
-        [_development setValue:[pfdev objectForKey:@"name"] forKey:@"name"];
-        [_development setValue:[NSNumber numberWithDouble: gp.latitude] forKey:@"latitude"];
-        [_development setValue:[NSNumber numberWithDouble: gp.longitude] forKey:@"longitude"];
-        [_development setValue:[pfdev objectForKey:@"residents"] forKey:@"residents"];
-        NSMutableDictionary *lookup = [NSMutableDictionary dictionary];
-        
-        for (Block* block in _development.blocks){
-            [lookup setObject:block forKey:block.objectId];
-        }
-        
-        for (PFObject *block in [pfdev objectForKey:@"blocks"]){
-            Block *b = [lookup objectForKey:[block objectId]];
-            
-            if (b == nil){
-                b = [NSEntityDescription insertNewObjectForEntityForName:@"Block"
-                                                  inManagedObjectContext:context];
-            }
-            
-            NSData* jsonfloors =  [NSJSONSerialization  dataWithJSONObject:[block objectForKey:@"floors"] options:NSJSONWritingPrettyPrinted error:&error];
-            
-            NSString* floors = [[NSString alloc] initWithData:jsonfloors encoding:NSUTF8StringEncoding];
-            
-            [b setValue:[block objectId] forKey:@"objectId"];
-            [b setValue:[block objectForKey:@"name"] forKey:@"name"];
-            [b setValue:floors forKey:@"floors"];
-            [b setValue:[block objectForKey:@"residents"] forKey:@"residents"];
-            [b setValue:_development forKey:@"development"];
-        }
-        
-        if (![context save:&error]){
-            NSLog(@"whoops! couldn't save %@", [error localizedDescription]);
-            return NO;
-        }
-        return YES;
-    }
-}
-
--(void) syncWithBlock:(Block*) block{
-    
-    if (block==nil || block.objectId == nil)
-        return;
-    
-    PFQuery *innerquery = [PFQuery queryWithClassName:@"Block"];
-    [innerquery whereKey:@"objectId" equalTo:block.objectId];
-    
-    PFQuery *outerquery = [PFQuery queryWithClassName:@"Apartment"];
-    [outerquery whereKey:@"block" matchesKey:@"objectId" inQuery:innerquery];
-    
-    [outerquery findObjectsInBackgroundWithBlock:^(NSArray *apartments, NSError *error) {
-        
-        if (!error){
-            
-            BOOL update = FALSE;
-
-            if (apartments != nil && [apartments count] > 0){
-        
-                for (PFObject *apartment in apartments){
-                    
-                    Apartment *a = (Apartment *) [self fetchCoreDataWithObjectId:[apartment objectId] andType:@"Apartment"];
-                
-                    if (a == nil){
-                        
-                        a = [NSEntityDescription insertNewObjectForEntityForName:@"Apartment" inManagedObjectContext:context];
-                        [a setValue:[apartment objectId] forKey:@"objectId"];
-                        [a setValue:[apartment objectForKey:@"floor"] forKey:@"floor"];
-                        [a setValue:[apartment objectForKey:@"name"] forKey:@"name"];
-                        [a setValue:block forKey:@"block"];
-                        NSError *cderror;
-                        
-                        update = update || [context save:&cderror];
-                    }
-                    if (update){ //susceptible to infinite loops as this method is recalled on notifcation sent.
-                        NSMutableDictionary* userInfo = [NSMutableDictionary dictionary];
-                        [userInfo setObject:block.objectId forKey:@"objectId"];
-                        [[NSNotificationCenter defaultCenter] postNotificationName:@"blockUpdate" object:nil userInfo:userInfo];
-                    }
-                }
-            }
-        }
-    }];
-}
-
-
--(BOOL) addConversationToCoreData:(PFObject*) message{
-    
-    PFObject* conversation = [message objectForKey:@"conversation"];
-    
-    Conversation *c = [NSEntityDescription
-                       insertNewObjectForEntityForName:@"Conversation"
-                       inManagedObjectContext:context];
-    
-    [c setValue:[conversation objectId] forKey:@"objectId"];
-    [c setValue:[message objectForKey:@"message"] forKey:@"teaser"];
-    [c setValue:[conversation objectForKey:@"scope"] forKey:@"scope"];
-    [c setValue:[NSNumber numberWithInt:1] forKey:@"responses"];
-    [c setValue:[conversation updatedAt] forKey:@"lastUpdate"];
-    [c setValue:@"1D" forKey:@"initiator"];
-    [c setValue:[NSDate date] forKey:@"started"];
-    
-    Message *m = [NSEntityDescription
-                  insertNewObjectForEntityForName:@"Message"
-                  inManagedObjectContext:context];
-    
-    [m setValue:[message objectId] forKey:@"objectId"];
-    [m setValue:@"1D" forKey:@"from"];
-    [m setValue:[message objectForKey:@"message"] forKey:@"body"];
-    [m setValue:[NSDate date] forKey:@"sent"];
-    [m setValue:c forKey:@"conversation"];
-    
-    NSError *error;
-    
-    if (![context save:&error]){
-        NSLog(@"whoops! couldn't save %@", [error localizedDescription]);
-        return NO;
-    }
-    return YES;
-}
-
--(BOOL) addMessageToCoreData:(PFObject*) message forConversation:(Conversation*) conversation {
-    
-    Message* m = [NSEntityDescription insertNewObjectForEntityForName:@"Message" inManagedObjectContext:context];
-    [m setValue:[message objectId] forKey:@"objectId"];
-    [m setValue:[message createdAt] forKey:@"sent"];
-    [m setValue:[message objectForKey:@"message"] forKey:@"body"];
-    [m setValue:conversation forKey:@"conversation"];
-    
-    if ([conversation.lastUpdate compare:[message createdAt]]==NSOrderedAscending){
-        [conversation setValue:[message createdAt] forKey:@"lastUpdate"];
-    }
-    
-    int responses = [conversation.responses intValue];
-    //responses += 1;
-    [conversation setValue:[NSNumber numberWithInt:responses] forKey:@"responses"];
-    
-    NSError *error;
-    
-    if (![context save:&error]){
-        NSLog(@"whoops! couldn't save %@", [error localizedDescription]);
-        return NO;
-    }
-    
-    
-    
-    return YES;
-}
-
-#pragma setter public methods
-
-
--(void) createConversationWithMessage:(NSString *)message parameters:(NSDictionary *)params{
-
-    NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
-    [parameters setObject:message forKey:@"message"];
-    [parameters addEntriesFromDictionary:params];
-    
-    NSLog(@"params are %@", parameters);
-    
-    [PFCloud callFunctionInBackground:@"createConversation" withParameters:parameters block:^(PFObject* message, NSError *error){
-        
-            PFObject *conversation = [message objectForKey:@"conversation"];
-        
-            BOOL stored = [self addConversationToCoreData:message];
-        
-            if (stored){
-                    NSMutableDictionary* userInfo = [NSMutableDictionary dictionary];
-                    [userInfo setObject:[conversation objectId] forKey:@"objectId"];
-                    [[NSNotificationCenter defaultCenter] postNotificationName:@"conversationUpdate" object:nil userInfo:userInfo];
-            }
-        }
-    ];
-
-}
-
--(void) addMessageToConversation:(NSString*) message forobjectId:(NSString*)objectId{
-    
-    PFObject *pfconversation =[PFObject objectWithoutDataWithClassName:@"Conversation" objectId:objectId];
-    
-    PFObject *msg = [PFObject objectWithClassName:@"Message"];
-    [msg setObject:message forKey:@"message"];
-    [msg setObject:[NSNumber numberWithBool:NO] forKey:@"anonymous"];
-    [msg setObject:pfconversation forKey:@"conversation"];
-    
-    [msg saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-        //this is run on the main thread.
-        if (succeeded){
-            //save directly to core data
-            Conversation *conversation = (Conversation *) [self fetchCoreDataWithObjectId: objectId andType:@"Conversation"];
-           
-            BOOL success = [self addMessageToCoreData:msg forConversation: conversation];
-            if (success){
-                NSMutableDictionary* userInfo = [NSMutableDictionary dictionary];
-                [userInfo setObject:objectId forKey:@"objectId"];
-                [[NSNotificationCenter defaultCenter] postNotificationName:@"conversationUpdate" object:nil userInfo:userInfo];
-            }
-        }
-    }];
-}
-
--(void) setRatingFor:(NSString*)notificationId withValue:(int)rating{
-    NSLog(@"Would contact cloud code with %@ %d", notificationId, rating);
-    NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
-    [parameters setObject:[NSNumber numberWithInt:rating] forKey:@"rating"];
-    [parameters setObject:notificationId forKey:@"notificationId"];
-    NSLog(@"params are %@", parameters);
-    
-    [PFCloud callFunctionInBackground:@"provideFeedback" withParameters:parameters block:^(NSString* message, NSError *error){
-            NSLog(@"got response %@",  message);
-        }
-     ];
-}
-
 #pragma getter public methods
+
+-(BOOL) developmentForId:(NSString*) developmentId{
+    return [syncManager syncWithDevelopment:developmentId];
+}
 
 
 -(NSArray*) notificationsForUser{
@@ -628,8 +144,8 @@ NSManagedObjectContext *context;
     NSArray* notifications = [self fetchNotifications];
     
     if (notifications){
-        [self syncWithNotifications];
-        
+        //[self syncWithNotifications];
+        [syncManager syncWithNotifications];
         if ([notifications count] > 0){
             return notifications;
         }
@@ -643,8 +159,8 @@ NSManagedObjectContext *context;
     
     if (developments){
         //check for updates (asynchronously)
-        [self syncWithDevelopments:objectId];
-        
+        //[self syncWithDevelopments:objectId];
+        [syncManager syncWithDevelopments:objectId];
         
         //and return what we currently have...
         if ([developments count] > 0){
@@ -660,8 +176,8 @@ NSManagedObjectContext *context;
     Block *block = (Block*)[self fetchCoreDataWithObjectId:objectId andType:@"Block"];
     
     if (block){
-        [self syncWithBlock:block];
-        
+        //[self syncWithBlock:block];
+        [syncManager syncWithBlock:block];
         if (block.apartments){
             return [[block.apartments allObjects] sortedArrayUsingDescriptors:[NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES]]];
         }
@@ -671,12 +187,14 @@ NSManagedObjectContext *context;
 }
 
 -(NSArray*) buttonsForUser{
-    [self syncWithButtons];
+    //[self syncWithButtons];
+    [syncManager syncWithButtons];
     return [self fetchAllButtons];
 }
 
 -(NSArray *) conversationsForUser{
-    [self syncWithConversations];
+    //[self syncWithConversations];
+    [syncManager syncWithConversations];
     return [self fetchAllConversations];
 }
 
@@ -691,8 +209,9 @@ NSManagedObjectContext *context;
     Conversation *conversation = (Conversation *) [self fetchCoreDataWithObjectId:objectId andType:@"Conversation"];
     
     if (conversation){
-        [self syncWithConversation:conversation];
-       
+        //[self syncWithConversation:conversation];
+        [syncManager syncWithConversation:conversation];
+        
         if (conversation.messages){
         
             return [[conversation.messages allObjects] sortedArrayUsingDescriptors:[NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"sent" ascending:YES]]];
@@ -704,19 +223,182 @@ NSManagedObjectContext *context;
     return [[NSArray alloc]init];
 }
 
-#pragma buttons
 
--(void) buttonPressed:(NSString*) buttonId{
-    NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
-    [parameters setObject:buttonId forKey:@"buttonId"];
+#pragma setter public methods
+
+-(BOOL) saveCoreObject:(NSDictionary *)cobject ofType:(NSString*) type{
     
-    //[parameters addEntriesFromDictionary:params];
+    NSManagedObject *n = [self fetchCoreDataWithObjectId:[cobject objectForKey:@"objectId"] andType:type];
     
-    [PFCloud callFunctionInBackground:@"buttonPressed" withParameters:parameters block:^(PFObject* message, NSError *error){
-            [[NSNotificationCenter defaultCenter] postNotificationName:@"notificationsUpdate" object:nil];
+    
+    if (n == nil){
+        
+        n = [NSEntityDescription insertNewObjectForEntityForName:type inManagedObjectContext:context];
+        
+        for (NSString* key in [cobject allKeys]){
+            NSLog(@"setting %@: %@", key, [cobject objectForKey:key]);
+            [n setValue:[cobject objectForKey:key] forKey:key];
         }
-    ];
+        
+        NSError *derror;
+        [context save:&derror];
+        
+        if (derror){
+            NSLog(@"failed to save with error %@", derror);
+            return NO;
+        }
+        return YES;
+    }
+    
+    return NO;
+}
 
+/*
+ * Adding a message to the conversation is a little more convoluted given its relationship to a conversation
+ * so we can't use the generic method above...
+ */
+
+-(BOOL) saveMessage:(NSDictionary*) message forConversation:(Conversation*) conversation {
+    
+    Message  *cm = (Message *)[self fetchCoreDataWithObjectId:[message objectForKey:@"objectId"] andType:@"Message"];
+    
+    if (cm == nil){
+        
+        Message* m = [NSEntityDescription insertNewObjectForEntityForName:@"Message" inManagedObjectContext:context];
+        [m setValue:[message objectForKey:@"objectId"] forKey:@"objectId"];
+        [m setValue:[message objectForKey:@"createdAt"] forKey:@"sent"];
+        [m setValue:[message objectForKey:@"message"] forKey:@"body"];
+        [m setValue:conversation forKey:@"conversation"];
+        
+        if ([conversation.lastUpdate compare:[message objectForKey:@"createdAt"]]==NSOrderedAscending){
+            [conversation setValue:[message objectForKey:@"createdAt"] forKey:@"lastUpdate"];
+        }
+        
+        int responses = [conversation.responses intValue];
+        //responses += 1;
+        [conversation setValue:[NSNumber numberWithInt:responses] forKey:@"responses"];
+        
+        NSError *error;
+        
+        if (![context save:&error]){
+            NSLog(@"whoops! couldn't save %@", [error localizedDescription]);
+            return NO;
+        }else{
+            NSMutableDictionary* userInfo = [NSMutableDictionary dictionary];
+            [userInfo setObject:conversation.objectId forKey:@"objectId"];
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"ConversationUpdate" object:nil userInfo:userInfo];
+            return YES;
+        }
+    }
+    return NO;
+}
+
+-(BOOL) saveConversation:(NSDictionary*) conversation withMessage:(NSDictionary *) message{
+    Conversation *c = [NSEntityDescription
+                       insertNewObjectForEntityForName:@"Conversation"
+                       inManagedObjectContext:context];
+
+    [c setValue:[conversation objectForKey:@"objectId"] forKey:@"objectId"];
+    [c setValue:[message objectForKey:@"message"] forKey:@"teaser"];
+    [c setValue:[conversation objectForKey:@"scope"] forKey:@"scope"];
+    [c setValue:[NSNumber numberWithInt:1] forKey:@"responses"];
+    [c setValue:[conversation objectForKey:@"updatedAt"] forKey:@"lastUpdate"];
+    [c setValue:@"1D" forKey:@"initiator"];
+    [c setValue:[NSDate date] forKey:@"started"];
+
+    Message *m = [NSEntityDescription
+                  insertNewObjectForEntityForName:@"Message"
+                  inManagedObjectContext:context];
+
+    [m setValue:[message objectForKey:@"objectId"] forKey:@"objectId"];
+    [m setValue:@"1D" forKey:@"from"];
+    [m setValue:[message objectForKey:@"message"] forKey:@"body"];
+    [m setValue:[NSDate date] forKey:@"sent"];
+    [m setValue:c forKey:@"conversation"];
+
+    NSError *error;
+
+    if (![context save:&error]){
+        NSLog(@"whoops! couldn't save %@", [error localizedDescription]);
+        return NO;
+    }
+    return YES;
+}
+
+-(BOOL) saveApartment: (NSDictionary*) apartment forBlock:(Block*) block{
+
+    Apartment *a = (Apartment *) [self fetchCoreDataWithObjectId:[apartment objectForKey:@"objectId"] andType:@"Apartment"];
+   
+    
+    if (a == nil){
+     
+        a = [NSEntityDescription insertNewObjectForEntityForName:@"Apartment" inManagedObjectContext:context];
+        [a setValue:[apartment objectForKey:@"objectId"] forKey:@"objectId"];
+        [a setValue:[apartment objectForKey:@"floor"] forKey:@"floor"];
+        [a setValue:[apartment objectForKey:@"name"] forKey:@"name"];
+        [a setValue:block forKey:@"block"];
+        NSError *cderror;
+        
+        if (![context save:&cderror]){
+            NSLog(@"whoops! couldn't save %@", [cderror localizedDescription]);
+            return NO;
+        }
+        return YES;
+    }
+    return NO;
+}
+
+-(BOOL) saveDevelopment: (NSDictionary*) development withBlocks:(NSArray *)blocks{
+
+    _development = (Development *)[self fetchCoreDataWithObjectId:[development objectForKey:@"objectId"] andType:@"Development"];
+ 
+    id delegate = [[UIApplication sharedApplication] delegate];
+    
+    NSManagedObjectContext *context = [delegate managedObjectContext];
+ 
+    if (_development == nil){
+        _development = [NSEntityDescription insertNewObjectForEntityForName:@"Development" inManagedObjectContext:context];
+        [_development setValue:[development objectForKey:@"objectId"] forKey:@"objectId"];
+    }
+ 
+    NSError *error;
+    
+    [_development setValue:[development objectForKey:@"name"] forKey:@"name"];
+    [_development setValue:[development objectForKey:@"latitude"] forKey:@"latitude"];
+    [_development setValue:[development objectForKey:@"longitude"] forKey:@"longitude"];
+    [_development setValue:[development objectForKey:@"residents"] forKey:@"residents"];
+    
+    NSMutableDictionary *lookup = [NSMutableDictionary dictionary];
+ 
+    for (Block* block in _development.blocks){
+        [lookup setObject:block forKey:block.objectId];
+    }
+ 
+    for (NSDictionary *block in [development objectForKey:@"blocks"]){
+       
+        Block *b = [lookup objectForKey:[block objectForKey:@"objectId"]];
+ 
+        if (b == nil){
+            b = [NSEntityDescription insertNewObjectForEntityForName:@"Block"
+            inManagedObjectContext:context];
+        }
+ 
+         NSData* jsonfloors =  [NSJSONSerialization  dataWithJSONObject:[block objectForKey:@"floors"] options:NSJSONWritingPrettyPrinted error:&error];
+         
+         NSString* floors = [[NSString alloc] initWithData:jsonfloors encoding:NSUTF8StringEncoding];
+         
+         [b setValue:[block objectForKey:@"objectId"] forKey:@"objectId"];
+         [b setValue:[block objectForKey:@"name"] forKey:@"name"];
+         [b setValue:floors forKey:@"floors"];
+         [b setValue:[block objectForKey:@"residents"] forKey:@"residents"];
+         [b setValue:_development forKey:@"development"];
+    }
+         
+    if (![context save:&error]){
+        NSLog(@"whoops! couldn't save %@", [error localizedDescription]);
+        return NO;
+    }
+    return YES;
 }
 
 @end

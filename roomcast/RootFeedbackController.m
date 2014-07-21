@@ -59,7 +59,7 @@
 
 - (IBAction)sendPressed:(id)sender {
    
-    [[DataManager sharedManager] setRatingFor:self.notificationId withValue:self.rating];
+    [[RPCManager sharedManager] setRatingFor:self.notificationId withValue:self.rating];
     [self.navigationController popViewControllerAnimated:YES];
 }
 @end

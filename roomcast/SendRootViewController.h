@@ -11,6 +11,7 @@
 #import "MessageFilterProtocol.h"
 #import "RootAudienceViewController.h"
 #import "Development.h"
+#import "RPCManager.h"
 
 @interface SendRootViewController : UIViewController <UITextViewDelegate, MessageScopeDelegate, MessageFilterDelegate>
 

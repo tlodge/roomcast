@@ -45,7 +45,8 @@ NSManagedObjectContext *context;
     self.notifications = [[DataManager sharedManager] notificationsForUser];
     [self recalculateBadge];
     
-    [[NSNotificationCenter defaultCenter] addObserverForName:@"notificationsUpdate" object:nil queue:nil usingBlock:^(NSNotification *note) {
+    [[NSNotificationCenter defaultCenter] addObserverForName:@"NotificationUpdate" object:nil queue:nil usingBlock:^(NSNotification *note) {
+        NSLog(@"seen a notification update, so retrieving latest from datamanager");
         self.notifications = [[DataManager sharedManager] notificationsForUser];
         
         [self recalculateBadge];
