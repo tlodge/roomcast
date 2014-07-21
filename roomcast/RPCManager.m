@@ -42,4 +42,14 @@
     [self.delegate buttonPressed:buttonId];
 }
 
+-(void) loadAuthZonesForDevelopment:(NSString *) developmentId  withCallback: (void(^)(NSArray* zones)) callback{
+    [self.delegate loadAuthZonesForDevelopment:developmentId withCallback:callback];
+}
+
+
+-(void) registerUser: (NSDictionary *) duser withApartmentName:(NSString*) apartmentName withFloor:(NSString*) floor withDevelopment:(Development*) development  withBlock:(Block*)blk withCallback: (void(^)(BOOL succeeded, NSError *error)) callback{
+    [self.delegate registerUser:duser withApartmentName: apartmentName withFloor:floor withDevelopment: development  withBlock:(Block*)blk  withCallback:callback];
+}
+
+
 @end

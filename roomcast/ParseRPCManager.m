@@ -8,6 +8,7 @@
 
 #import "ParseRPCManager.h"
 
+
 @implementation ParseRPCManager
 
 -(void) createConversationWithMessage:(NSString *)msg parameters:(NSDictionary *)params{
@@ -90,6 +91,61 @@
     }
      ];
     
+}
+
+
+-(void) loadAuthZonesForDevelopment:(NSString *) developmentId  withCallback: (void(^)(NSArray* zones)) callback{
+    
+    NSLog(@"loading zones for development %@", developmentId);
+    
+    PFQuery *innerquery = [PFQuery queryWithClassName:@"Development"];
+    [innerquery whereKey:@"objectId" equalTo:developmentId];
+    
+    PFQuery *outerquery = [PFQuery queryWithClassName:@"Zone"];
+    [outerquery whereKey:@"development" matchesKey:@"objectId" inQuery:innerquery];
+    
+    [outerquery findObjectsInBackgroundWithBlock:^(NSArray *zones, NSError *error) {
+        if (!error){
+            NSMutableArray *dictzones = [NSMutableArray array];
+            
+            for (PFObject *zone in zones){
+                [dictzones addObject:[Util convertToDict:zone options:nil]];
+            }
+            callback(dictzones);
+        }
+    }];
+}
+
+-(void) registerUser: (NSDictionary *) duser withApartmentName:(NSString*) apartmentName withFloor:(NSString*) floor withDevelopment:(Development*) development  withBlock:(Block*)blk withCallback: (void(^)(BOOL succeeded, NSError *error)) callback{
+    
+    PFUser *user = [PFUser user];
+    user.username = [duser objectForKey:@"username"];
+    user.password = [duser objectForKey:@"password"];
+    user.email = [duser objectForKey:@"email"];
+    
+    PFObject *abode = [PFObject objectWithClassName:@"Apartment"];
+    
+    PFObject *block = [PFObject objectWithoutDataWithClassName:@"Block" objectId:blk.objectId];
+    
+    PFObject *dev  =  [PFObject objectWithoutDataWithClassName:@"Development" objectId:development.objectId];
+    
+    [abode setObject:block forKey:@"block"];
+    [abode setObject:floor forKey:@"floor"];
+    [abode setObject:apartmentName forKey:@"name"];
+    
+    [user setObject:dev forKey:@"development"];
+    [user setObject:block forKey:@"block"];
+    [user setObject:abode forKey:@"apartment"];
+    
+    [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        if (!error){
+            callback(succeeded, error);
+        }else{
+            NSString *errorString = [error userInfo][@"error"];
+            NSLog(@"%@",errorString);
+        }
+    }];
+
 }
 
 @end

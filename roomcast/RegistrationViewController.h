@@ -13,6 +13,7 @@
 #import "DataManager.h"
 #import "RegistrationBlockViewController.h"
 #import "RegistrationFloorViewController.h"
+#import "RPCManager.h"
 
 @interface RegistrationViewController : UIViewController <UITextFieldDelegate, BlockSelectDelegate, FloorSelectDelegate>
 

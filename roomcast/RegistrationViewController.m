@@ -79,34 +79,13 @@ NSArray* floors;
 
 - (IBAction)registerUser:(id)sender {
     
-    PFUser *user = [PFUser user];
-    user.username = _username.text;
-    user.password = _password.text;
-    user.email = _email.text;
+    NSDictionary *user =@{@"username":_username.text, @"password":_password.text, @"email":_email.text};
     
-    PFObject *abode = [PFObject objectWithClassName:@"Apartment"];
-    
-    PFObject *block = [PFObject objectWithoutDataWithClassName:@"Block" objectId:selectedBlock.objectId];
-    
-    PFObject *dev  =  [PFObject objectWithoutDataWithClassName:@"Development" objectId:development.objectId];
-    
-    
-    [abode setObject:block forKey:@"block"];
-    [abode setObject:selectedFloor forKey:@"floor"];
-    [abode setObject:self.apartment.text forKey:@"name"];
-    
-    [user setObject:dev forKey:@"development"];
-    [user setObject:block forKey:@"block"];
-    [user setObject:abode forKey:@"apartment"];
-   
-    [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-        if (!error){
-            
+    [[RPCManager sharedManager]  registerUser: (NSDictionary *) user withApartmentName:self.apartment.text withFloor:selectedFloor withDevelopment:development  withBlock:selectedBlock withCallback: ^(BOOL succeeded, NSError *error){
+        
+        if (succeeded){
             [self performSegueWithIdentifier: @"messages" sender: self];
             [[UIApplication sharedApplication] registerForRemoteNotificationTypes:UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound];
-        }else{
-            NSString *errorString = [error userInfo][@"error"];
-            NSLog(@"%@",errorString);
         }
     }];
 }

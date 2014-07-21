@@ -11,7 +11,10 @@
 //define meters per mile
 #define MPM 1609.344
 
+typedef BOOL (^SomeBlockType)(id object, NSUInteger idx, BOOL *stop);
+
 @interface AuthViewController ()
+
 -(float) calculatedistance: (float) lat1 lat2:(float) lat2 lng1:(float)lng1 lng2:(float) lng2;
 -(int) calculatebearing: (float) lat1 lat2:(float) lat2 lng1:(float)lng1 lng2:(float) lng2;
 -(float) calculatecrosstrack: (float) lat1 lat2:(float) lat2 lng1: (float) lng1 lng2:(float) lng2 lat3: (float)lat3 lng3: (float) lng3;
@@ -30,6 +33,7 @@ CGMutablePathRef mpr;
 NSMutableData *receivedData;
 CLLocationManager *locationManager;
 MKPolygon *authZone;
+
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -70,52 +74,51 @@ MKPolygon *authZone;
     
     [outerquery findObjectsInBackgroundWithBlock:^(NSArray *zones, NSError *error) {
         if (!error){
-            for (PFObject *zone in zones){
-                
-                mpr = CGPathCreateMutable();
-                
-                NSInteger idx = 0;
-                
-                CLLocationCoordinate2D center;
-                
-                NSArray* zonecoords = [zone objectForKey:@"coords"];
-                
-                CLLocationCoordinate2D* coords = malloc(sizeof(CLLocationCoordinate2D) *[zonecoords count]);
-                
-                //construct the polygon
-                for (NSArray *myarray in zonecoords) {
-                    CGFloat lat = [[myarray objectAtIndex:0] floatValue];
-                    CGFloat lng = [[myarray objectAtIndex:1] floatValue];
-                    MKMapPoint mp = {lat, lng};
-                    coords[idx] = CLLocationCoordinate2DMake(lat,lng);
-                    
-                    if (idx == 0){
-                        CGPathMoveToPoint(mpr, NULL, mp.x, mp.y);
-                        center.latitude = mp.x;
-                        center.longitude = mp.y;
+            [[RPCManager sharedManager] loadAuthZonesForDevelopment:(NSString *) development.objectID  withCallback: ^(NSArray* zones){
+                    for (NSDictionary *zone in zones){
+                        mpr = CGPathCreateMutable();
+                        
+                        NSInteger idx = 0;
+                        
+                        CLLocationCoordinate2D center;
+                        
+                        NSArray* zonecoords = [zone objectForKey:@"coords"];
+                        
+                        CLLocationCoordinate2D* coords = malloc(sizeof(CLLocationCoordinate2D) *[zonecoords count]);
+                        
+                        //construct the polygon
+                        for (NSArray *myarray in zonecoords) {
+                            CGFloat lat = [[myarray objectAtIndex:0] floatValue];
+                            CGFloat lng = [[myarray objectAtIndex:1] floatValue];
+                            MKMapPoint mp = {lat, lng};
+                            coords[idx] = CLLocationCoordinate2DMake(lat,lng);
+                            
+                            if (idx == 0){
+                                CGPathMoveToPoint(mpr, NULL, mp.x, mp.y);
+                                center.latitude = mp.x;
+                                center.longitude = mp.y;
+                            }
+                            else
+                                CGPathAddLineToPoint(mpr, NULL, mp.x, mp.y);
+                            
+                            idx++;
+                            
+                        }
+                        [self.zoneMap setDelegate:self];
+                        
+                        [self.zoneMap setRegion:MKCoordinateRegionMakeWithDistance(center, 0.05 * MPM,0.05*MPM) animated: YES];
+                        
+                        
+                        authZone = [MKPolygon polygonWithCoordinates:coords count:[zonecoords count]];
+                        
+                        [self.zoneMap addOverlay:authZone];
+                        
+                        free(coords);
                     }
-                    else
-                        CGPathAddLineToPoint(mpr, NULL, mp.x, mp.y);
-                    
-                    idx++;
-                    
                 }
-                
-                [self.zoneMap setDelegate:self];
-                
-                [self.zoneMap setRegion:MKCoordinateRegionMakeWithDistance(center, 0.05 * MPM,0.05*MPM) animated: YES];
-                
-                
-                authZone = [MKPolygon polygonWithCoordinates:coords count:[zonecoords count]];
-                
-                [self.zoneMap addOverlay:authZone];
-                
-                free(coords);
-
-            }
+             ];
         }
     }];
-    
 }
 
 -(void)viewDidAppear:(BOOL)animated
