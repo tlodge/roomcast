@@ -116,22 +116,22 @@
     }];
 }
 
--(void) registerUser: (NSDictionary *) duser withApartmentName:(NSString*) apartmentName withFloor:(NSString*) floor withDevelopment:(Development*) development  withBlock:(Block*)blk withCallback: (void(^)(BOOL succeeded, NSError *error)) callback{
+-(void) registerUser: (NSDictionary *) userdetails withAddress: (NSDictionary*) address withCallback: (void(^)(BOOL succeeded, NSError *error)) callback{
     
     PFUser *user = [PFUser user];
-    user.username = [duser objectForKey:@"username"];
-    user.password = [duser objectForKey:@"password"];
-    user.email = [duser objectForKey:@"email"];
+    user.username = [userdetails objectForKey:@"username"];
+    user.password = [userdetails objectForKey:@"password"];
+    user.email = [userdetails objectForKey:@"email"];
     
     PFObject *abode = [PFObject objectWithClassName:@"Apartment"];
     
-    PFObject *block = [PFObject objectWithoutDataWithClassName:@"Block" objectId:blk.objectId];
+    PFObject *block = [PFObject objectWithoutDataWithClassName:@"Block" objectId:[address objectForKey:@"block"]];
     
-    PFObject *dev  =  [PFObject objectWithoutDataWithClassName:@"Development" objectId:development.objectId];
+    PFObject *dev  =  [PFObject objectWithoutDataWithClassName:@"Development" objectId:[address objectForKey:@"development"]];
     
     [abode setObject:block forKey:@"block"];
-    [abode setObject:floor forKey:@"floor"];
-    [abode setObject:apartmentName forKey:@"name"];
+    [abode setObject:[address objectForKey:@"floor"] forKey:@"floor"];
+    [abode setObject:[address objectForKey:@"apartment"] forKey:@"name"];
     
     [user setObject:dev forKey:@"development"];
     [user setObject:block forKey:@"block"];

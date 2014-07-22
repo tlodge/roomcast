@@ -47,8 +47,8 @@
 }
 
 
--(void) registerUser: (NSDictionary *) duser withApartmentName:(NSString*) apartmentName withFloor:(NSString*) floor withDevelopment:(Development*) development  withBlock:(Block*)blk withCallback: (void(^)(BOOL succeeded, NSError *error)) callback{
-    [self.delegate registerUser:duser withApartmentName: apartmentName withFloor:floor withDevelopment: development  withBlock:(Block*)blk  withCallback:callback];
+-(void) registerUser: (NSDictionary *) userdetails withAddress:(NSDictionary*) address withCallback: (void(^)(BOOL succeeded, NSError *error)) callback{
+    [self.delegate registerUser:userdetails withAddress:address withCallback:callback];
 }
 
 

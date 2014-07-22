@@ -12,5 +12,5 @@
 @property(nonatomic,strong) NSString  *objectId;
 @property(nonatomic,strong) NSString  *name;
 @property(nonatomic,strong) NSString  *usage;
-@property(nonatomic,strong) NSMutableArray *questions;
+@property(nonatomic,strong) NSArray *questions;
 @end

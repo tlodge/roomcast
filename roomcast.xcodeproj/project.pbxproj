@@ -71,6 +71,7 @@
 		A3761315197D52FE00CA168D /* RPCManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A3761314197D52FE00CA168D /* RPCManager.m */; };
 		A376131B197D562500CA168D /* SyncManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A376131A197D562500CA168D /* SyncManager.m */; };
 		A3761321197D754900CA168D /* Util.m in Sources */ = {isa = PBXBuildFile; fileRef = A3761320197D754900CA168D /* Util.m */; };
+		A3761327197E80CF00CA168D /* DynamicOptionsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A3761326197E80CF00CA168D /* DynamicOptionsTableViewController.m */; };
 		A37C6EA9181952040042489D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A37C6EA8181952040042489D /* Foundation.framework */; };
 		A37C6EAB181952040042489D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A37C6EAA181952040042489D /* CoreGraphics.framework */; };
 		A37C6EAD181952040042489D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A37C6EAC181952040042489D /* UIKit.framework */; };
@@ -99,9 +100,7 @@
 		A395193618DDDCE300109107 /* filter_tenant.png in Resources */ = {isa = PBXBuildFile; fileRef = A395193318DDDCE300109107 /* filter_tenant.png */; };
 		A395193D18DDE6AE00109107 /* NotificationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A395193C18DDE6AE00109107 /* NotificationViewController.m */; };
 		A395194118DDEA6100109107 /* NotificationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A395194018DDEA6100109107 /* NotificationCell.m */; };
-		A395194B18DF780F00109107 /* RootButtonOptionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A395194A18DF780F00109107 /* RootButtonOptionsViewController.m */; };
-		A395194E18DF786D00109107 /* ButtonOptionsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A395194D18DF786D00109107 /* ButtonOptionsTableViewController.m */; };
-		A395195D18E5E51200109107 /* ButtonOptionsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A395195C18E5E51200109107 /* ButtonOptionsCell.m */; };
+		A395194B18DF780F00109107 /* ButtonSelectedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A395194A18DF780F00109107 /* ButtonSelectedViewController.m */; };
 		A39E6DEB18D0FEE7000D4C3E /* apartment_scope_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = A39E6DEA18D0FEE7000D4C3E /* apartment_scope_selected.png */; };
 		A39E8BBD185F5ACA00600856 /* background_splash.png in Resources */ = {isa = PBXBuildFile; fileRef = A39E8BBC185F5ACA00600856 /* background_splash.png */; };
 		A39E8BC1185F5C6C00600856 /* background_frame.png in Resources */ = {isa = PBXBuildFile; fileRef = A39E8BC0185F5C6C00600856 /* background_frame.png */; };
@@ -273,6 +272,9 @@
 		A376131C197D563600CA168D /* SyncProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SyncProtocol.h; sourceTree = "<group>"; };
 		A376131F197D754900CA168D /* Util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Util.h; sourceTree = "<group>"; };
 		A3761320197D754900CA168D /* Util.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Util.m; sourceTree = "<group>"; };
+		A3761325197E80CF00CA168D /* DynamicOptionsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DynamicOptionsTableViewController.h; sourceTree = "<group>"; };
+		A3761326197E80CF00CA168D /* DynamicOptionsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DynamicOptionsTableViewController.m; sourceTree = "<group>"; };
+		A376132B197EB09400CA168D /* OptionSelectedProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OptionSelectedProtocol.h; sourceTree = "<group>"; };
 		A37C6EA5181952040042489D /* roomcast.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = roomcast.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A37C6EA8181952040042489D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		A37C6EAA181952040042489D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -314,14 +316,10 @@
 		A395193C18DDE6AE00109107 /* NotificationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotificationViewController.m; sourceTree = "<group>"; };
 		A395193F18DDEA6100109107 /* NotificationCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotificationCell.h; sourceTree = "<group>"; };
 		A395194018DDEA6100109107 /* NotificationCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotificationCell.m; sourceTree = "<group>"; };
-		A395194918DF780F00109107 /* RootButtonOptionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootButtonOptionsViewController.h; sourceTree = "<group>"; };
-		A395194A18DF780F00109107 /* RootButtonOptionsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootButtonOptionsViewController.m; sourceTree = "<group>"; };
-		A395194C18DF786D00109107 /* ButtonOptionsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ButtonOptionsTableViewController.h; sourceTree = "<group>"; };
-		A395194D18DF786D00109107 /* ButtonOptionsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ButtonOptionsTableViewController.m; sourceTree = "<group>"; };
+		A395194918DF780F00109107 /* ButtonSelectedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ButtonSelectedViewController.h; sourceTree = "<group>"; };
+		A395194A18DF780F00109107 /* ButtonSelectedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ButtonSelectedViewController.m; sourceTree = "<group>"; };
 		A395194F18E0860E00109107 /* MessageScopeProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageScopeProtocol.h; sourceTree = "<group>"; };
 		A395195218E088DC00109107 /* MessageFilterProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageFilterProtocol.h; sourceTree = "<group>"; };
-		A395195B18E5E51200109107 /* ButtonOptionsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ButtonOptionsCell.h; sourceTree = "<group>"; };
-		A395195C18E5E51200109107 /* ButtonOptionsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ButtonOptionsCell.m; sourceTree = "<group>"; };
 		A39E6DEA18D0FEE7000D4C3E /* apartment_scope_selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = apartment_scope_selected.png; sourceTree = "<group>"; };
 		A39E6DEC18D21C8C000D4C3E /* ApartmentAddProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApartmentAddProtocol.h; sourceTree = "<group>"; };
 		A39E8BBC185F5ACA00600856 /* background_splash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = background_splash.png; path = ../background_splash.png; sourceTree = "<group>"; };
@@ -813,6 +811,7 @@
 			isa = PBXGroup;
 			children = (
 				A33333AE192A71740024EFA4 /* ButtonPressProtocol.h */,
+				A376132B197EB09400CA168D /* OptionSelectedProtocol.h */,
 				A33333B1192CD5870024EFA4 /* DataRefreshProtocol.h */,
 				A34354C618AD5F7400C0A34C /* RootPageViewController.h */,
 				A34354C718AD5F7400C0A34C /* RootPageViewController.m */,
@@ -820,12 +819,10 @@
 				A34354CD18AD600200C0A34C /* PageButtonViewController.m */,
 				A34354CF18AE6F8A00C0A34C /* ButtonCell.h */,
 				A34354D018AE6F8A00C0A34C /* ButtonCell.m */,
-				A395194918DF780F00109107 /* RootButtonOptionsViewController.h */,
-				A395194A18DF780F00109107 /* RootButtonOptionsViewController.m */,
-				A395194C18DF786D00109107 /* ButtonOptionsTableViewController.h */,
-				A395194D18DF786D00109107 /* ButtonOptionsTableViewController.m */,
-				A395195B18E5E51200109107 /* ButtonOptionsCell.h */,
-				A395195C18E5E51200109107 /* ButtonOptionsCell.m */,
+				A395194918DF780F00109107 /* ButtonSelectedViewController.h */,
+				A395194A18DF780F00109107 /* ButtonSelectedViewController.m */,
+				A3761325197E80CF00CA168D /* DynamicOptionsTableViewController.h */,
+				A3761326197E80CF00CA168D /* DynamicOptionsTableViewController.m */,
 			);
 			name = Buttons;
 			sourceTree = "<group>";
@@ -1091,14 +1088,13 @@
 				A3334D451843B41800ECA8D5 /* ScopeCell.m in Sources */,
 				A39E8BCD1860B3BB00600856 /* DevelopmentBlockCell.m in Sources */,
 				A3761315197D52FE00CA168D /* RPCManager.m in Sources */,
+				A3761327197E80CF00CA168D /* DynamicOptionsTableViewController.m in Sources */,
 				A3334D601845077500ECA8D5 /* BlockViewController.m in Sources */,
-				A395194B18DF780F00109107 /* RootButtonOptionsViewController.m in Sources */,
+				A395194B18DF780F00109107 /* ButtonSelectedViewController.m in Sources */,
 				A35E3B27187F4D8900C8FBF1 /* Space.m in Sources */,
-				A395194E18DF786D00109107 /* ButtonOptionsTableViewController.m in Sources */,
 				A3F88D36183019C000E3BFB0 /* MessageCell.m in Sources */,
 				A3334D6C1845159500ECA8D5 /* BlockCell.m in Sources */,
 				A3B6DAED183E60C500A860CA /* DestinationViewController.m in Sources */,
-				A395195D18E5E51200109107 /* ButtonOptionsCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

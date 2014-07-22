@@ -81,7 +81,9 @@ NSArray* floors;
     
     NSDictionary *user =@{@"username":_username.text, @"password":_password.text, @"email":_email.text};
     
-    [[RPCManager sharedManager]  registerUser: (NSDictionary *) user withApartmentName:self.apartment.text withFloor:selectedFloor withDevelopment:development  withBlock:selectedBlock withCallback: ^(BOOL succeeded, NSError *error){
+    NSDictionary *address = @{@"development": development.objectId, @"block":selectedBlock.objectId, @"floor":selectedFloor, @"apartment":self.apartment.text};
+    
+    [[RPCManager sharedManager]  registerUser: user withAddress:address withCallback: ^(BOOL succeeded, NSError *error){
         
         if (succeeded){
             [self performSegueWithIdentifier: @"messages" sender: self];

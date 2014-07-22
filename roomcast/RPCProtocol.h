@@ -10,6 +10,6 @@
 
 -(void) loadAuthZonesForDevelopment:(NSString *) developmentId  withCallback: (void(^)(NSArray* zones)) callback;
 
--(void) registerUser: (NSDictionary *) duser withApartmentName:(NSString*) apartmentName withFloor:(NSString*) floor withDevelopment:(Development*) development  withBlock:(Block*)blk withCallback: (void(^)(BOOL succeeded, NSError *error)) callback;
+-(void) registerUser: (NSDictionary *) userdetails withAddress:(NSDictionary*) addresss withCallback: (void(^)(BOOL succeeded, NSError *error)) callback;
 
 @end

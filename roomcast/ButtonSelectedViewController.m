@@ -6,13 +6,13 @@
 //  Copyright (c) 2014 Tom Lodge. All rights reserved.
 //
 
-#import "RootButtonOptionsViewController.h"
+#import "ButtonSelectedViewController.h"
 
-@interface RootButtonOptionsViewController ()
+@interface ButtonSelectedViewController ()
 
 @end
 
-@implementation RootButtonOptionsViewController
+@implementation ButtonSelectedViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -68,12 +68,17 @@
     return TRUE;
 }
 
+-(void) didSelectOption:(NSString*) option withPath:(NSArray*)path{
+    NSLog(@"nice have now seen %@ %@", option, path);
+}
+
+
 -(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     
-    ButtonOptionsTableViewController* botvc = (ButtonOptionsTableViewController*) [segue destinationViewController];
-    
-    botvc.button = self.button;
-    
+    UINavigationController *u = (UINavigationController *)[segue destinationViewController];
+    DynamicOptionsTableViewController* dvc = (DynamicOptionsTableViewController*) [[u viewControllers] objectAtIndex:0];
+    dvc.questions = self.button.questions;
+    dvc.delegate = self;
 }
 
 

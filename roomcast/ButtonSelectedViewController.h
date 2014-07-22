@@ -7,11 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "ButtonOptionsTableViewController.h"
 #import "Button.h"
 #import "ButtonPressProtocol.h"
+#import "DynamicOptionsTableViewController.h"
+#import "OptionSelectedProtocol.h"
 
-@interface RootButtonOptionsViewController : UIViewController <UITextViewDelegate>
+@interface ButtonSelectedViewController : UIViewController <UITextViewDelegate, OptionSelectDelegate>
 - (IBAction)sendClicked:(id)sender;
 - (IBAction)cancelClicked:(id)sender;
 @property (weak, nonatomic) IBOutlet UITextView *toAdd;

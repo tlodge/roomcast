@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <Parse/Parse.h>
 #import "Development.h"
 #import "Block.h"
 #import "DataManager.h"

@@ -128,7 +128,7 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     NSLog(@"in prepare fro segue");
-    RootButtonOptionsViewController* rbovc = (RootButtonOptionsViewController*) [segue destinationViewController];
+    ButtonSelectedViewController* rbovc = (ButtonSelectedViewController*) [segue destinationViewController];
     
     NSIndexPath *selected = [[self.collectionView indexPathsForSelectedItems] objectAtIndex:0];
     NSLog(@"have selected index %d", selected.row);
