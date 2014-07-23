@@ -1,0 +1,10 @@
+PODS:
+  - DIDatepicker (0.1)
+
+DEPENDENCIES:
+  - DIDatepicker
+
+SPEC CHECKSUMS:
+  DIDatepicker: bcfe36a32ea90270f31da37010e074bab6f7a4aa
+
+COCOAPODS: 0.33.1

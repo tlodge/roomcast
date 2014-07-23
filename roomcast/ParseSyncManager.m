@@ -107,7 +107,9 @@
                 NSMutableDictionary *groups = [NSMutableDictionary dictionary];
                 
                 for (PFObject *button in buttons){
-                    //[[DataManager sharedManager] saveCoreObject:[Util convertToDict:button options:nil] ofType:@"Button"];
+                   
+                    //example button question json is
+                    /*[{\"level one a\":[{\"level two aa\":{\"type\":\"switch\"}},{\"level two ab\":{\"type\":\"switch\"}},{\"level two ac\":{\"type\":\"switch\"}},{\"level two ad\":{\"type\":\"switch\"}},{\"level two ae\":[{\"level three aea\":{\"type\":\"switch\"}},{\"level three aeb\":{\"type\":\"switch\"}},{\"level three aec\":{\"type\":\"switch\"}},{\"level three aed\":{\"type\":\"switch\"}},{\"level three aee\":{\"type\":\"switch\"}}]}]},{\"level one b\":[{\"level two ba\":{\"type\":\"switch\"}},{\"level two bb\":{\"type\":\"switch\"}},{\"level two bc\":{\"type\":\"switch\"}},{\"level two bd\":{\"type\":\"switch\"}}]}]*/
                     
                     NSArray *groupnames =[button objectForKey:@"group"];
                     
@@ -123,45 +125,8 @@
                         Button* b   = [[Button alloc] init];
                         b.objectId  = [button objectId];
                         b.name      = [button objectForKey:@"name"];
-                        //b.questions = [button objectForKey:@"questions"];
-                       
-
-                        b.questions =   @[
-                                          
-                                              @{@"level one a":
-                                                    @[
-                                                
-                                                        @{@"level two aa":@{@"type":@"switch"}},
-                                                        @{@"level two ab":@{@"type":@"switch"}},
-                                                        @{@"level two ac":@{@"type":@"switch"}},
-                                                        @{@"level two ad":@{@"type":@"switch"}},
-                                                        
-                                                        @{@"level two ae":@[
-                                                                                @{@"level three aea":@{@"type":@"switch"}},
-                                                                                @{@"level three aeb":@{@"type":@"switch"}},
-                                                                                @{@"level three aec":@{@"type":@"switch"}},
-                                                                                @{@"level three aed":@{@"type":@"switch"}},
-                                                                                @{@"level three aee":@{@"type":@"switch"}}
-                                                                            ]
-                                                          }
-                                                        ]
-                                                },
-                                          
-                                                                      
-                                              @{@"level one b":@[
-                                                            @{@"level two ba":@{@"type":@"switch"}},
-                                                            @{@"level two bb":@{@"type":@"switch"}},
-                                                            @{@"level two bc":@{@"type":@"switch"}},
-                                                            @{@"level two bd":@{@"type":@"switch"}},
-                                                            ]
-                                                }
-                                        ];
-                        
-                        
+                        b.questions = [button objectForKey:@"questions"];
                         b.usage     = [button objectForKey:@"usage"];
-                        
-                        NSLog(@"set button usage to %@", b.usage);
-                        
                         [bg addObject:b];
                         [groups setObject:bg forKey:groupname];
                     }

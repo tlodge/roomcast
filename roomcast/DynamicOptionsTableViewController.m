@@ -10,6 +10,7 @@
 
 @interface DynamicOptionsTableViewController ()
 -(BOOL) amParent: (int) index;
+-(void) toggleSwitch:(UISwitch*)sender;
 @end
 
 
@@ -63,23 +64,39 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"dynamicDefault" forIndexPath:indexPath];
     NSDictionary *dict = [self.questions objectAtIndex:indexPath.row];
+    NSString *key         = [[dict allKeys] objectAtIndex:0];
     
-    if ([self amParent: indexPath.row]){
-        cell.textLabel.text = [[dict allKeys] objectAtIndex:0];
-       //  = [[questions allKeys] objectAtIndex:indexPath.row];
-    }else{
+    
+    if (![self amParent:indexPath.row]){
        
-        NSString *key         = [[dict allKeys] objectAtIndex:0];
         NSDictionary *control = [dict objectForKey:key];
-        cell.textLabel.text = [NSString stringWithFormat:@"%@ %@", key, [control objectForKey:@"type"]];
-        
-    }
-        // Configure the cell...
+        NSString *type = [control objectForKey:@"type"];
     
+        if ([type isEqualToString:@"switch"]){
+            DynamicSwitchCell *cell =  (DynamicSwitchCell*) [tableView dequeueReusableCellWithIdentifier:@"dynamicSwitch" forIndexPath:indexPath];
+            
+            cell.dynamicLabel.text = key;
+            
+            cell.dynamicSwitch.tag = indexPath.row;
+            [cell.dynamicSwitch addTarget:self action:@selector(toggleSwitch:)forControlEvents:UIControlEventValueChanged];
+            return cell;
+        }
+        if ([type isEqualToString:@"text"]){
+            DynamicTextCell *cell =  (DynamicTextCell*) [tableView dequeueReusableCellWithIdentifier:@"dynamicText" forIndexPath:indexPath];
+            cell.dynamicLabel.text = key;
+            cell.dynamicText.tag = indexPath.row;
+            cell.dynamicText.delegate = self;
+            return cell;
+        }
+
+    }
+   
+    DynamicDefaultCell *cell =  (DynamicDefaultCell*) [tableView dequeueReusableCellWithIdentifier:@"dynamicDefault" forIndexPath:indexPath];
+    cell.dynamicLabel.text = key;
     return cell;
 }
+
 
 
 /*
@@ -147,6 +164,17 @@
 
 #pragma mark - Delegates
 
+-(BOOL) textFieldShouldReturn:(UITextField *)textField{
+    [textField resignFirstResponder];
+    return NO;
+}
+
+-(void) textFieldDidEndEditing:(UITextField *)textField{
+    NSDictionary *dict = [self.questions objectAtIndex:textField.tag];
+    NSString *key      = [[dict allKeys] objectAtIndex:0];
+    [self.delegate didSelectOption: textField.text withPath:@[key,self.node]];
+}
+
 -(void) didSelectOption:(NSString*) option withPath:(NSArray*)path{
     //pass it up the stack!
     if (self.node){
@@ -154,6 +182,14 @@
     }
     [self.delegate didSelectOption:option withPath:path];
 }
+
+-(void) toggleSwitch:(UISwitch*)sender{
+    NSDictionary *dict = [self.questions objectAtIndex:sender.tag];
+    NSString *key      = [[dict allKeys] objectAtIndex:0];
+    NSString *value = sender.on ? @"TRUE":@"FALSE";
+    [self.delegate didSelectOption: value withPath:@[key,self.node]];
+}
+
 
 #pragma mark - Navigation
 
