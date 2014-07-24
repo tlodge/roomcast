@@ -111,6 +111,15 @@
                     //example button question json is
                     /*[{\"level one a\":[{\"level two aa\":{\"type\":\"switch\"}},{\"level two ab\":{\"type\":\"switch\"}},{\"level two ac\":{\"type\":\"switch\"}},{\"level two ad\":{\"type\":\"switch\"}},{\"level two ae\":[{\"level three aea\":{\"type\":\"switch\"}},{\"level three aeb\":{\"type\":\"switch\"}},{\"level three aec\":{\"type\":\"switch\"}},{\"level three aed\":{\"type\":\"switch\"}},{\"level three aee\":{\"type\":\"switch\"}}]}]},{\"level one b\":[{\"level two ba\":{\"type\":\"switch\"}},{\"level two bb\":{\"type\":\"switch\"}},{\"level two bc\":{\"type\":\"switch\"}},{\"level two bd\":{\"type\":\"switch\"}}]}]*/
                     
+                    /*NSString *json = @"[{\"name\":\"level one a\", \"nodes\":[{\"name\":\"level two aa\",\"type\":\"switch\"},{\"name\":\"level two ab\",\"type\":\"switch\"},{\"name\":\"level two ac\",\"type\":\"switch\"},{\"name\":\"level two ad\",\"type\":\"switch\"},{\"name\":\"level two ae\",\"nodes\":[{\"name\":\"level three aea\",\"type\":\"switch\"},{\"name\":\"level three aeb\",\"type\":\"switch\"},{\"name\":\"level three aec\",\"type\":\"switch\"},{\"name\":\"level three aed\",\"type\":\"switch\"},{\"name\":\"level three aee\",\"type\":\"switch\"}]}]},{\"name\":\"level one b\", \"nodes\": [{\"name\":\"level two ba\",\"type\":\"switch\"},{\"name\":\"level two bb\",\"type\":\"switch\"},{\"name\":\"level two bc\",\"type\":\"switch\"},{\"name\":\"level two bd\",\"type\":\"switch\"}]}]";
+                    
+                    NSError* e;
+                    
+                    NSArray* questions = [NSJSONSerialization JSONObjectWithData:[json dataUsingEncoding:NSUTF8StringEncoding] options:kNilOptions error:&e];
+                    
+                    NSLog(@"error is %@", e);
+                    NSLog(@"questions are %@", questions);
+                    */
                     NSArray *groupnames =[button objectForKey:@"group"];
                     
                     for (int i = 0; i < [groupnames count]; i++){

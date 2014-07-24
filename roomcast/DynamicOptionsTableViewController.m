@@ -65,26 +65,30 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSDictionary *dict = [self.questions objectAtIndex:indexPath.row];
-    NSString *key         = [[dict allKeys] objectAtIndex:0];
-    
+    //NSString *key         = [[dict allKeys] objectAtIndex:0];
+    NSString *name        = [dict objectForKey:@"name"];
     
     if (![self amParent:indexPath.row]){
        
-        NSDictionary *control = [dict objectForKey:key];
-        NSString *type = [control objectForKey:@"type"];
-    
+        //NSDictionary *control = [dict objectForKey:key];
+        NSString *type = [dict objectForKey:@"type"];
+        NSString *value = [dict objectForKey:@"value"];
+
         if ([type isEqualToString:@"switch"]){
             DynamicSwitchCell *cell =  (DynamicSwitchCell*) [tableView dequeueReusableCellWithIdentifier:@"dynamicSwitch" forIndexPath:indexPath];
             
-            cell.dynamicLabel.text = key;
-            
+            cell.dynamicLabel.text = name;
+                       if ([value isEqualToString:@"on"]){
+                [cell.dynamicSwitch setOn:YES];
+            }
             cell.dynamicSwitch.tag = indexPath.row;
             [cell.dynamicSwitch addTarget:self action:@selector(toggleSwitch:)forControlEvents:UIControlEventValueChanged];
             return cell;
         }
         if ([type isEqualToString:@"text"]){
             DynamicTextCell *cell =  (DynamicTextCell*) [tableView dequeueReusableCellWithIdentifier:@"dynamicText" forIndexPath:indexPath];
-            cell.dynamicLabel.text = key;
+            cell.dynamicLabel.text = name;
+            cell.dynamicText.text = value;
             cell.dynamicText.tag = indexPath.row;
             cell.dynamicText.delegate = self;
             return cell;
@@ -93,7 +97,7 @@
     }
    
     DynamicDefaultCell *cell =  (DynamicDefaultCell*) [tableView dequeueReusableCellWithIdentifier:@"dynamicDefault" forIndexPath:indexPath];
-    cell.dynamicLabel.text = key;
+    cell.dynamicLabel.text = name;
     return cell;
 }
 
@@ -145,16 +149,8 @@
 
 
 -(BOOL) amParent: (int) index{
-  
     NSDictionary *dict = [self.questions objectAtIndex:index];
-    NSString *key = [[dict allKeys] objectAtIndex:0];
-    id subobject = [dict objectForKey:key];
-  
-    
-    if ([subobject isKindOfClass:[NSArray class]]){
-        return TRUE;
-    }
-    return FALSE;
+    return [dict objectForKey:@"nodes"] != nil;
 }
 
 -(BOOL) shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender{
@@ -171,8 +167,8 @@
 
 -(void) textFieldDidEndEditing:(UITextField *)textField{
     NSDictionary *dict = [self.questions objectAtIndex:textField.tag];
-    NSString *key      = [[dict allKeys] objectAtIndex:0];
-    [self.delegate didSelectOption: textField.text withPath:@[key,self.node]];
+    [dict setValue:textField.text forKey:@"value"];
+    [self.delegate didSelectOption: textField.text withPath:@[[dict objectForKey:@"name"],self.node]];
 }
 
 -(void) didSelectOption:(NSString*) option withPath:(NSArray*)path{
@@ -185,9 +181,9 @@
 
 -(void) toggleSwitch:(UISwitch*)sender{
     NSDictionary *dict = [self.questions objectAtIndex:sender.tag];
-    NSString *key      = [[dict allKeys] objectAtIndex:0];
-    NSString *value = sender.on ? @"TRUE":@"FALSE";
-    [self.delegate didSelectOption: value withPath:@[key,self.node]];
+    NSString *value = sender.on ? @"on":@"off";
+    [dict setValue:value forKey:@"value"];
+    [self.delegate didSelectOption: value withPath:@[[dict objectForKey:@"name"],self.node]];
 }
 
 
